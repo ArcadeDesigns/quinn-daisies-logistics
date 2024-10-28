@@ -8,23 +8,23 @@ export default function Home() {
     <>
       <Helmet>
         <title>
-          Quinn Daisies | Innovative Software Development & Design Solutions
+          Quinn Daisies Logistics | Professional Logistics & Shipping Solutions
         </title>
         <meta
           name="description"
-          content="Quinn Daisies offers cutting-edge Software development, design, and digital solutions. Transform your online presence with our expert team and innovative technology."
+          content="Quinn Daisies Logistics provides professional shipping, packaging, and international logistics solutions. Expert consultation and customs clearance services available."
         />
-        <link rel="canonical" href="https://www.quinndaisies.com" />
-        <link rel="og:canonical" href="https://www.quinndaisies.com" />
+        <link rel="canonical" href="https://logistics.quinndaisies.com" />
+        <link rel="og:canonical" href="https://logistics.quinndaisies.com" />
         <meta
           property="og:title"
-          content="Quinn Daisies | Innovative Software Development & Design"
+          content="Quinn Daisies Logistics | Professional Logistics & Shipping Solutions"
         />
         <meta
           property="og:description"
-          content="Elevate your digital presence with Quinn Daisies. We provide expert Software development, stunning design, and innovative tech solutions to drive your business forward."
+          content="Expert logistics solutions including international shipping, packaging services, customs clearance, and importation services across 150+ countries."
         />
-        <meta property="og:url" content="https://www.quinndaisies.com" />
+        <meta property="og:url" content="https://logistics.quinndaisies.com" />
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
@@ -34,11 +34,11 @@ export default function Home() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Quinn Daisies | Innovative Software Development & Design"
+          content="Quinn Daisies Logistics | Professional Logistics & Shipping Solutions"
         />
         <meta
           name="twitter:description"
-          content="Discover Quinn Daisies' innovative Software development and design services. We create powerful digital solutions to help your business thrive online."
+          content="Discover Quinn Daisies Logistics' professional logistics and shipping services. Expert consultation and customs clearance available."
         />
         <meta
           name="twitter:image"
@@ -46,11 +46,11 @@ export default function Home() {
         />
         <meta
           name="keywords"
-          content="Quinn Daisies, Software development, Software design, digital solutions, innovative technology, custom Software, UI/UX design, responsive design, SEO optimization"
+          content="logistics services, international shipping, customs clearance, packaging services, importation services, shipping consultation, Nigeria logistics"
         />
         <meta
           name="og:keywords"
-          content="Quinn Daisies, Software development, digital solutions, innovative technology, custom Software"
+          content="logistics services, international shipping, customs clearance, Nigeria logistics"
         />
         <meta name="author" content="Quinn Daisies Tech Team" />
         <meta name="revised" content="2024-03-18" />{" "}
@@ -241,7 +241,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      
+
       <Contact />
       <Footer />
     </>

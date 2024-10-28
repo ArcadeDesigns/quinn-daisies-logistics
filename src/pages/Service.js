@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import React, { useEffect } from "react";
 import ScrollReveal from "scrollreveal";
+import { Helmet } from "react-helmet";
 
 export default function Service() {
   useEffect(() => {
@@ -41,6 +42,35 @@ export default function Service() {
 
   return (
     <>
+      <Helmet>
+        <title>
+          Our Services | Quinn Daisies Logistics - Comprehensive Shipping Solutions
+        </title>
+        <meta
+          name="description"
+          content="Discover our comprehensive logistics services including international shipping, packaging, customs clearance, and importation services. Expert consultation for all your shipping needs."
+        />
+        <link rel="canonical" href="https://logistics.quinndaisies.com/services" />
+        <link rel="og:canonical" href="https://logistics.quinndaisies.com/services" />
+        <meta
+          property="og:title"
+          content="Our Services | Quinn Daisies Logistics - Comprehensive Shipping Solutions"
+        />
+        <meta
+          property="og:description"
+          content="Professional logistics services including international shipping to 150+ countries, expert packaging, customs clearance, and importation services in Nigeria."
+        />
+        <meta property="og:url" content="https://logistics.quinndaisies.com/services" />
+        <meta
+          name="keywords"
+          content="logistics services, shipping consultation, packaging services, international shipping, customs clearance, importation services, Nigeria logistics"
+        />
+        <meta
+          name="og:keywords"
+          content="logistics services, international shipping, customs clearance, Nigeria logistics"
+        />
+      </Helmet>
+
       <Navbar />
 
       <div className="service-container">
