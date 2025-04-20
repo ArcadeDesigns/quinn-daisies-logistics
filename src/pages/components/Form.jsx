@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 
 export default function Form() {
-    const VITE_BACKEND_ZONES = import.meta.env.VITE_BACKEND_ZONES_URL;
-    const VITE_BACKEND_COUNTRIES = import.meta.env.VITE_BACKEND_COUNTRIES_URL;
-    const VITE_BACKEND_CALCULATE_PRICE = import.meta.env.VITE_BACKEND_CALCULATE_PRICE_URL;
+    const VITE_BACKEND_ZONES = 'https://quinndaisies.com/api/zones';
+    const VITE_BACKEND_COUNTRIES = 'https://quinndaisies.com/api/countries';
+    const VITE_BACKEND_CALCULATE_PRICE = 'https://quinndaisies.com/api/calculate-price';
 
     const [countries, setCountries] = useState([]);
     const [weights, setWeights] = useState({});
