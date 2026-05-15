@@ -3,83 +3,199 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Helmet } from "react-helmet-async";
 import ScrollReveal from "scrollreveal";
-import Header from "./components/Header";
-import Form from "./components/Form";
+import Form from "./components/Quote/Form";
 
 export default function Quote() {
-    useEffect(() => {
-        ScrollReveal().reveal(".reveal__bottom", {
-            origin: "bottom",
-            distance: "100px",
-            duration: 1000,
-            reset: false,
-            easing: "ease-in-out",
-        });
+  useEffect(() => {
+    ScrollReveal().reveal(".reveal__bottom", {
+      origin: "bottom",
+      distance: "100px",
+      duration: 1000,
+      reset: false,
+      easing: "ease-in-out",
+    });
+    ScrollReveal().reveal(".reveal__top", {
+      origin: "top",
+      distance: "100px",
+      duration: 1000,
+      reset: false,
+      easing: "ease-in-out",
+    });
+    ScrollReveal().reveal(".reveal__left", {
+      origin: "left",
+      distance: "100px",
+      duration: 1000,
+      reset: false,
+      easing: "ease-in-out",
+    });
+    ScrollReveal().reveal(".reveal__right", {
+      origin: "right",
+      distance: "100px",
+      duration: 1000,
+      reset: false,
+      easing: "ease-in-out",
+    });
+  }, []);
 
-        ScrollReveal().reveal(".reveal__top", {
-            origin: "top",
-            distance: "100px",
-            duration: 1000,
-            reset: false,
-            easing: "ease-in-out",
-        });
+  const industries = [
+    {
+      title: "Integrity",
+      description:
+        "No hidden fees. No vague timelines. We operate with complete transparency — what we commit to, we deliver.",
+      icon: "person_shield",
+    },
+    {
+      title: "Excellence",
+      description:
+        "Every shipment receives the same level of care and professionalism, regardless of size or destination.",
+      icon: "workspace_premium",
+    },
+    {
+      title: "Reliability",
+      description:
+        "Our clients trust us because we show up — on time, prepared, and accountable — every single time.",
+      icon: "assured_workload",
+    },
+  ];
 
-        ScrollReveal().reveal(".reveal__left", {
-            origin: "left",
-            distance: "100px",
-            duration: 1000,
-            reset: false,
-            easing: "ease-in-out",
-        });
+  return (
+    <>
+      <Helmet>
+        <title>Quinn Daisies Logistics | About Us</title>
+        <meta name="description" content="Example Content." />
+        <link rel="canonical" href="https://www.example.com/home" />
+        <link rel="og:canonical" href="https://www.example.com/home" />
 
-        ScrollReveal().reveal(".reveal__right", {
-            origin: "right",
-            distance: "100px",
-            duration: 1000,
-            reset: false,
-            easing: "ease-in-out",
-        });
-    }, []);
+        <meta property="og:title" content="Home | The Benin App" />
+        <meta property="og:description" content="Example Content." />
+        <meta property="og:url" content="https://www.example.com/home" />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content="https://res.cloudinary.com/theexample/image/upload/v1726758920/edoBenin-removebg-preview_cf749i.png"
+        />
+        <meta name="robots" content="index, follow" />
 
-    return (
-        <>
-            <Helmet>
-                <title>Get a Free Quote | Quinn Daisies Logistics | Professional Logistics & Shipping Solutions</title>
-                <meta name="description" content="Quinn Daisies Logistics provides professional shipping, packaging, and international logistics solutions. Expert consultation and customs clearance services available." />
-                <link rel="canonical" href="https://www.logistics.quinndaisies.com" />
-                <link rel="og:canonical" href="https://www.logistics.quinndaisies.com" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Home | The Benin App" />
+        <meta name="twitter:description" content="Example Contents." />
+        <meta
+          name="twitter:image"
+          content="https://res.cloudinary.com/theexample/image/upload/v1726758920/edoBenin-removebg-preview_cf749i.png"
+        />
 
-                <meta property="og:title" content="Quinn Daisies Logistics | Professional Logistics & Shipping Solutions" />
-                <meta property="og:description" content="Quinn Daisies Logistics | Professional Logistics & Shipping Solutions" />
-                <meta property="og:url" content="https://www.logistics.quinndaisies.com" />
-                <meta property="og:type" content="website" />
-                <meta
-                    property="og:image"
-                    content="https://res.cloudinary.com/quinn-daisies-platform/image/upload/v1718651332/Quinn_Daisies_Blog/logo1_y3fmfr.svg"
-                />
-                <meta name="robots" content="index, follow" />
+        <meta name="keywords" content="Example Contents." />
+        <meta name="og:keywords" content="Example Contents." />
 
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Quinn Daisies Logistics | Professional Logistics & Shipping Solutions" />
-                <meta name="twitter:description" content="Quinn Daisies Logistics provides professional shipping, packaging, and international logistics solutions. Expert consultation and customs clearance services available." />
+        <meta name="author" content="Ebire Folayemi Michael" />
+        <meta name="revised" content="12th of March 2025" />
+      </Helmet>
+      <div>
+        <Navbar />
 
-                <meta
-                    name="twitter:image"
-                    content="https://res.cloudinary.com/quinn-daisies-platform/image/upload/v1718651332/Quinn_Daisies_Blog/logo1_y3fmfr.svg"
-                />
+        {/* ========== HERO SECTION ========== */}
+        <section className="AboutHeaderCtn">
+          <img
+            src="https://res.cloudinary.com/renaissance-images/image/upload/v1778592660/QuinnDaisies/4427_wohgvl.jpg"
+            alt="Quinn Daisies Logistics"
+            className="BackgroundImagePosition"
+          />
 
-                <meta name="keywords" content="Expert logistics solutions including international shipping, packaging services, customs clearance, and importation services across 150+ countries." />
-                <meta name="og:keywords" content="Expert logistics solutions including international shipping, packaging services, customs clearance, and importation services across 150+ countries." />
-
-                <meta name="author" content="Ebire Folayemi Michael" />
-                <meta name="revised" content="12th of April 2025" />
-            </Helmet>
-
-            <div className="ApplicationCtn">
-                <Navbar />
-                <Form />
-                <Footer />
+          <div className="AboutHeader">
+            <div className="AboutHeaderContent">
+              <h1 className="reveal__top">Discuss Your Logistics Needs</h1>
+              <p className="reveal__bottom">
+                Tell us what you need to move and we’ll provide a customized
+                shipping solution with transparent pricing and expert
+                coordination.
+              </p>
             </div>
-        </>
-    );
+
+            <div className="QuoteFlexCtnBoxCtn">
+              <div className="FlexCtnBox reveal__bottom__interval">
+                <img
+                  src="https://res.cloudinary.com/quinn-daisies-platform/image/upload/v1744489937/Quinn%20Daisies%20Logistics/At_sign_nmfgl9.png"
+                  alt="Quinn Daisies Images"
+                ></img>
+                <div className="FlexCtnBoxContent">
+                  <h3>Reach Out</h3>
+                  <a
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=info@quinndaisies.com"
+                    target="_blank"
+                  >
+                    info@quinndaisies.com
+                  </a>
+                </div>
+              </div>
+
+              <div className="FlexCtnBox reveal__bottom__interval">
+                <img
+                  src="https://res.cloudinary.com/quinn-daisies-platform/image/upload/v1744489937/Quinn%20Daisies%20Logistics/At_sign_nmfgl9.png"
+                  alt="Quinn Daisies Images"
+                ></img>
+                <div className="FlexCtnBoxContent">
+                  <h3>Contact Sales</h3>
+                  <a
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=sales@quinndaisies.com"
+                    target="_blank"
+                  >
+                    sales@quinndaisies.com
+                  </a>
+                </div>
+              </div>
+
+              <div className="FlexCtnBox reveal__bottom__interval">
+                <img
+                  src="https://res.cloudinary.com/quinn-daisies-platform/image/upload/v1744489969/Quinn%20Daisies%20Logistics/Location_fwlj2t.png"
+                  alt="Quinn Daisies Images"
+                ></img>
+                <div className="FlexCtnBoxContent">
+                  <h3>Address</h3>
+                  <a
+                    href="https://maps.app.goo.gl/swpx8XwaJAT22RGq8"
+                    target="_blank"
+                  >
+                    1915 Wetterhorn Ct, Frederick County, Maryland, United
+                    States, 21702
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <Form />
+
+            <div className="ExtraAboutGrid">
+              {industries.map((industry) => (
+                <div
+                  className="AboutGridBox reveal__bottom__interval"
+                  key={industry.title}
+                >
+                  <span className="material-symbols-outlined IconDesign">
+                    {industry.icon}
+                  </span>
+                  <div className="ServiceListBoxContent">
+                    <h4>{industry.title}</h4>
+                    <p className="ServiceListBoxContentText">
+                      {industry.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3838.2748649816094!2d-77.42511932349208!3d39.463778613086454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c9c52a5e57af13%3A0x210d900d99a68089!2s1915%20Wetterhorn%20Ct%2C%20Frederick%2C%20MD%2021702%2C%20USA!5e1!3m2!1sen!2sng!4v1778445237880!5m2!1sen!2sng"
+          width="100%"
+          height="1000"
+          style={{ border: 0 }}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+        <Footer />
+      </div>
+    </>
+  );
 }

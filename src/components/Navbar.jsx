@@ -1,65 +1,142 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Navbar() {
-    const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-    const toggleMenu = () => {
-        setMenuOpen(!menuOpen);
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
     };
 
-    return (
-        <>
-            <nav>
-                <a className="Navbar-Logo" href="/">
-                    <img
-                        src="https://res.cloudinary.com/quinn-daisies-platform/image/upload/v1718650379/Quinn_Daisies_Blog/Asset_2_exyhed.png"
-                        alt="Biitech Opportunity Platform"
-                    />
-                </a>
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
 
-                <ul className="Navlink-Left">
-                    <li className="active"><a href="/">Home</a></li>
-                    <li><a href="/get-a-quote">Get Quotes</a></li>
-                    <li><a href="/about-quinn-daisies-logistics">About Us</a></li>
-                    <li><a href="/quinn-daisies-logistics-services">Our Service</a></li>
-                </ul>
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-                <ul className="Navlink-Right">
-                    <li><a href="/contact-quinn-daisies-logistics">Contact Us</a></li>
-                    <li className="active"><a href="https://calendly.com/quinndaisies-info/meeting">Consultation</a></li>
-                </ul>
-            </nav>
+  const isHomeActive =
+    location.pathname === "/" || location.pathname === "/home";
+  const isQuoteActive = location.pathname === "/get-a-quote";
+  const isAboutActive = location.pathname === "/quinn-daisies/about-us";
+  const isServiceActive = location.pathname === "/quinn-daisies/services";
+  const isResourcesActive = location.pathname === "/quinn-daisies/resources";
+  const isContactActive =
+    location.pathname === "/contact-quinn-daisies-logistics";
 
-            <div className="ResponsiveNavigation">
-                <a className="Navbar-Logo" href="/">
-                    <img
-                        src="https://res.cloudinary.com/quinn-daisies-platform/image/upload/v1718650379/Quinn_Daisies_Blog/Asset_2_exyhed.png"
-                        alt="Biitech Opportunity Platform"
-                    />
-                </a>
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
 
-                <div className="ResponsiveNavigationControl" onClick={toggleMenu}>
-                    {menuOpen ? (
-                        <div className="ResponsiveIcons active">
-                            <span className="material-symbols-outlined">close</span>
-                        </div>
-                    ) : (
-                        <div className="ResponsiveIcons active">
-                            <span className="material-symbols-outlined">menu</span>
-                        </div>
-                    )}
-                </div>
-            </div>
+  return (
+    <>
+      <nav className={`${isScrolled ? "Scroll" : ""}`}>
+        <div className="Navlink-Left">
+          <Link
+            className={`NavlinkItem ${isHomeActive ? "active" : ""}`}
+            to="/"
+          >
+            Home
+          </Link>
+          <Link
+            className={`NavlinkItem ${isServiceActive ? "active" : ""}`}
+            to="/quinn-daisies/services"
+          >
+            Our Service
+          </Link>
 
-            <ul className={`responsiveMenuList ${menuOpen ? 'active' : ''}`}>
-                <div className="MenuHeader">MENU</div>
-                <li className="active"><a href="/">Home</a></li>
-                <li><a href="/get-a-quote">Get Quotes</a></li>
-                <li><a href="/about-quinn-daisies-logistics">About Us</a></li>
-                <li><a href="/quinn-daisies-logistics-services">Our Service</a></li>
-                <li><a href="/contact-quinn-daisies-logistics">Contact Us</a></li>
-                <li><a href="https://calendly.com/quinndaisies-info/meeting">Consultation</a></li>
-            </ul>
-        </>
-    );
+          <Link
+            className={`NavlinkItem ${isAboutActive ? "active" : ""}`}
+            to="/quinn-daisies/about-us"
+          >
+            About Us
+          </Link>
+
+          <Link
+            className={`NavlinkItem ${isResourcesActive ? "active" : ""}`}
+            to="/quinn-daisies/resources"
+          >
+            Our Resources
+          </Link>
+
+          <Link
+            className={`NavlinkItem ${isQuoteActive ? "active" : ""}`}
+            to="/get-a-quote"
+          >
+            Get Quotes
+          </Link>
+        </div>
+
+        <Link className="Navbar-Logo" to="/">
+          <img
+            src="https://res.cloudinary.com/renaissance-images/image/upload/v1761785344/QuinnDaisies/Quinndaisies_rn3j1l.svg"
+            alt="Quinn Daisies Logo"
+          />
+        </Link>
+
+        <ul className="Navlink-Right">
+          <Link className="NavlinkItem" to="/login">
+            Login Account
+          </Link>
+
+          <Link
+            className="NavlinkItem active"
+            href="https://calendly.com/quinndaisies-info/meeting"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Consultation
+          </Link>
+        </ul>
+      </nav>
+
+      <div className="ResponsiveNavigation">
+        <Link className="Navbar-Logo" to="/">
+          <img
+            src="https://res.cloudinary.com/renaissance-images/image/upload/v1761785344/QuinnDaisies/Quinndaisies_rn3j1l.svg"
+            alt="Quinn Daisies Logo"
+          />
+        </Link>
+
+        <div className="ResponsiveNavigationControl" onClick={toggleMenu}>
+          <div className="ResponsiveIcons active">
+            <p>Menu</p>
+            <span className="material-symbols-outlined">
+              {menuOpen ? "close" : "menu"}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <ul className={`responsiveMenuList ${menuOpen ? "active" : ""}`}>
+        <li className="MenuHeader">MENU</li>
+        <li className={isHomeActive ? "active" : ""}>
+          <Link to="/">Home</Link>
+        </li>
+        <li className={isQuoteActive ? "active" : ""}>
+          <Link to="/get-a-quote">Get Quotes</Link>
+        </li>
+        <li className={isAboutActive ? "active" : ""}>
+          <Link to="/quinn-daisies/about-us">About Us</Link>
+        </li>
+        <li className={isServiceActive ? "active" : ""}>
+          <Link to="/quinn-daisies/services">Our Service</Link>
+        </li>
+        <li className={isContactActive ? "active" : ""}>
+          <Link to="/quinn-daisies/contact-us">Contact Us</Link>
+        </li>
+        <li>
+          <a
+            href="https://calendly.com/quinndaisies-info/meeting"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Consultation
+          </a>
+        </li>
+      </ul>
+    </>
+  );
 }

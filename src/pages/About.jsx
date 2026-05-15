@@ -3,10 +3,12 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Helmet } from "react-helmet-async";
 import ScrollReveal from "scrollreveal";
-import Intro from "./components/Intro";
-import Flex from "./components/Flex";
+import Intro from "./components/About/Intro";
+import Flex from "./components/About/Flex";
+import useSmoothScroll from "../hooks/useSmoothScroll";
 
 export default function About() {
+    useSmoothScroll();
 
     useEffect(() => {
         ScrollReveal().reveal(".reveal__bottom", {
@@ -76,13 +78,17 @@ export default function About() {
             </Helmet>
 
             <Navbar />
-            <Intro
-                title="About Quinn Daisies Logistics"
-                description="At Quinn Daisies Logistics, we are dedicated to providing exceptional logistics services that emphasize safety, efficiency, and timely delivery. Our goal is to simplify your shipping experience—locally and globally—through innovative, customer-focused solutions."
-                backgroundImage="https://res.cloudinary.com/quinn-daisies-platform/image/upload/v1744402457/Quinn%20Daisies%20Logistics/4716_fy9o01.jpg"
-            />
-            <Flex />
-            <Footer />
+            <div id="smooth-wrapper">
+                <div id="smooth-content">
+                    <Intro
+                        title="Built on Trust. Driven by Precision."
+                        description="We are a full-service logistics company committed to moving goods efficiently, safely, and on time — for businesses that can't afford to slow down."
+                        backgroundImage="https://res.cloudinary.com/renaissance-images/image/upload/v1778295154/QuinnDaisies/2151468800_dlzetj.jpg"
+                    />
+                    <Flex />
+                    <Footer />
+                </div>
+            </div>
         </>
     );
 }

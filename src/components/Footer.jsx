@@ -1,53 +1,120 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import Facebook from "../assets/Facebook.png";
+import Instagram from "../assets/Instagram.png";
+import LinkedIn from "../assets/LinkedIn.png";
+
 export default function Footer() {
-    return (
-        <div className="OpportunityAppFooterCtn">
-            <div className="OpportunityAppFooter">
-                <h2>Get a Personalized Quote – Connect with Us Today</h2>
-                <p>Our dedicated team is ready to provide exceptional, tailored logistics solutions that align with your specific needs. Schedule a consultation today to explore customized strategies designed to optimize your logistics experience.</p>
+  return (
+    <>
+      <div className="Footer ApplicationFooter">
+        <div className="ApplicationFlex">
+          <div className="ApplicationFooterBox">
+            <Link to="/" className="Logo">
+              <img
+                src="https://res.cloudinary.com/renaissance-images/image/upload/v1761785344/QuinnDaisies/Quinndaisies_rn3j1l.svg"
+                alt="Quinn Daisies Logo"
+              />
+            </Link>
+            <div className="ApplicationFooterBoxLink">
+              <p>
+                1915 Wetterhorn Ct,
+                Frederick County, Maryland, United States, 21702
+              </p>
             </div>
 
-            <div className="DuoBtnCtn-Center">
-                <a href="tel:+2348143359047">Place a Call Through</a>
-                <a href="mailto:info@quinndaisies.com">Send Us an Email</a>
+            <div className="ApplicationFooterBoxSocial">
+              <Link to="/home" className="Cta">
+                <img
+                  src={LinkedIn}
+                  alt="Quinn Daisies Logo"
+                />
+              </Link>
+              <Link to="/home" className="Cta">
+                <img
+                  src={Instagram}
+                  alt="Quinn Daisies Logo"
+                />
+              </Link>
+              <Link to="/home" className="Cta">
+                <img
+                  src={Facebook}
+                  alt="Quinn Daisies Logo"
+                />
+              </Link>
             </div>
+          </div>
 
-            <div className="QuickLinksCtn">
-                <hr></hr>
-                <div className="QuickLinksFlex">
-                    <ul>
-                        <span>Products and Solutions</span>
-                        <li><a href="https://jobandnetwork.com">Job and Network</a></li>
-                        <li><a href="https://quinndaisies.com">Quinn Daisies Technology</a></li>
-                        <li><a href="">Digital Marketing & SEO</a></li>
-                    </ul>
-
-                    <ul>
-                        <span>Quick Links</span>
-                        <li><a href="">Our Services</a></li>
-                        <li><a href="/contact-quinn-daisies-logistics">Contact Us</a></li>
-                        <li><a href="/about-quinn-daisies-logistics">About Us</a></li>
-                    </ul>
-
-                    <ul>
-                        <span>Legal and Privacy</span>
-                        <li><a href="">Careers</a></li>
-                        <li><a href="">Legal</a></li>
-                        <li><a href="">Privacy Policy</a></li>
-                    </ul>
-
-                    <ul>
-                        <span>Resources</span>
-                        <li><a href="">Blog</a></li>
-                        <li><a href="/get-a-quote">Get a Quote</a></li>
-                        <li><a href="https://calendly.com/quinndaisies-info/meeting">Consultation</a></li>
-
-                    </ul>
-                </div>
-
-                <div className="copyright">
-                    <span>Copyright © Quinn Daisies 2025. All Right Reserved</span>
-                </div>
+          <div className="ApplicationFooterBox">
+            <h4>Reach Out</h4>
+            <div className="ApplicationFooterBoxLink">
+              <Link to="/home" className="Cta">
+                contact.us@quinndaisies.com
+              </Link>
+              <Link to="/home" className="Cta">
+                United States
+              </Link>
+              <Link to="/home" className="Cta">
+                Nigeria
+              </Link>
             </div>
+          </div>
+
+          <div className="ApplicationFooterBox">
+            <h4>Quick Links</h4>
+            <div className="ApplicationFooterBoxLink">
+              <Link to="/" className="Cta">
+                Home Page
+              </Link>
+              <Link to="/quinn-daisies/about-us" className="Cta">
+                About Us
+              </Link>
+              <Link to="/quinn-daisies/contact-us" className="Cta">
+                Contact Us
+              </Link>
+              <Link to="/quinn-daisies/resources" className="Cta">
+                Resources
+              </Link>
+            </div>
+          </div>
+
+          <div className="ApplicationFooterBox">
+            <h4>Expertise and Solutions</h4>
+            <div className="ApplicationFooterBoxLink">
+              <Link to="/home" className="Cta">
+                Workforce & Talent Solutions
+              </Link>
+              <Link to="/home" className="Cta">
+                Business Consulting & Growth Strategy
+              </Link>
+              <Link to="/home" className="Cta">
+                Logistics & Government Contracting
+              </Link>
+              <Link to="/home" className="Cta">
+                Staffing and Recruitment
+              </Link>
+            </div>
+          </div>
         </div>
-    )
+
+        <div className="ApplicationFooterBottom">
+          <div className="ApplicationFooterBox">
+            <h4>Resources</h4>
+            <div className="ApplicationFooterBoxBottomLink">
+              <Link to="/home" className="Cta">
+                Terms of Use
+              </Link>
+              <Link to="/home" className="Cta">
+                Privacy Policy
+              </Link>
+              <Link to="/home" className="Cta">
+                Cookie Policy
+              </Link>
+            </div>
+          </div>
+          <p>2026 All rights Reserved - Quinn Daisies</p>
+        </div>
+      </div>
+    </>
+  );
 }
