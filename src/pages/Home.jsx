@@ -82,10 +82,9 @@ export default function Home() {
         <meta name="revised" content="12th of April 2025" />
       </Helmet>
 
-      <Navbar />
-
-      <div>
-        <div>
+      <div id="smooth-wrapper">
+        <div id="smooth-content">
+                <Navbar />
           <Header
             subtitle="Reliable Logistics Solutions Tailored for You"
             title="Discover How We Can Support Your Shipping Needs"

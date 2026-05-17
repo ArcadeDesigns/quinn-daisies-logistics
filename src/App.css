@@ -135,7 +135,7 @@ nav {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 999;
+  z-index: 2000 !important;
 }
 
 nav .Navlink-Left {
@@ -2415,16 +2415,17 @@ main section:last-of-type {
   }
 
   .responsiveMenuList.active {
+    padding: 25px;
     position: fixed;
     z-index: 999;
     top: 0;
     left: 0%;
     width: 100%;
-    height: 100%;
-    max-width: 60%;
-    justify-content: center;
-    align-items: center;
+    height: 100vh;
     display: flex;
+    max-width: 60%;
+    align-items: flex-start;
+    justify-content: flex-start;
     flex-direction: column;
     background-color: var(--tertiary-on-color);
     gap: 1em;
@@ -2449,20 +2450,34 @@ main section:last-of-type {
   }
 
   .responsiveMenuList li {
+    width: 100%;
     list-style: none;
   }
 
+  .responsiveMenuList li.active {
+    border-radius: 5px;
+    padding: 5px 10px;
+    background-color: var(--tertiary-color);
+  }
+
+  .responsiveMenuList li.active a {
+    font-weight: 600;
+    color: var(--tertiary-on-color);
+  }
+
   .responsiveMenuList li a {
+    width: 100% !important;
+    display: flex;
     text-decoration: none;
-    color: var(--primary-color);
-    font-size: var(--text-size);
+    font-size: var(--text);
+    color: var(--tertiary-color);
   }
 
   .MenuHeader {
-    font-size: var(--sub-header-size);
-    color: whitesmoke;
+    font-size: var(--small-text);
+    color: var(--tertiary-color);
     letter-spacing: 10px;
-    margin-bottom: 2%;
+    margin-bottom: 25%;
   }
 }
 
@@ -5048,6 +5063,7 @@ main section:last-of-type {
 
   .OpportunityAppCtn {
     width: 100%;
+    z-index: 700;
     height: 100vh;
     position: relative;
   }
