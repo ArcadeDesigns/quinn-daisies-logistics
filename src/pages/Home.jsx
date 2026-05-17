@@ -84,8 +84,8 @@ export default function Home() {
 
       <Navbar />
 
-      <div id="smooth-wrapper">
-        <div id="smooth-content">
+      <div>
+        <div>
           <Header
             subtitle="Reliable Logistics Solutions Tailored for You"
             title="Discover How We Can Support Your Shipping Needs"

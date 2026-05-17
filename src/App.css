@@ -4937,7 +4937,7 @@ main section:last-of-type {
 
   .OpportunityAppHeader {
     padding: 5% 0;
-    height: auto;
+    height: 100vh;
   }
 
   .QuickLinksFlex {
@@ -5046,18 +5046,34 @@ main section:last-of-type {
     padding: 15px 20px 8px;
   }
 
+  .OpportunityAppCtn {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+  }
+
   .OpportunityAppHeader {
-    height: 60vh;
+    height: 100%;
+    position: absolute;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .BackgroundImage img {
+    border-radius: 25px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .BackgroundImage {
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
   }
 
   .ApplicationBox {
     width: 100%;
     height: 100%;
-  }
-}
-
-@media (max-width: 370px) {
-  .OpportunityAppHeader {
-    height: 80vh;
   }
 }
