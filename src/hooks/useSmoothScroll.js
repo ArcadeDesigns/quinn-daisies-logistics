@@ -10,15 +10,18 @@ export default function useSmoothScroll() {
     const existing = ScrollSmoother.get();
     if (existing) existing.kill();
 
-    const smoother = ScrollSmoother.create({
-      wrapper: "#smooth-wrapper",
-      content: "#smooth-content",
-      smooth: 1.2,
-      smoothTouch: 0.1,
-      effects: true,
-      normalizeScroll: true,
-    });
-
-    return () => smoother.kill();
+    // Check if the device is not mobile by using a media query
+    if (window.innerWidth > 768) {
+      // Example: tablet/desktop breakpoint
+      const smoother = ScrollSmoother.create({
+        wrapper: "#smooth-wrapper",
+        content: "#smooth-content",
+        smooth: 1.2,
+        smoothTouch: 0.1,
+        effects: true,
+        normalizeScroll: true,
+      });
+      return () => smoother.kill();
+    }
   }, []);
 }
