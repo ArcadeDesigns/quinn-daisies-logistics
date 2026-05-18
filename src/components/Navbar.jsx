@@ -115,17 +115,24 @@ export default function Navbar() {
         <li className={isHomeActive ? "active" : ""}>
           <Link to="/">Home</Link>
         </li>
-        <li className={isQuoteActive ? "active" : ""}>
-          <Link to="/get-a-quote">Get Quotes</Link>
+         <li className={isServiceActive ? "active" : ""}>
+          <Link to="/quinn-daisies/services">Our Service</Link>
         </li>
         <li className={isAboutActive ? "active" : ""}>
           <Link to="/quinn-daisies/about-us">About Us</Link>
         </li>
-        <li className={isServiceActive ? "active" : ""}>
-          <Link to="/quinn-daisies/services">Our Service</Link>
+        <li className={isResourcesActive ? "active" : ""}>
+          <Link to="/quinn-daisies/resources">Our Resources</Link>
         </li>
+        <li className={isQuoteActive ? "active" : ""}>
+          <Link to="/get-a-quote">Get Quotes</Link>
+        </li>      
         <li className={isContactActive ? "active" : ""}>
           <Link to="/quinn-daisies/contact-us">Contact Us</Link>
+        </li>
+
+         <li className={isContactActive ? "active" : ""}>
+          <Link to="/login">Login Account</Link>
         </li>
         <li>
           <a
