@@ -1,14 +1,18 @@
 import gsap from "gsap";
 import { Flip } from "gsap/all";
+import ScrollReveal from "scrollreveal";
 import { Link } from "react-router-dom";
+import DHL from "../../src/assets/DHL.png";
+import UPS from "../../src/assets/UPS.png";
 import { Helmet } from "react-helmet-async";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { SplitText } from "gsap/SplitText";
 import Hero from "./components/Service/Hero";
+import FedEx from "../../src/assets/FedEx.png";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useRef, useLayoutEffect } from "react";
 import useSmoothScroll from "../hooks/useSmoothScroll";
+import { useEffect, useRef, useLayoutEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger, SplitText, Flip);
 
@@ -194,6 +198,76 @@ export default function Services() {
     };
   }, []);
 
+  useEffect(() => {
+    ScrollReveal().reveal(".reveal__bottom", {
+      origin: "bottom",
+      distance: "100px",
+      duration: 1000,
+      reset: true,
+      easing: "ease-in-out",
+    });
+
+    ScrollReveal().reveal(".reveal__top", {
+      origin: "top",
+      distance: "100px",
+      duration: 1000,
+      reset: true,
+      easing: "ease-in-out",
+    });
+
+    ScrollReveal().reveal(".reveal__left", {
+      origin: "left",
+      distance: "100px",
+      duration: 1000,
+      reset: true,
+      easing: "ease-in-out",
+    });
+
+    ScrollReveal().reveal(".reveal__right", {
+      origin: "right",
+      distance: "100px",
+      duration: 1000,
+      reset: true,
+      easing: "ease-in-out",
+    });
+
+    ScrollReveal().reveal(".reveal__top__interval", {
+      origin: "top",
+      distance: "100px",
+      duration: 1000,
+      interval: 200,
+      reset: true,
+      easing: "ease-in-out",
+    });
+
+    ScrollReveal().reveal(".reveal__left__interval", {
+      origin: "left",
+      distance: "100px",
+      duration: 1000,
+      interval: 200,
+      reset: true,
+      easing: "ease-in-out",
+    });
+
+    ScrollReveal().reveal(".reveal__bottom__interval", {
+      origin: "bottom",
+      distance: "100px",
+      duration: 1000,
+      interval: 200,
+      reset: true,
+      easing: "ease-in-out",
+    });
+
+    ScrollReveal().reveal(".reveal__right__interval", {
+      origin: "right",
+      distance: "100px",
+      duration: 1000,
+      interval: 200,
+      reset: true,
+      easing: "ease-in-out",
+    });
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -261,25 +335,76 @@ export default function Services() {
         <Navbar />
         <div id="smooth-wrapper">
           <div id="smooth-content">
-            <Hero />
+            
+            <section className="HeroContainer">
+              <img
+                src="https://res.cloudinary.com/renaissance-images/image/upload/v1775929345/QuinnDaisies/2151937269_ubbvn4.jpg"
+                alt="Quinn Daisies"
+              />
+
+              <div className="HeroOverlay OverwriteHeroOverlayFlex">
+                <div className="ServiceHeroContent">
+                  <h1 className="reveal__left">
+                    Growth, Performance, and Long-Term Value
+                  </h1>
+                  <p className="ServiceHeroContentText reveal__right">
+                    Quinn Daisies offers tailored logistics solutions designed
+                    to streamline operations and enhance efficiency for
+                    businesses across diverse industries. Our team specializes
+                    in providing seamless, end-to-end logistics management that
+                    prioritizes reliability, speed, and cost-effectiveness,
+                    ensuring your goods reach their destination safely and on
+                    schedule.
+                  </p>
+
+                  <Link className="ApplicationButton reveal__bottom" to="/">
+                    Learn More Here
+                    <span class="material-symbols-outlined">
+                      globe_location_pin
+                    </span>
+                  </Link>
+                </div>
+
+                <div className="PartnerBoxContainer">
+                  <div className="PartnerBox reveal__bottom__interval">
+                    <img src={DHL} alt="DHL" />
+                    <p>DHL</p>
+                  </div>
+
+                  <div className="PartnerBox reveal__bottom__interval">
+                    <img src={UPS} alt="UPS" />
+                    <p>UPS</p>
+                  </div>
+
+                  <div className="PartnerBox reveal__bottom__interval">
+                    <img src={FedEx} alt="FedEx" />
+                    <p>FedEx</p>
+                  </div>
+                </div>
+              </div>
+            </section>
 
             <section className="SectionContainer ServiceContainer">
               <h2 className="ServiceText">
-                At Quinn Daisies, we provide a comprehensive range of professional
-                services designed to help organizations solve complex challenges,
-                strengthen operations, and achieve sustainable success. From
-                technology and logistics to consulting, workforce solutions,
-                business development, and digital innovation, our services are
-                tailored to deliver measurable value and long-term impact.
+                At Quinn Daisies, we provide a comprehensive range of
+                professional services designed to help organizations solve
+                complex challenges, strengthen operations, and achieve
+                sustainable success. From technology and logistics to
+                consulting, workforce solutions, business development, and
+                digital innovation, our services are tailored to deliver
+                measurable value and long-term impact.
               </h2>
             </section>
 
             <section className="SectionContainer ServicesInformation">
-              <span className="reveal__left">Why Organizations Partner With Quinn Daisies.</span>
+              <span className="reveal__left">
+                Why Organizations Partner With Quinn Daisies.
+              </span>
               <h4 className="reveal__right">
-                We don't just move cargo — we build logistics systems that keep your
-                business competitive. Every partnership is shaped around your
-                shipment volumes, routes, timelines, and operational realities.
+                We don't just move cargo — we build logistics systems that keep
+                your business competitive. Every partnership is shaped around
+                your shipment volumes, routes, timelines, and operational
+                realities.
               </h4>
 
               <div className="ServicesInformationBoxContainer">
@@ -288,8 +413,9 @@ export default function Services() {
                     <h6>On-Time Delivery Rate</h6>
                     <p>
                       We've built our entire operation around one promise — your
-                      cargo arrives when it's supposed to. From route planning to
-                      real-time dispatch management, we leave nothing to chance.
+                      cargo arrives when it's supposed to. From route planning
+                      to real-time dispatch management, we leave nothing to
+                      chance.
                     </p>
                   </div>
                   <h3>
@@ -302,8 +428,9 @@ export default function Services() {
                     <h6>Tailored Logistics Planning</h6>
                     <p>
                       No two supply chains are the same. We design freight,
-                      warehousing, and delivery solutions specifically around your
-                      cargo types, volumes, destinations, and business cycles.
+                      warehousing, and delivery solutions specifically around
+                      your cargo types, volumes, destinations, and business
+                      cycles.
                     </p>
                   </div>
                   <h3>
@@ -315,10 +442,10 @@ export default function Services() {
                   <div className="ServicesInformationBoxHeader">
                     <h6>Cargo Safety & Compliance</h6>
                     <p>
-                      Your goods are handled with the highest care at every stage.
-                      We enforce strict safety protocols, regulatory compliance, and
-                      customs adherence — so you never face delays or liability
-                      issues at the border.
+                      Your goods are handled with the highest care at every
+                      stage. We enforce strict safety protocols, regulatory
+                      compliance, and customs adherence — so you never face
+                      delays or liability issues at the border.
                     </p>
                   </div>
                   <h3>
@@ -331,9 +458,9 @@ export default function Services() {
                     <h6>Scalable Freight Capacity</h6>
                     <p>
                       Whether you're shipping five pallets or five hundred, our
-                      infrastructure scales with you. As your business grows, our
-                      logistics network expands to match — with no gaps in service
-                      quality or delivery speed.
+                      infrastructure scales with you. As your business grows,
+                      our logistics network expands to match — with no gaps in
+                      service quality or delivery speed.
                     </p>
                   </div>
                   <h3>
@@ -345,16 +472,17 @@ export default function Services() {
               <p className="ServicesInformationBottomText reveal__left">
                 At Quinn Daisies, we combine logistics expertise, freight
                 technology, and operational discipline to deliver supply chain
-                solutions that address both your immediate shipping needs and your
-                long-term growth ambitions. Our work is guided by accountability,
-                transparency, and an unwavering commitment to keeping your cargo —
-                and your business — moving forward.
+                solutions that address both your immediate shipping needs and
+                your long-term growth ambitions. Our work is guided by
+                accountability, transparency, and an unwavering commitment to
+                keeping your cargo — and your business — moving forward.
               </p>
               <p className="ServicesInformationBottomText reveal__right">
-                We do not treat logistics as a one-size-fits-all operation. Every
-                engagement is engineered around the specific freight volumes,
-                routes, timelines, and compliance requirements of each client —
-                ensuring our solutions remain reliable, scalable, and built to last.
+                We do not treat logistics as a one-size-fits-all operation.
+                Every engagement is engineered around the specific freight
+                volumes, routes, timelines, and compliance requirements of each
+                client — ensuring our solutions remain reliable, scalable, and
+                built to last.
               </p>
             </section>
 
@@ -419,16 +547,20 @@ export default function Services() {
                 <div className="ServiceList">
                   <h3 className="reveal__left">Our Logistics Approach</h3>
                   <p className="ServiceListText reveal__right">
-                    At Quinn Daises LLC, we take a structured, client-first approach
-                    to logistics — combining industry expertise, advanced systems,
-                    and a dedicated team to ensure your goods move efficiently,
-                    safely, and on schedule from origin to destination.
+                    At Quinn Daises LLC, we take a structured, client-first
+                    approach to logistics — combining industry expertise,
+                    advanced systems, and a dedicated team to ensure your goods
+                    move efficiently, safely, and on schedule from origin to
+                    destination.
                   </p>
                 </div>
 
                 <div className="ServiceListBoxContainer">
                   {industries.map((industry) => (
-                    <div className="ServiceListBox reveal__bottom__interval" key={industry.title}>
+                    <div
+                      className="ServiceListBox reveal__bottom__interval"
+                      key={industry.title}
+                    >
                       <span className="material-symbols-outlined IconDesign">
                         {industry.icon}
                       </span>
@@ -438,7 +570,10 @@ export default function Services() {
                           {industry.description}
                         </p>
 
-                        <Link to={industry.link} className="ApplicationIconButton">
+                        <Link
+                          to={industry.link}
+                          className="ApplicationIconButton"
+                        >
                           <span className="material-symbols-outlined">
                             arrow_outward
                           </span>
@@ -453,15 +588,18 @@ export default function Services() {
             <section className="ServicePosition Container Gap-XL">
               <div className="ServiceApproach">
                 <div className="ServiceApproachHeader">
-                  <span className="reveal__top">How we Approach Every Project</span>
+                  <span className="reveal__top">
+                    How we Approach Every Project
+                  </span>
                   <h2 className="reveal__bottom">
-                    Strategic Approach Built on Precision, Partnership, and Results
+                    Strategic Approach Built on Precision, Partnership, and
+                    Results
                   </h2>
                 </div>
                 <p className="reveal__left">
-                  We combine strategic insight, technical expertise, and disciplined
-                  execution to deliver solutions that are practical, scalable, and
-                  aligned with long-term success.
+                  We combine strategic insight, technical expertise, and
+                  disciplined execution to deliver solutions that are practical,
+                  scalable, and aligned with long-term success.
                 </p>
               </div>
 
@@ -473,14 +611,17 @@ export default function Services() {
                   />
                   <div className="ServiceApproachContainerContentOverlay">
                     <div className="hr"></div>
-                    <h3>Our Approach to Delivering Meaningful Business Results</h3>
+                    <h3>
+                      Our Approach to Delivering Meaningful Business Results
+                    </h3>
                     <p>
                       We do not believe in one-size-fits-all solutions. Every
                       engagement is guided by a tailored process that emphasizes
-                      collaboration, responsiveness, and performance. By aligning
-                      our services with the specific needs of each organization, we
-                      help clients improve efficiency, strengthen capabilities, and
-                      create lasting business value.
+                      collaboration, responsiveness, and performance. By
+                      aligning our services with the specific needs of each
+                      organization, we help clients improve efficiency,
+                      strengthen capabilities, and create lasting business
+                      value.
                     </p>
                   </div>
                 </div>
@@ -489,8 +630,8 @@ export default function Services() {
                   <div className="hr"></div>
                   <h5>Tailored Service Strategies for Sustainable Growth</h5>
                   <p>
-                    From initial consultation to implementation and ongoing support,
-                    we work as a trusted partner committed to quality,
+                    From initial consultation to implementation and ongoing
+                    support, we work as a trusted partner committed to quality,
                     accountability, and measurable outcomes.
                   </p>
                 </div>
@@ -503,19 +644,27 @@ export default function Services() {
                   Importers, exporters, and businesses engaged in cross-border
                   trade.
                 </span>
-                <h2 className="reveal__bottom">Not Sure Which Service You Need?</h2>
+                <h2 className="reveal__bottom">
+                  Not Sure Which Service You Need?
+                </h2>
                 <p className="paragraphText reveal__left">
                   Our logistics consultants are happy to assess your needs and
-                  recommend the right solution. Contact us for a free consultation.
+                  recommend the right solution. Contact us for a free
+                  consultation.
                 </p>
 
-                <a className="linkText reveal__bottom" href="mailto:info@quinndaisies.com">
+                <a
+                  className="linkText reveal__bottom"
+                  href="mailto:info@quinndaisies.com"
+                >
                   Send an Email?
                 </a>
 
                 <Link to="/home" className="ApplicationButton reveal__bottom">
                   <p>Request a free Consultation</p>
-                  <span className="material-symbols-outlined">arrow_outward</span>
+                  <span className="material-symbols-outlined">
+                    arrow_outward
+                  </span>
                 </Link>
               </div>
 
@@ -524,8 +673,8 @@ export default function Services() {
                   <div className="serviceBannerSectionImagesBoxContent">
                     <h5>100%</h5>
                     <p>
-                      Growing businesses, enterprises, and any organization looking
-                      to scale operations efficiently.
+                      Growing businesses, enterprises, and any organization
+                      looking to scale operations efficiently.
                     </p>
                   </div>
                   <span class="material-symbols-outlined">graph_6</span>

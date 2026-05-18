@@ -4677,6 +4677,10 @@ main section:last-of-type {
     padding: 5%;
   }
 
+  .ServicePosition {
+    padding: 5%;
+  }
+
   .SectionFlex {
     flex-direction: column;
   }
@@ -4693,6 +4697,39 @@ main section:last-of-type {
   .SectionBoxSmall p {
     margin-bottom: 0px;
   }
+
+  .ServiceHeroContent h1 {
+    width: 40%;
+  }
+
+  .ServiceHeroContent .ServiceHeroContentText {
+    width: 80%;
+  }
+
+  .ServiceText {
+    font-size: var(--mega-text);
+    line-height: 50px;
+  }
+
+  .ServicesInformation h4 {
+    width: 80%;
+  }
+
+  .ServicesInformationBox:first-child .ServicesInformationBoxHeader p {
+    max-width: 70%;
+  }
+
+  .ServicesInformationBox:first-child .ServicesInformationBoxHeader h6 {
+    max-width: 20%;
+  }
+
+  .ServicesInformationBoxHeader p {
+    max-width: 70%;
+  }
+
+  .ServicesInformationBoxHeader h6 {
+    max-width: 20%;
+  }
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: 1024px) {
@@ -4706,6 +4743,43 @@ main section:last-of-type {
 
   .ApplicationImageDesignHeader {
     width: 100%;
+  }
+
+  .ServiceHeroContent h1 {
+    width: 100%;
+  }
+
+  .ServiceHeroContent .ServiceHeroContentText {
+    width: 100%;
+  }
+
+  .ServiceText {
+    font-size: var(--mini-text);
+  }
+
+  .ServicesInformation h4 {
+    width: 100%;
+  }
+
+  .ServicesInformationBoxContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ServiceList {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ServiceList h3 {
+    width: 100%;
+  }
+
+  .ServiceList .ServiceListText {
+    width: 100%;
+    text-align: left;
   }
 
   .ApplicationChartContentList {
@@ -4783,11 +4857,48 @@ main section:last-of-type {
   .ResourcesFAQHeader p {
     width: 100%;
   }
+
+  .ServiceApproach {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ServiceApproachHeader {
+    width: 100%;
+  }
+
+  .ServiceApproach p {
+    width: 100%;
+  }
+
+  .serviceBannerSectionImages {
+    padding: 0%;
+  }
+
+  .serviceBannerSection h2 {
+    width: 100%;
+  }
+
+  .serviceBanner {
+    gap: 1em;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: 912px) {
   .SectionHeader h2 {
     font-size: var(--mega-text);
+  }
+
+  .ServiceApproachContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ServiceApproachContainerContentRight {
+    width: 100%;
   }
 
   .ApplicationBox {
@@ -4881,6 +4992,36 @@ main section:last-of-type {
     flex-direction: column;
   }
 
+  .ServicesInformationBox:first-child .ServicesInformationBoxHeader h6 {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .ServicesInformationBox:first-child .ServicesInformationBoxHeader p {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .ServicesInformationBox:first-child .ServicesInformationBoxHeader {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ServicesInformationBoxHeader {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ServicesInformationBoxHeader h6 {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .ServicesInformationBoxHeader p {
+    width: 100%;
+    max-width: 100%;
+  }
+
   .service-content-container {
     max-width: 100%;
     width: 100%;
@@ -4894,6 +5035,10 @@ main section:last-of-type {
     margin-right: auto;
     width: 100%;
     height: auto;
+  }
+
+  .serviceBannerSectionImagesBox:last-child {
+    right: 5%;
   }
 
   .ResourcesFAQSection {
@@ -5050,6 +5195,34 @@ main section:last-of-type {
   .BackgroundImage {
     height: 800px;
   }
+
+  .ServiceHeroContent h1 {
+    font-size: var(--mega-text);
+  }
+
+  .ServicesInformation h4 {
+    font-size: var(--mini-text);
+  }
+
+  .ServiceList h3 {
+    font-size: var(--mini-text);
+  }
+
+  .ServiceListBoxContent h4 {
+    font-size: var(--mini-text);
+  }
+
+  .ServiceApproachHeader h2 {
+    font-size: var(--mini-text);
+  }
+
+  .ServiceApproachContainerContentRight h5 {
+    font-size: var(--mini-text);
+  }
+
+  .serviceBannerSection h2 {
+    font-size: var(--mini-text);
+  }
 }
 
 @media (max-width: 480px) {
@@ -5100,15 +5273,14 @@ main section:last-of-type {
     height: 400px;
   }
 
-    .ApplicationChartContentContainer {
+  .ApplicationChartContentContainer {
     height: 500px;
     max-height: 500px;
   }
 }
 
-
 @media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: 370px) {
-    .ApplicationChartContentContainer {
+  .ApplicationChartContentContainer {
     height: 350px;
     max-height: 350px;
   }
