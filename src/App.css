@@ -4618,6 +4618,44 @@ main section:last-of-type {
     padding: 20px 5%;
   }
 
+  .AboutHeader {
+    padding: 10% 5%;
+  }
+
+  .FlexCtnBoxCtnRow {
+    gap: 1em;
+    flex-direction: column;
+  }
+
+  .FlexDesignColumn {
+    padding: 5%;
+  }
+
+  .AdvanceFlexCtnBoxCtnRow {
+    gap: 1em;
+    flex-direction: column;
+  }
+
+  .AdvanceImageFlexContainerContainer {
+    width: 100%;
+  }
+
+  .AdvanceContentHeader {
+    padding: 5%;
+  }
+
+  .FlexCtnBoxCtn {
+    padding: 5%;
+  }
+
+  .ImageFlexContainerContainer {
+    width: 100%;
+  }
+
+  .AboutHeaderContent p {
+    width: 50%;
+  }
+
   .ContentCtn-Center h1 {
     max-width: 50%;
   }
@@ -4730,6 +4768,10 @@ main section:last-of-type {
   .ServicesInformationBoxHeader h6 {
     max-width: 20%;
   }
+
+  .AdvanceFlexDesignColumn {
+    padding: 5%;
+  }
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: 1024px) {
@@ -4741,7 +4783,23 @@ main section:last-of-type {
     line-height: revert;
   }
 
+  .AboutHeaderContent h1 {
+    width: 100%;
+  }
+
+  .AboutHeaderContent p {
+    width: 70%;
+  }
+
+  .FlexCtnBoxCtnRowContent h2 {
+    margin: 0px;
+  }
+
   .ApplicationImageDesignHeader {
+    width: 100%;
+  }
+
+  .AdvanceContentHeader h2 {
     width: 100%;
   }
 
@@ -4749,7 +4807,37 @@ main section:last-of-type {
     width: 100%;
   }
 
+  .AboutGrid {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .AboutGridBox {
+    width: 450px;
+  }
+
+  .AboutFlex {
+    gap: 1em;
+    margin-top: 0px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .AboutFlex h2 {
+    width: 100%;
+  }
+
   .ServiceHeroContent .ServiceHeroContentText {
+    width: 100%;
+  }
+
+  .AboutFlexParagraphContainer {
     width: 100%;
   }
 
@@ -4885,9 +4973,26 @@ main section:last-of-type {
     display: flex;
     flex-direction: column;
   }
+
+  .FlexCtnBoxCtnRowContent h2 {
+    width: 100%;
+  }
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: 912px) {
+  .AboutHeader {
+    height: 100vh;
+  }
+
+  .AboutFlex h2 {
+    font-size: var(--mega-text);
+  }
+
+  .AboutGridBox {
+    width: 100%;
+    flex-direction: row;
+  }
+
   .SectionHeader h2 {
     font-size: var(--mega-text);
   }
@@ -4942,6 +5047,10 @@ main section:last-of-type {
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: 820px) {
+  .AboutHeaderCtn {
+    height: 100vh;
+  }
+
   .ContentCtn-Center h1 {
     max-width: 55%;
   }
@@ -4957,6 +5066,14 @@ main section:last-of-type {
   .ApplicationChartContentContainer {
     height: auto;
     max-height: 500px;
+  }
+
+  .AboutFlex {
+    margin-top: 10%;
+  }
+
+  .AboutHeaderCtn h2 {
+    font-size: var(--medium-text);
   }
 }
 
@@ -4990,6 +5107,24 @@ main section:last-of-type {
     height: auto;
     display: flex;
     flex-direction: column;
+  }
+
+  .AboutHeader {
+    height: 200vh;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .AboutHeaderCtn {
+    height: 200vh;
+  }
+
+  .AboutHeaderContent h1 {
+    font-size: var(--mega-text);
+  }
+
+  .AboutFlex {
+    text-align: left;
   }
 
   .ServicesInformationBox:first-child .ServicesInformationBoxHeader h6 {
@@ -5223,9 +5358,62 @@ main section:last-of-type {
   .serviceBannerSection h2 {
     font-size: var(--mini-text);
   }
+
+  .ServiceListBoxContainer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .AboutHeaderContent {
+    width: 100%;
+    text-align: center;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .AboutHeaderCtn h2 {
+    font-size: var(--mini-text);
+  }
+
+  .FlexCtnBoxCtnRowContent h2 {
+    font-size: var(--mini-text);
+  }
+
+  .AdvanceFlexCtnBoxCtnRowContent h2 {
+    font-size: var(--mini-text);
+  }
+
+  .AdvanceContentHeader h2 {
+    font-size: var(--mini-text);
+  }
 }
 
 @media (max-width: 480px) {
+  .AboutHeader {
+    padding-top: 25%;
+    height: 150vh;
+    align-items: flex-start !important;
+    justify-content: flex-start;
+  }
+
+  .AboutHeaderContent h1 {
+    text-align: left;
+  }
+
+  .AboutHeaderCtn {
+    height: 150vh;
+  }
+
+  .ImageFlexContainer {
+    flex-direction: column;
+  }
+
+  .AdvanceImageFlexContainer {
+    flex-direction: column;
+  }
+
   .ResourcesSectionAccordion {
     padding: 15px 20px 8px;
   }
