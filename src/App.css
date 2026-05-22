@@ -1015,6 +1015,17 @@ hr {
   margin: 0 auto;
 }
 
+.IntroAboutHeaderCtn {
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
 .AboutHeaderCtn {
   justify-content: center;
   align-items: center;
@@ -1033,6 +1044,21 @@ hr {
 }
 
 .AboutHeader {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 10%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.IntroAboutHeader {
   top: 0;
   left: 0;
   width: 100%;
@@ -4387,6 +4413,10 @@ main section:last-of-type {
     padding: 10% 5%;
   }
 
+  .IntroAboutHeader {
+    padding: 10% 5%;
+  }
+
   .FlexCtnBoxCtnRow {
     gap: 1em;
     flex-direction: column;
@@ -5032,6 +5062,10 @@ main section:last-of-type {
     height: 100vh;
   }
 
+  .IntroAboutHeader {
+    height: 100vh;
+  }
+
   .AboutFlex h2 {
     font-size: var(--mega-text);
   }
@@ -5099,6 +5133,10 @@ main section:last-of-type {
     height: 100vh;
   }
 
+  .IntroAboutHeaderCtn {
+    height: 100vh;
+  }
+
   .ContentCtn-Center h1 {
     max-width: 55%;
   }
@@ -5123,9 +5161,25 @@ main section:last-of-type {
   .AboutHeaderCtn h2 {
     font-size: var(--medium-text);
   }
+
+  .FlexCtnBox {
+    width: 350px;
+  }
+
+  .QuoteFlexCtnBoxCtn {
+    flex-wrap: wrap;
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: 768px) {
+  .FlexCtnBox {
+    width: 300px;
+  }
+
   .FormCtn {
     justify-content: center;
   }
@@ -5172,6 +5226,17 @@ main section:last-of-type {
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: 600px) {
+  .IntroAboutHeader {
+    width: 100%;
+    height: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .FlexCtnBox {
+    width: 100%;
+  }
+
   .ResourcesHeaderContainerContent {
     background: rgba(0, 0, 0, 0.4);
   }
@@ -5227,14 +5292,41 @@ main section:last-of-type {
     flex-direction: column;
   }
 
+  .QuoteFlexCtnBoxCtn {
+    display: none;
+  }
+
+  .ExtraAboutGrid {
+    display: none;
+  }
+
   .AboutHeader {
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .FlexCtnBox {
+    padding: 15px;
+    height: auto;
+  }
+
+  .AboutHeaderContent h1 {
+    text-align: left;
+  }
+
+  .IntroAboutHeader {
     height: 200vh;
     align-items: center;
     justify-content: center;
   }
 
-  .AboutHeaderCtn {
+  .IntroAboutHeaderCtn {
     height: 200vh;
+  }
+
+  .AboutHeaderCtn {
+    height: 300vh;
   }
 
   .AboutHeaderContent h1 {
@@ -5331,7 +5423,7 @@ main section:last-of-type {
     padding: 5px;
   }
 
-  .AboutHeader {
+  .IntroAboutHeader {
     align-items: flex-start;
   }
 
@@ -5511,6 +5603,13 @@ main section:last-of-type {
 @media (max-width: 480px) {
   .AboutHeader {
     padding-top: 25%;
+    height: auto;
+    align-items: flex-start !important;
+    justify-content: flex-start;
+  }
+
+  .IntroAboutHeader {
+    padding-top: 25%;
     height: 150vh;
     align-items: flex-start !important;
     justify-content: flex-start;
@@ -5518,6 +5617,10 @@ main section:last-of-type {
 
   .AboutHeaderContent h1 {
     text-align: left;
+  }
+
+  .IntroAboutHeaderCtn {
+    height: 150vh;
   }
 
   .AboutHeaderCtn {
@@ -5587,6 +5690,18 @@ main section:last-of-type {
   }
 }
 
+@media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: 430px) {
+  .AboutHeaderCtn {
+    height: 200vh;
+  }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: 412px) {
+  .AboutHeaderCtn {
+    height: 220vh;
+  }
+}
+
 @media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: 390px) {
   .home-services-box {
     height: 400px;
@@ -5598,9 +5713,19 @@ main section:last-of-type {
   }
 }
 
+@media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: 375px) {
+  .AboutHeaderCtn {
+    height: 280vh;
+  }
+}
+
 @media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: 370px) {
   .ApplicationChartContentContainer {
     height: 350px;
     max-height: 350px;
+  }
+
+  .AboutHeaderCtn {
+    height: 250vh;
   }
 }

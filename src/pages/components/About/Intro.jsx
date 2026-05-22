@@ -67,7 +67,7 @@ export default function Intro({ title, description, backgroundImage }) {
   ];
 
   return (
-    <div className="AboutHeaderCtn">
+    <div className="IntroAboutHeaderCtn">
       {backgroundImage && (
         <img
           className="BackgroundImagePosition"
@@ -75,7 +75,7 @@ export default function Intro({ title, description, backgroundImage }) {
           alt="Quinn Daisies Logistics Image"
         />
       )}
-      <div className="AboutHeader">
+      <div className="IntroAboutHeader">
         <div className="AboutHeaderContent">
           {title && <h1 className="reveal__top">{title}</h1>}
           {description && <p className="reveal__bottom">{description}</p>}
