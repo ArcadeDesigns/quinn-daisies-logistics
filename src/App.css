@@ -1631,86 +1631,6 @@ hr {
   transform: translateY(160px);
 }
 
-@media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: 1024px) {
-  .FlexCtnBoxCtn {
-    flex-direction: column;
-  }
-
-  .FlexCtnBoxCtnRow {
-    flex-direction: column;
-  }
-
-  .FlexCtnBoxCtnImg {
-    max-width: 100%;
-  }
-
-  .FlexCtnBoxCtnRowContent h3 {
-    font-size: var(--small-text);
-    margin: 15px 0 0 0;
-  }
-
-  .FormSelection {
-    flex-direction: column;
-  }
-
-  .FormZones {
-    flex-wrap: wrap;
-  }
-
-  .ContentCtn-Center h1 {
-    color: var(--primary-color);
-    font-size: var(--medium-text);
-    max-width: 100%;
-  }
-
-  .ContentCtn-Center p {
-    color: var(--primary-color);
-    font-size: var(--text);
-    font-weight: 400;
-    max-width: 100%;
-  }
-
-  .OpportunityAppFooter h2 {
-    font-size: var(--mini-text);
-    max-width: 100%;
-  }
-
-  .OpportunityAppFooter p {
-    max-width: 100%;
-  }
-
-  nav {
-    display: none;
-  }
-}
-
-@media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: 768px) {
-  .FormCtn {
-    justify-content: center;
-  }
-
-  .home-about-grid-item {
-    width: auto !important;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    border-radius: 100%;
-  }
-
-  .home-about-grid {
-    align-items: flex-start;
-  }
-
-  .home-about-grid-item h2 {
-    width: max-content;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    text-align: center;
-    margin-bottom: 0px;
-  }
-}
-
 .home-container {
   display: flex;
   flex-direction: row;
@@ -2352,161 +2272,6 @@ main section:last-of-type {
   top: 50%;
   left: 50%;
   translate: -50% -50%;
-}
-
-@media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: 1024px) {
-  .ResponsiveNavigation {
-    justify-content: space-around;
-    align-items: center;
-    position: absolute;
-    display: flex;
-    flex-direction: row;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
-    z-index: 999;
-    padding: 10px 5%;
-  }
-
-  .ResponsiveImage {
-    width: 100px;
-    height: auto;
-    object-fit: scale-down;
-    justify-content: flex-start;
-    align-items: center;
-    margin-right: auto;
-    display: flex;
-  }
-
-  .ResponsiveNavigationControl {
-    width: 100px;
-    height: auto;
-    justify-content: flex-end;
-    align-items: center;
-    margin-left: auto;
-    display: flex;
-  }
-
-  .ResponsiveIcons.active {
-    width: 30px;
-    height: auto;
-    object-fit: scale-down;
-    color: var(--primary-color);
-    display: flex;
-    gap: 0.5em;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .ResponsiveIcons.active p {
-    padding-bottom: 0px;
-    margin-bottom: 0px;
-  }
-
-  .ResponsiveIcons {
-    width: 30px;
-    height: auto;
-    object-fit: scale-down;
-    color: var(--primary-color);
-    display: none;
-    cursor: pointer;
-  }
-
-  .responsiveMenuList.active {
-    padding: 25px;
-    position: fixed;
-    z-index: 999;
-    top: 0;
-    left: 0%;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    max-width: 60%;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-direction: column;
-    background-color: var(--tertiary-on-color);
-    gap: 1em;
-    transition: all 0.9s ease;
-  }
-
-  .responsiveMenuList {
-    position: absolute;
-    z-index: 999;
-    top: 0%;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    max-width: 50%;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    background-color: var(--tertiary-color);
-    gap: 1em;
-    transition: all 0.9s ease;
-  }
-
-  .responsiveMenuList li {
-    width: 100%;
-    list-style: none;
-  }
-
-  .responsiveMenuList li.active {
-    border-radius: 5px;
-    padding: 5px 10px;
-    background-color: var(--tertiary-color);
-  }
-
-  .responsiveMenuList li.active a {
-    font-weight: 600;
-    color: var(--tertiary-on-color);
-  }
-
-  .responsiveMenuList li a {
-    width: 100% !important;
-    display: flex;
-    text-decoration: none;
-    font-size: var(--text);
-    color: var(--tertiary-color);
-  }
-
-  .MenuHeader {
-    font-size: var(--small-text);
-    color: var(--tertiary-color);
-    letter-spacing: 10px;
-    margin-bottom: 25%;
-  }
-}
-
-@media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: 912px) {
-  .service-content-container h2 {
-    font-size: var(--mini-text);
-  }
-
-  .home-about {
-    flex-direction: column;
-  }
-
-  .home-about-content {
-    padding-left: 0px;
-  }
-
-  .home-about-grid {
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .home-about-grid-item-image:last-child {
-    display: none;
-  }
 }
 
 #smooth-wrapper {
@@ -4631,6 +4396,35 @@ main section:last-of-type {
     padding: 5%;
   }
 
+  .ResourcesHeaderContainerContent {
+    padding: 5%;
+  }
+
+  .ResourcesImageSection {
+    padding: 5%;
+  }
+
+  .ResourcesSectionHeaderExtra {
+    padding: 5%;
+  }
+
+  .ResourcesSectionHeader {
+    padding: 0 5%;
+  }
+
+  .ResourcesSectionAccordions {
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+  }
+
+  .ResourcesBanner {
+    padding: 5%;
+  }
+
+  .ResourcesFAQSection {
+    padding: 5%;
+  }
+
   .AdvanceFlexCtnBoxCtnRow {
     gap: 1em;
     flex-direction: column;
@@ -4807,6 +4601,54 @@ main section:last-of-type {
     width: 100%;
   }
 
+  .ResourcesSectionAccordions {
+    width: 100%;
+  }
+
+  .ResourcesHeaderContainerContent {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
+
+  .ResourcesSectionHeader {
+    gap: 1em;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .ResourcesSectionHeader h2 {
+    width: 100%;
+  }
+
+  .ResourcesSectionHeader P {
+    width: 100%;
+  }
+
+  .ResourcesSectionSpacerBottom {
+    height: 40vh;
+  }
+
+  .ResourcesBanner {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .ResourcesBannerContentFlex h2 {
+    width: 100%;
+  }
+
+  .ResourcesFAQSection {
+    gap: 1em;
+    flex-direction: column;
+  }
+
+  .ResourcesFAQLeft {
+    width: 100%;
+  }
+
   .AboutGrid {
     width: 100%;
     display: flex;
@@ -4977,9 +4819,215 @@ main section:last-of-type {
   .FlexCtnBoxCtnRowContent h2 {
     width: 100%;
   }
+
+  .ResponsiveNavigation {
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 999;
+    padding: 10px 5%;
+  }
+
+  .ResponsiveImage {
+    width: 100px;
+    height: auto;
+    object-fit: scale-down;
+    justify-content: flex-start;
+    align-items: center;
+    margin-right: auto;
+    display: flex;
+  }
+
+  .ResponsiveNavigationControl {
+    width: 100px;
+    height: auto;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: auto;
+    display: flex;
+  }
+
+  .ResponsiveIcons.active {
+    width: 30px;
+    height: auto;
+    object-fit: scale-down;
+    color: var(--primary-color);
+    display: flex;
+    gap: 0.5em;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ResponsiveIcons.active p {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+  }
+
+  .ResponsiveIcons {
+    width: 30px;
+    height: auto;
+    object-fit: scale-down;
+    color: var(--primary-color);
+    display: none;
+    cursor: pointer;
+  }
+
+  .responsiveMenuList.active {
+    padding: 25px;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0%;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    max-width: 60%;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    background-color: var(--tertiary-on-color);
+    gap: 1em;
+    transition: all 0.9s ease;
+  }
+
+  .responsiveMenuList {
+    position: absolute;
+    z-index: 999;
+    top: 0%;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    max-width: 50%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--tertiary-color);
+    gap: 1em;
+    transition: all 0.9s ease;
+  }
+
+  .responsiveMenuList li {
+    width: 100%;
+    list-style: none;
+  }
+
+  .responsiveMenuList li.active {
+    border-radius: 5px;
+    padding: 5px 10px;
+    background-color: var(--tertiary-color);
+  }
+
+  .responsiveMenuList li.active a {
+    font-weight: 600;
+    color: var(--tertiary-on-color);
+  }
+
+  .responsiveMenuList li a {
+    width: 100% !important;
+    display: flex;
+    text-decoration: none;
+    font-size: var(--text);
+    color: var(--tertiary-color);
+  }
+
+  .MenuHeader {
+    font-size: var(--small-text);
+    color: var(--tertiary-color);
+    letter-spacing: 10px;
+    margin-bottom: 25%;
+  }
+
+  .FlexCtnBoxCtn {
+    flex-direction: column;
+  }
+
+  .FlexCtnBoxCtnRow {
+    flex-direction: column;
+  }
+
+  .FlexCtnBoxCtnImg {
+    max-width: 100%;
+  }
+
+  .FlexCtnBoxCtnRowContent h3 {
+    font-size: var(--small-text);
+    margin: 15px 0 0 0;
+  }
+
+  .FormSelection {
+    flex-direction: column;
+  }
+
+  .FormZones {
+    flex-wrap: wrap;
+  }
+
+  .ContentCtn-Center h1 {
+    color: var(--primary-color);
+    font-size: var(--medium-text);
+    max-width: 100%;
+  }
+
+  .ContentCtn-Center p {
+    color: var(--primary-color);
+    font-size: var(--text);
+    font-weight: 400;
+    max-width: 100%;
+  }
+
+  .OpportunityAppFooter h2 {
+    font-size: var(--mini-text);
+    max-width: 100%;
+  }
+
+  .OpportunityAppFooter p {
+    max-width: 100%;
+  }
+
+  nav {
+    display: none;
+  }
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: 912px) {
+  .service-content-container h2 {
+    font-size: var(--mini-text);
+  }
+
+  .ResourcesHeaderContainerContent h1 {
+    font-size: var(--mega-text);
+  }
+
+  .home-about {
+    flex-direction: column;
+  }
+
+  .home-about-content {
+    padding-left: 0px;
+  }
+
+  .home-about-grid {
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .home-about-grid-item-image:last-child {
+    display: none;
+  }
+
   .AboutHeader {
     height: 100vh;
   }
@@ -5078,6 +5126,31 @@ main section:last-of-type {
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: 768px) {
+  .FormCtn {
+    justify-content: center;
+  }
+
+  .home-about-grid-item {
+    width: auto !important;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 100%;
+  }
+
+  .home-about-grid {
+    align-items: flex-start;
+  }
+
+  .home-about-grid-item h2 {
+    width: max-content;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    margin-bottom: 0px;
+  }
+
   .ContentCtn-Center {
     padding-left: 5%;
     padding-right: 5%;
@@ -5099,6 +5172,51 @@ main section:last-of-type {
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: 600px) {
+  .ResourcesHeaderContainerContent {
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  .ResourcesHeaderContainerContent h1 {
+    font-size: var(--mini-text);
+  }
+
+  .ResourcesImageSection h2 {
+    font-size: var(--small-text);
+  }
+
+  .ResourcesSectionHeader h2 {
+    font-size: var(--small-text);
+  }
+
+  .ResourcesSectionAccordion h3 {
+    font-size: var(--small-text);
+  }
+
+  .ResourcesHeaderContainerContent p {
+    line-height: revert;
+  }
+
+  .ResourcesBannerContentFlexSpan {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .ResourcesBannerContentBoxItem h4 {
+    font-size: var(--small-text);
+  }
+
+  .ResourcesFAQLeft h2 {
+    font-size: var(--small-text);
+  }
+
+  .ResourcesFAQItemHeader h4 {
+    font-size: var(--text);
+  }
+
+  .ResourcesFAQLeft p {
+    line-height: revert;
+  }
+
   .home-services {
     justify-content: center;
     align-items: center;
@@ -5453,6 +5571,19 @@ main section:last-of-type {
   .ApplicationChartContentContainer {
     height: 500px;
     max-height: 500px;
+  }
+
+  .ResourceSectionSpanContainer {
+    flex-wrap: wrap;
+    display: flex;
+  }
+
+  .ResourcesSectionAccordions {
+    height: auto !important;
+  }
+
+  .ResourcesSectionSpacerBottom {
+    display: none;
   }
 }
 
