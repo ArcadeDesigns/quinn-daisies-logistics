@@ -92,7 +92,7 @@ export default function Navbar() {
         </ul>
       </nav>
 
-      <div className="ResponsiveNavigation">
+      <div className={`ResponsiveNavigation ${isScrolled ? "Scroll" : ""}`}>
         <Link className="Navbar-Logo" to="/">
           <img
             src="https://res.cloudinary.com/renaissance-images/image/upload/v1761785344/QuinnDaisies/Quinndaisies_rn3j1l.svg"
@@ -115,7 +115,7 @@ export default function Navbar() {
         <li className={isHomeActive ? "active" : ""}>
           <Link to="/">Home</Link>
         </li>
-         <li className={isServiceActive ? "active" : ""}>
+        <li className={isServiceActive ? "active" : ""}>
           <Link to="/quinn-daisies/services">Our Service</Link>
         </li>
         <li className={isAboutActive ? "active" : ""}>
@@ -126,23 +126,25 @@ export default function Navbar() {
         </li>
         <li className={isQuoteActive ? "active" : ""}>
           <Link to="/get-a-quote">Get Quotes</Link>
-        </li>      
+        </li>
         <li className={isContactActive ? "active" : ""}>
           <Link to="/quinn-daisies/contact-us">Contact Us</Link>
         </li>
 
-         <li className={isContactActive ? "active" : ""}>
-          <Link to="/login">Login Account</Link>
-        </li>
-        <li>
-          <a
-            href="https://calendly.com/quinndaisies-info/meeting"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Consultation
-          </a>
-        </li>
+        <div className="ResponsiveMenuBottom">
+          <li className={isContactActive ? "active" : ""}>
+            <Link to="/login">Login Account</Link>
+          </li>
+          <li>
+            <a
+              href="https://calendly.com/quinndaisies-info/meeting"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Consultation
+            </a>
+          </li>
+        </div>
       </ul>
     </>
   );
