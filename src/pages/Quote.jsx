@@ -37,27 +37,6 @@ export default function Quote() {
     });
   }, []);
 
-  const industries = [
-    {
-      title: "Integrity",
-      description:
-        "No hidden fees. No vague timelines. We operate with complete transparency — what we commit to, we deliver.",
-      icon: "person_shield",
-    },
-    {
-      title: "Excellence",
-      description:
-        "Every shipment receives the same level of care and professionalism, regardless of size or destination.",
-      icon: "workspace_premium",
-    },
-    {
-      title: "Reliability",
-      description:
-        "Our clients trust us because we show up — on time, prepared, and accountable — every single time.",
-      icon: "assured_workload",
-    },
-  ];
-
   return (
     <>
       <Helmet>
@@ -94,95 +73,78 @@ export default function Quote() {
         <Navbar />
 
         {/* ========== HERO SECTION ========== */}
-        <section className="AboutHeaderCtn">
-          <img
-            src="https://res.cloudinary.com/renaissance-images/image/upload/v1778592660/QuinnDaisies/4427_wohgvl.jpg"
-            alt="Quinn Daisies Logistics"
-            className="BackgroundImagePosition"
-          />
+        <section className="QuoteContainer">
+          <div className="QuoteContentSection">
+            <img
+              src="https://res.cloudinary.com/renaissance-images/image/upload/v1778448422/2152005451_ijeqyj.jpg"
+              alt="Quinn Daisies Logistics"
+              className="QuoteBackgroundImage"
+            />
 
-          <div className="AboutHeader">
-            <div className="AboutHeaderContent">
-              <h1 className="reveal__top">Discuss Your Logistics Needs</h1>
-              <p className="reveal__bottom">
-                Tell us what you need to move and we’ll provide a customized
-                shipping solution with transparent pricing and expert
-                coordination.
-              </p>
-            </div>
-
-            <div className="QuoteFlexCtnBoxCtn">
-              <div className="FlexCtnBox reveal__bottom__interval">
-                <img
-                  src="https://res.cloudinary.com/quinn-daisies-platform/image/upload/v1744489937/Quinn%20Daisies%20Logistics/At_sign_nmfgl9.png"
-                  alt="Quinn Daisies Images"
-                ></img>
-                <div className="FlexCtnBoxContent">
-                  <h3>Reach Out</h3>
-                  <a
-                    href="https://mail.google.com/mail/?view=cm&fs=1&to=info@quinndaisies.com"
-                    target="_blank"
-                  >
-                    info@quinndaisies.com
-                  </a>
-                </div>
+            <div className="QuoteContentOverlay">
+              <div className="QuoteHeaderContent">
+                <h1 className="reveal__top">Discuss Your Logistics Needs</h1>
+                <p className="reveal__bottom">
+                  Tell us what you need to move and we’ll provide a customized
+                  shipping solution with transparent pricing and expert
+                  coordination.
+                </p>
               </div>
 
-              <div className="FlexCtnBox reveal__bottom__interval">
-                <img
-                  src="https://res.cloudinary.com/quinn-daisies-platform/image/upload/v1744489937/Quinn%20Daisies%20Logistics/At_sign_nmfgl9.png"
-                  alt="Quinn Daisies Images"
-                ></img>
-                <div className="FlexCtnBoxContent">
-                  <h3>Contact Sales</h3>
-                  <a
-                    href="https://mail.google.com/mail/?view=cm&fs=1&to=sales@quinndaisies.com"
-                    target="_blank"
-                  >
-                    sales@quinndaisies.com
-                  </a>
-                </div>
-              </div>
-
-              <div className="FlexCtnBox reveal__bottom__interval">
-                <img
-                  src="https://res.cloudinary.com/quinn-daisies-platform/image/upload/v1744489969/Quinn%20Daisies%20Logistics/Location_fwlj2t.png"
-                  alt="Quinn Daisies Images"
-                ></img>
-                <div className="FlexCtnBoxContent">
-                  <h3>Address</h3>
-                  <a
-                    href="https://maps.app.goo.gl/swpx8XwaJAT22RGq8"
-                    target="_blank"
-                  >
-                    1915 Wetterhorn Ct, Frederick County, Maryland, United
-                    States, 21702
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <Form />
-
-            <div className="ExtraAboutGrid">
-              {industries.map((industry) => (
-                <div
-                  className="AboutGridBox reveal__bottom__interval"
-                  key={industry.title}
-                >
-                  <span className="material-symbols-outlined IconDesign">
-                    {industry.icon}
-                  </span>
-                  <div className="ServiceListBoxContent">
-                    <h4>{industry.title}</h4>
-                    <p className="ServiceListBoxContentText">
-                      {industry.description}
-                    </p>
+              <div className="QuoteFlexCtnBoxCtn">
+                <div className="FlexCtnBox reveal__bottom__interval">
+                  <img
+                    src="https://res.cloudinary.com/quinn-daisies-platform/image/upload/v1744489937/Quinn%20Daisies%20Logistics/At_sign_nmfgl9.png"
+                    alt="Quinn Daisies Images"
+                  ></img>
+                  <div className="FlexCtnBoxContent">
+                    <h3>Reach Out</h3>
+                    <a
+                      href="https://mail.google.com/mail/?view=cm&fs=1&to=info@quinndaisies.com"
+                      target="_blank"
+                    >
+                      info@quinndaisies.com
+                    </a>
                   </div>
                 </div>
-              ))}
+
+                <div className="FlexCtnBox reveal__bottom__interval">
+                  <img
+                    src="https://res.cloudinary.com/quinn-daisies-platform/image/upload/v1744489937/Quinn%20Daisies%20Logistics/At_sign_nmfgl9.png"
+                    alt="Quinn Daisies Images"
+                  ></img>
+                  <div className="FlexCtnBoxContent">
+                    <h3>Contact Sales</h3>
+                    <a
+                      href="https://mail.google.com/mail/?view=cm&fs=1&to=sales@quinndaisies.com"
+                      target="_blank"
+                    >
+                      sales@quinndaisies.com
+                    </a>
+                  </div>
+                </div>
+
+                <div className="FlexCtnBox reveal__bottom__interval">
+                  <img
+                    src="https://res.cloudinary.com/quinn-daisies-platform/image/upload/v1744489969/Quinn%20Daisies%20Logistics/Location_fwlj2t.png"
+                    alt="Quinn Daisies Images"
+                  ></img>
+                  <div className="FlexCtnBoxContent">
+                    <h3>Address</h3>
+                    <a
+                      href="https://maps.app.goo.gl/swpx8XwaJAT22RGq8"
+                      target="_blank"
+                    >
+                      1915 Wetterhorn Ct, Frederick County, Maryland, United
+                      States, 21702
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+
+          <Form />
         </section>
 
         <iframe

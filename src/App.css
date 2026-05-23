@@ -766,6 +766,7 @@ hr {
   justify-content: center;
   align-items: center;
   display: flex;
+  padding: 5% 10%;
 }
 
 .FormPosition .FormImage {
@@ -4523,6 +4524,78 @@ main section:last-of-type {
   color: var(--tertiary-color);
 }
 
+.QuoteContainer {
+  width: 100%;
+  height: auto;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.QuoteContentSection {
+  gap: 1em;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.QuoteHeaderContent h1 {
+  color: var(--tertiary-color);
+  width: 35%;
+  text-align: center;
+}
+
+.QuoteHeaderContent p {
+  color: var(--primary-color);
+  width: 40%;
+  text-align: center;
+}
+
+.QuoteContentOverlay {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+    padding: 5% 10%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.QuoteHeaderContent {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.QuoteBackgroundImage {
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  object-fit: cover;
+}
+
+.QuoteContentFooterSection {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+  gap: 1em;
+  position: relative;
+}
+
 @media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: 1280px) {
   :root {
     --header: 2em;
@@ -4596,6 +4669,14 @@ main section:last-of-type {
   }
 
   .FlexCtnBoxCtn {
+    padding: 5%;
+  }
+
+  .FormPosition {
+    padding: 5%;
+  }
+
+  .QuoteContentOverlay {
     padding: 5%;
   }
 
@@ -4742,6 +4823,14 @@ main section:last-of-type {
     width: 70%;
   }
 
+  .QuoteHeaderContent h1 {
+    width: 100%;
+  }
+
+  .QuoteHeaderContent p {
+    width: 70%;
+  }
+
   .FlexCtnBoxCtnRowContent h2 {
     margin: 0px;
   }
@@ -4812,6 +4901,20 @@ main section:last-of-type {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+  }
+
+  
+  .QuoteFlexCtnBoxCtn {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  
+  .FlexCtnBox {
+    width: 450px;
   }
 
   .AboutGridBox {
@@ -5339,15 +5442,23 @@ main section:last-of-type {
   .QuoteFlexCtnBoxCtn {
     flex-wrap: wrap;
     display: flex;
-    margin: auto;
+    margin: 0 auto;
     align-items: center;
     justify-content: center;
+  }
+
+  .FormCtnHeader p {
+    width: 100%;
+  }
+
+  .BookShipmentHeader p {
+    width: 100%;
   }
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: 768px) {
   .FlexCtnBox {
-    width: 300px;
+    width: 330px;
   }
 
   .FormCtn {
