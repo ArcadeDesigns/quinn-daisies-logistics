@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import ScrollReveal from "scrollreveal";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import Slide from "./components/Home/Slide";
 import Advert from "./components/Home/Advert";
@@ -18,16 +18,117 @@ import useSmoothScroll from "../hooks/useSmoothScroll";
 import usePinnedSlides from "../hooks/usePinnedSlides";
 import { industrySlides } from "../data/industrySlides";
 
-const bgImages = [
-  "https://res.cloudinary.com/quinn-daisies-platform/image/upload/v1729542859/Quinn%20Daisies%20Logistics/technological-futuristic-holograms-logistics-means-transport_itrxu8.jpg",
-  "https://res.cloudinary.com/quinn-daisies-platform/image/upload/v1729542805/Quinn%20Daisies%20Logistics/logistics-means-transport-together-with-technological-futuristic-holograms_2_lb4ten.jpg",
-  "https://res.cloudinary.com/quinn-daisies-platform/image/upload/v1730132938/Quinn%20Daisies%20Logistics/transport-logistics-concept_2_thjbc1.jpg",
+// ─── Hero Slides Data ────────────────────────────────────────────────────────
+// Each slide has its own eyebrow span, headline, paragraph, and two
+// background images that are displayed in the existing BackgroundImage grid.
+const heroSlides = [
+  {
+    span: "Reliable Logistics Solutions Tailored for You",
+    h1: "Discover How We Can Support Your Shipping Needs",
+    p: "We are dedicated to providing exceptional logistics services that emphasize safety, efficiency, and timely delivery. Our goal is to simplify your shipping experience—locally and globally—through innovative, customer-focused solutions.",
+    images: [
+      "https://res.cloudinary.com/quinn-daisies-platform/image/upload/v1729542859/Quinn%20Daisies%20Logistics/technological-futuristic-holograms-logistics-means-transport_itrxu8.jpg",
+      "https://res.cloudinary.com/quinn-daisies-platform/image/upload/v1729542805/Quinn%20Daisies%20Logistics/logistics-means-transport-together-with-technological-futuristic-holograms_2_lb4ten.jpg",
+      "https://res.cloudinary.com/quinn-daisies-platform/image/upload/v1730132938/Quinn%20Daisies%20Logistics/transport-logistics-concept_2_thjbc1.jpg",
+    ],
+  },
+  {
+    span: "End-to-End Freight Management, Simplified",
+    h1: "From Pickup to Final Delivery — We Handle Every Step",
+    p: "Whether you're moving goods across continents or clearing customs under tight deadlines, Quinn Daisies provides structured coordination, compliance review, and dedicated support throughout your entire supply chain.",
+    images: [
+      "https://res.cloudinary.com/renaissance-images/image/upload/v1778362101/QuinnDaisies/2151989565_gwpjcm.jpg",
+      "https://res.cloudinary.com/renaissance-images/image/upload/v1778444165/2151468852_krro1f.jpg",
+      "https://res.cloudinary.com/renaissance-images/image/upload/v1778444165/2151541845_zbq5lg.jpg",
+    ],
+  },
+  {
+    span: "Cross-Border Expertise You Can Rely On",
+    h1: "Need Help Expanding Into New Markets?",
+    p: "With operational presence across Nigeria and the United States, Quinn Daisies gives growing businesses the infrastructure, documentation expertise, and market-entry logistics to move with confidence — wherever trade takes you.",
+    images: [
+      "https://res.cloudinary.com/renaissance-images/image/upload/v1778444172/2151468840_wefsks.jpg",
+      "https://res.cloudinary.com/renaissance-images/image/upload/v1778448422/2152005451_ijeqyj.jpg",
+      "https://res.cloudinary.com/renaissance-images/image/upload/v1778448423/2152005465_splnhk.jpg",
+    ],
+  },
 ];
+
+// ─── Slide interval (ms) ─────────────────────────────────────────────────────
+const SLIDE_INTERVAL = 3000;
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
   useSmoothScroll();
+
+  // ── Hero slide state ────────────────────────────────────────────────────
+  const [activeSlide, setActiveSlide] = useState(0);
+  const activeSlideRef = useRef(0); // stable ref for the interval closure
+  const heroContentRef = useRef(null); // wraps span + h1 + p
+  const heroBgRef = useRef(null); // wraps the BackgroundImage div
+  const isAnimatingRef = useRef(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (isAnimatingRef.current) return;
+      isAnimatingRef.current = true;
+
+      const next = (activeSlideRef.current + 1) % heroSlides.length;
+
+      const tl = gsap.timeline({
+        onComplete: () => {
+          isAnimatingRef.current = false;
+        },
+      });
+
+      // Phase 1 — fade + slide out current content & images
+      tl.to(heroContentRef.current, {
+        opacity: 0,
+        y: -40,
+        duration: 0.45,
+        ease: "power2.in",
+      }).to(
+        heroBgRef.current,
+        {
+          opacity: 0,
+          scale: 1.04,
+          duration: 0.45,
+          ease: "power2.in",
+        },
+        "<",
+      );
+
+      // Phase 2 — swap content in state (DOM update happens here)
+      tl.add(() => {
+        activeSlideRef.current = next;
+        setActiveSlide(next);
+      });
+
+      // Phase 3 — small pause then fade + slide in new content & images
+      tl.set(heroContentRef.current, { y: 50 })
+        .to(heroContentRef.current, {
+          opacity: 1,
+          y: 0,
+          duration: 0.55,
+          ease: "power3.out",
+        })
+        .to(
+          heroBgRef.current,
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 0.55,
+            ease: "power3.out",
+          },
+          "<",
+        );
+    }, SLIDE_INTERVAL);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  // Refs for other sections
   const carouselSectionRef = useRef(null);
   const carouselStripRef = useRef(null);
   const containerRef = useRef(null);
@@ -36,10 +137,8 @@ export default function Home() {
   const smoothWrapperRef = useRef(null);
   const smoothContentRef = useRef(null);
 
-  // ✅ Apply animation
   usePinnedSlides(imagePinRef);
 
-  // Smooth scroll should be created before the other ScrollTriggers.
   useGSAP(
     () => {
       if (!smoothWrapperRef.current || !smoothContentRef.current)
@@ -166,11 +265,9 @@ export default function Home() {
     },
   ];
 
-  // ApplicationBox stagger animation
   useGSAP(
     () => {
       const boxes = gsap.utils.toArray(".ApplicationBox");
-
       boxes.forEach((box) => {
         gsap.to(box, {
           y: 0,
@@ -186,12 +283,10 @@ export default function Home() {
     { scope: containerRef },
   );
 
-  // Horizontal carousel animation
   useGSAP(
     () => {
       const section = carouselSectionRef.current;
       const strip = carouselStripRef.current;
-
       if (!section || !strip) return;
 
       const getScrollAmount = () => -(strip.scrollWidth - window.innerWidth);
@@ -216,6 +311,9 @@ export default function Home() {
     { scope: carouselSectionRef },
   );
 
+  // ── Convenience: current slide data ────────────────────────────────────
+  const currentSlide = heroSlides[activeSlide];
+
   return (
     <>
       <Helmet>
@@ -231,7 +329,6 @@ export default function Home() {
           rel="og:canonical"
           href="https://www.logistics.quinndaisies.com"
         />
-
         <meta
           property="og:title"
           content="Quinn Daisies Logistics | Professional Logistics & Shipping Solutions"
@@ -250,7 +347,6 @@ export default function Home() {
           content="https://res.cloudinary.com/quinn-daisies-platform/image/upload/v1718651332/Quinn_Daisies_Blog/logo1_y3fmfr.svg"
         />
         <meta name="robots" content="index, follow" />
-
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
@@ -260,12 +356,10 @@ export default function Home() {
           name="twitter:description"
           content="Quinn Daisies Logistics provides professional shipping, packaging, and international logistics solutions. Expert consultation and customs clearance services available."
         />
-
         <meta
           name="twitter:image"
           content="https://res.cloudinary.com/quinn-daisies-platform/image/upload/v1718651332/Quinn_Daisies_Blog/logo1_y3fmfr.svg"
         />
-
         <meta
           name="keywords"
           content="Expert logistics solutions including international shipping, packaging services, customs clearance, and importation services across 150+ countries."
@@ -274,7 +368,6 @@ export default function Home() {
           name="og:keywords"
           content="Expert logistics solutions including international shipping, packaging services, customs clearance, and importation services across 150+ countries."
         />
-
         <meta name="author" content="Ebire Folayemi Michael" />
         <meta name="revised" content="12th of April 2025" />
       </Helmet>
@@ -284,46 +377,106 @@ export default function Home() {
 
         <div id="smooth-wrapper" ref={smoothWrapperRef}>
           <div id="smooth-content" ref={smoothContentRef}>
+            {/* ══════════════════════════════════════════════════════════════
+                HERO SECTION — animated text + background images
+            ══════════════════════════════════════════════════════════════ */}
             <section className="OpportunityAppCtn">
               <div className="OpportunityAppHeader">
-                <div className="ContentCtn-Center">
-                  <span className="ContentCtn-Center-Span reveal__top">
-                    Reliable Logistics Solutions Tailored for You
+                {/* ── Animated text content ── */}
+                <div className="ContentCtn-Center" ref={heroContentRef}>
+                  <span className="ContentCtn-Center-Span">
+                    {currentSlide.span}
                   </span>
-                  <h1 className="reveal__left">
-                    Discover How We Can Support Your Shipping Needs
-                  </h1>
-                  <p className="reveal__right">
-                    We are dedicated to providing exceptional logistics services
-                    that emphasize safety, efficiency, and timely delivery. Our
-                    goal is to simplify your shipping experience—locally and
-                    globally—through innovative, customer-focused solutions.
-                  </p>
+                  <h1>{currentSlide.h1}</h1>
+                  <p>{currentSlide.p}</p>
+                </div>
+
+                {/* ── Slide indicator dots ── */}
+                <div className="HeroSlideIndicators">
+                  {heroSlides.map((_, i) => (
+                    <button
+                      key={i}
+                      className={`HeroSlideIndicatorDot${i === activeSlide ? " is-active" : ""}`}
+                      aria-label={`Go to slide ${i + 1}`}
+                      onClick={() => {
+                        if (
+                          isAnimatingRef.current ||
+                          i === activeSlideRef.current
+                        )
+                          return;
+                        isAnimatingRef.current = true;
+
+                        const tl = gsap.timeline({
+                          onComplete: () => {
+                            isAnimatingRef.current = false;
+                          },
+                        });
+
+                        tl.to(heroContentRef.current, {
+                          opacity: 0,
+                          y: -40,
+                          duration: 0.45,
+                          ease: "power2.in",
+                        })
+                          .to(
+                            heroBgRef.current,
+                            {
+                              opacity: 0,
+                              scale: 1.04,
+                              duration: 0.45,
+                              ease: "power2.in",
+                            },
+                            "<",
+                          )
+                          .add(() => {
+                            activeSlideRef.current = i;
+                            setActiveSlide(i);
+                          })
+                          .set(heroContentRef.current, { y: 50 })
+                          .to(heroContentRef.current, {
+                            opacity: 1,
+                            y: 0,
+                            duration: 0.55,
+                            ease: "power3.out",
+                          })
+                          .to(
+                            heroBgRef.current,
+                            {
+                              opacity: 1,
+                              scale: 1,
+                              duration: 0.55,
+                              ease: "power3.out",
+                            },
+                            "<",
+                          );
+                      }}
+                    />
+                  ))}
                 </div>
 
                 <div className="SingleBtnCtn-Center reveal__bottom">
                   <Link className="ApplicationButton" to="/get-a-quote">
                     Request a Personalized Quote
-                    <span class="material-symbols-outlined">
+                    <span className="material-symbols-outlined">
                       globe_location_pin
                     </span>
                   </Link>
                 </div>
               </div>
 
-              {bgImages.length > 0 && (
-                <div className="BackgroundImage">
-                  {bgImages.map((img, index) => (
-                    <img
-                      className="reveal__bottom__interval"
-                      key={index}
-                      src={img}
-                      alt={`Background ${index + 1}`}
-                    />
-                  ))}
-                </div>
-              )}
+              {/* ── Animated background images ── */}
+              <div className="BackgroundImage" ref={heroBgRef}>
+                {currentSlide.images.map((img, index) => (
+                  <img
+                    key={`${activeSlide}-${index}`}
+                    src={img}
+                    alt={`Quinn Daisies Logistics — slide ${activeSlide + 1}, image ${index + 1}`}
+                  />
+                ))}
+              </div>
             </section>
+
+            {/* ── All remaining sections are unchanged ─────────────────── */}
 
             <section className="sectionBox" ref={containerRef}>
               <div className="SectionHeader">
@@ -335,15 +488,14 @@ export default function Home() {
               <div className="ApplicationContainer">
                 {solutions.map((item, index) => (
                   <div className="ApplicationBox" key={index}>
-                    <span class="BoxIcon material-symbols-outlined">
+                    <span className="BoxIcon material-symbols-outlined">
                       {item.icon}
                     </span>
                     <h3>{item.title}</h3>
                     <p>{item.text}</p>
-
                     <Link className="ApplicationButton" to={item.link}>
                       Learn More Here
-                      <span class="material-symbols-outlined">
+                      <span className="material-symbols-outlined">
                         globe_location_pin
                       </span>
                     </Link>
@@ -355,7 +507,6 @@ export default function Home() {
             <section className="ApplicationImageDesign" ref={imagePinRef}>
               <div className="ApplicationChartContentListContainer">
                 <div className="fill"></div>
-
                 <div className="ApplicationChartContentList">
                   <h2 className="ApplicationImageDesignHeader reveal__bottom__interval_slide">
                     Built for reliability, visibility, and vendor confidence
@@ -388,15 +539,13 @@ export default function Home() {
                           src={item.image}
                           alt={item.title}
                         />
-
                         <div className="ApplicationChartContentContainerContent">
                           <p className="ApplicationChartContentContainerContentText">
                             {item.description}
                           </p>
-
                           <Link className="ApplicationButton" to={item.link}>
                             Learn More Here
-                            <span class="material-symbols-outlined">
+                            <span className="material-symbols-outlined">
                               globe_location_pin
                             </span>
                           </Link>
@@ -419,7 +568,6 @@ export default function Home() {
                     We Solve the Problem of Fragmented Restocking and Unreliable
                     Import Coordination
                   </h2>
-
                   <div className="ApplicationCarouselContainer reveal__right">
                     <p className="ApplicationCarouselContainerText">
                       For many African food retailers, specialty grocers,
@@ -446,14 +594,12 @@ export default function Home() {
                         clarity.
                       </p>
                     </div>
-
                     <div className="ApplicationCarouselSlideBoxImage">
                       <img
                         src="https://res.cloudinary.com/renaissance-images/image/upload/v1761835851/QuinnDaisies/165478_jbtjkf.jpg"
                         alt="Quinn Daisies"
                       />
                     </div>
-
                     <div className="ApplicationCarouselSlideBox">
                       <h4>Poor landed-cost visibility</h4>
                       <p>
@@ -461,7 +607,6 @@ export default function Home() {
                         delivery to support better planning and decision-making.
                       </p>
                     </div>
-
                     <div className="ApplicationCarouselSlideBox">
                       <h4>Documentation errors</h4>
                       <p>
@@ -469,7 +614,6 @@ export default function Home() {
                         can delay imports and increase compliance risk.
                       </p>
                     </div>
-
                     <div className="ApplicationCarouselSlideBox">
                       <h4>Stock-out pressure</h4>
                       <p>
@@ -477,7 +621,6 @@ export default function Home() {
                         vendors avoid delays, shortages, and lost sales.
                       </p>
                     </div>
-
                     <div className="ApplicationCarouselSlideBox">
                       <h4>Delivery uncertainty</h4>
                       <p>
@@ -517,14 +660,12 @@ export default function Home() {
                     alt="Quinn Daisies"
                   />
                 </div>
-
                 <div className="SectionBoxLarge reveal__bottom">
                   <img
                     src="https://res.cloudinary.com/renaissance-images/image/upload/v1761822587/QuinnDaisies/10382_ixmdn7.jpg"
                     alt="Quinn Daisies"
                   />
                 </div>
-
                 <div className="SectionBoxSmall reveal__top">
                   <p>
                     Quinndaisies supports growing businesses with the
@@ -532,10 +673,9 @@ export default function Home() {
                     structure needed to move into the U.S. with greater clarity
                     and control.
                   </p>
-
                   <Link className="ApplicationButton" to="/">
                     Learn More Here
-                    <span class="material-symbols-outlined">
+                    <span className="material-symbols-outlined">
                       globe_location_pin
                     </span>
                   </Link>
@@ -549,7 +689,6 @@ export default function Home() {
                   src="https://res.cloudinary.com/renaissance-images/image/upload/v1775604123/QuinnDaisies/future-visions-business-technology-concept_ehpo8p.jpg"
                   alt="Quinn Daisies"
                 />
-
                 <div className="ApplicationBannerOverlay">
                   <h2>
                     Need Deep Technical Expertise Supporting Modern Systems
@@ -558,10 +697,9 @@ export default function Home() {
                     Turn your professional, technical and strategic difficulties
                     into a competitive advantage with our expert solutions.
                   </p>
-
                   <Link className="ApplicationButton" to="/">
                     Learn More Here
-                    <span class="material-symbols-outlined">
+                    <span className="material-symbols-outlined">
                       globe_location_pin
                     </span>
                   </Link>

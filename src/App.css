@@ -4584,7 +4584,6 @@ main section:last-of-type {
 .QuoteBackgroundImage {
   width: 100%;
   height: 100%;
-  border-radius: 25px;
   object-fit: cover;
 }
 
@@ -4595,6 +4594,38 @@ main section:last-of-type {
   gap: 1em;
   position: relative;
 }
+
+.HeroSlideIndicators {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.HeroSlideIndicatorDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.HeroSlideIndicatorDot.is-active {
+  background: var(--tertiary-on-color);
+  border-color: var(--tertiary-color);
+  transform: scale(1.3);
+}
+
+.HeroSlideIndicatorDot:hover:not(.is-active) {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: 1280px) {
   :root {
@@ -5510,6 +5541,11 @@ main section:last-of-type {
   .ResponsiveNavigation.Scroll {
     position: fixed;
     background-color: var(--tertiary-on-color);
+  }
+  
+  .QuoteHeaderContent p {
+    width: 100%;
+    max-width: 100%;
   }
 
   .IntroAboutHeader {
