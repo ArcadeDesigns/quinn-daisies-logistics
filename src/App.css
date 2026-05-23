@@ -2536,15 +2536,49 @@ main section:last-of-type {
   overflow: hidden;
   position: relative;
   border-radius: 35px;
-  align-items: flex-end;
+  align-items: flex-start;
   flex-direction: column;
   justify-content: flex-end;
   background-color: var(--tertiary-on-color);
 }
 
+.ApplicationCarouselSlideBox #imgsvg {
+  margin-bottom: 15%;
+  object-fit: scale-down;
+  height: auto;
+  width: auto;
+  stroke: var(--tertiary-color);
+  fill-opacity: 0;
+  stroke-width: 1px;
+  stroke-dasharray: 4500;
+  animation: svgAnimation 20s ease infinite;
+}
+
+.ApplicationCarouselSlideBox:hover #imgsvg {
+  stroke: var(--tertiary-color);
+  fill-opacity: 0;
+  stroke-dasharray: 4500;
+  animation: svgAnimation 20s ease infinite;
+}
+
+@keyframes svgAnimation {
+  0% {
+    stroke-dashoffset: 4500;
+    fill-opacity: 0;
+  }
+  80% {
+    stroke-dashoffset: 2250;
+    fill-opacity: 0;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    fill-opacity: 1;
+  }
+}
+
 .ApplicationCarouselSlideBoxImage {
-  width: 800px;
-  min-width: 800px;
+  width: 1000px;
+  min-width: 1000px;
   height: 500px;
   display: flex;
   overflow: hidden;
@@ -2567,7 +2601,7 @@ main section:last-of-type {
 
 .ApplicationCarouselSlideBox p {
   color: var(--primary-color);
-  text-align: right;
+  text-align: left;
 }
 
 .Footer {
@@ -4568,7 +4602,7 @@ main section:last-of-type {
   position: absolute;
   top: 0;
   left: 0;
-    padding: 5% 10%;
+  padding: 5% 10%;
   background-color: rgba(0, 0, 0, 0.8);
 }
 
@@ -4612,7 +4646,10 @@ main section:last-of-type {
   background: transparent;
   cursor: pointer;
   padding: 0;
-  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
 }
 
 .HeroSlideIndicatorDot.is-active {
@@ -4625,7 +4662,6 @@ main section:last-of-type {
   background: var(--primary-color);
   border-color: var(--primary-color);
 }
-
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: 1280px) {
   :root {
@@ -4934,7 +4970,6 @@ main section:last-of-type {
     justify-content: center;
   }
 
-  
   .QuoteFlexCtnBoxCtn {
     width: 100%;
     display: flex;
@@ -4943,7 +4978,6 @@ main section:last-of-type {
     justify-content: center;
   }
 
-  
   .FlexCtnBox {
     width: 450px;
   }
@@ -5033,11 +5067,15 @@ main section:last-of-type {
     text-align: left;
   }
 
+  .ApplicationCarousel {
+    padding: 0% 5%;
+  }
+
   .ApplicationCarouselSlideBox {
     width: auto;
     min-width: auto;
     max-width: 350px;
-    height: 250px;
+    height: auto;
     padding: 25px;
     align-items: flex-start;
     justify-content: flex-start;
@@ -5542,7 +5580,7 @@ main section:last-of-type {
     position: fixed;
     background-color: var(--tertiary-on-color);
   }
-  
+
   .QuoteHeaderContent p {
     width: 100%;
     max-width: 100%;
