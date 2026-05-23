@@ -1,17 +1,17 @@
 import React from "react";
-import Box from "./components/Home/Box";
-import Header from "./components/Home/Header";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Box from "../components/Home/Box";
+import Header from "../components/Home/Header";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 import { Helmet } from "react-helmet-async";
-import Slide from "./components/Home/Slide";
-import useSmoothScroll from "../hooks/useSmoothScroll";
-import Carousel from "./components/Home/Carousel";
-import Advert from "./components/Home/Advert";
-import Banner from "./components/Home/Banner";
+import Slide from "../components/Home/Slide";
+import useSmoothScroll from "../../hooks/useSmoothScroll";
+import Carousel from "../components/Home/Carousel";
+import Advert from "../components/Home/Advert";
+import Banner from "../components/Home/Banner";
 import { Link } from "react-router-dom";
 
-export default function Login() {
+export default function Signup() {
   useSmoothScroll();
 
   return (
@@ -84,8 +84,8 @@ export default function Login() {
           <div className="LoginSection">
             <div className="LoginSectionImage">
               <img
-                src="https://res.cloudinary.com/renaissance-images/image/upload/v1778444167/2151468865_shzovx.jpg"
-                alt=""
+                src="https://res.cloudinary.com/renaissance-images/image/upload/v1778444165/2151468852_krro1f.jpg"
+                alt="Quinn Daisies Logistics"
               />
             </div>
 
@@ -118,6 +118,17 @@ export default function Login() {
                       required
                     />
                   </div>
+
+                  <div className="LoginSectionFormInputItem">
+                    <span>Confirm Password</span>
+                    <input
+                      type="password"
+                      placeholder="Enter your password"
+                      autoComplete="current-password"
+                      required
+                    />
+                  </div>
+
                   <div className="LoginSectionFormInputItemOptionFlex">
                     <Link to="/">Forgot password?</Link>
 

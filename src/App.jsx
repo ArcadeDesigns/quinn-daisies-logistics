@@ -9,7 +9,8 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import ServicePage from "./pages/Service";
 import Resources from "./pages/Resources";
-import Login from "./pages/Login";
+import Login from "./pages/authentication/Login";
+import Signup from "./pages/authentication/Signup";
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
             <Route path="/get-a-quote" element={<Quote />} />
             <Route path="/quinn-daisies/about-us" element={<About />} />
             <Route path="/quinn-daisies/contact-us" element={<Contact />} />
