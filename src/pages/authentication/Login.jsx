@@ -10,6 +10,7 @@ import Carousel from "../components/Home/Carousel";
 import Advert from "../components/Home/Advert";
 import Banner from "../components/Home/Banner";
 import { Link } from "react-router-dom";
+import GoogleLogo from "../../assets/Google.png";
 
 export default function Login() {
   useSmoothScroll();
@@ -129,7 +130,14 @@ export default function Login() {
                 </div>
 
                 <div className="LoginSectionFooter">
-                  <button className="ApplicationButton">Login Account</button>
+                  <button>
+                    <p>Login Account</p>
+                  </button>
+                  <span>---------- OR ----------</span>
+                  <button className="GoogleApplicationButton">
+                    <img src={GoogleLogo} alt="Google Logo" />
+                    <p>Continue with Google</p>
+                  </button>
                   <div className="LoginSectionFooterContent">
                     <p>Don't own an account?</p>
                     <Link to="/signup">Sign up instead</Link>

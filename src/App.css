@@ -4223,6 +4223,15 @@ main section:last-of-type {
   justify-content: flex-start;
 }
 
+.RegisterSection {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  margin: 0 auto;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
 .LoginSectionImage {
   padding: 25px;
   width: 100%;
@@ -4283,7 +4292,7 @@ main section:last-of-type {
 }
 
 .LoginSectionFormInput {
-  gap: 2em;
+  gap: 1em;
   width: 100%;
   height: auto;
   display: flex;
@@ -4308,12 +4317,72 @@ main section:last-of-type {
   height: auto;
   padding: 10px;
   outline: none;
-  min-height: 50px;
   border-radius: 10px;
   font-size: var(--span-text);
   background: transparent;
   color: var(--primary-color);
   border: 1px solid var(--tertiary-color);
+}
+
+.RegisterSectionFormInputItem {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.RegisterSectionFormInputItem span {
+  font-size: var(--span-text);
+  color: var(--tertiary-color);
+  padding-bottom: 10px;
+}
+
+.RegisterSectionFormInputItem .LoginSectionFormInputItemPasswordWrapper {
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  outline: none;
+  display: flex;
+  border-radius: 10px;
+  font-size: var(--span-text);
+  background: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--tertiary-color);
+}
+
+.RegisterSectionFormInputItem .LoginSectionFormInputItemPasswordWrapper input {
+  width: 100%;
+  height: auto;
+  border: none;
+  outline: none;
+  align-items: center;
+  background: transparent;
+  justify-content: center;
+  font-size: var(--span-text);
+  color: var(--primary-color);
+}
+
+.LoginSectionPasswordToggle {
+  width: auto;
+  height: auto;
+  border: none;
+  display: flex;
+  outline: none;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.LoginSectionPasswordToggle span {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  font-size: var(--mini-text);
+}
+
+.LoginSectionFormInputHint {
+  font-size: var(--link-span-text);
+  color: var(--primary-color);
+  margin-bottom: 0px;
 }
 
 .LoginSectionFormInputItemOption {
@@ -4341,6 +4410,14 @@ main section:last-of-type {
   margin-bottom: 0px;
 }
 
+.LoginSectionFormInputItemOption p a {
+  font-size: var(--span-text);
+  color: var(--primary-color);
+  margin-bottom: 0px;
+  padding: 0 5px;
+  background-color: var(--tertiary-color);
+}
+
 .LoginSectionFormInputItemOptionFlex {
   width: 100%;
   display: flex;
@@ -4365,10 +4442,60 @@ main section:last-of-type {
   flex-direction: column;
 }
 
+.LoginSectionFooter span {
+  font-size: var(--link-span-text);
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.GoogleApplicationButton {
+  width: 100%;
+  height: auto;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--secondary-color) !important;
+}
+
+.GoogleApplicationButton img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.GoogleApplicationButton p {
+  margin-bottom: 0px !important;
+  font-size: var(--text);
+  text-transform: uppercase;
+  color: var(--primary-color);
+  line-height: revert;
+}
+
 .LoginSectionFooter button {
-  border-radius: 15px;
+  width: 100%;
+  height: auto;
+  border: none;
+  display: flex;
   padding: 15px;
-  font-size: var(--span-text);
+  font-size: var(--text);
+  color: var(--primary-color);
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--tertiary-color);
+}
+
+.LoginSectionFooter button p {
+  margin-bottom: 0px !important;
+  font-size: var(--text);
+  text-transform: uppercase;
+  color: var(--primary-color);
+  line-height: revert;
+}
+
+.LoginSectionFooter p {
+  padding-bottom: 0px;
 }
 
 .LoginSectionFooterContent {
@@ -5061,9 +5188,11 @@ main section:last-of-type {
 
   .LoginSection {
     position: relative;
+    height: 100%;
   }
 
-  .LoginSection {
+  .RegisterSection {
+    position: relative;
     height: 100%;
   }
 }
@@ -5651,6 +5780,10 @@ main section:last-of-type {
     height: 240vh;
   }
 
+  .RegisterSection {
+    height: 100vh;
+  }
+
   .LoginSectionForm {
     padding: 10px;
   }
@@ -5774,6 +5907,10 @@ main section:last-of-type {
   }
 
   .LoginSection {
+    height: 100vh;
+  }
+
+  .RegisterSection {
     height: 100vh;
   }
 }
