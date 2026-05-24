@@ -5609,7 +5609,7 @@ main section:last-of-type {
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: 600px) {
-  .ResponsiveNavigation.Scroll {
+  .ResponsiveNavigation {
     position: fixed;
     background-color: var(--tertiary-on-color);
   }
@@ -6025,6 +6025,15 @@ main section:last-of-type {
 
   .LoginSectionForm {
     background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  .ApplicationImageDesignHeader {
+    padding-bottom: 0%;
+  }
+
+  .ApplicationChartContentContainer {
+    height: 400px;
+    max-height: 400px;
   }
 }
 
