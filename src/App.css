@@ -4688,6 +4688,96 @@ main section:last-of-type {
   transition: background 0.3s;
 }
 
+.PromotionalAdsOverlay {
+  top: 0;
+  left: 0;
+  padding: 5%;
+  width: 100%;
+  height: 100vh;
+  z-index: 4000;
+  display: none;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--secondary-color);
+}
+
+.PromotionalAds {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding: 15px;
+  overflow: hidden;
+  max-width: 1400px;
+  max-height: 800px;
+  position: relative;
+  border-radius: 30px;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--tertiary-on-color);
+}
+
+.PromotionalAdsImage {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  border-radius: 25px;
+}
+
+.PromotionalAdsImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.PromotionalAdContent {
+  gap: 1em;
+  padding: 25px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.PromotionalAdContentHeader h2 {
+  color: var(--tertiary-color);
+  width: 100%;
+  text-align: center;
+}
+
+.PromotionalAdContentHeader p {
+  color: var(--primary-color);
+  width: 100%;
+  text-align: center;
+}
+
+.PromotionalAdContentList {
+  width: 100%;
+  height: auto;
+  display: flex;
+  gap: 1em;
+}
+
+.PromotionalAdContentListItem {
+  width: 100%;
+  height: 100%;
+  padding: 25px;
+  display: flex;
+  border-radius: 25px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--secondary-color);
+}
+
+.PromotionalAdContentListItem h3 {
+  color: var(--tertiary-color);
+  font-size: var(--small-text);
+  text-align: center;
+}
+
 @media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: 1280px) {
   :root {
     --header: 2em;
@@ -4909,6 +4999,18 @@ main section:last-of-type {
 
   h1 {
     line-height: revert;
+  }
+
+  .PromotionalAdContentHeader h2 {
+    font-size: var(--small-text);
+  }
+
+  .PromotionalAdContentList {
+    flex-direction: column;
+  }
+
+  .PromotionalAdContentHeader p {
+    display: none;
   }
 
   .AboutHeaderContent h1 {
@@ -5407,6 +5509,23 @@ main section:last-of-type {
     font-size: var(--mega-text);
   }
 
+  .PromotionalAds {
+    padding: 0px;
+  }
+
+  .PromotionalAdContent {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .PromotionalAdContentList {
+    flex-direction: row;
+  }
+
+  .PromotionalAdContentHeader p {
+    display: block;
+  }
+
   .home-about {
     flex-direction: column;
   }
@@ -5612,6 +5731,10 @@ main section:last-of-type {
   .ResponsiveNavigation {
     position: fixed;
     background-color: var(--tertiary-on-color);
+  }
+
+  .PromotionalAdContentList {
+    flex-direction: column;
   }
 
   .QuoteHeaderContent p {

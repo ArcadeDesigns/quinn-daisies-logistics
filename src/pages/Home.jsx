@@ -18,9 +18,6 @@ import useSmoothScroll from "../hooks/useSmoothScroll";
 import usePinnedSlides from "../hooks/usePinnedSlides";
 import { industrySlides } from "../data/industrySlides";
 
-// ─── Hero Slides Data ────────────────────────────────────────────────────────
-// Each slide has its own eyebrow span, headline, paragraph, and two
-// background images that are displayed in the existing BackgroundImage grid.
 const heroSlides = [
   {
     span: "Reliable Logistics Solutions Tailored for You",
@@ -54,7 +51,6 @@ const heroSlides = [
   },
 ];
 
-// ─── Slide interval (ms) ─────────────────────────────────────────────────────
 const SLIDE_INTERVAL = 3000;
 
 gsap.registerPlugin(ScrollTrigger);
@@ -62,11 +58,10 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Home() {
   useSmoothScroll();
 
-  // ── Hero slide state ────────────────────────────────────────────────────
   const [activeSlide, setActiveSlide] = useState(0);
-  const activeSlideRef = useRef(0); // stable ref for the interval closure
-  const heroContentRef = useRef(null); // wraps span + h1 + p
-  const heroBgRef = useRef(null); // wraps the BackgroundImage div
+  const activeSlideRef = useRef(0);
+  const heroContentRef = useRef(null);
+  const heroBgRef = useRef(null);
   const isAnimatingRef = useRef(false);
 
   useEffect(() => {
@@ -82,7 +77,6 @@ export default function Home() {
         },
       });
 
-      // Phase 1 — fade + slide out current content & images
       tl.to(heroContentRef.current, {
         opacity: 0,
         y: -40,
@@ -99,13 +93,11 @@ export default function Home() {
         "<",
       );
 
-      // Phase 2 — swap content in state (DOM update happens here)
       tl.add(() => {
         activeSlideRef.current = next;
         setActiveSlide(next);
       });
 
-      // Phase 3 — small pause then fade + slide in new content & images
       tl.set(heroContentRef.current, { y: 50 })
         .to(heroContentRef.current, {
           opacity: 1,
@@ -128,7 +120,6 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
-  // Refs for other sections
   const carouselSectionRef = useRef(null);
   const carouselStripRef = useRef(null);
   const containerRef = useRef(null);
@@ -243,25 +234,21 @@ export default function Home() {
       icon: "inventory",
       title: "Restock with less friction",
       text: "We help vendors reduce the operational burden of sourcing, coordinating, and receiving imported food shipments.",
-      link: "/home",
     },
     {
       icon: "trending_up",
       title: "Improve compliance readiness",
       text: "Products and documentation are reviewed before export so issues can be addressed earlier, not after arrival.",
-      link: "/home",
     },
     {
       icon: "delivery_truck_speed",
       title: "Get better shipment visibility",
       text: "Our workflow is designed around tracking milestones, exception handling, and proactive communication.",
-      link: "/home",
     },
     {
       icon: "all_match",
       title: "Operate with more confidence",
       text: "With executive presence in the United States and operational coordination in Nigeria, we provide a stronger foundation for trust-sensitive vendor relationships.",
-      link: "/home",
     },
   ];
 
@@ -311,7 +298,6 @@ export default function Home() {
     { scope: carouselSectionRef },
   );
 
-  // ── Convenience: current slide data ────────────────────────────────────
   const currentSlide = heroSlides[activeSlide];
 
   return (
@@ -375,14 +361,57 @@ export default function Home() {
       <div ref={pageRef}>
         <Navbar />
 
+        <section className="PromotionalAdsOverlay">
+          <div className="PromotionalAds">
+            <div className="PromotionalAdsImage">
+              <img
+                src="https://res.cloudinary.com/renaissance-images/image/upload/v1778362093/QuinnDaisies/2151468864_q9vqox.jpg"
+                alt="Quinn Daisies Logistics"
+              />
+            </div>
+
+            <div className="PromotionalAdContent">
+              <div className="PromotionalAdContentHeader">
+                <h2>
+                  Sell Your Products. Reach Global Markets. Build Something
+                  Bigger.
+                </h2>
+                <p>
+                  Whether you're a Nigerian vendor ready to reach U.S.
+                  customers, or a business looking to establish a footprint in
+                  Africa — Quinn Daisies is the platform that connects you,
+                  moves your goods, and handles everything in between.
+                </p>
+              </div>
+
+              <div className="PromotionalAdContentList">
+                <div className="PromotionalAdContentListItem">
+                  <h3>Looking to Expand into the U.S. or Nigeria?</h3>
+                  <Link className="ApplicationButton" to="/get-a-quote">
+                    Explore Trade Routes
+                    <span className="material-symbols-outlined">
+                      globe_location_pin
+                    </span>
+                  </Link>
+                </div>
+                <div className="PromotionalAdContentListItem">
+                  <h3>Are You a Vendor? Start Selling Today.</h3>
+                  <Link className="ApplicationButton" to="/get-a-quote">
+                    Join as a Vendor
+                    <span className="material-symbols-outlined">
+                      globe_location_pin
+                    </span>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <div id="smooth-wrapper" ref={smoothWrapperRef}>
           <div id="smooth-content" ref={smoothContentRef}>
-            {/* ══════════════════════════════════════════════════════════════
-                HERO SECTION — animated text + background images
-            ══════════════════════════════════════════════════════════════ */}
             <section className="OpportunityAppCtn">
               <div className="OpportunityAppHeader">
-                {/* ── Animated text content ── */}
                 <div className="ContentCtn-Center" ref={heroContentRef}>
                   <span className="ContentCtn-Center-Span">
                     {currentSlide.span}
@@ -391,7 +420,6 @@ export default function Home() {
                   <p>{currentSlide.p}</p>
                 </div>
 
-                {/* ── Slide indicator dots ── */}
                 <div className="HeroSlideIndicators">
                   {heroSlides.map((_, i) => (
                     <button
@@ -464,7 +492,6 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* ── Animated background images ── */}
               <div className="BackgroundImage" ref={heroBgRef}>
                 {currentSlide.images.map((img, index) => (
                   <img
@@ -475,8 +502,6 @@ export default function Home() {
                 ))}
               </div>
             </section>
-
-            {/* ── All remaining sections are unchanged ─────────────────── */}
 
             <section className="sectionBox" ref={containerRef}>
               <div className="SectionHeader">
@@ -493,12 +518,6 @@ export default function Home() {
                     </span>
                     <h3>{item.title}</h3>
                     <p>{item.text}</p>
-                    <Link className="ApplicationButton" to={item.link}>
-                      Learn More Here
-                      <span className="material-symbols-outlined">
-                        globe_location_pin
-                      </span>
-                    </Link>
                   </div>
                 ))}
               </div>
@@ -543,12 +562,6 @@ export default function Home() {
                           <p className="ApplicationChartContentContainerContentText">
                             {item.description}
                           </p>
-                          <Link className="ApplicationButton" to={item.link}>
-                            Learn More Here
-                            <span className="material-symbols-outlined">
-                              globe_location_pin
-                            </span>
-                          </Link>
                         </div>
                       </div>
                     </div>

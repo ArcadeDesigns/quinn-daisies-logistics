@@ -629,7 +629,7 @@ export default function Services() {
                     ))}
                   </div>
 
-                  <Link className="ApplicationButton reveal__bottom" to="/">
+                  <Link className="ApplicationButton reveal__bottom" to="/quinn-daisies/resources">
                     Learn More Here
                     <span className="material-symbols-outlined">
                       globe_location_pin
