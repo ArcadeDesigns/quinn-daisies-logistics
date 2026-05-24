@@ -47,12 +47,135 @@ const industries = [
   },
 ];
 
+const heroSlides = [
+  {
+    image:
+      "https://res.cloudinary.com/renaissance-images/image/upload/v1778362093/QuinnDaisies/2151468868_ispgpz.jpg",
+    heading: "Growth, Performance, and Long-Term Value",
+    text: "Quinn Daisies offers tailored logistics solutions designed to streamline operations and enhance efficiency for businesses across diverse industries. Our team specializes in providing seamless, end-to-end logistics management that prioritizes reliability, speed, and cost-effectiveness.",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/renaissance-images/image/upload/v1778362102/QuinnDaisies/2152021825_y3d8sd.jpg",
+    heading: "Precision Freight. Seamless Delivery.",
+    text: "From road and air to ocean freight, our logistics network moves your cargo on time — with real-time tracking and full transparency at every stage of the journey. We leave nothing to chance.",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/renaissance-images/image/upload/v1778289413/QuinnDaisies/2151468884_hipy7q.jpg",
+    heading: "Trusted Across Borders, Built for Scale",
+    text: "Whether crossing one border or fifty, Quinn Daisies handles customs documentation, regulatory compliance, and end-to-end coordination — so your business moves without friction, delays, or surprises.",
+  },
+];
+
 export default function Services() {
   useSmoothScroll();
   const pageRef = useRef(null);
   const galleryWrapRef = useRef(null);
   const galleryCleanupRef = useRef(null);
   const serviceGalleryEight = useRef(null);
+
+  const heroImagesRef = useRef([]);
+  const heroHeadingRef = useRef(null);
+  const heroTextRef = useRef(null);
+  const heroDotsRef = useRef([]);
+  const heroCurrentRef = useRef(0);
+  const heroIntervalRef = useRef(null);
+
+  useEffect(() => {
+    const images = heroImagesRef.current;
+    const total = heroSlides.length;
+
+    // Set initial state — only first slide visible
+    gsap.set(images, { opacity: 0, zIndex: 0, scale: 1.08 });
+    gsap.set(images[0], { opacity: 1, zIndex: 1 });
+    gsap.to(images[0], { scale: 1, duration: 6, ease: "power1.out" });
+
+    const updateDots = (index) => {
+      heroDotsRef.current.forEach((dot, i) => {
+        if (!dot) return;
+        gsap.to(dot, {
+          width: i === index ? 28 : 8,
+          opacity: i === index ? 1 : 0.4,
+          duration: 0.4,
+          ease: "power2.out",
+        });
+      });
+    };
+
+    const goToSlide = (next) => {
+      const prev = heroCurrentRef.current;
+      if (next === prev) return;
+      heroCurrentRef.current = next;
+
+      // Crossfade images with subtle ken burns
+      gsap.to(images[prev], {
+        opacity: 0,
+        zIndex: 0,
+        duration: 1,
+        ease: "power2.inOut",
+      });
+      gsap.set(images[next], { zIndex: 1, scale: 1.08 });
+      gsap.to(images[next], {
+        opacity: 1,
+        duration: 1,
+        ease: "power2.inOut",
+      });
+      gsap.to(images[next], {
+        scale: 1,
+        duration: 6,
+        ease: "power1.out",
+      });
+
+      // Animate text out, swap content, animate back in
+      const heading = heroHeadingRef.current;
+      const text = heroTextRef.current;
+
+      gsap.to([heading, text], {
+        yPercent: -15,
+        opacity: 0,
+        duration: 0.35,
+        ease: "power2.in",
+        onComplete: () => {
+          heading.textContent = heroSlides[next].heading;
+          text.textContent = heroSlides[next].text;
+          gsap.fromTo(
+            heading,
+            { yPercent: 20, opacity: 0 },
+            { yPercent: 0, opacity: 1, duration: 0.55, ease: "power3.out" },
+          );
+          gsap.fromTo(
+            text,
+            { yPercent: 20, opacity: 0 },
+            {
+              yPercent: 0,
+              opacity: 1,
+              duration: 0.55,
+              delay: 0.1,
+              ease: "power3.out",
+            },
+          );
+        },
+      });
+
+      updateDots(next);
+    };
+
+    updateDots(0);
+
+    const startInterval = () => {
+      heroIntervalRef.current = setInterval(() => {
+        const next = (heroCurrentRef.current + 1) % total;
+        goToSlide(next);
+      }, 5500);
+    };
+
+    startInterval();
+
+    return () => {
+      clearInterval(heroIntervalRef.current);
+    };
+  }, []);
 
   useEffect(() => {
     let isActive = true;
@@ -335,31 +458,180 @@ export default function Services() {
         <Navbar />
         <div id="smooth-wrapper">
           <div id="smooth-content">
-            
             <section className="HeroContainer">
-              <img
-                src="https://res.cloudinary.com/renaissance-images/image/upload/v1775929345/QuinnDaisies/2151937269_ubbvn4.jpg"
-                alt="Quinn Daisies"
-              />
+              {heroSlides.map((slide, i) => (
+                <img
+                className="HeroImageSlides"
+                  key={i}
+                  ref={(el) => (heroImagesRef.current[i] = el)}
+                  src={slide.image}
+                  alt={`Quinn Daisies slide ${i + 1}`}
+                />
+              ))}
 
               <div className="HeroOverlay OverwriteHeroOverlayFlex">
                 <div className="ServiceHeroContent">
-                  <h1 className="reveal__left">
-                    Growth, Performance, and Long-Term Value
-                  </h1>
-                  <p className="ServiceHeroContentText reveal__right">
-                    Quinn Daisies offers tailored logistics solutions designed
-                    to streamline operations and enhance efficiency for
-                    businesses across diverse industries. Our team specializes
-                    in providing seamless, end-to-end logistics management that
-                    prioritizes reliability, speed, and cost-effectiveness,
-                    ensuring your goods reach their destination safely and on
-                    schedule.
+                  <h1 ref={heroHeadingRef}>{heroSlides[0].heading}</h1>
+
+                  <p ref={heroTextRef} className="ServiceHeroContentText">
+                    {heroSlides[0].text}
                   </p>
+
+                  {/* Dot navigation */}
+                  <div className="HeroSliderDots">
+                    {heroSlides.map((_, i) => (
+                      <button
+                        key={i}
+                        ref={(el) => (heroDotsRef.current[i] = el)}
+                        className="HeroSliderDot"
+                        aria-label={`Go to slide ${i + 1}`}
+                        onClick={() => {
+                          clearInterval(heroIntervalRef.current);
+                          const prev = heroCurrentRef.current;
+                          if (i !== prev) {
+                            heroCurrentRef.current = prev; // reset so goToSlide works
+                            // re-trigger via ref approach
+                            const images = heroImagesRef.current;
+                            const total = heroSlides.length;
+
+                            gsap.to(images[prev], {
+                              opacity: 0,
+                              zIndex: 0,
+                              duration: 1,
+                              ease: "power2.inOut",
+                            });
+                            gsap.set(images[i], { zIndex: 1, scale: 1.08 });
+                            gsap.to(images[i], {
+                              opacity: 1,
+                              duration: 1,
+                              ease: "power2.inOut",
+                            });
+                            gsap.to(images[i], {
+                              scale: 1,
+                              duration: 6,
+                              ease: "power1.out",
+                            });
+
+                            const heading = heroHeadingRef.current;
+                            const text = heroTextRef.current;
+                            gsap.to([heading, text], {
+                              yPercent: -15,
+                              opacity: 0,
+                              duration: 0.35,
+                              ease: "power2.in",
+                              onComplete: () => {
+                                heading.textContent = heroSlides[i].heading;
+                                text.textContent = heroSlides[i].text;
+                                gsap.fromTo(
+                                  heading,
+                                  { yPercent: 20, opacity: 0 },
+                                  {
+                                    yPercent: 0,
+                                    opacity: 1,
+                                    duration: 0.55,
+                                    ease: "power3.out",
+                                  },
+                                );
+                                gsap.fromTo(
+                                  text,
+                                  { yPercent: 20, opacity: 0 },
+                                  {
+                                    yPercent: 0,
+                                    opacity: 1,
+                                    duration: 0.55,
+                                    delay: 0.1,
+                                    ease: "power3.out",
+                                  },
+                                );
+                              },
+                            });
+
+                            heroCurrentRef.current = i;
+                            heroDotsRef.current.forEach((dot, idx) => {
+                              if (!dot) return;
+                              gsap.to(dot, {
+                                width: idx === i ? 28 : 8,
+                                opacity: idx === i ? 1 : 0.4,
+                                duration: 0.4,
+                                ease: "power2.out",
+                              });
+                            });
+
+                            heroIntervalRef.current = setInterval(() => {
+                              const next = (heroCurrentRef.current + 1) % total;
+                              const p = heroCurrentRef.current;
+                              heroCurrentRef.current = next;
+                              gsap.to(images[p], {
+                                opacity: 0,
+                                zIndex: 0,
+                                duration: 1,
+                                ease: "power2.inOut",
+                              });
+                              gsap.set(images[next], {
+                                zIndex: 1,
+                                scale: 1.08,
+                              });
+                              gsap.to(images[next], {
+                                opacity: 1,
+                                duration: 1,
+                                ease: "power2.inOut",
+                              });
+                              gsap.to(images[next], {
+                                scale: 1,
+                                duration: 6,
+                                ease: "power1.out",
+                              });
+                              const h = heroHeadingRef.current;
+                              const t = heroTextRef.current;
+                              gsap.to([h, t], {
+                                yPercent: -15,
+                                opacity: 0,
+                                duration: 0.35,
+                                ease: "power2.in",
+                                onComplete: () => {
+                                  h.textContent = heroSlides[next].heading;
+                                  t.textContent = heroSlides[next].text;
+                                  gsap.fromTo(
+                                    h,
+                                    { yPercent: 20, opacity: 0 },
+                                    {
+                                      yPercent: 0,
+                                      opacity: 1,
+                                      duration: 0.55,
+                                      ease: "power3.out",
+                                    },
+                                  );
+                                  gsap.fromTo(
+                                    t,
+                                    { yPercent: 20, opacity: 0 },
+                                    {
+                                      yPercent: 0,
+                                      opacity: 1,
+                                      duration: 0.55,
+                                      delay: 0.1,
+                                      ease: "power3.out",
+                                    },
+                                  );
+                                },
+                              });
+                              heroDotsRef.current.forEach((dot, idx) => {
+                                if (!dot) return;
+                                gsap.to(dot, {
+                                  width: idx === next ? 28 : 8,
+                                  opacity: idx === next ? 1 : 0.4,
+                                  duration: 0.4,
+                                });
+                              });
+                            }, 5500);
+                          }
+                        }}
+                      />
+                    ))}
+                  </div>
 
                   <Link className="ApplicationButton reveal__bottom" to="/">
                     Learn More Here
-                    <span class="material-symbols-outlined">
+                    <span className="material-symbols-outlined">
                       globe_location_pin
                     </span>
                   </Link>
@@ -370,12 +642,10 @@ export default function Services() {
                     <img src={DHL} alt="DHL" />
                     <p>DHL</p>
                   </div>
-
                   <div className="PartnerBox reveal__bottom__interval">
                     <img src={UPS} alt="UPS" />
                     <p>UPS</p>
                   </div>
-
                   <div className="PartnerBox reveal__bottom__interval">
                     <img src={FedEx} alt="FedEx" />
                     <p>FedEx</p>
@@ -606,7 +876,8 @@ export default function Services() {
               <div className="ServiceApproachContainer">
                 <div className="ServiceApproachContainerContent reveal__left">
                   <img
-                    src="https://res.cloudinary.com/renaissance-images/image/upload/v1761867635/QuinnDaisies/7625_ceeopi.jpg"
+                    src="Our Approach to Delivering Meaningful Business Results
+https://res.cloudinary.com/renaissance-images/image/upload/v1778362094/QuinnDaisies/2151541927_afrcah.jpg"
                     alt="Quinn Daisies Image"
                   />
                   <div className="ServiceApproachContainerContentOverlay">
