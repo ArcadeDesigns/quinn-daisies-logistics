@@ -5478,6 +5478,9 @@ main section:last-of-type {
     text-align: center;
     display: flex;
     text-decoration: none;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
   }
 
   .LoginSectionForm {

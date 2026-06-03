@@ -846,13 +846,13 @@ export default function Home() {
                 </div>
                 <div className="SectionBoxLarge reveal__bottom">
                   <img
-                    src="https://res.cloudinary.com/renaissance-images/image/upload/v1761822587/QuinnDaisies/10382_ixmdn7.jpg"
-                    alt="Quinn Daisies"
+                    src="https://res.cloudinary.com/renaissance-images/image/upload/v1778444163/2151541896_jeb7fg.jpg"
+                    alt="Quinn Daisies Image"
                   />
                 </div>
                 <div className="SectionBoxSmall reveal__top">
                   <p>
-                    Quinndaisies supports growing businesses with the
+                    Quinn Daisies supports growing businesses with the
                     coordination, market-entry logistics, and operational
                     structure needed to move into the U.S. with greater clarity
                     and control.
