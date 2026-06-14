@@ -1224,6 +1224,15 @@ hr {
   background-color: var(--tertiary-color);
 }
 
+.FlexCtnBox .material-symbols-outlined {
+  width: 35px;
+  height: auto;
+  object-fit: scale-down;
+  padding: 5px;
+  border-radius: 50px;
+  background-color: var(--tertiary-color);
+}
+
 .FlexCtnBoxContent {
   width: 100%;
   height: auto;
@@ -2710,6 +2719,23 @@ main section:last-of-type {
   margin-bottom: 0px;
   width: 100%;
   text-align: right;
+}
+
+.ApplicationFooterImageContainer {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  padding: 0 10%;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.ApplicationFooterImageContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
 }
 
 .SectionContainer {

@@ -92,52 +92,49 @@ export default function Quote() {
               </div>
 
               <div className="QuoteFlexCtnBoxCtn">
-                <div className="FlexCtnBox reveal__bottom__interval">
-                  <img
-                    src="https://res.cloudinary.com/quinn-daisies-platform/image/upload/v1744489937/Quinn%20Daisies%20Logistics/At_sign_nmfgl9.png"
-                    alt="Quinn Daisies Images"
-                  ></img>
-                  <div className="FlexCtnBoxContent">
-                    <h3>Reach Out</h3>
-                    <a
-                      href="https://mail.google.com/mail/?view=cm&fs=1&to=info@quinndaisies.com"
-                      target="_blank"
-                    >
-                      info@quinndaisies.com
-                    </a>
+                <div className="FlexCtnBoxCtn">
+                  <div className="FlexCtnBox reveal__bottom__interval">
+                    <span className="material-symbols-outlined">
+                      alternate_email
+                    </span>
+                    <div className="FlexCtnBoxContent">
+                      <h3>Reach Out</h3>
+                      <a
+                        href="https://mail.google.com/mail/?view=cm&fs=1&to=info@quinndaisies.com"
+                        target="_blank"
+                      >
+                        info@quinndaisies.com
+                      </a>
+                    </div>
                   </div>
-                </div>
 
-                <div className="FlexCtnBox reveal__bottom__interval">
-                  <img
-                    src="https://res.cloudinary.com/quinn-daisies-platform/image/upload/v1744489937/Quinn%20Daisies%20Logistics/At_sign_nmfgl9.png"
-                    alt="Quinn Daisies Images"
-                  ></img>
-                  <div className="FlexCtnBoxContent">
-                    <h3>Contact Sales</h3>
-                    <a
-                      href="https://mail.google.com/mail/?view=cm&fs=1&to=sales@quinndaisies.com"
-                      target="_blank"
-                    >
-                      sales@quinndaisies.com
-                    </a>
+                  <div className="FlexCtnBox reveal__bottom__interval">
+                    <span className="material-symbols-outlined">phone</span>
+                    <div className="FlexCtnBoxContent">
+                      <h3>Contact Sales</h3>
+                      <a
+                        href="https://mail.google.com/mail/?view=cm&fs=1&to=sales@quinndaisies.com"
+                        target="_blank"
+                      >
+                        sales@quinndaisies.com
+                      </a>
+                    </div>
                   </div>
-                </div>
 
-                <div className="FlexCtnBox reveal__bottom__interval">
-                  <img
-                    src="https://res.cloudinary.com/quinn-daisies-platform/image/upload/v1744489969/Quinn%20Daisies%20Logistics/Location_fwlj2t.png"
-                    alt="Quinn Daisies Images"
-                  ></img>
-                  <div className="FlexCtnBoxContent">
-                    <h3>Address</h3>
-                    <a
-                      href="https://maps.app.goo.gl/swpx8XwaJAT22RGq8"
-                      target="_blank"
-                    >
-                      1915 Wetterhorn Ct, Frederick County, Maryland, United
-                      States, 21702
-                    </a>
+                  <div className="FlexCtnBox reveal__bottom__interval">
+                    <span className="material-symbols-outlined">
+                      location_on
+                    </span>
+                    <div className="FlexCtnBoxContent">
+                      <h3>Address</h3>
+                      <a
+                        href="https://maps.app.goo.gl/swpx8XwaJAT22RGq8"
+                        target="_blank"
+                      >
+                        1915 Wetterhorn Ct, Frederick County, Maryland, United
+                        States, 21702
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>

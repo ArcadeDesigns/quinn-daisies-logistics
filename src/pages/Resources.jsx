@@ -218,7 +218,7 @@ export default function Resources() {
       origin: "bottom",
       distance: "100px",
       duration: 1000,
-      reset: true,
+      reset: false,
       easing: "ease-in-out",
     });
 
@@ -226,7 +226,7 @@ export default function Resources() {
       origin: "top",
       distance: "100px",
       duration: 1000,
-      reset: true,
+      reset: false,
       easing: "ease-in-out",
     });
 
@@ -234,7 +234,7 @@ export default function Resources() {
       origin: "left",
       distance: "100px",
       duration: 1000,
-      reset: true,
+      reset: false,
       easing: "ease-in-out",
     });
 
@@ -242,7 +242,7 @@ export default function Resources() {
       origin: "right",
       distance: "100px",
       duration: 1000,
-      reset: true,
+      reset: false,
       easing: "ease-in-out",
     });
 
@@ -251,7 +251,7 @@ export default function Resources() {
       distance: "100px",
       duration: 1000,
       interval: 200,
-      reset: true,
+      reset: false,
       easing: "ease-in-out",
     });
 
@@ -260,7 +260,7 @@ export default function Resources() {
       distance: "100px",
       duration: 1000,
       interval: 200,
-      reset: true,
+      reset: false,
       easing: "ease-in-out",
     });
 
@@ -269,7 +269,7 @@ export default function Resources() {
       distance: "100px",
       duration: 1000,
       interval: 200,
-      reset: true,
+      reset: false,
       easing: "ease-in-out",
     });
 
@@ -278,7 +278,7 @@ export default function Resources() {
       distance: "100px",
       duration: 1000,
       interval: 200,
-      reset: true,
+      reset: false,
       easing: "ease-in-out",
     });
 

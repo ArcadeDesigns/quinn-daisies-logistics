@@ -24,9 +24,9 @@ const heroSlides = [
     h1: "Discover How We Can Support Your Shipping Needs",
     p: "We are dedicated to providing exceptional logistics services that emphasize safety, efficiency, and timely delivery. Our goal is to simplify your shipping experience—locally and globally—through innovative, customer-focused solutions.",
     images: [
-      "https://res.cloudinary.com/quinn-daisies-platform/image/upload/v1729542859/Quinn%20Daisies%20Logistics/technological-futuristic-holograms-logistics-means-transport_itrxu8.jpg",
-      "https://res.cloudinary.com/quinn-daisies-platform/image/upload/v1729542805/Quinn%20Daisies%20Logistics/logistics-means-transport-together-with-technological-futuristic-holograms_2_lb4ten.jpg",
-      "https://res.cloudinary.com/quinn-daisies-platform/image/upload/v1730132938/Quinn%20Daisies%20Logistics/transport-logistics-concept_2_thjbc1.jpg",
+      "https://res.cloudinary.com/renaissance-images/image/upload/v1778448422/2152005451_ijeqyj.jpg",
+      "https://res.cloudinary.com/renaissance-images/image/upload/v1778289412/QuinnDaisies/2151998707_kqwtto.jpg",
+      "https://res.cloudinary.com/renaissance-images/image/upload/v1778444165/2151541940_tnhpha.jpg",
     ],
   },
   {
@@ -164,7 +164,7 @@ export default function Home() {
       origin: "bottom",
       distance: "100px",
       duration: 1000,
-      reset: true,
+      reset: false,
       easing: "ease-in-out",
     });
 
@@ -172,7 +172,7 @@ export default function Home() {
       origin: "top",
       distance: "100px",
       duration: 1000,
-      reset: true,
+      reset: false,
       easing: "ease-in-out",
     });
 
@@ -180,7 +180,7 @@ export default function Home() {
       origin: "left",
       distance: "100px",
       duration: 1000,
-      reset: true,
+      reset: false,
       easing: "ease-in-out",
     });
 
@@ -188,7 +188,7 @@ export default function Home() {
       origin: "right",
       distance: "100px",
       duration: 1000,
-      reset: true,
+      reset: false,
       easing: "ease-in-out",
     });
 
@@ -197,7 +197,7 @@ export default function Home() {
       distance: "100px",
       duration: 1000,
       interval: 200,
-      reset: true,
+      reset: false,
       easing: "ease-in-out",
     });
 
@@ -206,7 +206,7 @@ export default function Home() {
       distance: "100px",
       duration: 1000,
       interval: 200,
-      reset: true,
+      reset: false,
       easing: "ease-in-out",
     });
 
@@ -215,7 +215,7 @@ export default function Home() {
       distance: "100px",
       duration: 1000,
       interval: 200,
-      reset: true,
+      reset: false,
       easing: "ease-in-out",
     });
 
@@ -224,7 +224,7 @@ export default function Home() {
       distance: "100px",
       duration: 1000,
       interval: 200,
-      reset: true,
+      reset: false,
       easing: "ease-in-out",
     });
   }, []);
@@ -807,6 +807,7 @@ export default function Home() {
                         confidence.
                       </p>
                     </div>
+                    
                     <div className="ApplicationCarouselSlideBoxImage">
                       <img
                         src="https://res.cloudinary.com/renaissance-images/image/upload/v1761835851/QuinnDaisies/165478_jbtjkf.jpg"

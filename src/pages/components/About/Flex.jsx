@@ -12,7 +12,6 @@ import { wrap } from "@motionone/utils";
 import {
   animate,
   scroll,
-  stagger,
   cubicBezier,
 } from "https://cdn.jsdelivr.net/npm/motion@11.11.16/+esm";
 import ScrollReveal from "scrollreveal";
@@ -69,7 +68,7 @@ export default function Flex() {
       origin: "bottom",
       distance: "100px",
       duration: 1000,
-      reset: true,
+      reset: false,
       easing: "ease-in-out",
     });
 
@@ -77,7 +76,7 @@ export default function Flex() {
       origin: "top",
       distance: "100px",
       duration: 1000,
-      reset: true,
+      reset: false,
       easing: "ease-in-out",
     });
 
@@ -85,7 +84,7 @@ export default function Flex() {
       origin: "left",
       distance: "100px",
       duration: 1000,
-      reset: true,
+      reset: false,
       easing: "ease-in-out",
     });
 
@@ -93,7 +92,7 @@ export default function Flex() {
       origin: "right",
       distance: "100px",
       duration: 1000,
-      reset: true,
+      reset: false,
       easing: "ease-in-out",
     });
 
@@ -102,7 +101,7 @@ export default function Flex() {
       distance: "100px",
       duration: 1000,
       interval: 200,
-      reset: true,
+      reset: false,
       easing: "ease-in-out",
     });
 
@@ -111,7 +110,7 @@ export default function Flex() {
       distance: "100px",
       duration: 1000,
       interval: 200,
-      reset: true,
+      reset: false,
       easing: "ease-in-out",
     });
 
@@ -120,7 +119,7 @@ export default function Flex() {
       distance: "100px",
       duration: 1000,
       interval: 200,
-      reset: true,
+      reset: false,
       easing: "ease-in-out",
     });
 
@@ -129,7 +128,7 @@ export default function Flex() {
       distance: "100px",
       duration: 1000,
       interval: 200,
-      reset: true,
+      reset: false,
       easing: "ease-in-out",
     });
   }, []);
@@ -225,7 +224,9 @@ export default function Flex() {
         <div className="FlexCtnBoxCtnRow">
           <div className="FlexCtnBoxCtnRowContent">
             <span className="reveal__left">Our Mission</span>
-            <h2 className="reveal__right">What We Set Out to Do — Every Single Day</h2>
+            <h2 className="reveal__right">
+              What We Set Out to Do — Every Single Day
+            </h2>
             <p className="reveal__bottom">
               At Quinn Daisies LLC, our mission is to provide fast, reliable,
               and transparent logistics services that empower businesses to
@@ -237,7 +238,7 @@ export default function Flex() {
             <div className="ImageFlexContainerContainer reveal__bottom__interval">
               <img
                 className="FlexCtnBoxCtnImg"
-                src="https://res.cloudinary.com/quinn-daisies-platform/image/upload/v1729771779/Quinn%20Daisies%20Logistics/couriers-with-parcel-truck_1320745-36610_sxvhz5.avif"
+                src="https://res.cloudinary.com/renaissance-images/image/upload/v1776766966/QuinnDaisies/2151940462_ntcfkb.jpg"
                 alt="Quinn Daisies Images"
               />
               <p>
@@ -249,7 +250,7 @@ export default function Flex() {
             <div className="ImageFlexContainerContainer reveal__bottom__interval">
               <img
                 className="FlexCtnBoxCtnImg"
-                src="https://res.cloudinary.com/quinn-daisies-platform/image/upload/v1744402457/Quinn%20Daisies%20Logistics/4716_fy9o01.jpg"
+                src="https://res.cloudinary.com/renaissance-images/image/upload/v1778289412/QuinnDaisies/2151998707_kqwtto.jpg"
                 alt="Quinn Daisies Images"
               />
               <p>
@@ -448,7 +449,9 @@ export default function Flex() {
       </section>
 
       <section className="AdvanceContentHeader">
-        <h2 className="reveal__left">A Global Logistics Presence, Rooted in Two Strategic Locations</h2>
+        <h2 className="reveal__left">
+          A Global Logistics Presence, Rooted in Two Strategic Locations
+        </h2>
         <h3 className="reveal__right">
           Connecting Businesses Across Borders — From Maryland, USA to Nigeria
           and Beyond
@@ -523,10 +526,7 @@ export default function Flex() {
 
       <div className="FlexCtnBoxCtn">
         <div className="FlexCtnBox reveal__bottom__interval">
-          <img
-            src="https://res.cloudinary.com/quinn-daisies-platform/image/upload/v1744489937/Quinn%20Daisies%20Logistics/At_sign_nmfgl9.png"
-            alt="Quinn Daisies Images"
-          ></img>
+          <span className="material-symbols-outlined">alternate_email</span>
           <div className="FlexCtnBoxContent">
             <h3>Reach Out</h3>
             <a
@@ -539,10 +539,7 @@ export default function Flex() {
         </div>
 
         <div className="FlexCtnBox reveal__bottom__interval">
-          <img
-            src="https://res.cloudinary.com/quinn-daisies-platform/image/upload/v1744489937/Quinn%20Daisies%20Logistics/At_sign_nmfgl9.png"
-            alt="Quinn Daisies Images"
-          ></img>
+          <span className="material-symbols-outlined">phone</span>
           <div className="FlexCtnBoxContent">
             <h3>Contact Sales</h3>
             <a
@@ -555,10 +552,7 @@ export default function Flex() {
         </div>
 
         <div className="FlexCtnBox reveal__bottom__interval">
-          <img
-            src="https://res.cloudinary.com/quinn-daisies-platform/image/upload/v1744489969/Quinn%20Daisies%20Logistics/Location_fwlj2t.png"
-            alt="Quinn Daisies Images"
-          ></img>
+          <span className="material-symbols-outlined">location_on</span>
           <div className="FlexCtnBoxContent">
             <h3>Address</h3>
             <a href="https://maps.app.goo.gl/swpx8XwaJAT22RGq8" target="_blank">
