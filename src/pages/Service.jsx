@@ -876,8 +876,7 @@ export default function Services() {
               <div className="ServiceApproachContainer">
                 <div className="ServiceApproachContainerContent reveal__left">
                   <img
-                    src="Our Approach to Delivering Meaningful Business Results
-https://res.cloudinary.com/renaissance-images/image/upload/v1778362094/QuinnDaisies/2151541927_afrcah.jpg"
+                    src="https://res.cloudinary.com/renaissance-images/image/upload/v1778362094/QuinnDaisies/2151541927_afrcah.jpg"
                     alt="Quinn Daisies Image"
                   />
                   <div className="ServiceApproachContainerContentOverlay">
