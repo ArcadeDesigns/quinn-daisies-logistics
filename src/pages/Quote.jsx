@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { Helmet } from "react-helmet-async";
+import SEO from "../components/SEO";
 import ScrollReveal from "scrollreveal";
 import Form from "./components/Quote/Form";
 
@@ -39,36 +39,11 @@ export default function Quote() {
 
   return (
     <>
-      <Helmet>
-        <title>Quinn Daisies Logistics | About Us</title>
-        <meta name="description" content="Example Content." />
-        <link rel="canonical" href="https://www.example.com/home" />
-        <link rel="og:canonical" href="https://www.example.com/home" />
-
-        <meta property="og:title" content="Home | The Benin App" />
-        <meta property="og:description" content="Example Content." />
-        <meta property="og:url" content="https://www.example.com/home" />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:image"
-          content="https://res.cloudinary.com/theexample/image/upload/v1726758920/edoBenin-removebg-preview_cf749i.png"
-        />
-        <meta name="robots" content="index, follow" />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Home | The Benin App" />
-        <meta name="twitter:description" content="Example Contents." />
-        <meta
-          name="twitter:image"
-          content="https://res.cloudinary.com/theexample/image/upload/v1726758920/edoBenin-removebg-preview_cf749i.png"
-        />
-
-        <meta name="keywords" content="Example Contents." />
-        <meta name="og:keywords" content="Example Contents." />
-
-        <meta name="author" content="Ebire Folayemi Michael" />
-        <meta name="revised" content="12th of March 2025" />
-      </Helmet>
+      <SEO 
+        title="Quinn Daisies Logistics | Get a Quote" 
+        description="Discuss your logistics needs with Quinn Daisies. Tell us what you need to move and we'll provide a customized shipping solution." 
+        url="https://www.logistics.quinndaisies.com/get-a-quote" 
+      />
       <div>
         <Navbar />
 

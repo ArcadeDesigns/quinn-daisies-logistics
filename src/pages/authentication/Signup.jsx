@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import { Helmet } from "react-helmet-async";
+import SEO from "../../components/SEO";
 import GoogleLogo from "../../assets/Google.png";
 import useSmoothScroll from "../../hooks/useSmoothScroll";
 
@@ -15,61 +15,11 @@ export default function Signup() {
 
   return (
     <>
-      <Helmet>
-        <title>Create an Account | Quinn Daisies Logistics</title>
-        <meta
-          name="description"
-          content="Create your free Quinn Daisies Logistics account. Get access to real-time shipment tracking, customs clearance, and international shipping across 150+ countries."
-        />
-        <link
-          rel="canonical"
-          href="https://www.logistics.quinndaisies.com/signup"
-        />
-        <link
-          rel="og:canonical"
-          href="https://www.logistics.quinndaisies.com/signup"
-        />
-
-        <meta
-          property="og:title"
-          content="Create an Account | Quinn Daisies Logistics"
-        />
-        <meta
-          property="og:description"
-          content="Join Quinn Daisies Logistics and manage all your shipping, packaging, and customs clearance needs from one powerful dashboard."
-        />
-        <meta
-          property="og:url"
-          content="https://www.logistics.quinndaisies.com/signup"
-        />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:image"
-          content="https://res.cloudinary.com/quinn-daisies-platform/image/upload/v1718651332/Quinn_Daisies_Blog/logo1_y3fmfr.svg"
-        />
-        <meta name="robots" content="index, follow" />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Create an Account | Quinn Daisies Logistics"
-        />
-        <meta
-          name="twitter:description"
-          content="Join Quinn Daisies Logistics and manage all your shipping, packaging, and customs clearance needs from one powerful dashboard."
-        />
-        <meta
-          name="twitter:image"
-          content="https://res.cloudinary.com/quinn-daisies-platform/image/upload/v1718651332/Quinn_Daisies_Blog/logo1_y3fmfr.svg"
-        />
-
-        <meta
-          name="keywords"
-          content="Quinn Daisies signup, create logistics account, international shipping registration, freight account, customs clearance portal"
-        />
-        <meta name="author" content="Ebire Folayemi Michael" />
-        <meta name="revised" content="12th of April 2025" />
-      </Helmet>
+      <SEO 
+        title="Create an Account | Quinn Daisies Logistics" 
+        description="Create your free Quinn Daisies Logistics account. Get access to real-time shipment tracking, customs clearance, and international shipping across 150+ countries." 
+        url="https://www.logistics.quinndaisies.com/signup" 
+      />
 
       <Navbar />
 

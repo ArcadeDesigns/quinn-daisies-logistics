@@ -21,18 +21,28 @@ export default function Footer() {
                 1915 Wetterhorn Ct, Frederick County, Maryland, United States,
                 21702
               </p>
+              <p>
+                Saccho Car Park, Opposite Saccho Glass House, Payment Point 2, Nacho, MMIA, Ikeja, Lagos State
+              </p>
             </div>
 
             <div className="ApplicationFooterBoxSocial">
-              <Link to="/home" className="Cta">
-                <img src={LinkedIn} alt="Quinn Daisies Logo" />
-              </Link>
-              <Link to="/home" className="Cta">
-                <img src={Instagram} alt="Quinn Daisies Logo" />
-              </Link>
-              <Link to="/home" className="Cta">
-                <img src={Facebook} alt="Quinn Daisies Logo" />
-              </Link>
+              <a
+                href="https://www.linkedin.com/company/quinn-daisies/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="Cta"
+              >
+                <img src={LinkedIn} alt="Quinn Daisies LinkedIn" />
+              </a>
+              <a
+                href="https://www.instagram.com/quinn_daisies"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="Cta"
+              >
+                <img src={Instagram} alt="Quinn Daisies Instagram" />
+              </a>
             </div>
           </div>
 
