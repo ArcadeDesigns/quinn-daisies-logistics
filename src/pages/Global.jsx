@@ -50,13 +50,6 @@ const heroSlides = [
 
 const marketsWeServe = [
     {
-        title: "United States Federal Agencies & Institutions",
-        description:
-            "Dedicated procurement and contract fulfillment for U.S. government programs, USAID missions, and international development agencies requiring FAR-compliant origin aggregation, rigorous quality verification, and guaranteed delivery timelines.",
-        link: "/government-contracting",
-        icon: "account_balance",
-    },
-    {
         title: "North American Agribusiness & Food Conglomerates",
         description:
             "High-volume, multi-container supply of non-GMO sesame seeds, premium dried split ginger, soybeans, and raw cashew nuts meeting strict USDA, FDA, and American food manufacturing purity standards.",

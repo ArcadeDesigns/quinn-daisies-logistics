@@ -49,7 +49,6 @@ const heroSlides = [
 
 const SLIDE_INTERVAL = 8000;
 
-// Disciplines A, B, C, D in Core Engineering Box
 const coreEngineeringBox = [
   {
     letter: "A",
@@ -603,9 +602,8 @@ export default function TechnologyVisibility() {
                   {heroSlides.map((_, i) => (
                     <button
                       key={i}
-                      className={`HeroSlideIndicatorDot${
-                        i === activeSlide ? " is-active" : ""
-                      }`}
+                      className={`HeroSlideIndicatorDot${i === activeSlide ? " is-active" : ""
+                        }`}
                       aria-label={`Go to slide ${i + 1}`}
                       onClick={() => {
                         if (
@@ -678,9 +676,8 @@ export default function TechnologyVisibility() {
                   <img
                     key={`${activeSlide}-${index}`}
                     src={img}
-                    alt={`Quinn Daisies Technology — slide ${
-                      activeSlide + 1
-                    }, image ${index + 1}`}
+                    alt={`Quinn Daisies Technology — slide ${activeSlide + 1
+                      }, image ${index + 1}`}
                   />
                 ))}
               </div>
@@ -822,24 +819,6 @@ export default function TechnologyVisibility() {
                       {item.icon}
                     </span>
                     <h3>
-                      <span
-                        style={{
-                          display: "inline-block",
-                          width: "28px",
-                          height: "28px",
-                          lineHeight: "28px",
-                          borderRadius: "6px",
-                          backgroundColor: "#e28a34",
-                          color: "#fff",
-                          textAlign: "center",
-                          fontSize: "0.85rem",
-                          fontWeight: 700,
-                          marginRight: "8px",
-                          verticalAlign: "middle",
-                        }}
-                      >
-                        {item.letter}
-                      </span>
                       {item.title}
                     </h3>
                     <p>{item.text}</p>
@@ -1056,9 +1035,8 @@ export default function TechnologyVisibility() {
                   {engineeringLifecycle.map((item, index) => (
                     <div
                       key={index}
-                      className={`ApplicationChartDesignItem reveal__bottom__interval_slide ${
-                        index === 0 ? "is-active" : ""
-                      }`}
+                      className={`ApplicationChartDesignItem reveal__bottom__interval_slide ${index === 0 ? "is-active" : ""
+                        }`}
                     >
                       <h4>{item.title}</h4>
                     </div>
@@ -1071,9 +1049,8 @@ export default function TechnologyVisibility() {
                   {engineeringLifecycle.map((item, index) => (
                     <div
                       key={index}
-                      className={`ApplicationChartSlide ${
-                        index === 0 ? "is-active" : ""
-                      }`}
+                      className={`ApplicationChartSlide ${index === 0 ? "is-active" : ""
+                        }`}
                     >
                       <div className="ApplicationChartContentContainer">
                         <img
@@ -1818,60 +1795,6 @@ export default function TechnologyVisibility() {
               </div>
             </div>
 
-            {/* TEMPLATE SECTION 7: COLLABORATION / PRICING TIERS (Template 2 - Growify) */}
-            <div className="TemplateSectionWrap">
-              <div className="TemplateProcessSectionHeader">
-                <span className="TemplateProcessEyebrow">Engagement Models</span>
-                <h2 className="TemplateProcessTitle">
-                  Transparent Delivery Frameworks
-                </h2>
-                <p className="TemplateProcessSubtitle">
-                  Choose the collaboration structure tailored to your product roadmap,
-                  team velocity, and long-term organizational goals.
-                </p>
-              </div>
-
-              <div className="TemplateTiersGrid">
-                {engagementTiers.map((tier, idx) => (
-                  <div
-                    key={idx}
-                    className={`TemplateTierCard reveal__bottom ${tier.featured ? "featured" : ""}`}
-                  >
-                    {tier.badge && (
-                      <div className="TemplateTierBadge">{tier.badge}</div>
-                    )}
-                    <div>
-                      <h3>{tier.title}</h3>
-                      <p className="TemplateTierSubtitle">{tier.subtitle}</p>
-
-                      <div className="TemplateTierFeatures">
-                        {tier.features.map((feat, fIdx) => (
-                          <div key={fIdx} className="TemplateTierFeatureItem">
-                            <span className="material-symbols-outlined">
-                              check
-                            </span>
-                            <span>{feat}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <Link
-                      to="/contact-us"
-                      className="ApplicationButton"
-                      style={{ textAlign: "center", justifyContent: "center" }}
-                    >
-                      <span>{tier.ctaText}</span>
-                      <span className="material-symbols-outlined">
-                        arrow_outward
-                      </span>
-                    </Link>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* TEMPLATE SECTION 8: INTERACTIVE FAQ ACCORDION (Template 2 - Growify) */}
             <div className="TemplateSectionWrap">
               <div className="TemplateProcessSectionHeader">
                 <span className="TemplateProcessEyebrow">Frequently Asked Questions</span>
