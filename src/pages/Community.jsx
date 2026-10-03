@@ -500,7 +500,7 @@ export default function Community() {
                     </p>
                   </div>
                   <h3>
-                    12,500<text>+</text>
+                    12,500<span>+</span>
                   </h3>
                 </div>
 
@@ -512,7 +512,7 @@ export default function Community() {
                     </p>
                   </div>
                   <h3>
-                    25–35<text>%</text>
+                    25–35<span>%</span>
                   </h3>
                 </div>
 
@@ -524,7 +524,7 @@ export default function Community() {
                     </p>
                   </div>
                   <h3>
-                    40<text>%</text>
+                    40<span>%</span>
                   </h3>
                 </div>
 
@@ -536,7 +536,7 @@ export default function Community() {
                     </p>
                   </div>
                   <h3>
-                    48<text>%</text>
+                    48<span>%</span>
                   </h3>
                 </div>
               </div>

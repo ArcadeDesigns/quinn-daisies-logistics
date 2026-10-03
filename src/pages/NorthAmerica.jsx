@@ -604,7 +604,7 @@ export default function NorthAmerica() {
                                         </p>
                                     </div>
                                     <h3>
-                                        68<text>:32</text>
+                                        68<span>:32</span>
                                     </h3>
                                 </div>
 
@@ -616,7 +616,7 @@ export default function NorthAmerica() {
                                         </p>
                                     </div>
                                     <h3>
-                                        85<text>%</text>
+                                        85<span>%</span>
                                     </h3>
                                 </div>
 
@@ -628,7 +628,7 @@ export default function NorthAmerica() {
                                         </p>
                                     </div>
                                     <h3>
-                                        72<text>%</text>
+                                        72<span>%</span>
                                     </h3>
                                 </div>
 
@@ -640,7 +640,7 @@ export default function NorthAmerica() {
                                         </p>
                                     </div>
                                     <h3>
-                                        99.4<text>%</text>
+                                        99.4<span>%</span>
                                     </h3>
                                 </div>
                             </div>

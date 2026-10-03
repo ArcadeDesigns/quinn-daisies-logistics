@@ -21,9 +21,9 @@ export default function Banner() {
             competitive advantage with our expert solutions.
           </p>
 
-          <Link className="ApplicationButton" to="/">
+          <Link className="ApplicationButton" to="/services">
             Learn More Here
-            <span class="material-symbols-outlined">globe_location_pin</span>
+            <span className="material-symbols-outlined">globe_location_pin</span>
           </Link>
         </div>
       </div>

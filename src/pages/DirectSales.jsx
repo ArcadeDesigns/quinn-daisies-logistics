@@ -688,7 +688,7 @@ export default function DirectSales() {
                                         </p>
                                     </div>
                                     <h3>
-                                        99.2<text>%</text>
+                                        99.2<span>%</span>
                                     </h3>
                                 </div>
 
@@ -700,7 +700,7 @@ export default function DirectSales() {
                                         </p>
                                     </div>
                                     <h3>
-                                        200<text>+</text>
+                                        200<span>+</span>
                                     </h3>
                                 </div>
 
@@ -712,7 +712,7 @@ export default function DirectSales() {
                                         </p>
                                     </div>
                                     <h3>
-                                        15–25<text>%</text>
+                                        15–25<span>%</span>
                                     </h3>
                                 </div>
 
@@ -724,7 +724,7 @@ export default function DirectSales() {
                                         </p>
                                     </div>
                                     <h3>
-                                        100<text>%</text>
+                                        100<span>%</span>
                                     </h3>
                                 </div>
                             </div>

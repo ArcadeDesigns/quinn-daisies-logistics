@@ -604,7 +604,7 @@ export default function Asia() {
                                         </p>
                                     </div>
                                     <h3>
-                                        64<text>:36</text>
+                                        64<span>:36</span>
                                     </h3>
                                 </div>
 
@@ -616,7 +616,7 @@ export default function Asia() {
                                         </p>
                                     </div>
                                     <h3>
-                                        88<text>%</text>
+                                        88<span>%</span>
                                     </h3>
                                 </div>
 
@@ -628,7 +628,7 @@ export default function Asia() {
                                         </p>
                                     </div>
                                     <h3>
-                                        99.8<text>%</text>
+                                        99.8<span>%</span>
                                     </h3>
                                 </div>
 
@@ -640,7 +640,7 @@ export default function Asia() {
                                         </p>
                                     </div>
                                     <h3>
-                                        99.5<text>%</text>
+                                        99.5<span>%</span>
                                     </h3>
                                 </div>
                             </div>

@@ -490,7 +490,7 @@ export default function DistributionPartnerships() {
                                         </p>
                                     </div>
                                     <h3>
-                                        99.2<text>%</text>
+                                        99.2<span>%</span>
                                     </h3>
                                 </div>
 
@@ -502,7 +502,7 @@ export default function DistributionPartnerships() {
                                         </p>
                                     </div>
                                     <h3>
-                                        200<text>+</text>
+                                        200<span>+</span>
                                     </h3>
                                 </div>
 
@@ -514,7 +514,7 @@ export default function DistributionPartnerships() {
                                         </p>
                                     </div>
                                     <h3>
-                                        24–48<text>hrs</text>
+                                        24–48<span>hrs</span>
                                     </h3>
                                 </div>
 
@@ -526,7 +526,7 @@ export default function DistributionPartnerships() {
                                         </p>
                                     </div>
                                     <h3>
-                                        100<text>%</text>
+                                        100<span>%</span>
                                     </h3>
                                 </div>
                             </div>

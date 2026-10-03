@@ -136,13 +136,13 @@ export default function Box() {
       <div className="ApplicationContainer">
         {solutions.map((item, index) => (
           <div className="ApplicationBox" key={index}>
-            <span class="BoxIcon material-symbols-outlined">{item.icon}</span>
+            <span className="BoxIcon material-symbols-outlined">{item.icon}</span>
             <h3>{item.title}</h3>
             <p>{item.text}</p>
 
             <Link className="ApplicationButton" to={item.link}>
               Learn More Here
-              <span class="material-symbols-outlined">globe_location_pin</span>
+              <span className="material-symbols-outlined">globe_location_pin</span>
             </Link>
           </div>
         ))}

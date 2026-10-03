@@ -96,7 +96,7 @@ export default function Header({
           <div className="SingleBtnCtn-Center reveal__bottom">
             <Link className="ApplicationButton" to={buttonLink}>
               {buttonText}
-              <span class="material-symbols-outlined">globe_location_pin</span>
+              <span className="material-symbols-outlined">globe_location_pin</span>
             </Link>
           </div>
         )}

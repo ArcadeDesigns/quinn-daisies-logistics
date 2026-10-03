@@ -498,7 +498,7 @@ export default function TradeDataInsights() {
                     </p>
                   </div>
                   <h3>
-                    99.8<text>%</text>
+                    99.8<span>%</span>
                   </h3>
                 </div>
 
@@ -510,7 +510,7 @@ export default function TradeDataInsights() {
                     </p>
                   </div>
                   <h3>
-                    45<text>+</text>
+                    45<span>+</span>
                   </h3>
                 </div>
 
@@ -522,7 +522,7 @@ export default function TradeDataInsights() {
                     </p>
                   </div>
                   <h3>
-                    12–18<text>%</text>
+                    12–18<span>%</span>
                   </h3>
                 </div>
 
@@ -534,7 +534,7 @@ export default function TradeDataInsights() {
                     </p>
                   </div>
                   <h3>
-                    &lt;12<text>hrs</text>
+                    &lt;12<span>hrs</span>
                   </h3>
                 </div>
               </div>

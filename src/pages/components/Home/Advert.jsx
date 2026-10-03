@@ -117,9 +117,9 @@ export default function Advert() {
             into the U.S. with greater clarity and control.
           </p>
 
-          <Link className="ApplicationButton" to="/">
+          <Link className="ApplicationButton" to="/north-america">
             Learn More Here
-            <span class="material-symbols-outlined">globe_location_pin</span>
+            <span className="material-symbols-outlined">globe_location_pin</span>
           </Link>
         </div>
       </div>

@@ -498,7 +498,7 @@ export default function TradeInvestmentFacilitation() {
                     </p>
                   </div>
                   <h3>
-                    100<text>%</text>
+                    100<span>%</span>
                   </h3>
                 </div>
 
@@ -510,7 +510,7 @@ export default function TradeInvestmentFacilitation() {
                     </p>
                   </div>
                   <h3>
-                    200<text>+</text>
+                    200<span>+</span>
                   </h3>
                 </div>
 
@@ -522,7 +522,7 @@ export default function TradeInvestmentFacilitation() {
                     </p>
                   </div>
                   <h3>
-                    3–5<text>days</text>
+                    3–5<span>days</span>
                   </h3>
                 </div>
 
@@ -534,7 +534,7 @@ export default function TradeInvestmentFacilitation() {
                     </p>
                   </div>
                   <h3>
-                    98.9<text>%</text>
+                    98.9<span>%</span>
                   </h3>
                 </div>
               </div>

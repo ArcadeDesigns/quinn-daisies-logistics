@@ -1024,7 +1024,7 @@ export default function PartnerWithUs() {
                     </p>
                   </div>
                   <h3>
-                    50<text>+</text>
+                    50<span>+</span>
                   </h3>
                 </div>
 
@@ -1037,7 +1037,7 @@ export default function PartnerWithUs() {
                     </p>
                   </div>
                   <h3>
-                    $250<text>M+</text>
+                    $250<span>M+</span>
                   </h3>
                 </div>
 
@@ -1050,7 +1050,7 @@ export default function PartnerWithUs() {
                     </p>
                   </div>
                   <h3>
-                    100<text>%</text>
+                    100<span>%</span>
                   </h3>
                 </div>
 
@@ -1063,7 +1063,7 @@ export default function PartnerWithUs() {
                     </p>
                   </div>
                   <h3>
-                    24/<text>7</text>
+                    24/<span>7</span>
                   </h3>
                 </div>
               </div>

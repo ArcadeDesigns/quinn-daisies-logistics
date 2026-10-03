@@ -501,7 +501,7 @@ export default function Careers() {
                     </p>
                   </div>
                   <h3>
-                    2<text> Continents</text>
+                    2<span> Continents</span>
                   </h3>
                 </div>
 
@@ -513,7 +513,7 @@ export default function Careers() {
                     </p>
                   </div>
                   <h3>
-                    94<text>%</text>
+                    94<span>%</span>
                   </h3>
                 </div>
 
@@ -525,7 +525,7 @@ export default function Careers() {
                     </p>
                   </div>
                   <h3>
-                    1,200<text>+ hrs</text>
+                    1,200<span>+ hrs</span>
                   </h3>
                 </div>
 
@@ -537,7 +537,7 @@ export default function Careers() {
                     </p>
                   </div>
                   <h3>
-                    100<text>%</text>
+                    100<span>%</span>
                   </h3>
                 </div>
               </div>

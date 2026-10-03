@@ -1036,7 +1036,7 @@ export default function Sustainability() {
                     </p>
                   </div>
                   <h3>
-                    100<text>%</text>
+                    100<span>%</span>
                   </h3>
                 </div>
 
@@ -1048,7 +1048,7 @@ export default function Sustainability() {
                     </p>
                   </div>
                   <h3>
-                    150<text>+</text>
+                    150<span>+</span>
                   </h3>
                 </div>
 
@@ -1060,7 +1060,7 @@ export default function Sustainability() {
                     </p>
                   </div>
                   <h3>
-                    22<text>%</text>
+                    22<span>%</span>
                   </h3>
                 </div>
 
@@ -1072,7 +1072,7 @@ export default function Sustainability() {
                     </p>
                   </div>
                   <h3>
-                    99.5<text>%</text>
+                    99.5<span>%</span>
                   </h3>
                 </div>
               </div>

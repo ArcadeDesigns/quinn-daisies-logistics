@@ -132,7 +132,7 @@ export default function Slide() {
 
                   <Link className="ApplicationButton" to={item.link}>
                     Learn More Here
-                    <span class="material-symbols-outlined">
+                    <span className="material-symbols-outlined">
                       globe_location_pin
                     </span>
                   </Link>

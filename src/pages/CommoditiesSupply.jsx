@@ -501,7 +501,7 @@ export default function CommoditiesSupply() {
                     </p>
                   </div>
                   <h3>
-                    35,000<text>+ MT</text>
+                    35,000<span>+ MT</span>
                   </h3>
                 </div>
 
@@ -513,7 +513,7 @@ export default function CommoditiesSupply() {
                     </p>
                   </div>
                   <h3>
-                    99.5<text>%</text>
+                    99.5<span>%</span>
                   </h3>
                 </div>
 
@@ -525,7 +525,7 @@ export default function CommoditiesSupply() {
                     </p>
                   </div>
                   <h3>
-                    100<text>%</text>
+                    100<span>%</span>
                   </h3>
                 </div>
 
@@ -537,7 +537,7 @@ export default function CommoditiesSupply() {
                     </p>
                   </div>
                   <h3>
-                    200<text>+</text>
+                    200<span>+</span>
                   </h3>
                 </div>
               </div>

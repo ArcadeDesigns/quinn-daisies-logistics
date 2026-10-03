@@ -102,7 +102,7 @@ export default function Advert() {
 
           <Link className="ApplicationButton reveal__bottom" to="/">
             Learn More Here
-            <span class="material-symbols-outlined">globe_location_pin</span>
+            <span className="material-symbols-outlined">globe_location_pin</span>
           </Link>
         </div>
 

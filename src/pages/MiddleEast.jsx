@@ -602,7 +602,7 @@ export default function MiddleEast() {
                                         </p>
                                     </div>
                                     <h3>
-                                        99.8<text>%</text>
+                                        99.8<span>%</span>
                                     </h3>
                                 </div>
 
@@ -614,7 +614,7 @@ export default function MiddleEast() {
                                         </p>
                                     </div>
                                     <h3>
-                                        22<text>–28 Days</text>
+                                        22<span>–28 Days</span>
                                     </h3>
                                 </div>
 
@@ -626,7 +626,7 @@ export default function MiddleEast() {
                                         </p>
                                     </div>
                                     <h3>
-                                        99.4<text>%</text>
+                                        99.4<span>%</span>
                                     </h3>
                                 </div>
 
@@ -638,7 +638,7 @@ export default function MiddleEast() {
                                         </p>
                                     </div>
                                     <h3>
-                                        68<text>:32</text>
+                                        68<span>:32</span>
                                     </h3>
                                 </div>
                             </div>

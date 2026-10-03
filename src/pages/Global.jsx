@@ -1368,7 +1368,7 @@ export default function GlobalCapabilities() {
                                         </p>
                                     </div>
                                     <h3>
-                                        6<text>+</text>
+                                        6<span>+</span>
                                     </h3>
                                 </div>
 
@@ -1380,7 +1380,7 @@ export default function GlobalCapabilities() {
                                         </p>
                                     </div>
                                     <h3>
-                                        100<text>%</text>
+                                        100<span>%</span>
                                     </h3>
                                 </div>
 
@@ -1392,7 +1392,7 @@ export default function GlobalCapabilities() {
                                         </p>
                                     </div>
                                     <h3>
-                                        24–48<text>hrs</text>
+                                        24–48<span>hrs</span>
                                     </h3>
                                 </div>
 
@@ -1404,7 +1404,7 @@ export default function GlobalCapabilities() {
                                         </p>
                                     </div>
                                     <h3>
-                                        99.7<text>%</text>
+                                        99.7<span>%</span>
                                     </h3>
                                 </div>
                             </div>

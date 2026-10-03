@@ -498,7 +498,7 @@ export default function LogisticsSupplyChain() {
                     </p>
                   </div>
                   <h3>
-                    99.4<text>%</text>
+                    99.4<span>%</span>
                   </h3>
                 </div>
 
@@ -510,7 +510,7 @@ export default function LogisticsSupplyChain() {
                     </p>
                   </div>
                   <h3>
-                    350<text>+</text>
+                    350<span>+</span>
                   </h3>
                 </div>
 
@@ -522,7 +522,7 @@ export default function LogisticsSupplyChain() {
                     </p>
                   </div>
                   <h3>
-                    24–48<text>hrs</text>
+                    24–48<span>hrs</span>
                   </h3>
                 </div>
 
@@ -534,7 +534,7 @@ export default function LogisticsSupplyChain() {
                     </p>
                   </div>
                   <h3>
-                    100<text>%</text>
+                    100<span>%</span>
                   </h3>
                 </div>
               </div>

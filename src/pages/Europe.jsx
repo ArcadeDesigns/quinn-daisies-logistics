@@ -604,7 +604,7 @@ export default function Europe() {
                                         </p>
                                     </div>
                                     <h3>
-                                        71<text>:29</text>
+                                        71<span>:29</span>
                                     </h3>
                                 </div>
 
@@ -616,7 +616,7 @@ export default function Europe() {
                                         </p>
                                     </div>
                                     <h3>
-                                        82<text>%</text>
+                                        82<span>%</span>
                                     </h3>
                                 </div>
 
@@ -628,7 +628,7 @@ export default function Europe() {
                                         </p>
                                     </div>
                                     <h3>
-                                        100<text>%</text>
+                                        100<span>%</span>
                                     </h3>
                                 </div>
 
@@ -640,7 +640,7 @@ export default function Europe() {
                                         </p>
                                     </div>
                                     <h3>
-                                        99.6<text>%</text>
+                                        99.6<span>%</span>
                                     </h3>
                                 </div>
                             </div>

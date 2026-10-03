@@ -454,7 +454,7 @@ export default function OnlinePresenceEcommerce() {
                                         </p>
                                     </div>
                                     <h3>
-                                        99.6<text>%</text>
+                                        99.6<span>%</span>
                                     </h3>
                                 </div>
 
@@ -466,7 +466,7 @@ export default function OnlinePresenceEcommerce() {
                                         </p>
                                     </div>
                                     <h3>
-                                        24/<text>7</text>
+                                        24/<span>7</span>
                                     </h3>
                                 </div>
 
@@ -478,7 +478,7 @@ export default function OnlinePresenceEcommerce() {
                                         </p>
                                     </div>
                                     <h3>
-                                        48–72<text>hrs</text>
+                                        48–72<span>hrs</span>
                                     </h3>
                                 </div>
 
@@ -490,7 +490,7 @@ export default function OnlinePresenceEcommerce() {
                                         </p>
                                     </div>
                                     <h3>
-                                        100<text>%</text>
+                                        100<span>%</span>
                                     </h3>
                                 </div>
                             </div>

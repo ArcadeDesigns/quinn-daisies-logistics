@@ -500,7 +500,7 @@ export default function MarketExpansionSupport() {
                     </p>
                   </div>
                   <h3>
-                    65<text>%</text>
+                    65<span>%</span>
                   </h3>
                 </div>
 
@@ -512,7 +512,7 @@ export default function MarketExpansionSupport() {
                     </p>
                   </div>
                   <h3>
-                    180<text>+</text>
+                    180<span>+</span>
                   </h3>
                 </div>
 
@@ -524,7 +524,7 @@ export default function MarketExpansionSupport() {
                     </p>
                   </div>
                   <h3>
-                    30–60<text>days</text>
+                    30–60<span>days</span>
                   </h3>
                 </div>
 
@@ -536,7 +536,7 @@ export default function MarketExpansionSupport() {
                     </p>
                   </div>
                   <h3>
-                    99.1<text>%</text>
+                    99.1<span>%</span>
                   </h3>
                 </div>
               </div>

@@ -589,7 +589,7 @@ export default function ComplianceSafety() {
                                         </p>
                                     </div>
                                     <h3>
-                                        100<text>%</text>
+                                        100<span>%</span>
                                     </h3>
                                 </div>
 
@@ -601,7 +601,7 @@ export default function ComplianceSafety() {
                                         </p>
                                     </div>
                                     <h3>
-                                        99.4<text>%</text>
+                                        99.4<span>%</span>
                                     </h3>
                                 </div>
 
@@ -613,7 +613,7 @@ export default function ComplianceSafety() {
                                         </p>
                                     </div>
                                     <h3>
-                                        100<text>%</text>
+                                        100<span>%</span>
                                     </h3>
                                 </div>
 
@@ -625,7 +625,7 @@ export default function ComplianceSafety() {
                                         </p>
                                     </div>
                                     <h3>
-                                        5<text>+ Agencies</text>
+                                        5<span>+ Agencies</span>
                                     </h3>
                                 </div>
                             </div>

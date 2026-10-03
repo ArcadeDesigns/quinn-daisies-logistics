@@ -759,7 +759,7 @@ export default function Mission() {
                     </p>
                   </div>
                   <h3>
-                    99<text>%</text>
+                    99<span>%</span>
                   </h3>
                 </div>
 
@@ -771,7 +771,7 @@ export default function Mission() {
                     </p>
                   </div>
                   <h3>
-                    100<text>%</text>
+                    100<span>%</span>
                   </h3>
                 </div>
 
@@ -783,7 +783,7 @@ export default function Mission() {
                     </p>
                   </div>
                   <h3>
-                    24/<text>7</text>
+                    24/<span>7</span>
                   </h3>
                 </div>
 
@@ -795,7 +795,7 @@ export default function Mission() {
                     </p>
                   </div>
                   <h3>
-                    200<text>+</text>
+                    200<span>+</span>
                   </h3>
                 </div>
               </div>
@@ -970,7 +970,7 @@ export default function Mission() {
                     </p>
                   </div>
                   <h3>
-                    100<text>%</text>
+                    100<span>%</span>
                   </h3>
                 </div>
 
@@ -982,7 +982,7 @@ export default function Mission() {
                     </p>
                   </div>
                   <h3>
-                    99.8<text>%</text>
+                    99.8<span>%</span>
                   </h3>
                 </div>
 
@@ -994,7 +994,7 @@ export default function Mission() {
                     </p>
                   </div>
                   <h3>
-                    99.2<text>%</text>
+                    99.2<span>%</span>
                   </h3>
                 </div>
 
@@ -1006,7 +1006,7 @@ export default function Mission() {
                     </p>
                   </div>
                   <h3>
-                    200<text>+</text>
+                    200<span>+</span>
                   </h3>
                 </div>
               </div>
