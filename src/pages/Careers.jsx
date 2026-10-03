@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import SEO from "../components/SEO";
 import { useGSAP } from "@gsap/react";
@@ -6,37 +6,35 @@ import { Link } from "react-router-dom";
 import ScrollReveal from "scrollreveal";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { useRef, useEffect, useState } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ScrollSmoother } from "gsap/ScrollSmoother";
 import useSmoothScroll from "../hooks/useSmoothScroll";
 import usePinnedSlides from "../hooks/usePinnedSlides";
 
 const heroSlides = [
   {
-    span: "Trade Execution | Supply Chain Management",
-    h1: "Making International Trade Executable.",
-    p: "We manage logistics, sourcing, compliance, and in-market execution to facilitate the reliable movement of goods across borders, with a primary operating focus on the United States–Nigeria trade corridor.",
+    span: "Global Logistics Careers | High-Velocity Operations",
+    h1: "Build the Future of Cross-Border Trade & Physical Logistics.",
+    p: "Join an agile, mission-driven team bridging North American commercial demand with West African supply chains across maritime freight, bonded warehousing, commodity aggregation, and trade compliance.",
     images: [
-      "https://res.cloudinary.com/renaissance-images/image/upload/v1789465949/QuinnDaisies/2151541965_cfe0hz.jpg",
       "https://res.cloudinary.com/renaissance-images/image/upload/v1789466486/QuinnDaisies/2151794095_nivnlp.jpg",
       "https://res.cloudinary.com/renaissance-images/image/upload/v1789466490/QuinnDaisies/2151976954_xlv0a5.jpg",
-    ],
-  },
-  {
-    span: "Logistics Infrastructure | Multimodal Freight",
-    h1: "Moving Cargo with Precision.",
-    p: "We provide coordinated logistics across ocean and air freight, inland transportation, cargo consolidation, warehousing, and customs clearance, delivering greater control and visibility across complex international supply chains.",
-    images: [
-      "https://res.cloudinary.com/renaissance-images/image/upload/v1789466467/QuinnDaisies/2151599738_wgtskd.jpg",
-      "https://res.cloudinary.com/renaissance-images/image/upload/v1789466483/QuinnDaisies/2151976946_nomiyd.jpg",
       "https://res.cloudinary.com/renaissance-images/image/upload/v1789465950/QuinnDaisies/2151663021_qg5kyt.jpg",
     ],
   },
   {
-    span: "Origin Sourcing | Quality Assurance",
-    h1: "Connecting Demand with Verified Supply.",
-    p: "We connect international buyers with qualified origin suppliers and commodities through supplier verification, quality inspection, trade documentation, and coordinated execution across both sides of the market.",
+    span: "Hands-On Field Leadership | Supply Chain Excellence",
+    h1: "Real-World Execution Across Ports, Terminals & Depots.",
+    p: "We don't manage trade from behind spreadsheets alone. Our professionals operate directly inside container freight stations, deepwater marine terminals, certified testing laboratories, and agricultural hubs.",
+    images: [
+      "https://res.cloudinary.com/renaissance-images/image/upload/v1778444172/2151468840_wefsks.jpg",
+      "https://res.cloudinary.com/renaissance-images/image/upload/v1789466483/QuinnDaisies/2151976946_nomiyd.jpg",
+      "https://res.cloudinary.com/renaissance-images/image/upload/v1789466467/QuinnDaisies/2151599738_wgtskd.jpg",
+    ],
+  },
+  {
+    span: "Dual-Market Impact | Bilateral Corporate Governance",
+    h1: "Accelerate Your International Career Across Two Continents.",
+    p: "Collaborate seamlessly across our United States headquarters and Nigerian operations, gaining invaluable expertise in international maritime regulations, customs brokerage, and enterprise logistics management.",
     images: [
       "https://res.cloudinary.com/renaissance-images/image/upload/v1789465954/QuinnDaisies/2151493235_if2axi.jpg",
       "https://res.cloudinary.com/renaissance-images/image/upload/v1789248900/QuinnDaisies/2151541891_o5wyhf.jpg",
@@ -49,7 +47,7 @@ const SLIDE_INTERVAL = 10000;
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Home() {
+export default function Careers() {
   useSmoothScroll();
 
   const [activeSlide, setActiveSlide] = useState(0);
@@ -124,35 +122,6 @@ export default function Home() {
 
   usePinnedSlides(imagePinRef);
 
-  useGSAP(
-    () => {
-      if (!smoothWrapperRef.current || !smoothContentRef.current)
-        return undefined;
-
-      ScrollTrigger.config({ ignoreMobileResize: true });
-
-      const existingSmoother = ScrollSmoother.get();
-      if (existingSmoother) existingSmoother.kill();
-
-      const smoother = ScrollSmoother.create({
-        wrapper: smoothWrapperRef.current,
-        content: smoothContentRef.current,
-        smooth: 1.2,
-        smoothTouch: 0.1,
-        effects: true,
-        normalizeScroll: true,
-      });
-
-      ScrollTrigger.refresh();
-
-      return () => {
-        smoother.kill();
-        ScrollTrigger.clearScrollMemory();
-      };
-    },
-    { scope: pageRef },
-  );
-
   useEffect(() => {
     ScrollReveal().reveal(".reveal__bottom", {
       origin: "bottom",
@@ -186,6 +155,15 @@ export default function Home() {
       easing: "ease-in-out",
     });
 
+    ScrollReveal().reveal(".reveal__bottom__interval", {
+      origin: "bottom",
+      distance: "100px",
+      duration: 1000,
+      interval: 200,
+      reset: false,
+      easing: "ease-in-out",
+    });
+
     ScrollReveal().reveal(".reveal__top__interval", {
       origin: "top",
       distance: "100px",
@@ -197,15 +175,6 @@ export default function Home() {
 
     ScrollReveal().reveal(".reveal__left__interval", {
       origin: "left",
-      distance: "100px",
-      duration: 1000,
-      interval: 200,
-      reset: false,
-      easing: "ease-in-out",
-    });
-
-    ScrollReveal().reveal(".reveal__bottom__interval", {
-      origin: "bottom",
       distance: "100px",
       duration: 1000,
       interval: 200,
@@ -225,72 +194,69 @@ export default function Home() {
 
   const solutions = [
     {
-      icon: "local_shipping",
-      title: "Physical Execution",
-      text: "We manage the physical movement of goods from origin to destination, coordinating collection, handling, freight, and delivery across international supply chains.",
+      icon: "directions_boat",
+      title: "Logistics & Freight Operations",
+      text: "Coordinate international ocean vessel allocations, airport cargo handling at NACHO MMIA, and intermodal Class I rail drayage across North American and African trade corridors.",
     },
-
     {
-      icon: "verified",
-      title: "Verified Supply",
-      text: "We identify qualified suppliers, validate origin, verify specifications, and coordinate pre-shipment quality checks before commercial commitments are made.",
+      icon: "agriculture",
+      title: "Commodity Sourcing & Agronomy",
+      text: "Manage direct cooperative relationships, origin quality assurance, field collection depots, and Sortex mechanical processing across key agricultural belts.",
     },
-
     {
-      icon: "sync_alt",
-      title: "Cross-Border Accountability",
-      text: "Our coordinated operating structure provides accountability across both sides of the trade corridor, connecting origin operations with destination markets.",
+      icon: "policy",
+      title: "Trade Compliance & Customs",
+      text: "Lead regulatory pre-filings, Harmonized Tariff Schedule (HTS) classifications, phytosanitary certifications, and customs coordination across U.S. CBP and Nigeria Customs Service.",
     },
-
     {
-      icon: "hub",
-      title: "Integrated Logistics",
-      text: "We coordinate sourcing, freight, documentation, customs clearance, and final delivery as one integrated process for greater control and visibility.",
+      icon: "terminal",
+      title: "Technology & Digital Operations",
+      text: "Engineer container telematics pipelines, digital document repositories, API integrations, and predictive trade data analytics that empower physical cargo movements.",
     },
   ];
 
   const executionStages = [
     {
-      title: "Origin Supply & Procurement",
+      title: "Operational Leadership & Training",
       description:
-        "We align buyer requirements with qualified origin suppliers, aggregators, cooperatives, and producers to establish reliable supply at the point of origin.",
+        "Every team member receives comprehensive onboarding covering maritime law, customs regulations, commodity assays, and multimodal freight dispatching.",
       image:
-        "https://res.cloudinary.com/renaissance-images/image/upload/v1789237502/QuinnDaisies/2151589636_v3h3yj.jpg",
+        "https://res.cloudinary.com/renaissance-images/image/upload/v1789465952/QuinnDaisies/2150917196_bhmjrt.jpg",
     },
     {
-      title: "Supplier & Cargo Assurance",
+      title: "Cross-Corridor Collaboration",
       description:
-        "We validate counterparties, specifications, quality, and cargo readiness through supplier due diligence, origin verification, inspections, and applicable testing before shipment.",
+        "Work seamlessly across our United States headquarters and Nigerian regional operational centers, synchronizing physical execution across both ends of the trade lane.",
       image:
-        "https://res.cloudinary.com/renaissance-images/image/upload/v1789465950/QuinnDaisies/2151663021_qg5kyt.jpg",
+        "https://res.cloudinary.com/renaissance-images/image/upload/v1775925890/QuinnDaisies/2149636270_sl8t0l.jpg",
     },
     {
-      title: "Export Readiness & Consolidation",
+      title: "Field & Terminal Immersion",
       description:
-        "We coordinate consolidation, packaging, labelling, documentation, and export preparation to align cargo with applicable origin and destination requirements.",
+        "Our professionals gain direct experience on the ground—visiting agricultural aggregations, container freight stations, bonded yards, and deepwater marine terminals.",
       image:
-        "https://res.cloudinary.com/renaissance-images/image/upload/v1789248900/QuinnDaisies/2151541891_o5wyhf.jpg",
+        "https://res.cloudinary.com/renaissance-images/image/upload/v1778362096/QuinnDaisies/2152005492_t9qg4y.jpg",
     },
     {
-      title: "Multimodal Freight Execution",
+      title: "Enterprise Client Impact",
       description:
-        "We coordinate ocean, air, inland transportation, and port logistics to move cargo efficiently between origin and destination while maintaining shipment visibility.",
+        "Directly manage relationships with multinational food processors, institutional importers, and ocean carriers, delivering high-stakes commercial certainty.",
       image:
-        "https://res.cloudinary.com/renaissance-images/image/upload/v1778362093/QuinnDaisies/2151468868_ispgpz.jpg",
+        "https://res.cloudinary.com/renaissance-images/image/upload/v1789466419/QuinnDaisies/2151794080_qmduaj.jpg",
     },
     {
-      title: "Trade Documentation & Clearance",
+      title: "Continuous Innovation & Growth",
       description:
-        "We coordinate trade documentation, tariff classification, export requirements, and customs processes with the relevant parties to support compliant cargo release.",
+        "Drive innovation in digital documentation, carbon-reduced freight strategies, and sustainable sourcing practices that elevate the global logistics sector.",
       image:
-        "https://res.cloudinary.com/renaissance-images/image/upload/v1776766956/QuinnDaisies/2151964096_liogs7.jpg",
+        "https://res.cloudinary.com/renaissance-images/image/upload/v1729542859/Quinn%20Daisies%20Logistics/technological-futuristic-holograms-logistics-means-transport_itrxu8.jpg",
     },
     {
-      title: "Inland Distribution & Handover",
+      title: "Ethical & Fair-Trade Governance",
       description:
-        "We coordinate destination transport from ports and entry points to warehouses, processing facilities, distribution centers, and buyer locations for controlled final delivery.",
+        "Champion ethical procurement and smallholder prosperity, ensuring rural farming communities benefit directly from international trade access.",
       image:
-        "https://res.cloudinary.com/renaissance-images/image/upload/v1778289411/QuinnDaisies/2151998728_ha2wny.jpg",
+        "https://res.cloudinary.com/renaissance-images/image/upload/v1778448423/2152005465_splnhk.jpg",
     },
   ];
 
@@ -318,9 +284,9 @@ export default function Home() {
       const strip = carouselStripRef.current;
       if (!section || !strip) return;
 
-      const getScrollAmount = () => -(strip.scrollWidth - window.innerWidth);
+      const getScrollAmount = () => -(strip.scrollWidth - window.innerWidth + 80);
 
-      gsap.to(strip, {
+      const ctx = gsap.to(strip, {
         x: getScrollAmount,
         ease: "none",
         scrollTrigger: {
@@ -328,16 +294,17 @@ export default function Home() {
           pin: true,
           pinSpacing: true,
           start: "top top",
-          end: () => `+=${strip.scrollWidth - window.innerWidth}`,
-          scrub: 1,
-          anticipatePin: 1,
+          end: () => `+=${Math.max(strip.scrollWidth - window.innerWidth, 1200)}`,
+          scrub: 1.2,
           invalidateOnRefresh: true,
         },
       });
 
-      ScrollTrigger.refresh();
+      return () => {
+        if (ctx.scrollTrigger) ctx.scrollTrigger.kill();
+      };
     },
-    { scope: carouselSectionRef },
+    { scope: carouselSectionRef, dependencies: [] },
   );
 
   const currentSlide = heroSlides[activeSlide];
@@ -345,10 +312,10 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Quinn Daisies Logistics | Global Freight Forwarding, Cold Chain & Supply Chain Systems"
-        description="Quinn Daisies Logistics delivers premier air cargo, ocean freight, customs clearance, cold-chain solutions, and supply chain technology connecting North America, West Africa, and global trade hubs."
-        keywords="Quinn Daisies Logistics, global logistics, international shipping, air freight, ocean freight, customs clearance, cold chain logistics, US Nigeria shipping, freight forwarder Maryland, cargo Lagos Nigeria, MMIA Ikeja freight forwarder"
-        url="https://www.logistics.quinndaisies.com/"
+        title="Careers & Operational Culture | Quinn Daisies Logistics"
+        description="Explore high-impact career opportunities in international logistics, multimodal freight forwarding, agricultural commodity procurement, and trade compliance across our U.S. and Nigerian operations."
+        keywords="logistics careers, freight forwarding jobs, supply chain employment Maryland, Lagos Nigeria logistics careers, international trade jobs, maritime and air cargo hiring"
+        url="https://www.logistics.quinndaisies.com/careers"
       />
 
       <div ref={pageRef}>
@@ -359,7 +326,6 @@ export default function Home() {
             <section className="OpportunityAppCtn">
               <div className="OpportunityAppHeader">
                 <div className="ContentCtn-Center" ref={heroContentRef}>
-
                   <span className="ContentCtn-Center-Span">
                     {currentSlide.span}
                   </span>
@@ -431,10 +397,10 @@ export default function Home() {
                 </div>
 
                 <div className="SingleBtnCtn-Center reveal__bottom">
-                  <Link className="ApplicationButton" to="/services">
-                    Our Services
+                  <Link className="ApplicationButton" to="/contact-us">
+                    Explore Open Opportunities
                     <span className="material-symbols-outlined">
-                      globe_location_pin
+                      arrow_outward
                     </span>
                   </Link>
                 </div>
@@ -445,7 +411,7 @@ export default function Home() {
                   <img
                     key={`${activeSlide}-${index}`}
                     src={img}
-                    alt={`Quinn Daisies Logistics — slide ${activeSlide + 1}, image ${index + 1}`}
+                    alt={`Quinn Daisies Careers — slide ${activeSlide + 1}, image ${index + 1}`}
                   />
                 ))}
               </div>
@@ -454,7 +420,7 @@ export default function Home() {
             <section className="sectionBox" ref={containerRef}>
               <div className="SectionHeader">
                 <h2 className="reveal__top">
-                  Why businesses choose Quinn Daisies
+                  Functional Teams: Operations-First Roles Powering Global Trade
                 </h2>
               </div>
 
@@ -476,13 +442,14 @@ export default function Home() {
                 <div className="fill"></div>
                 <div className="ApplicationChartContentList">
                   <h2 className="ApplicationImageDesignHeader reveal__bottom__interval_slide">
-                    From Origin to Destination, One Operational Framework
+                    The Quinn Daisies Experience: Six Pillars of Professional Growth
                   </h2>
                   {executionStages.map((item, index) => (
                     <div
                       key={index}
-                      className={`ApplicationChartDesignItem reveal__bottom__interval_slide ${index === 0 ? "is-active" : ""
-                        }`}
+                      className={`ApplicationChartDesignItem reveal__bottom__interval_slide ${
+                        index === 0 ? "is-active" : ""
+                      }`}
                     >
                       <h4>{item.title}</h4>
                     </div>
@@ -495,8 +462,9 @@ export default function Home() {
                   {executionStages.map((item, index) => (
                     <div
                       key={index}
-                      className={`ApplicationChartSlide ${index === 0 ? "is-active" : ""
-                        }`}
+                      className={`ApplicationChartSlide ${
+                        index === 0 ? "is-active" : ""
+                      }`}
                     >
                       <div className="ApplicationChartContentContainer">
                         <img
@@ -518,67 +486,67 @@ export default function Home() {
 
             <section className="SectionContainer ServicesInformation">
               <span className="reveal__left">
-                Trade Execution & Logistics Architecture
+                Workforce & Operational Culture Indicators
               </span>
               <h4 className="reveal__right">
-                Connecting origin sourcing, accredited verification, multimodal freight, and in-market execution across core transatlantic trade corridors.
+                Empowering operational teams across dual-market corridors with direct field experience, structured mentorship, and long-term retention.
               </h4>
 
               <div className="ServicesInformationBoxContainer">
                 <div className="ServicesInformationBox reveal__bottom__interval">
                   <div className="ServicesInformationBoxHeader">
-                    <h6>On-Time Last-Mile Dispatch</h6>
+                    <h6>Dual-Market Presence</h6>
                     <p>
-                      Dedicated transport routing and scheduled container allocations ensuring high reliability from origin ports to inland destination doors.
+                      Active operational bases across the United States and Nigeria, coordinating bilateral trade execution seamlessly.
                     </p>
                   </div>
                   <h3>
-                    99.4<span>%</span>
+                    2<text> Continents</text>
                   </h3>
                 </div>
 
                 <div className="ServicesInformationBox reveal__bottom__interval">
                   <div className="ServicesInformationBoxHeader">
-                    <h6>Verified Origin Supply Network</h6>
+                    <h6>Team Retention Rate</h6>
                     <p>
-                      Direct commercial access to audited agricultural cooperatives, registered processors, and commercial aggregators across Nigeria.
+                      Industry-leading retention driven by transparent performance bonuses, career mobility, and collaborative leadership.
                     </p>
                   </div>
                   <h3>
-                    200<span>+</span>
+                    94<text>%</text>
                   </h3>
                 </div>
 
                 <div className="ServicesInformationBox reveal__bottom__interval">
                   <div className="ServicesInformationBoxHeader">
-                    <h6>Port-to-Warehouse Velocity</h6>
+                    <h6>Field Experience Hours</h6>
                     <p>
-                      Expedited customs pre-clearance filings and dedicated terminal drayage power units minimizing detention and demurrage liabilities.
+                      Annual hands-on training hours spent at port docks, container terminals, and agricultural collection depots.
                     </p>
                   </div>
                   <h3>
-                    24–48<span>hrs</span>
+                    1,200<text>+ hrs</text>
                   </h3>
                 </div>
 
                 <div className="ServicesInformationBox reveal__bottom__interval">
                   <div className="ServicesInformationBoxHeader">
-                    <h6>Cross-Border Accountability</h6>
+                    <h6>Compliance & Safety Record</h6>
                     <p>
-                      Unbroken chain-of-custody logging and commercial agreements executed under dual-entity U.S. and Nigerian corporate governance.
+                      Strict adherence to OSHA, CBP-TPAT, and international maritime security guidelines across all operating facilities.
                     </p>
                   </div>
                   <h3>
-                    100<span>%</span>
+                    100<text>%</text>
                   </h3>
                 </div>
               </div>
 
               <p className="ServicesInformationBottomText reveal__left">
-                International commerce depends on far more than finding a buyer or introducing a supplier. Goods must be sourced, laboratory-verified, packaged, documented, transported, customs-cleared, and physically delivered to inland facility doors. Fragmented vendor relationships frequently lead to demurrage spirals, delayed release, and contract friction. Quinn Daisies solves this by providing the end-to-end operational infrastructure that connects every stage of the trade flow under one accountable operating framework.
+                Building a career in international trade requires mastering the friction of the real world. At Quinn Daisies, we deliberately cultivate a culture of physical accountability. We believe the best logistics leaders are forged not through theoretical models, but by understanding how containers move through customs bottlenecks, how freight rates are hedged against currency fluctuations, and how agricultural commodities are graded for export.
               </p>
               <p className="ServicesInformationBottomText reveal__right">
-                With active ground operations in Nigeria and commercial coordination in the United States, we bridge the gap between commercial intent and physical execution. From containerized agricultural exports transiting through Baltimore, Houston, Savannah, and Newark to inbound industrial freight and localized market distribution, Quinn Daisies gives expanding enterprises the reliability, compliance certainty, and transparency needed to scale cross-border commerce.
+                Whether you join our freight brokerage desk, our customs compliance team, our agronomy field network, or our digital logistics engineering group, you will work alongside experienced trade architects who value precision, integrity, and proactive problem-solving. We invest deeply in our personnel, offering clear pathways to executive leadership across our international operating hubs.
               </p>
             </section>
 
@@ -590,12 +558,12 @@ export default function Home() {
               <div className="ApplicationCarouselRefurblished">
                 <div className="ApplicationCarouselRefurblishedFlex ApplicationCarouselFlex">
                   <h2 className="reveal__left">
-                    Navigating the Physical Complexity of Cross-Border Trade
+                    Functional Career Disciplines & Growth Pathways
                   </h2>
 
                   <div className="ApplicationCarouselContainer reveal__right">
                     <p className="ApplicationCarouselContainerText">
-                      International trade requires more than moving goods—it demands coordinated sourcing, logistics, documentation, compliance, and destination execution. Quinn Daisies integrates these functions into one accountable operating framework, providing greater control and visibility from origin to final delivery.
+                      Discover the diverse specialized operational roles that drive our bilateral trade corridors, freight networks, and digital logistics infrastructure.
                     </p>
                   </div>
                 </div>
@@ -608,51 +576,12 @@ export default function Home() {
                     <div className="AdvanceDesignStructureSlideBox">
                       <img
                         src="https://res.cloudinary.com/renaissance-images/image/upload/v1778362102/QuinnDaisies/2152021825_y3d8sd.jpg"
-                        alt="Quinn Daisies Ocean Freight"
+                        alt="Maritime & Freight Operations"
                       />
                       <div className="AdvanceDesignStructureSlideBoxContent">
-                        <h2>Ocean Freight (FCL/LCL)</h2>
+                        <h2>Maritime & Freight Operations</h2>
                         <p>
-                          Direct containerized export routes connecting Lagos Port Complex (Apapa/Tin Can Island) to major U.S. and transatlantic ports of entry, including Baltimore, Newark, Houston, and Savannah.
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="AdvanceDesignStructureSlideBox">
-                      <img
-                        src="https://res.cloudinary.com/renaissance-images/image/upload/v1789248900/QuinnDaisies/2151541891_o5wyhf.jpg"
-                        alt="Quinn Daisies Air Cargo"
-                      />
-                      <div className="AdvanceDesignStructureSlideBoxContent">
-                        <h2>Air Cargo Consolidation</h2>
-                        <p>
-                          Rapid, high-security clearance and express handling operated out of our physical base at NACHO, MMIA in Lagos, synchronized with major international cargo airlines and express carriers.
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="AdvanceDesignStructureSlideBox">
-                      <img
-                        src="https://res.cloudinary.com/renaissance-images/image/upload/v1778362096/QuinnDaisies/2152005492_t9qg4y.jpg"
-                        alt="Quinn Daisies Inland Haulage"
-                      />
-                      <div className="AdvanceDesignStructureSlideBoxContent">
-                        <h2>Inland Haulage & Drayage</h2>
-                        <p>
-                          Managed road-transit pipelines moving containerized cargo between remote agricultural collection zones, industrial manufacturing hubs, and maritime container terminals.
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="AdvanceDesignStructureSlideBox">
-                      <img
-                        src="https://res.cloudinary.com/renaissance-images/image/upload/v1789237513/QuinnDaisies/2151468920_pinckg.jpg"
-                        alt="Quinn Daisies Warehousing"
-                      />
-                      <div className="AdvanceDesignStructureSlideBoxContent">
-                        <h2>Bonded Warehousing & Inventory Staging</h2>
-                        <p>
-                          Secure intermediate staging facilities providing climate-controlled buffering, inventory consolidation, palletizing, and pre-export container preparation.
+                          Manage international ocean carrier agreements, container scheduling, terminal berthing, and airport express operations across high-traffic transatlantic trade routes.
                         </p>
                       </div>
                     </div>
@@ -660,12 +589,12 @@ export default function Home() {
                     <div className="AdvanceDesignStructureSlideBox">
                       <img
                         src="https://res.cloudinary.com/renaissance-images/image/upload/v1789249438/QuinnDaisies/36467_ncwdts.jpg"
-                        alt="Quinn Daisies Sourcing Network"
+                        alt="Origin Sourcing & Agronomy"
                       />
                       <div className="AdvanceDesignStructureSlideBoxContent">
-                        <h2>200+ Vetted Origin Sourcing Network</h2>
+                        <h2>Origin Sourcing & Agronomy</h2>
                         <p>
-                          Direct logistics connectivity to an audited network of over 200 qualified Nigerian agricultural cooperatives, commodity aggregators, and commercial processors.
+                          Lead cooperative producer engagement, harvest forecasting, farm-gate aggregation, and primary processing for export-grade sesame, ginger, and non-GMO crops.
                         </p>
                       </div>
                     </div>
@@ -673,25 +602,51 @@ export default function Home() {
                     <div className="AdvanceDesignStructureSlideBox">
                       <img
                         src="https://res.cloudinary.com/renaissance-images/image/upload/v1789237502/QuinnDaisies/2151589636_v3h3yj.jpg"
-                        alt="Quinn Daisies Quality Inspection"
+                        alt="Quality Assurance & Lab Assays"
                       />
                       <div className="AdvanceDesignStructureSlideBoxContent">
-                        <h2>Pre-Shipment Inspection (PSI) Enforced</h2>
+                        <h2>Quality Assurance & Lab Assays</h2>
                         <p>
-                          Mandatory on-site sampling and chemical analysis through accredited third-party inspection agencies (SGS, Bureau Veritas, Cotecna) before cargo is sealed, verifying purity and phytosanitary metrics.
+                          Oversee pre-shipment sampling, SGS/Bureau Veritas chemical assays, moisture calibration, and phytosanitary verification before containers are sealed.
                         </p>
                       </div>
                     </div>
 
                     <div className="AdvanceDesignStructureSlideBox">
                       <img
-                        src="https://res.cloudinary.com/renaissance-images/image/upload/v1761872178/QuinnDaisies/51152_qph8bp.jpg"
-                        alt="Quinn Daisies Trade Risk Hedging"
+                        src="https://res.cloudinary.com/renaissance-images/image/upload/v1776766956/QuinnDaisies/2151964096_liogs7.jpg"
+                        alt="Customs Brokerage & Compliance"
                       />
                       <div className="AdvanceDesignStructureSlideBoxContent">
-                        <h2>Trade Risk Hedging & Governance</h2>
+                        <h2>Customs Brokerage & Compliance</h2>
                         <p>
-                          Mitigating transatlantic commercial risks—cargo adulteration, demurrage spirals, exchange-rate slippage, and contract default—through structured U.S. jurisdictional agreements.
+                          Coordinate bilateral regulatory pre-filings with U.S. CBP, FDA Prior Notice, USDA, and Nigeria Customs Service, guaranteeing zero demurrage releases.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="AdvanceDesignStructureSlideBox">
+                      <img
+                        src="https://res.cloudinary.com/renaissance-images/image/upload/v1778362096/QuinnDaisies/2152005492_t9qg4y.jpg"
+                        alt="Inland Haulage & Drayage Fleet"
+                      />
+                      <div className="AdvanceDesignStructureSlideBoxContent">
+                        <h2>Inland Haulage & Drayage Fleet</h2>
+                        <p>
+                          Supervise container truck fleets, bonded corridor transport, chassis staging, and Class I rail transfers connecting coastal ports with inland industrial centers.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="AdvanceDesignStructureSlideBox">
+                      <img
+                        src="https://res.cloudinary.com/renaissance-images/image/upload/v1729542859/Quinn%20Daisies%20Logistics/technological-futuristic-holograms-logistics-means-transport_itrxu8.jpg"
+                        alt="Digital Logistics Engineering"
+                      />
+                      <div className="AdvanceDesignStructureSlideBoxContent">
+                        <h2>Digital Logistics Engineering</h2>
+                        <p>
+                          Build real-time shipment telematics, automated documentation engines, and enterprise ERP integrations powering modern cross-border supply chains.
                         </p>
                       </div>
                     </div>
@@ -703,54 +658,48 @@ export default function Home() {
             <section className="SectionContainer">
               <div className="SectionColorHeader">
                 <span className="reveal__top">
-                  We help businesses navigate cross-border expansion
+                  Workplace Culture & Professional Standards
                 </span>
                 <h2 className="reveal__bottom">
-                  Expanding beyond your current market or Planning your next stage of growth?
+                  Building Tomorrow's Global Logistics & Trade Leaders
                 </h2>
               </div>
 
               <div className="SectionFlex">
                 <div className="SectionBoxSmall reveal__left">
                   <h2>
-                    100% <span>Logistics Coordination</span>
+                    100% <span>Field Accountability</span>
                   </h2>
                   <p>
-                    Operating directly across the United States and Nigeria,
-                    We connects American commercial demand with
-                    verified Nigerian supply chains, backed by dual-market logistics
-                    coordination and domestic legal accountability.
+                    We value action over theory. Our professionals take pride in moving physical cargo across real borders, navigating complex terminal procedures, and delivering measurable commercial certainty.
                   </p>
 
                   <img
                     src="https://res.cloudinary.com/renaissance-images/image/upload/v1789466467/QuinnDaisies/2151599738_wgtskd.jpg"
-                    alt="Quinn Daisies Images"
+                    alt="Quinn Daisies Operations"
                   />
                 </div>
 
                 <div className="SectionBoxLarge reveal__bottom">
                   <img
                     src="https://res.cloudinary.com/renaissance-images/image/upload/v1789466479/QuinnDaisies/2151763093_uclmdh.jpg"
-                    alt="Quinn Daisies Image"
+                    alt="Maritime Logistics Team"
                   />
 
                   <img
                     src="https://res.cloudinary.com/renaissance-images/image/upload/v1789465954/QuinnDaisies/2151493235_if2axi.jpg"
-                    alt="Quinn Daisies Image"
+                    alt="Bonded Warehouse Leadership"
                   />
                 </div>
 
                 <div className="SectionBoxSmall reveal__top">
                   <p>
-                    From Nigerian agricultural commodities to U.S. industrial and commercial
-                    goods, we coordinate sourcing, origin handling, transatlantic freight,
-                    customs clearance, and inland distribution across North America,
-                    West Africa, and global markets.
+                    From deepwater terminals in West Africa to inland logistics corridors and distribution centers across North America, Quinn Daisies offers high-velocity careers with tangible global impact.
                   </p>
-                  <Link className="ApplicationButton" to="/direct-sales">
-                    Direct Sales
+                  <Link className="ApplicationButton" to="/contact-us">
+                    Join Our Mission
                     <span className="material-symbols-outlined">
-                      globe_location_pin
+                      arrow_outward
                     </span>
                   </Link>
                 </div>
@@ -761,20 +710,19 @@ export default function Home() {
               <div className="ApplicationBanner">
                 <img
                   src="https://res.cloudinary.com/renaissance-images/image/upload/v1775604123/QuinnDaisies/future-visions-business-technology-concept_ehpo8p.jpg"
-                  alt="Quinn Daisies"
+                  alt="Join Quinn Daisies CTA"
                 />
                 <div className="ApplicationBannerOverlay">
                   <h2>
-                    Move Your Business Across Borders
+                    Ready to Advance Your Career in International Trade?
                   </h2>
                   <p className="ApplicationText">
-                    Tell us what you need to source, move, import, export, distribute, or establish,
-                    and our team will determine the appropriate operational pathway.
+                    Submit your resume or professional portfolio to our talent acquisition team and explore how your operational skills can drive cross-border commerce forward.
                   </p>
                   <Link className="ApplicationButton" to="/contact-us">
-                    Trade Consultation
+                    Submit Your Resume
                     <span className="material-symbols-outlined">
-                      globe_location_pin
+                      arrow_outward
                     </span>
                   </Link>
                 </div>

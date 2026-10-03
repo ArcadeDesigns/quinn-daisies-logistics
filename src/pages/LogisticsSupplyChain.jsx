@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import SEO from "../components/SEO";
 import { useGSAP } from "@gsap/react";
@@ -6,27 +6,25 @@ import { Link } from "react-router-dom";
 import ScrollReveal from "scrollreveal";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { useRef, useEffect, useState } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ScrollSmoother } from "gsap/ScrollSmoother";
 import useSmoothScroll from "../hooks/useSmoothScroll";
 import usePinnedSlides from "../hooks/usePinnedSlides";
 
 const heroSlides = [
   {
-    span: "Trade Execution | Supply Chain Management",
-    h1: "Making International Trade Executable.",
-    p: "We manage logistics, sourcing, compliance, and in-market execution to facilitate the reliable movement of goods across borders, with a primary operating focus on the United States–Nigeria trade corridor.",
+    span: "Supply Chain Architecture | Global Logistics Network",
+    h1: "Resilient Supply Chains Engineered for Global Market Velocity.",
+    p: "From strategic origin procurement and cold-chain warehousing to multimodal transatlantic freight and last-mile fulfillment, Quinn Daisies engineers agile supply networks that lower landed costs and eliminate border bottlenecks.",
     images: [
-      "https://res.cloudinary.com/renaissance-images/image/upload/v1789465949/QuinnDaisies/2151541965_cfe0hz.jpg",
+      "https://res.cloudinary.com/renaissance-images/image/upload/v1778444172/2151468840_wefsks.jpg",
       "https://res.cloudinary.com/renaissance-images/image/upload/v1789466486/QuinnDaisies/2151794095_nivnlp.jpg",
       "https://res.cloudinary.com/renaissance-images/image/upload/v1789466490/QuinnDaisies/2151976954_xlv0a5.jpg",
     ],
   },
   {
-    span: "Logistics Infrastructure | Multimodal Freight",
-    h1: "Moving Cargo with Precision.",
-    p: "We provide coordinated logistics across ocean and air freight, inland transportation, cargo consolidation, warehousing, and customs clearance, delivering greater control and visibility across complex international supply chains.",
+    span: "Multimodal Integration | Port-to-Door Fulfillment",
+    h1: "Synchronized Air, Ocean & Intermodal Freight Execution.",
+    p: "We combine contracted container allocations across premier deepwater ports, bonded drayage fleets, and scheduled cargo flights to guarantee predictable transit times across transatlantic and intra-regional corridors.",
     images: [
       "https://res.cloudinary.com/renaissance-images/image/upload/v1789466467/QuinnDaisies/2151599738_wgtskd.jpg",
       "https://res.cloudinary.com/renaissance-images/image/upload/v1789466483/QuinnDaisies/2151976946_nomiyd.jpg",
@@ -34,9 +32,9 @@ const heroSlides = [
     ],
   },
   {
-    span: "Origin Sourcing | Quality Assurance",
-    h1: "Connecting Demand with Verified Supply.",
-    p: "We connect international buyers with qualified origin suppliers and commodities through supplier verification, quality inspection, trade documentation, and coordinated execution across both sides of the market.",
+    span: "Inventory Optimization | Bonded Staging & Distribution",
+    h1: "Intelligent Inventory Flow Across Primary Trade Hubs.",
+    p: "Consolidating origin commodities and finished commercial freight within secure bonded facilities, providing real-time inventory telemetry and flexible cross-dock dispatch directly to distributors.",
     images: [
       "https://res.cloudinary.com/renaissance-images/image/upload/v1789465954/QuinnDaisies/2151493235_if2axi.jpg",
       "https://res.cloudinary.com/renaissance-images/image/upload/v1789248900/QuinnDaisies/2151541891_o5wyhf.jpg",
@@ -49,7 +47,7 @@ const SLIDE_INTERVAL = 10000;
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Home() {
+export default function LogisticsSupplyChain() {
   useSmoothScroll();
 
   const [activeSlide, setActiveSlide] = useState(0);
@@ -124,35 +122,6 @@ export default function Home() {
 
   usePinnedSlides(imagePinRef);
 
-  useGSAP(
-    () => {
-      if (!smoothWrapperRef.current || !smoothContentRef.current)
-        return undefined;
-
-      ScrollTrigger.config({ ignoreMobileResize: true });
-
-      const existingSmoother = ScrollSmoother.get();
-      if (existingSmoother) existingSmoother.kill();
-
-      const smoother = ScrollSmoother.create({
-        wrapper: smoothWrapperRef.current,
-        content: smoothContentRef.current,
-        smooth: 1.2,
-        smoothTouch: 0.1,
-        effects: true,
-        normalizeScroll: true,
-      });
-
-      ScrollTrigger.refresh();
-
-      return () => {
-        smoother.kill();
-        ScrollTrigger.clearScrollMemory();
-      };
-    },
-    { scope: pageRef },
-  );
-
   useEffect(() => {
     ScrollReveal().reveal(".reveal__bottom", {
       origin: "bottom",
@@ -226,69 +195,66 @@ export default function Home() {
   const solutions = [
     {
       icon: "local_shipping",
-      title: "Physical Execution",
-      text: "We manage the physical movement of goods from origin to destination, coordinating collection, handling, freight, and delivery across international supply chains.",
+      title: "Dynamic Carrier Routing",
+      text: "Multi-carrier redundancy across ocean, air, rail, and road to navigate seasonal capacity constraints and route disruptions with continuous agility.",
     },
-
     {
-      icon: "verified",
-      title: "Verified Supply",
-      text: "We identify qualified suppliers, validate origin, verify specifications, and coordinate pre-shipment quality checks before commercial commitments are made.",
+      icon: "warehouse",
+      title: "Bonded Staging & Cold Chain",
+      text: "Temperature-calibrated warehousing with integrated phytosanitary testing, automated fumigation staging, and bonded customs compliance.",
     },
-
     {
-      icon: "sync_alt",
-      title: "Cross-Border Accountability",
-      text: "Our coordinated operating structure provides accountability across both sides of the trade corridor, connecting origin operations with destination markets.",
+      icon: "verified_user",
+      title: "Total Chain of Custody",
+      text: "Strict integrity tracking with origin assays, tamper-proof container seals, digital bills of lading, and verified milestone logging.",
     },
-
     {
-      icon: "hub",
-      title: "Integrated Logistics",
-      text: "We coordinate sourcing, freight, documentation, customs clearance, and final delivery as one integrated process for greater control and visibility.",
+      icon: "speed",
+      title: "Rapid Port Turnaround",
+      text: "Pre-clearance customs filing, on-dock Class I rail connectivity, and dedicated drayage corridors to minimize demurrage and terminal dwell.",
     },
   ];
 
   const executionStages = [
     {
-      title: "Origin Supply & Procurement",
+      title: "Strategic Sourcing & Demand Forecasting",
       description:
-        "We align buyer requirements with qualified origin suppliers, aggregators, cooperatives, and producers to establish reliable supply at the point of origin.",
+        "We align international commercial demand with verified producer networks, mapping volume requirements against seasonal supply realities to ensure uninterrupted material flow.",
       image:
         "https://res.cloudinary.com/renaissance-images/image/upload/v1789237502/QuinnDaisies/2151589636_v3h3yj.jpg",
     },
     {
-      title: "Supplier & Cargo Assurance",
+      title: "Origin Aggregation & Bonded Staging",
       description:
-        "We validate counterparties, specifications, quality, and cargo readiness through supplier due diligence, origin verification, inspections, and applicable testing before shipment.",
+        "Cargo is consolidated at secure inland terminals where moisture, grade, assay specifications, and export packing standards are certified before transit commences.",
       image:
         "https://res.cloudinary.com/renaissance-images/image/upload/v1789465950/QuinnDaisies/2151663021_qg5kyt.jpg",
     },
     {
-      title: "Export Readiness & Consolidation",
+      title: "Multimodal Carrier Allocation & Pre-Booking",
       description:
-        "We coordinate consolidation, packaging, labelling, documentation, and export preparation to align cargo with applicable origin and destination requirements.",
+        "We secure priority container bookings across leading ocean alliances and commercial air lines, coordinating schedule handovers to eliminate port staging delays.",
       image:
         "https://res.cloudinary.com/renaissance-images/image/upload/v1789248900/QuinnDaisies/2151541891_o5wyhf.jpg",
     },
     {
-      title: "Multimodal Freight Execution",
+      title: "Digital Customs Pre-Clearance & Tariff Optimization",
       description:
-        "We coordinate ocean, air, inland transportation, and port logistics to move cargo efficiently between origin and destination while maintaining shipment visibility.",
+        "Our customs brokers pre-file CBP ISF 10+2, EU customs manifests, and import documentation, optimizing HS tariff lines to guarantee rapid cargo release on arrival.",
       image:
         "https://res.cloudinary.com/renaissance-images/image/upload/v1778362093/QuinnDaisies/2151468868_ispgpz.jpg",
     },
     {
-      title: "Trade Documentation & Clearance",
+      title: "In-Transit Telemetry & Environmental Monitoring",
       description:
-        "We coordinate trade documentation, tariff classification, export requirements, and customs processes with the relevant parties to support compliant cargo release.",
+        "Every shipment is tracked with real-time GPS telemetry and IoT environmental sensors, providing live visibility into container location, humidity, and temperature.",
       image:
         "https://res.cloudinary.com/renaissance-images/image/upload/v1776766956/QuinnDaisies/2151964096_liogs7.jpg",
     },
     {
-      title: "Inland Distribution & Handover",
+      title: "Final Hub Deconsolidation & Last-Mile Delivery",
       description:
-        "We coordinate destination transport from ports and entry points to warehouses, processing facilities, distribution centers, and buyer locations for controlled final delivery.",
+        "Direct connection from gateway ports into bonded distribution centers, on-dock rail wagons, and regional haulage networks for controlled final-mile handover.",
       image:
         "https://res.cloudinary.com/renaissance-images/image/upload/v1778289411/QuinnDaisies/2151998728_ha2wny.jpg",
     },
@@ -345,10 +311,10 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Quinn Daisies Logistics | Global Freight Forwarding, Cold Chain & Supply Chain Systems"
-        description="Quinn Daisies Logistics delivers premier air cargo, ocean freight, customs clearance, cold-chain solutions, and supply chain technology connecting North America, West Africa, and global trade hubs."
-        keywords="Quinn Daisies Logistics, global logistics, international shipping, air freight, ocean freight, customs clearance, cold chain logistics, US Nigeria shipping, freight forwarder Maryland, cargo Lagos Nigeria, MMIA Ikeja freight forwarder"
-        url="https://www.logistics.quinndaisies.com/"
+        title="Logistics & Supply Chain Solutions | Quinn Daisies Logistics"
+        description="End-to-end global supply chain architecture, multimodal freight coordination, bonded warehousing, and last-mile distribution across major trade lanes."
+        keywords="logistics and supply chain, multimodal freight solutions, bonded warehousing, end to end logistics, international cargo management, 3PL logistics, 4PL supply chain architecture"
+        url="https://www.logistics.quinndaisies.com/logistics-and-supply-chain"
       />
 
       <div ref={pageRef}>
@@ -359,7 +325,6 @@ export default function Home() {
             <section className="OpportunityAppCtn">
               <div className="OpportunityAppHeader">
                 <div className="ContentCtn-Center" ref={heroContentRef}>
-
                   <span className="ContentCtn-Center-Span">
                     {currentSlide.span}
                   </span>
@@ -431,8 +396,8 @@ export default function Home() {
                 </div>
 
                 <div className="SingleBtnCtn-Center reveal__bottom">
-                  <Link className="ApplicationButton" to="/services">
-                    Our Services
+                  <Link className="ApplicationButton" to="/get-a-quote">
+                    Request Logistics Consultation
                     <span className="material-symbols-outlined">
                       globe_location_pin
                     </span>
@@ -454,7 +419,7 @@ export default function Home() {
             <section className="sectionBox" ref={containerRef}>
               <div className="SectionHeader">
                 <h2 className="reveal__top">
-                  Why businesses choose Quinn Daisies
+                  Global Enterprises Rely on Our Supply Chain
                 </h2>
               </div>
 
@@ -476,7 +441,7 @@ export default function Home() {
                 <div className="fill"></div>
                 <div className="ApplicationChartContentList">
                   <h2 className="ApplicationImageDesignHeader reveal__bottom__interval_slide">
-                    From Origin to Destination, One Operational Framework
+                    Architected for Resilience Across Every Operational Milestone
                   </h2>
                   {executionStages.map((item, index) => (
                     <div
@@ -518,10 +483,10 @@ export default function Home() {
 
             <section className="SectionContainer ServicesInformation">
               <span className="reveal__left">
-                Trade Execution & Logistics Architecture
+                Cross-Border Supply Chain Performance
               </span>
               <h4 className="reveal__right">
-                Connecting origin sourcing, accredited verification, multimodal freight, and in-market execution across core transatlantic trade corridors.
+                Synchronized freight movement engineered for predictability, zero port-dwell penalties, and complete shipment custody.
               </h4>
 
               <div className="ServicesInformationBoxContainer">
@@ -529,56 +494,56 @@ export default function Home() {
                   <div className="ServicesInformationBoxHeader">
                     <h6>On-Time Last-Mile Dispatch</h6>
                     <p>
-                      Dedicated transport routing and scheduled container allocations ensuring high reliability from origin ports to inland destination doors.
+                      Dedicated haulage pipelines and precision routing guaranteeing seamless transit from coastal gateway to inland facility doors.
                     </p>
                   </div>
                   <h3>
-                    99.4<span>%</span>
+                    99.4<text>%</text>
                   </h3>
                 </div>
 
                 <div className="ServicesInformationBox reveal__bottom__interval">
                   <div className="ServicesInformationBoxHeader">
-                    <h6>Verified Origin Supply Network</h6>
+                    <h6>Contracted Freight & Drayage Units</h6>
                     <p>
-                      Direct commercial access to audited agricultural cooperatives, registered processors, and commercial aggregators across Nigeria.
+                      Active access to verified tractor-trailers, bonded container depots, and cold-chain staging across U.S. and Nigerian corridors.
                     </p>
                   </div>
                   <h3>
-                    200<span>+</span>
+                    350<text>+</text>
                   </h3>
                 </div>
 
                 <div className="ServicesInformationBox reveal__bottom__interval">
                   <div className="ServicesInformationBoxHeader">
-                    <h6>Port-to-Warehouse Velocity</h6>
+                    <h6>Port-to-Warehouse Turnaround</h6>
                     <p>
-                      Expedited customs pre-clearance filings and dedicated terminal drayage power units minimizing detention and demurrage liabilities.
+                      Accelerated electronic pre-clearance filings and dedicated terminal drayage power units minimizing detention and demurrage liabilities.
                     </p>
                   </div>
                   <h3>
-                    24–48<span>hrs</span>
+                    24–48<text>hrs</text>
                   </h3>
                 </div>
 
                 <div className="ServicesInformationBox reveal__bottom__interval">
                   <div className="ServicesInformationBoxHeader">
-                    <h6>Cross-Border Accountability</h6>
+                    <h6>Documented Chain of Custody</h6>
                     <p>
-                      Unbroken chain-of-custody logging and commercial agreements executed under dual-entity U.S. and Nigerian corporate governance.
+                      Continuous sensor monitoring, telematics tracking, and milestone logging from farm collection through deepwater maritime offload.
                     </p>
                   </div>
                   <h3>
-                    100<span>%</span>
+                    100<text>%</text>
                   </h3>
                 </div>
               </div>
 
               <p className="ServicesInformationBottomText reveal__left">
-                International commerce depends on far more than finding a buyer or introducing a supplier. Goods must be sourced, laboratory-verified, packaged, documented, transported, customs-cleared, and physically delivered to inland facility doors. Fragmented vendor relationships frequently lead to demurrage spirals, delayed release, and contract friction. Quinn Daisies solves this by providing the end-to-end operational infrastructure that connects every stage of the trade flow under one accountable operating framework.
+                Cross-border commerce breaks down when shippers rely on fragmented vendors across maritime bookings, terminal handling, and inland drayage. Port congestion and documentation discrepancies frequently lead to prohibitive demurrage surcharges and compromised transit schedules. Quinn Daisies eliminates these operational vulnerabilities by integrating origin aggregation, bonded terminal staging, accredited laboratory pre-clearance, and intermodal transport into one accountable operating structure.
               </p>
               <p className="ServicesInformationBottomText reveal__right">
-                With active ground operations in Nigeria and commercial coordination in the United States, we bridge the gap between commercial intent and physical execution. From containerized agricultural exports transiting through Baltimore, Houston, Savannah, and Newark to inbound industrial freight and localized market distribution, Quinn Daisies gives expanding enterprises the reliability, compliance certainty, and transparency needed to scale cross-border commerce.
+                Under our unified operational framework, commercial enterprises benefit from guaranteed container allocations on premier ocean carriers, secured airport cargo handling at NACHO MMIA, and direct Class I rail transfers at major U.S. ports of entry including Baltimore, Houston, Savannah, and Newark. We absorb the physical complexity of global logistics so your enterprise can scale cross-border trade with absolute commercial certainty.
               </p>
             </section>
 
@@ -590,12 +555,12 @@ export default function Home() {
               <div className="ApplicationCarouselRefurblished">
                 <div className="ApplicationCarouselRefurblishedFlex ApplicationCarouselFlex">
                   <h2 className="reveal__left">
-                    Navigating the Physical Complexity of Cross-Border Trade
+                    Dedicated Freight Corridors & Multimodal Transit Capabilities
                   </h2>
 
                   <div className="ApplicationCarouselContainer reveal__right">
                     <p className="ApplicationCarouselContainerText">
-                      International trade requires more than moving goods—it demands coordinated sourcing, logistics, documentation, compliance, and destination execution. Quinn Daisies integrates these functions into one accountable operating framework, providing greater control and visibility from origin to final delivery.
+                      Our direct sales framework links high-volume commercial shippers directly with scheduled vessel allocations, bonded warehousing, air cargo priority, and rapid customs clearance across key transatlantic trade corridors.
                     </p>
                   </div>
                 </div>
@@ -659,13 +624,13 @@ export default function Home() {
 
                     <div className="AdvanceDesignStructureSlideBox">
                       <img
-                        src="https://res.cloudinary.com/renaissance-images/image/upload/v1789249438/QuinnDaisies/36467_ncwdts.jpg"
-                        alt="Quinn Daisies Sourcing Network"
+                        src="https://res.cloudinary.com/renaissance-images/image/upload/v1789466488/QuinnDaisies/2151976962_rvpgb9.jpg"
+                        alt="Quinn Daisies Cold Chain Logistics"
                       />
                       <div className="AdvanceDesignStructureSlideBoxContent">
-                        <h2>200+ Vetted Origin Sourcing Network</h2>
+                        <h2>Cold Chain & Perishable Cargo Handling</h2>
                         <p>
-                          Direct logistics connectivity to an audited network of over 200 qualified Nigerian agricultural cooperatives, commodity aggregators, and commercial processors.
+                          Continuous temperature-controlled handling and telematics monitoring safeguarding sensitive agricultural exports and temperature-sensitive industrial goods throughout transit.
                         </p>
                       </div>
                     </div>
@@ -678,7 +643,7 @@ export default function Home() {
                       <div className="AdvanceDesignStructureSlideBoxContent">
                         <h2>Pre-Shipment Inspection (PSI) Enforced</h2>
                         <p>
-                          Mandatory on-site sampling and chemical analysis through accredited third-party inspection agencies (SGS, Bureau Veritas, Cotecna) before cargo is sealed, verifying purity and phytosanitary metrics.
+                          Mandatory on-site sampling and chemical analysis through accredited third-party inspection agencies (SGS, Bureau Veritas, Cotecna) before cargo is sealed, verifying purity and compliance.
                         </p>
                       </div>
                     </div>
@@ -689,9 +654,9 @@ export default function Home() {
                         alt="Quinn Daisies Trade Risk Hedging"
                       />
                       <div className="AdvanceDesignStructureSlideBoxContent">
-                        <h2>Trade Risk Hedging & Governance</h2>
+                        <h2>Trade Risk Hedging & Accountability</h2>
                         <p>
-                          Mitigating transatlantic commercial risks—cargo adulteration, demurrage spirals, exchange-rate slippage, and contract default—through structured U.S. jurisdictional agreements.
+                          Mitigating transatlantic commercial risks—cargo adulteration, demurrage spirals, and exchange-rate slippage—via structured agreements executed under U.S. jurisdictional oversight.
                         </p>
                       </div>
                     </div>
@@ -703,52 +668,46 @@ export default function Home() {
             <section className="SectionContainer">
               <div className="SectionColorHeader">
                 <span className="reveal__top">
-                  We help businesses navigate cross-border expansion
+                  Global Freight Capacity | Cross-Border Execution
                 </span>
                 <h2 className="reveal__bottom">
-                  Expanding beyond your current market or Planning your next stage of growth?
+                  Scalable Supply Chain Solutions for Expanding Enterprises
                 </h2>
               </div>
 
               <div className="SectionFlex">
                 <div className="SectionBoxSmall reveal__left">
                   <h2>
-                    100% <span>Logistics Coordination</span>
+                    99.4% <span>On-Time Dispatch</span>
                   </h2>
                   <p>
-                    Operating directly across the United States and Nigeria,
-                    We connects American commercial demand with
-                    verified Nigerian supply chains, backed by dual-market logistics
-                    coordination and domestic legal accountability.
+                    From deepwater port operations in West Africa to railheads and commercial corridors across North America and Europe, Quinn Daisies delivers consistent execution backed by contractual SLA accountability.
                   </p>
 
                   <img
                     src="https://res.cloudinary.com/renaissance-images/image/upload/v1789466467/QuinnDaisies/2151599738_wgtskd.jpg"
-                    alt="Quinn Daisies Images"
+                    alt="Quinn Daisies Supply Chain Operations"
                   />
                 </div>
 
                 <div className="SectionBoxLarge reveal__bottom">
                   <img
                     src="https://res.cloudinary.com/renaissance-images/image/upload/v1789466479/QuinnDaisies/2151763093_uclmdh.jpg"
-                    alt="Quinn Daisies Image"
+                    alt="Quinn Daisies Ocean Freight"
                   />
 
                   <img
                     src="https://res.cloudinary.com/renaissance-images/image/upload/v1789465954/QuinnDaisies/2151493235_if2axi.jpg"
-                    alt="Quinn Daisies Image"
+                    alt="Quinn Daisies Warehouse Logistics"
                   />
                 </div>
 
                 <div className="SectionBoxSmall reveal__top">
                   <p>
-                    From Nigerian agricultural commodities to U.S. industrial and commercial
-                    goods, we coordinate sourcing, origin handling, transatlantic freight,
-                    customs clearance, and inland distribution across North America,
-                    West Africa, and global markets.
+                    Whether importing agricultural raw materials, distributing industrial equipment, or orchestrating multi-country inventory movements, our logistics teams provide the physical capability and commercial transparency your enterprise requires.
                   </p>
-                  <Link className="ApplicationButton" to="/direct-sales">
-                    Direct Sales
+                  <Link className="ApplicationButton" to="/get-a-quote">
+                    Explore Logistics Corridors
                     <span className="material-symbols-outlined">
                       globe_location_pin
                     </span>
@@ -761,18 +720,17 @@ export default function Home() {
               <div className="ApplicationBanner">
                 <img
                   src="https://res.cloudinary.com/renaissance-images/image/upload/v1775604123/QuinnDaisies/future-visions-business-technology-concept_ehpo8p.jpg"
-                  alt="Quinn Daisies"
+                  alt="Quinn Daisies Supply Chain CTA"
                 />
                 <div className="ApplicationBannerOverlay">
                   <h2>
-                    Move Your Business Across Borders
+                    Optimize Your End-to-End Supply Chain Today
                   </h2>
                   <p className="ApplicationText">
-                    Tell us what you need to source, move, import, export, distribute, or establish,
-                    and our team will determine the appropriate operational pathway.
+                    Tell us what you need to move, store, clear, or distribute, and our logistics architects will engineer a dependable, cost-optimized routing strategy.
                   </p>
                   <Link className="ApplicationButton" to="/contact-us">
-                    Trade Consultation
+                    Supply Chain Consultation
                     <span className="material-symbols-outlined">
                       globe_location_pin
                     </span>

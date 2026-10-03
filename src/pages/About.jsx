@@ -46,10 +46,11 @@ export default function About() {
 
     return (
         <>
-            <SEO 
-                title="Quinn Daisies Logistics | About Us" 
-                description="Built on Trust. Driven by Precision. We are a full-service logistics company committed to moving goods efficiently, safely, and on time." 
-                url="https://www.logistics.quinndaisies.com/quinn-daisies/about-us" 
+            <SEO
+                title="About Us | Global Freight & Logistics Excellence | Quinn Daisies Logistics"
+                description="Learn about Quinn Daisies Logistics — an international logistics provider delivering precision air freight, ocean cargo, cold chain, and supply chain technology across the US, Nigeria, and worldwide."
+                keywords="About Quinn Daisies Logistics, international logistics company, Maryland freight forwarder, Lagos Nigeria cargo, transatlantic supply chain, logistics company history, freight forwarding team"
+                url="https://www.logistics.quinndaisies.com/about-us"
             />
 
             <Navbar />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import SEO from "../components/SEO";
 import { useGSAP } from "@gsap/react";
@@ -6,39 +6,37 @@ import { Link } from "react-router-dom";
 import ScrollReveal from "scrollreveal";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { useRef, useEffect, useState } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ScrollSmoother } from "gsap/ScrollSmoother";
 import useSmoothScroll from "../hooks/useSmoothScroll";
 import usePinnedSlides from "../hooks/usePinnedSlides";
 
 const heroSlides = [
   {
-    span: "Trade Execution | Supply Chain Management",
-    h1: "Making International Trade Executable.",
-    p: "We manage logistics, sourcing, compliance, and in-market execution to facilitate the reliable movement of goods across borders, with a primary operating focus on the United States–Nigeria trade corridor.",
+    span: "Agricultural Commodity Procurement | Origin Verification",
+    h1: "Direct Farm-Gate Agricultural Sourcing with Absolute Purity.",
+    p: "We bridge global commodity buyers and industrial processors directly with vetted agricultural cooperatives across Nigeria, eliminating broker opacity and delivering contractual quality backed by accredited lab assays.",
     images: [
-      "https://res.cloudinary.com/renaissance-images/image/upload/v1789465949/QuinnDaisies/2151541965_cfe0hz.jpg",
+      "https://res.cloudinary.com/renaissance-images/image/upload/v1789249438/QuinnDaisies/36467_ncwdts.jpg",
       "https://res.cloudinary.com/renaissance-images/image/upload/v1789466486/QuinnDaisies/2151794095_nivnlp.jpg",
       "https://res.cloudinary.com/renaissance-images/image/upload/v1789466490/QuinnDaisies/2151976954_xlv0a5.jpg",
     ],
   },
   {
-    span: "Logistics Infrastructure | Multimodal Freight",
-    h1: "Moving Cargo with Precision.",
-    p: "We provide coordinated logistics across ocean and air freight, inland transportation, cargo consolidation, warehousing, and customs clearance, delivering greater control and visibility across complex international supply chains.",
+    span: "Quality Assurance & Sorting | Pre-Shipment Inspection",
+    h1: "Rigorous Mechanical Sorting, Cleaning & Chemical Assays.",
+    p: "From Sortex optical cleaning to certified third-party testing (SGS, Bureau Veritas), every export shipment meets rigorous international specifications for moisture, oil content, and purity before departure.",
     images: [
-      "https://res.cloudinary.com/renaissance-images/image/upload/v1789466467/QuinnDaisies/2151599738_wgtskd.jpg",
+      "https://res.cloudinary.com/renaissance-images/image/upload/v1789237502/QuinnDaisies/2151589636_v3h3yj.jpg",
       "https://res.cloudinary.com/renaissance-images/image/upload/v1789466483/QuinnDaisies/2151976946_nomiyd.jpg",
       "https://res.cloudinary.com/renaissance-images/image/upload/v1789465950/QuinnDaisies/2151663021_qg5kyt.jpg",
     ],
   },
   {
-    span: "Origin Sourcing | Quality Assurance",
-    h1: "Connecting Demand with Verified Supply.",
-    p: "We connect international buyers with qualified origin suppliers and commodities through supplier verification, quality inspection, trade documentation, and coordinated execution across both sides of the market.",
+    span: "Transatlantic Execution | Bonded Logistics & Export",
+    h1: "Unbroken Chain-of-Custody from Inland Farms to Port Discharge.",
+    p: "Consolidating high-tonnage agricultural commodities within bonded warehouses, managing container drayage to Lagos ports, and securing contracted ocean vessel space to major global destinations.",
     images: [
-      "https://res.cloudinary.com/renaissance-images/image/upload/v1789465954/QuinnDaisies/2151493235_if2axi.jpg",
+      "https://res.cloudinary.com/renaissance-images/image/upload/v1789237513/QuinnDaisies/2151468920_pinckg.jpg",
       "https://res.cloudinary.com/renaissance-images/image/upload/v1789248900/QuinnDaisies/2151541891_o5wyhf.jpg",
       "https://res.cloudinary.com/renaissance-images/image/upload/v1789466488/QuinnDaisies/2151976962_rvpgb9.jpg",
     ],
@@ -49,7 +47,7 @@ const SLIDE_INTERVAL = 10000;
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Home() {
+export default function CommoditiesSupply() {
   useSmoothScroll();
 
   const [activeSlide, setActiveSlide] = useState(0);
@@ -124,35 +122,6 @@ export default function Home() {
 
   usePinnedSlides(imagePinRef);
 
-  useGSAP(
-    () => {
-      if (!smoothWrapperRef.current || !smoothContentRef.current)
-        return undefined;
-
-      ScrollTrigger.config({ ignoreMobileResize: true });
-
-      const existingSmoother = ScrollSmoother.get();
-      if (existingSmoother) existingSmoother.kill();
-
-      const smoother = ScrollSmoother.create({
-        wrapper: smoothWrapperRef.current,
-        content: smoothContentRef.current,
-        smooth: 1.2,
-        smoothTouch: 0.1,
-        effects: true,
-        normalizeScroll: true,
-      });
-
-      ScrollTrigger.refresh();
-
-      return () => {
-        smoother.kill();
-        ScrollTrigger.clearScrollMemory();
-      };
-    },
-    { scope: pageRef },
-  );
-
   useEffect(() => {
     ScrollReveal().reveal(".reveal__bottom", {
       origin: "bottom",
@@ -186,6 +155,15 @@ export default function Home() {
       easing: "ease-in-out",
     });
 
+    ScrollReveal().reveal(".reveal__bottom__interval", {
+      origin: "bottom",
+      distance: "100px",
+      duration: 1000,
+      interval: 200,
+      reset: false,
+      easing: "ease-in-out",
+    });
+
     ScrollReveal().reveal(".reveal__top__interval", {
       origin: "top",
       distance: "100px",
@@ -197,15 +175,6 @@ export default function Home() {
 
     ScrollReveal().reveal(".reveal__left__interval", {
       origin: "left",
-      distance: "100px",
-      duration: 1000,
-      interval: 200,
-      reset: false,
-      easing: "ease-in-out",
-    });
-
-    ScrollReveal().reveal(".reveal__bottom__interval", {
-      origin: "bottom",
       distance: "100px",
       duration: 1000,
       interval: 200,
@@ -225,72 +194,69 @@ export default function Home() {
 
   const solutions = [
     {
-      icon: "local_shipping",
-      title: "Physical Execution",
-      text: "We manage the physical movement of goods from origin to destination, coordinating collection, handling, freight, and delivery across international supply chains.",
+      icon: "grain",
+      title: "Natural White Sesame Seeds",
+      text: "Machine-cleaned and Sortex-graded to 99%+ purity with oil content exceeding 50%. Sourced from vetted producer cooperatives across northern Nigeria with complete phytosanitary compliance.",
     },
-
     {
-      icon: "verified",
-      title: "Verified Supply",
-      text: "We identify qualified suppliers, validate origin, verify specifications, and coordinate pre-shipment quality checks before commercial commitments are made.",
+      icon: "spa",
+      title: "Sun-Dried Split Ginger",
+      text: "Naturally sun-dried split ginger rhizomes cultivated in Kaduna state, prized internationally for exceptional gingerol pungency, high oleoresin content, and strict moisture calibration below 10%.",
     },
-
     {
-      icon: "sync_alt",
-      title: "Cross-Border Accountability",
-      text: "Our coordinated operating structure provides accountability across both sides of the trade corridor, connecting origin operations with destination markets.",
+      icon: "compost",
+      title: "Non-GMO Soybeans",
+      text: "Premium non-genetically modified soybeans cultivated across Nigeria's agricultural heartland, delivering high protein levels (38%+) and low foreign matter for global crushers and food manufacturers.",
     },
-
     {
-      icon: "hub",
-      title: "Integrated Logistics",
-      text: "We coordinate sourcing, freight, documentation, customs clearance, and final delivery as one integrated process for greater control and visibility.",
+      icon: "inventory_2",
+      title: "Coconut & Agricultural Derivatives",
+      text: "Fresh green plantains, tropical fruit inputs, and industrial copra derivatives aggregated under temperature-controlled staging for specialty food processors and international commercial markets.",
     },
   ];
 
   const executionStages = [
     {
-      title: "Origin Supply & Procurement",
+      title: "Cooperative Field Aggregation",
       description:
-        "We align buyer requirements with qualified origin suppliers, aggregators, cooperatives, and producers to establish reliable supply at the point of origin.",
+        "We source directly through long-term off-take agreements with audited farmer cooperatives, bypassing middlemen to secure volume consistency and fair producer compensation.",
+      image:
+        "https://res.cloudinary.com/renaissance-images/image/upload/v1789249438/QuinnDaisies/36467_ncwdts.jpg",
+    },
+    {
+      title: "Sortex Cleaning & Moisture Calibration",
+      description:
+        "Harvested crops undergo multi-stage mechanical sieving, optical Sortex impurity removal, and sun-drying to eliminate foreign matter, stones, and excess moisture.",
       image:
         "https://res.cloudinary.com/renaissance-images/image/upload/v1789237502/QuinnDaisies/2151589636_v3h3yj.jpg",
     },
     {
-      title: "Supplier & Cargo Assurance",
+      title: "Independent Laboratory Certification",
       description:
-        "We validate counterparties, specifications, quality, and cargo readiness through supplier due diligence, origin verification, inspections, and applicable testing before shipment.",
+        "Accredited third-party inspection firms (SGS, Bureau Veritas, Cotecna) conduct on-site sampling and chemical assays to verify contractual purity, aflatoxin limits, and oil content.",
       image:
-        "https://res.cloudinary.com/renaissance-images/image/upload/v1789465950/QuinnDaisies/2151663021_qg5kyt.jpg",
+        "https://res.cloudinary.com/renaissance-images/image/upload/v1778362101/QuinnDaisies/2151989565_gwpjcm.jpg",
     },
     {
-      title: "Export Readiness & Consolidation",
+      title: "Export Packaging & Container Stuffing",
       description:
-        "We coordinate consolidation, packaging, labelling, documentation, and export preparation to align cargo with applicable origin and destination requirements.",
+        "Certified commodities are packaged in multi-wall polypropylene bags with moisture-absorbing desiccants and loaded into inspected 20ft/40ft ocean containers under strict supervision.",
       image:
-        "https://res.cloudinary.com/renaissance-images/image/upload/v1789248900/QuinnDaisies/2151541891_o5wyhf.jpg",
+        "https://res.cloudinary.com/renaissance-images/image/upload/v1789237513/QuinnDaisies/2151468920_pinckg.jpg",
     },
     {
-      title: "Multimodal Freight Execution",
+      title: "Port Drayage & Customs Pre-Clearance",
       description:
-        "We coordinate ocean, air, inland transportation, and port logistics to move cargo efficiently between origin and destination while maintaining shipment visibility.",
+        "Bonded trucking fleets transport sealed containers to Apapa and Tin Can Island ports with pre-cleared export documentation, NXP electronic filings, and phytosanitary certificates.",
       image:
-        "https://res.cloudinary.com/renaissance-images/image/upload/v1778362093/QuinnDaisies/2151468868_ispgpz.jpg",
+        "https://res.cloudinary.com/renaissance-images/image/upload/v1778362096/QuinnDaisies/2152005492_t9qg4y.jpg",
     },
     {
-      title: "Trade Documentation & Clearance",
+      title: "Ocean Transit & Destination Discharge",
       description:
-        "We coordinate trade documentation, tariff classification, export requirements, and customs processes with the relevant parties to support compliant cargo release.",
+        "Priority vessel berthing and bill-of-lading transfers managed under enforceable U.S. commercial contracts, guaranteeing predictable arrival at North American, European, and Asian ports.",
       image:
-        "https://res.cloudinary.com/renaissance-images/image/upload/v1776766956/QuinnDaisies/2151964096_liogs7.jpg",
-    },
-    {
-      title: "Inland Distribution & Handover",
-      description:
-        "We coordinate destination transport from ports and entry points to warehouses, processing facilities, distribution centers, and buyer locations for controlled final delivery.",
-      image:
-        "https://res.cloudinary.com/renaissance-images/image/upload/v1778289411/QuinnDaisies/2151998728_ha2wny.jpg",
+        "https://res.cloudinary.com/renaissance-images/image/upload/v1778362102/QuinnDaisies/2152021825_y3d8sd.jpg",
     },
   ];
 
@@ -318,9 +284,9 @@ export default function Home() {
       const strip = carouselStripRef.current;
       if (!section || !strip) return;
 
-      const getScrollAmount = () => -(strip.scrollWidth - window.innerWidth);
+      const getScrollAmount = () => -(strip.scrollWidth - window.innerWidth + 80);
 
-      gsap.to(strip, {
+      const ctx = gsap.to(strip, {
         x: getScrollAmount,
         ease: "none",
         scrollTrigger: {
@@ -328,16 +294,17 @@ export default function Home() {
           pin: true,
           pinSpacing: true,
           start: "top top",
-          end: () => `+=${strip.scrollWidth - window.innerWidth}`,
-          scrub: 1,
-          anticipatePin: 1,
+          end: () => `+=${Math.max(strip.scrollWidth - window.innerWidth, 1200)}`,
+          scrub: 1.2,
           invalidateOnRefresh: true,
         },
       });
 
-      ScrollTrigger.refresh();
+      return () => {
+        if (ctx.scrollTrigger) ctx.scrollTrigger.kill();
+      };
     },
-    { scope: carouselSectionRef },
+    { scope: carouselSectionRef, dependencies: [] },
   );
 
   const currentSlide = heroSlides[activeSlide];
@@ -345,10 +312,10 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Quinn Daisies Logistics | Global Freight Forwarding, Cold Chain & Supply Chain Systems"
-        description="Quinn Daisies Logistics delivers premier air cargo, ocean freight, customs clearance, cold-chain solutions, and supply chain technology connecting North America, West Africa, and global trade hubs."
-        keywords="Quinn Daisies Logistics, global logistics, international shipping, air freight, ocean freight, customs clearance, cold chain logistics, US Nigeria shipping, freight forwarder Maryland, cargo Lagos Nigeria, MMIA Ikeja freight forwarder"
-        url="https://www.logistics.quinndaisies.com/"
+        title="Agricultural Commodities & Supply Chain | Quinn Daisies Logistics"
+        description="Direct origin agricultural commodity sourcing from Nigeria: Natural White Sesame Seeds, Sun-Dried Split Ginger, Non-GMO Soybeans, and plantains backed by independent laboratory assays and end-to-end export logistics."
+        keywords="agricultural commodities export Nigeria, sesame seeds export, split ginger supplier, non-GMO soybeans Nigeria, bulk commodity sourcing, commodity export logistics, raw cashew nuts, cocoa beans export"
+        url="https://www.logistics.quinndaisies.com/commodities-and-supply"
       />
 
       <div ref={pageRef}>
@@ -359,7 +326,6 @@ export default function Home() {
             <section className="OpportunityAppCtn">
               <div className="OpportunityAppHeader">
                 <div className="ContentCtn-Center" ref={heroContentRef}>
-
                   <span className="ContentCtn-Center-Span">
                     {currentSlide.span}
                   </span>
@@ -431,10 +397,10 @@ export default function Home() {
                 </div>
 
                 <div className="SingleBtnCtn-Center reveal__bottom">
-                  <Link className="ApplicationButton" to="/services">
-                    Our Services
+                  <Link className="ApplicationButton" to="/contact-us">
+                    Request Commodity Specifications
                     <span className="material-symbols-outlined">
-                      globe_location_pin
+                      arrow_outward
                     </span>
                   </Link>
                 </div>
@@ -445,7 +411,7 @@ export default function Home() {
                   <img
                     key={`${activeSlide}-${index}`}
                     src={img}
-                    alt={`Quinn Daisies Logistics — slide ${activeSlide + 1}, image ${index + 1}`}
+                    alt={`Quinn Daisies Commodities — slide ${activeSlide + 1}, image ${index + 1}`}
                   />
                 ))}
               </div>
@@ -454,7 +420,7 @@ export default function Home() {
             <section className="sectionBox" ref={containerRef}>
               <div className="SectionHeader">
                 <h2 className="reveal__top">
-                  Why businesses choose Quinn Daisies
+                  Core Sourcing Categories: Verified Origin Agricultural Commodities
                 </h2>
               </div>
 
@@ -476,13 +442,14 @@ export default function Home() {
                 <div className="fill"></div>
                 <div className="ApplicationChartContentList">
                   <h2 className="ApplicationImageDesignHeader reveal__bottom__interval_slide">
-                    From Origin to Destination, One Operational Framework
+                    From Farm Gate to Buyer Door: Integrated Sourcing Architecture
                   </h2>
                   {executionStages.map((item, index) => (
                     <div
                       key={index}
-                      className={`ApplicationChartDesignItem reveal__bottom__interval_slide ${index === 0 ? "is-active" : ""
-                        }`}
+                      className={`ApplicationChartDesignItem reveal__bottom__interval_slide ${
+                        index === 0 ? "is-active" : ""
+                      }`}
                     >
                       <h4>{item.title}</h4>
                     </div>
@@ -495,8 +462,9 @@ export default function Home() {
                   {executionStages.map((item, index) => (
                     <div
                       key={index}
-                      className={`ApplicationChartSlide ${index === 0 ? "is-active" : ""
-                        }`}
+                      className={`ApplicationChartSlide ${
+                        index === 0 ? "is-active" : ""
+                      }`}
                     >
                       <div className="ApplicationChartContentContainer">
                         <img
@@ -518,67 +486,67 @@ export default function Home() {
 
             <section className="SectionContainer ServicesInformation">
               <span className="reveal__left">
-                Trade Execution & Logistics Architecture
+                Commodity Sourcing & Quality Metrics
               </span>
               <h4 className="reveal__right">
-                Connecting origin sourcing, accredited verification, multimodal freight, and in-market execution across core transatlantic trade corridors.
+                Origin-verified agricultural pipelines engineered for volume predictability, contractual purity, and zero destination rejections.
               </h4>
 
               <div className="ServicesInformationBoxContainer">
                 <div className="ServicesInformationBox reveal__bottom__interval">
                   <div className="ServicesInformationBoxHeader">
-                    <h6>On-Time Last-Mile Dispatch</h6>
+                    <h6>Annual Sourcing Capacity</h6>
                     <p>
-                      Dedicated transport routing and scheduled container allocations ensuring high reliability from origin ports to inland destination doors.
+                      Direct off-take agreements across vetted Nigerian producer cooperatives delivering guaranteed tonnage allocations.
                     </p>
                   </div>
                   <h3>
-                    99.4<span>%</span>
+                    35,000<text>+ MT</text>
                   </h3>
                 </div>
 
                 <div className="ServicesInformationBox reveal__bottom__interval">
                   <div className="ServicesInformationBoxHeader">
-                    <h6>Verified Origin Supply Network</h6>
+                    <h6>Optical Sortex Purity</h6>
                     <p>
-                      Direct commercial access to audited agricultural cooperatives, registered processors, and commercial aggregators across Nigeria.
+                      Mechanical cleaning and color-sorting protocols ensuring minimum 99.0%–99.5% purity for export sesame and grains.
                     </p>
                   </div>
                   <h3>
-                    200<span>+</span>
+                    99.5<text>%</text>
                   </h3>
                 </div>
 
                 <div className="ServicesInformationBox reveal__bottom__interval">
                   <div className="ServicesInformationBoxHeader">
-                    <h6>Port-to-Warehouse Velocity</h6>
+                    <h6>Pre-Shipment Lab Compliance</h6>
                     <p>
-                      Expedited customs pre-clearance filings and dedicated terminal drayage power units minimizing detention and demurrage liabilities.
+                      Mandatory chemical testing and phytosanitary certification by SGS/Bureau Veritas prior to container sealing.
                     </p>
                   </div>
                   <h3>
-                    24–48<span>hrs</span>
+                    100<text>%</text>
                   </h3>
                 </div>
 
                 <div className="ServicesInformationBox reveal__bottom__interval">
                   <div className="ServicesInformationBoxHeader">
-                    <h6>Cross-Border Accountability</h6>
+                    <h6>Vetted Cooperative Network</h6>
                     <p>
-                      Unbroken chain-of-custody logging and commercial agreements executed under dual-entity U.S. and Nigerian corporate governance.
+                      Audited farming clusters and primary aggregation centers operating across Jigawa, Benue, Kaduna, and Nasarawa.
                     </p>
                   </div>
                   <h3>
-                    100<span>%</span>
+                    200<text>+</text>
                   </h3>
                 </div>
               </div>
 
               <p className="ServicesInformationBottomText reveal__left">
-                International commerce depends on far more than finding a buyer or introducing a supplier. Goods must be sourced, laboratory-verified, packaged, documented, transported, customs-cleared, and physically delivered to inland facility doors. Fragmented vendor relationships frequently lead to demurrage spirals, delayed release, and contract friction. Quinn Daisies solves this by providing the end-to-end operational infrastructure that connects every stage of the trade flow under one accountable operating framework.
+                International agricultural commodity trading carries inherent risks when buyers rely on third-party intermediaries without physical origin assets. Foreign matter contamination, high moisture levels leading to transit mold, and delayed vessel loadings frequently result in costly demurrage penalties and contract defaults. Quinn Daisies eliminates these structural vulnerabilities through boots-on-the-ground cooperative sourcing, mechanical cleaning depots, and accredited laboratory pre-shipment inspections.
               </p>
               <p className="ServicesInformationBottomText reveal__right">
-                With active ground operations in Nigeria and commercial coordination in the United States, we bridge the gap between commercial intent and physical execution. From containerized agricultural exports transiting through Baltimore, Houston, Savannah, and Newark to inbound industrial freight and localized market distribution, Quinn Daisies gives expanding enterprises the reliability, compliance certainty, and transparency needed to scale cross-border commerce.
+                Every metric ton of sesame seeds, split ginger, or non-GMO soybeans supplied by Quinn Daisies is backed by transparent chain-of-custody documentation, certified assay certificates, and dual-jurisdiction commercial contracts. By combining origin aggregation with our dedicated ocean freight forwarding desk, we deliver seamless FOB and CIF trade execution directly to global processing plants, crushers, and food manufacturers.
               </p>
             </section>
 
@@ -590,12 +558,12 @@ export default function Home() {
               <div className="ApplicationCarouselRefurblished">
                 <div className="ApplicationCarouselRefurblishedFlex ApplicationCarouselFlex">
                   <h2 className="reveal__left">
-                    Navigating the Physical Complexity of Cross-Border Trade
+                    Export-Grade Agricultural Commodities Portfolio
                   </h2>
 
                   <div className="ApplicationCarouselContainer reveal__right">
                     <p className="ApplicationCarouselContainerText">
-                      International trade requires more than moving goods—it demands coordinated sourcing, logistics, documentation, compliance, and destination execution. Quinn Daisies integrates these functions into one accountable operating framework, providing greater control and visibility from origin to final delivery.
+                      Explore our primary commodity pipelines—consistently graded, scientifically tested, and packaged for transatlantic export to North American, European, and Asian markets.
                     </p>
                   </div>
                 </div>
@@ -607,39 +575,39 @@ export default function Home() {
                   >
                     <div className="AdvanceDesignStructureSlideBox">
                       <img
-                        src="https://res.cloudinary.com/renaissance-images/image/upload/v1778362102/QuinnDaisies/2152021825_y3d8sd.jpg"
-                        alt="Quinn Daisies Ocean Freight"
+                        src="https://res.cloudinary.com/renaissance-images/image/upload/v1789249438/QuinnDaisies/36467_ncwdts.jpg"
+                        alt="Natural White Sesame Seeds"
                       />
                       <div className="AdvanceDesignStructureSlideBoxContent">
-                        <h2>Ocean Freight (FCL/LCL)</h2>
+                        <h2>Natural White Sesame Seeds</h2>
                         <p>
-                          Direct containerized export routes connecting Lagos Port Complex (Apapa/Tin Can Island) to major U.S. and transatlantic ports of entry, including Baltimore, Newark, Houston, and Savannah.
+                          Cleaned to 99%+ purity with oil content exceeding 50%. Sourced from top-tier growing zones in Jigawa, Benue, and Nasarawa, packed in double-layered polypropylene bags for export.
                         </p>
                       </div>
                     </div>
 
                     <div className="AdvanceDesignStructureSlideBox">
                       <img
-                        src="https://res.cloudinary.com/renaissance-images/image/upload/v1789248900/QuinnDaisies/2151541891_o5wyhf.jpg"
-                        alt="Quinn Daisies Air Cargo"
+                        src="https://res.cloudinary.com/renaissance-images/image/upload/v1778362101/QuinnDaisies/2151989565_gwpjcm.jpg"
+                        alt="Sun-Dried Split Ginger"
                       />
                       <div className="AdvanceDesignStructureSlideBoxContent">
-                        <h2>Air Cargo Consolidation</h2>
+                        <h2>Sun-Dried Split Ginger</h2>
                         <p>
-                          Rapid, high-security clearance and express handling operated out of our physical base at NACHO, MMIA in Lagos, synchronized with major international cargo airlines and express carriers.
+                          Naturally sun-dried Kaduna split ginger with high pungent gingerol and oleoresin profiles. Moisture calibrated strictly under 10% to prevent transit spoilage.
                         </p>
                       </div>
                     </div>
 
                     <div className="AdvanceDesignStructureSlideBox">
                       <img
-                        src="https://res.cloudinary.com/renaissance-images/image/upload/v1778362096/QuinnDaisies/2152005492_t9qg4y.jpg"
-                        alt="Quinn Daisies Inland Haulage"
+                        src="https://res.cloudinary.com/renaissance-images/image/upload/v1789465954/QuinnDaisies/2151493235_if2axi.jpg"
+                        alt="Non-GMO Soybeans"
                       />
                       <div className="AdvanceDesignStructureSlideBoxContent">
-                        <h2>Inland Haulage & Drayage</h2>
+                        <h2>Non-GMO Soybeans</h2>
                         <p>
-                          Managed road-transit pipelines moving containerized cargo between remote agricultural collection zones, industrial manufacturing hubs, and maritime container terminals.
+                          High-protein, non-genetically modified soybeans cultivated across Nigeria's agricultural heartland, serving commercial food processors and high-yield crushing plants globally.
                         </p>
                       </div>
                     </div>
@@ -647,25 +615,25 @@ export default function Home() {
                     <div className="AdvanceDesignStructureSlideBox">
                       <img
                         src="https://res.cloudinary.com/renaissance-images/image/upload/v1789237513/QuinnDaisies/2151468920_pinckg.jpg"
-                        alt="Quinn Daisies Warehousing"
+                        alt="Coconut & Copra Derivatives"
                       />
                       <div className="AdvanceDesignStructureSlideBoxContent">
-                        <h2>Bonded Warehousing & Inventory Staging</h2>
+                        <h2>Coconut & Copra Derivatives</h2>
                         <p>
-                          Secure intermediate staging facilities providing climate-controlled buffering, inventory consolidation, palletizing, and pre-export container preparation.
+                          Sustainably harvested coastal coconut derivatives, copra meal, and cold-pressed crude coconut oil for industrial food processing, cosmetics, and confectionery manufacturing.
                         </p>
                       </div>
                     </div>
 
                     <div className="AdvanceDesignStructureSlideBox">
                       <img
-                        src="https://res.cloudinary.com/renaissance-images/image/upload/v1789249438/QuinnDaisies/36467_ncwdts.jpg"
-                        alt="Quinn Daisies Sourcing Network"
+                        src="https://res.cloudinary.com/renaissance-images/image/upload/v1778448423/2152005465_splnhk.jpg"
+                        alt="Export-Grade Plantain & Banana"
                       />
                       <div className="AdvanceDesignStructureSlideBoxContent">
-                        <h2>200+ Vetted Origin Sourcing Network</h2>
+                        <h2>Export-Grade Plantain & Banana</h2>
                         <p>
-                          Direct logistics connectivity to an audited network of over 200 qualified Nigerian agricultural cooperatives, commodity aggregators, and commercial processors.
+                          Fresh, unripe green plantains and tropical fruit inputs aggregated under temperature-controlled protocols for specialty food manufacturing and ethnic consumer markets.
                         </p>
                       </div>
                     </div>
@@ -673,12 +641,12 @@ export default function Home() {
                     <div className="AdvanceDesignStructureSlideBox">
                       <img
                         src="https://res.cloudinary.com/renaissance-images/image/upload/v1789237502/QuinnDaisies/2151589636_v3h3yj.jpg"
-                        alt="Quinn Daisies Quality Inspection"
+                        alt="Pre-Shipment Inspection Enforced"
                       />
                       <div className="AdvanceDesignStructureSlideBoxContent">
                         <h2>Pre-Shipment Inspection (PSI) Enforced</h2>
                         <p>
-                          Mandatory on-site sampling and chemical analysis through accredited third-party inspection agencies (SGS, Bureau Veritas, Cotecna) before cargo is sealed, verifying purity and phytosanitary metrics.
+                          Mandatory on-site sampling and chemical analysis through accredited testing agencies (SGS, Bureau Veritas) verifying purity, moisture, aflatoxin, and phytosanitary metrics.
                         </p>
                       </div>
                     </div>
@@ -686,12 +654,12 @@ export default function Home() {
                     <div className="AdvanceDesignStructureSlideBox">
                       <img
                         src="https://res.cloudinary.com/renaissance-images/image/upload/v1761872178/QuinnDaisies/51152_qph8bp.jpg"
-                        alt="Quinn Daisies Trade Risk Hedging"
+                        alt="Custom Commodity Procurement"
                       />
                       <div className="AdvanceDesignStructureSlideBoxContent">
-                        <h2>Trade Risk Hedging & Governance</h2>
+                        <h2>Custom Commodity Sourcing</h2>
                         <p>
-                          Mitigating transatlantic commercial risks—cargo adulteration, demurrage spirals, exchange-rate slippage, and contract default—through structured U.S. jurisdictional agreements.
+                          Tailored procurement programs matching institutional buyer specifications across Cashew nuts, Shea butter, Hibiscus flowers, and solid minerals under structured commercial agreements.
                         </p>
                       </div>
                     </div>
@@ -703,54 +671,48 @@ export default function Home() {
             <section className="SectionContainer">
               <div className="SectionColorHeader">
                 <span className="reveal__top">
-                  We help businesses navigate cross-border expansion
+                  Global Procurement & Origin Certainty
                 </span>
                 <h2 className="reveal__bottom">
-                  Expanding beyond your current market or Planning your next stage of growth?
+                  Institutional Sourcing Backed by Bankable Execution
                 </h2>
               </div>
 
               <div className="SectionFlex">
                 <div className="SectionBoxSmall reveal__left">
                   <h2>
-                    100% <span>Logistics Coordination</span>
+                    100% <span>Contractual Governance</span>
                   </h2>
                   <p>
-                    Operating directly across the United States and Nigeria,
-                    We connects American commercial demand with
-                    verified Nigerian supply chains, backed by dual-market logistics
-                    coordination and domestic legal accountability.
+                    Transact under enforceable U.S. commercial law contracts and escrow mechanisms, backed by licensed, boots-on-the-ground operational teams in Nigeria.
                   </p>
 
                   <img
-                    src="https://res.cloudinary.com/renaissance-images/image/upload/v1789466467/QuinnDaisies/2151599738_wgtskd.jpg"
-                    alt="Quinn Daisies Images"
+                    src="https://res.cloudinary.com/renaissance-images/image/upload/v1789249438/QuinnDaisies/36467_ncwdts.jpg"
+                    alt="Agricultural Sourcing"
                   />
                 </div>
 
                 <div className="SectionBoxLarge reveal__bottom">
                   <img
-                    src="https://res.cloudinary.com/renaissance-images/image/upload/v1789466479/QuinnDaisies/2151763093_uclmdh.jpg"
-                    alt="Quinn Daisies Image"
+                    src="https://res.cloudinary.com/renaissance-images/image/upload/v1789237502/QuinnDaisies/2151589636_v3h3yj.jpg"
+                    alt="Lab Quality Assays"
                   />
 
                   <img
-                    src="https://res.cloudinary.com/renaissance-images/image/upload/v1789465954/QuinnDaisies/2151493235_if2axi.jpg"
-                    alt="Quinn Daisies Image"
+                    src="https://res.cloudinary.com/renaissance-images/image/upload/v1789237513/QuinnDaisies/2151468920_pinckg.jpg"
+                    alt="Bonded Commodity Staging"
                   />
                 </div>
 
                 <div className="SectionBoxSmall reveal__top">
                   <p>
-                    From Nigerian agricultural commodities to U.S. industrial and commercial
-                    goods, we coordinate sourcing, origin handling, transatlantic freight,
-                    customs clearance, and inland distribution across North America,
-                    West Africa, and global markets.
+                    From deepwater terminals in West Africa to processing plants and commercial buyers across North America and Europe, Quinn Daisies guarantees origin authenticity and reliable delivery.
                   </p>
-                  <Link className="ApplicationButton" to="/direct-sales">
-                    Direct Sales
+                  <Link className="ApplicationButton" to="/contact-us">
+                    Request Sourcing
                     <span className="material-symbols-outlined">
-                      globe_location_pin
+                      arrow_outward
                     </span>
                   </Link>
                 </div>
@@ -761,20 +723,19 @@ export default function Home() {
               <div className="ApplicationBanner">
                 <img
                   src="https://res.cloudinary.com/renaissance-images/image/upload/v1775604123/QuinnDaisies/future-visions-business-technology-concept_ehpo8p.jpg"
-                  alt="Quinn Daisies"
+                  alt="Commodities Sourcing CTA"
                 />
                 <div className="ApplicationBannerOverlay">
                   <h2>
-                    Move Your Business Across Borders
+                    Ready to Secure Verified Origin Agricultural Commodities?
                   </h2>
                   <p className="ApplicationText">
-                    Tell us what you need to source, move, import, export, distribute, or establish,
-                    and our team will determine the appropriate operational pathway.
+                    Connect directly with our commodity sourcing and export execution specialists to receive product grade specifications, laboratory assay reports, and competitive FOB/CIF quotations.
                   </p>
                   <Link className="ApplicationButton" to="/contact-us">
-                    Trade Consultation
+                    Request Sourcing Consultation
                     <span className="material-symbols-outlined">
-                      globe_location_pin
+                      arrow_outward
                     </span>
                   </Link>
                 </div>

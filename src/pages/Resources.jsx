@@ -295,10 +295,11 @@ export default function Resources() {
 
   return (
     <>
-      <SEO 
-        title="Quinn Daisies Logistics | Resources" 
-        description="Comprehensive, End-to-End Logistics Solutions for Global Commerce. Connecting businesses to markets across every major region of the world with precision." 
-        url="https://www.logistics.quinndaisies.com/quinn-daisies/resources" 
+      <SEO
+        title="Trade Resources, Guides & Documentation | Quinn Daisies Logistics"
+        description="Access essential trade resources, Incoterms 2020 cheat sheets, customs clearance guides, freight calculation tools, and compliance manuals from Quinn Daisies Logistics."
+        keywords="logistics resources, trade documents, freight guides, Incoterms 2020 guide, customs clearance checklist, shipping documentation, export compliance guidelines"
+        url="https://www.logistics.quinndaisies.com/resources"
       />
 
       <Navbar />
@@ -498,7 +499,6 @@ export default function Resources() {
                   </div>
                 </div>
               </div>
-              <div className="ResourcesSectionSpacerBottom"></div>
             </div>
           </section>
 

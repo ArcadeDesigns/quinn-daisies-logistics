@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import SEO from "../components/SEO";
 import { useGSAP } from "@gsap/react";
@@ -6,27 +6,25 @@ import { Link } from "react-router-dom";
 import ScrollReveal from "scrollreveal";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { useRef, useEffect, useState } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ScrollSmoother } from "gsap/ScrollSmoother";
 import useSmoothScroll from "../hooks/useSmoothScroll";
 import usePinnedSlides from "../hooks/usePinnedSlides";
 
 const heroSlides = [
   {
-    span: "Trade Execution | Supply Chain Management",
-    h1: "Making International Trade Executable.",
-    p: "We manage logistics, sourcing, compliance, and in-market execution to facilitate the reliable movement of goods across borders, with a primary operating focus on the United States–Nigeria trade corridor.",
+    span: "Inclusive Trade Ecosystems | Economic Empowerment",
+    h1: "Empowering Local Producers and Communities Through Direct Global Trade.",
+    p: "Quinn Daisies builds inclusive trade bridges that connect smallholder agricultural producers, emerging rural cooperatives, and local businesses directly to high-value international commercial buyers, fostering sustainable economic prosperity.",
     images: [
-      "https://res.cloudinary.com/renaissance-images/image/upload/v1789465949/QuinnDaisies/2151541965_cfe0hz.jpg",
+      "https://res.cloudinary.com/renaissance-images/image/upload/v1778448423/2152005465_splnhk.jpg",
       "https://res.cloudinary.com/renaissance-images/image/upload/v1789466486/QuinnDaisies/2151794095_nivnlp.jpg",
       "https://res.cloudinary.com/renaissance-images/image/upload/v1789466490/QuinnDaisies/2151976954_xlv0a5.jpg",
     ],
   },
   {
-    span: "Logistics Infrastructure | Multimodal Freight",
-    h1: "Moving Cargo with Precision.",
-    p: "We provide coordinated logistics across ocean and air freight, inland transportation, cargo consolidation, warehousing, and customs clearance, delivering greater control and visibility across complex international supply chains.",
+    span: "Capacity Building | Post-Harvest Quality Training",
+    h1: "Equipping Origin Producers with World-Class Trade Skills.",
+    p: "We provide practical on-the-ground training in post-harvest drying, automated grading, moisture control, and international phytosanitary standards, enabling local farming communities to consistently earn premium export pricing.",
     images: [
       "https://res.cloudinary.com/renaissance-images/image/upload/v1789466467/QuinnDaisies/2151599738_wgtskd.jpg",
       "https://res.cloudinary.com/renaissance-images/image/upload/v1789466483/QuinnDaisies/2151976946_nomiyd.jpg",
@@ -34,9 +32,9 @@ const heroSlides = [
     ],
   },
   {
-    span: "Origin Sourcing | Quality Assurance",
-    h1: "Connecting Demand with Verified Supply.",
-    p: "We connect international buyers with qualified origin suppliers and commodities through supplier verification, quality inspection, trade documentation, and coordinated execution across both sides of the market.",
+    span: "Fair Value Distribution | Community Wealth Creation",
+    h1: "Eliminating Exploitative Middlemen in Origin Supply Chains.",
+    p: "By connecting cooperatives directly to U.S., European, and Asian processors, we ensure that a greater proportion of the global commodity purchase value returns directly into rural African farming communities.",
     images: [
       "https://res.cloudinary.com/renaissance-images/image/upload/v1789465954/QuinnDaisies/2151493235_if2axi.jpg",
       "https://res.cloudinary.com/renaissance-images/image/upload/v1789248900/QuinnDaisies/2151541891_o5wyhf.jpg",
@@ -49,7 +47,7 @@ const SLIDE_INTERVAL = 10000;
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Home() {
+export default function Community() {
   useSmoothScroll();
 
   const [activeSlide, setActiveSlide] = useState(0);
@@ -124,35 +122,6 @@ export default function Home() {
 
   usePinnedSlides(imagePinRef);
 
-  useGSAP(
-    () => {
-      if (!smoothWrapperRef.current || !smoothContentRef.current)
-        return undefined;
-
-      ScrollTrigger.config({ ignoreMobileResize: true });
-
-      const existingSmoother = ScrollSmoother.get();
-      if (existingSmoother) existingSmoother.kill();
-
-      const smoother = ScrollSmoother.create({
-        wrapper: smoothWrapperRef.current,
-        content: smoothContentRef.current,
-        smooth: 1.2,
-        smoothTouch: 0.1,
-        effects: true,
-        normalizeScroll: true,
-      });
-
-      ScrollTrigger.refresh();
-
-      return () => {
-        smoother.kill();
-        ScrollTrigger.clearScrollMemory();
-      };
-    },
-    { scope: pageRef },
-  );
-
   useEffect(() => {
     ScrollReveal().reveal(".reveal__bottom", {
       origin: "bottom",
@@ -225,70 +194,67 @@ export default function Home() {
 
   const solutions = [
     {
-      icon: "local_shipping",
-      title: "Physical Execution",
-      text: "We manage the physical movement of goods from origin to destination, coordinating collection, handling, freight, and delivery across international supply chains.",
+      icon: "groups",
+      title: "Cooperative Partnerships",
+      text: "Direct commercial contracts with over 150 regional farming cooperatives, ensuring dependable bulk volumes and fair, transparent pricing for producers.",
     },
-
     {
-      icon: "verified",
-      title: "Verified Supply",
-      text: "We identify qualified suppliers, validate origin, verify specifications, and coordinate pre-shipment quality checks before commercial commitments are made.",
+      icon: "school",
+      title: "Quality & Assay Workshops",
+      text: "Continuous educational programs teaching ISO-grade sorting, organic moisture management, pest control, and proper grain bagging techniques.",
     },
-
     {
-      icon: "sync_alt",
-      title: "Cross-Border Accountability",
-      text: "Our coordinated operating structure provides accountability across both sides of the trade corridor, connecting origin operations with destination markets.",
+      icon: "savings",
+      title: "Direct Digital Payments",
+      text: "Transparent, real-time digital settlement systems that protect local producers against currency exploitation, unfair discounting, and payment delays.",
     },
-
     {
-      icon: "hub",
-      title: "Integrated Logistics",
-      text: "We coordinate sourcing, freight, documentation, customs clearance, and final delivery as one integrated process for greater control and visibility.",
+      icon: "diversity_3",
+      title: "Rural Infrastructure Reinvestment",
+      text: "Reinvesting trade revenues into rural aggregation hubs, solar-powered grain dryers, clean water access, and community road improvements.",
     },
   ];
 
   const executionStages = [
     {
-      title: "Origin Supply & Procurement",
+      title: "Cooperative Onboarding & Fair-Trade Alignment",
       description:
-        "We align buyer requirements with qualified origin suppliers, aggregators, cooperatives, and producers to establish reliable supply at the point of origin.",
+        "Partnering directly with local farming cooperatives, setting transparent seasonal volume targets and locking in guaranteed minimum floor prices.",
       image:
         "https://res.cloudinary.com/renaissance-images/image/upload/v1789237502/QuinnDaisies/2151589636_v3h3yj.jpg",
     },
     {
-      title: "Supplier & Cargo Assurance",
+      title: "Agronomic & Phytosanitary Training",
       description:
-        "We validate counterparties, specifications, quality, and cargo readiness through supplier due diligence, origin verification, inspections, and applicable testing before shipment.",
+        "Deploying field agronomists to teach chemical-free pest control, proper harvest timing, and optimal solar drying techniques to reduce mold and aflatoxins.",
       image:
         "https://res.cloudinary.com/renaissance-images/image/upload/v1789465950/QuinnDaisies/2151663021_qg5kyt.jpg",
     },
     {
-      title: "Export Readiness & Consolidation",
+      title: "Decentralized Quality Testing & Aggregation",
       description:
-        "We coordinate consolidation, packaging, labelling, documentation, and export preparation to align cargo with applicable origin and destination requirements.",
+        "Equipping rural aggregation depots with digital moisture meters, optical sorters, and calibrated scales, ensuring farmers receive immediate grade validation.",
       image:
         "https://res.cloudinary.com/renaissance-images/image/upload/v1789248900/QuinnDaisies/2151541891_o5wyhf.jpg",
     },
     {
-      title: "Multimodal Freight Execution",
+      title: "Direct Commercial Sale & Transparent Pricing",
       description:
-        "We coordinate ocean, air, inland transportation, and port logistics to move cargo efficiently between origin and destination while maintaining shipment visibility.",
+        "Connecting aggregated cooperative output directly to international manufacturing off-takers, passing export premiums directly back to producers.",
       image:
         "https://res.cloudinary.com/renaissance-images/image/upload/v1778362093/QuinnDaisies/2151468868_ispgpz.jpg",
     },
     {
-      title: "Trade Documentation & Clearance",
+      title: "Digital Remittance & Financial Inclusion",
       description:
-        "We coordinate trade documentation, tariff classification, export requirements, and customs processes with the relevant parties to support compliant cargo release.",
+        "Disbursing payments directly into verified cooperative accounts and mobile wallets, building verifiable financial credit histories for rural families.",
       image:
         "https://res.cloudinary.com/renaissance-images/image/upload/v1776766956/QuinnDaisies/2151964096_liogs7.jpg",
     },
     {
-      title: "Inland Distribution & Handover",
+      title: "Community Impact & Intergenerational Growth",
       description:
-        "We coordinate destination transport from ports and entry points to warehouses, processing facilities, distribution centers, and buyer locations for controlled final delivery.",
+        "Measuring long-term socio-economic metrics, expanding education facilities, and funding youth agricultural mentorship programs in origin regions.",
       image:
         "https://res.cloudinary.com/renaissance-images/image/upload/v1778289411/QuinnDaisies/2151998728_ha2wny.jpg",
     },
@@ -345,10 +311,10 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Quinn Daisies Logistics | Global Freight Forwarding, Cold Chain & Supply Chain Systems"
-        description="Quinn Daisies Logistics delivers premier air cargo, ocean freight, customs clearance, cold-chain solutions, and supply chain technology connecting North America, West Africa, and global trade hubs."
-        keywords="Quinn Daisies Logistics, global logistics, international shipping, air freight, ocean freight, customs clearance, cold chain logistics, US Nigeria shipping, freight forwarder Maryland, cargo Lagos Nigeria, MMIA Ikeja freight forwarder"
-        url="https://www.logistics.quinndaisies.com/"
+        title="Community & Inclusive Trade | Quinn Daisies Logistics"
+        description="Empowering smallholder agricultural producers, rural cooperatives, and origin communities through transparent global trade integration."
+        keywords="community trade impact, ethical trade Africa, smallholder farmer empowerment, rural logistics integration, sustainable agriculture Nigeria, community supply chain, inclusive global trade"
+        url="https://www.logistics.quinndaisies.com/community"
       />
 
       <div ref={pageRef}>
@@ -359,7 +325,6 @@ export default function Home() {
             <section className="OpportunityAppCtn">
               <div className="OpportunityAppHeader">
                 <div className="ContentCtn-Center" ref={heroContentRef}>
-
                   <span className="ContentCtn-Center-Span">
                     {currentSlide.span}
                   </span>
@@ -431,8 +396,8 @@ export default function Home() {
                 </div>
 
                 <div className="SingleBtnCtn-Center reveal__bottom">
-                  <Link className="ApplicationButton" to="/services">
-                    Our Services
+                  <Link className="ApplicationButton" to="/contact-us">
+                    Partner with Our Community Program
                     <span className="material-symbols-outlined">
                       globe_location_pin
                     </span>
@@ -445,7 +410,7 @@ export default function Home() {
                   <img
                     key={`${activeSlide}-${index}`}
                     src={img}
-                    alt={`Quinn Daisies Logistics — slide ${activeSlide + 1}, image ${index + 1}`}
+                    alt={`Quinn Daisies Community — slide ${activeSlide + 1}, image ${index + 1}`}
                   />
                 ))}
               </div>
@@ -454,7 +419,7 @@ export default function Home() {
             <section className="sectionBox" ref={containerRef}>
               <div className="SectionHeader">
                 <h2 className="reveal__top">
-                  Why businesses choose Quinn Daisies
+                  Transforming Agricultural Supply Chains for Lasting Local Impact
                 </h2>
               </div>
 
@@ -476,13 +441,14 @@ export default function Home() {
                 <div className="fill"></div>
                 <div className="ApplicationChartContentList">
                   <h2 className="ApplicationImageDesignHeader reveal__bottom__interval_slide">
-                    From Origin to Destination, One Operational Framework
+                    Building Sustainable Prosperity from Farmgate to Global Market
                   </h2>
                   {executionStages.map((item, index) => (
                     <div
                       key={index}
-                      className={`ApplicationChartDesignItem reveal__bottom__interval_slide ${index === 0 ? "is-active" : ""
-                        }`}
+                      className={`ApplicationChartDesignItem reveal__bottom__interval_slide ${
+                        index === 0 ? "is-active" : ""
+                      }`}
                     >
                       <h4>{item.title}</h4>
                     </div>
@@ -495,8 +461,9 @@ export default function Home() {
                   {executionStages.map((item, index) => (
                     <div
                       key={index}
-                      className={`ApplicationChartSlide ${index === 0 ? "is-active" : ""
-                        }`}
+                      className={`ApplicationChartSlide ${
+                        index === 0 ? "is-active" : ""
+                      }`}
                     >
                       <div className="ApplicationChartContentContainer">
                         <img
@@ -518,67 +485,67 @@ export default function Home() {
 
             <section className="SectionContainer ServicesInformation">
               <span className="reveal__left">
-                Trade Execution & Logistics Architecture
+                Origin Community Empowerment & Inclusive Trade
               </span>
               <h4 className="reveal__right">
-                Connecting origin sourcing, accredited verification, multimodal freight, and in-market execution across core transatlantic trade corridors.
+                Strengthening rural farming economies through direct market access, technical training, and guaranteed commercial off-take.
               </h4>
 
               <div className="ServicesInformationBoxContainer">
                 <div className="ServicesInformationBox reveal__bottom__interval">
                   <div className="ServicesInformationBoxHeader">
-                    <h6>On-Time Last-Mile Dispatch</h6>
+                    <h6>Empowered Smallholder Farmers</h6>
                     <p>
-                      Dedicated transport routing and scheduled container allocations ensuring high reliability from origin ports to inland destination doors.
+                      Direct agricultural training, quality equipment access, and fair-contract participation across verified Nigerian farming clusters.
                     </p>
                   </div>
                   <h3>
-                    99.4<span>%</span>
+                    12,500<text>+</text>
                   </h3>
                 </div>
 
                 <div className="ServicesInformationBox reveal__bottom__interval">
                   <div className="ServicesInformationBoxHeader">
-                    <h6>Verified Origin Supply Network</h6>
+                    <h6>Direct Farm-Gate Price Uplift</h6>
                     <p>
-                      Direct commercial access to audited agricultural cooperatives, registered processors, and commercial aggregators across Nigeria.
+                      Eliminating predatory intermediate brokers, channeling higher commercial margins directly back into cooperative bank accounts.
                     </p>
                   </div>
                   <h3>
-                    200<span>+</span>
+                    25–35<text>%</text>
                   </h3>
                 </div>
 
                 <div className="ServicesInformationBox reveal__bottom__interval">
                   <div className="ServicesInformationBoxHeader">
-                    <h6>Port-to-Warehouse Velocity</h6>
+                    <h6>Post-Harvest Loss Reduction</h6>
                     <p>
-                      Expedited customs pre-clearance filings and dedicated terminal drayage power units minimizing detention and demurrage liabilities.
+                      Deploying localized collection hubs, moisture testing tools, and hermetic storage to preserve harvested crop volumes.
                     </p>
                   </div>
                   <h3>
-                    24–48<span>hrs</span>
+                    40<text>%</text>
                   </h3>
                 </div>
 
                 <div className="ServicesInformationBox reveal__bottom__interval">
                   <div className="ServicesInformationBoxHeader">
-                    <h6>Cross-Border Accountability</h6>
+                    <h6>Female Cooperative Leadership</h6>
                     <p>
-                      Unbroken chain-of-custody logging and commercial agreements executed under dual-entity U.S. and Nigerian corporate governance.
+                      Proportion of partner aggregation groups and sorting hubs owned or led by women agricultural entrepreneurs.
                     </p>
                   </div>
                   <h3>
-                    100<span>%</span>
+                    48<text>%</text>
                   </h3>
                 </div>
               </div>
 
               <p className="ServicesInformationBottomText reveal__left">
-                International commerce depends on far more than finding a buyer or introducing a supplier. Goods must be sourced, laboratory-verified, packaged, documented, transported, customs-cleared, and physically delivered to inland facility doors. Fragmented vendor relationships frequently lead to demurrage spirals, delayed release, and contract friction. Quinn Daisies solves this by providing the end-to-end operational infrastructure that connects every stage of the trade flow under one accountable operating framework.
+                Sustainable global supply chains are built upon the economic vitality of origin producers. Historically, smallholder farmers across West Africa have borne the highest risks of agricultural trade while receiving the lowest economic returns. Unscrupulous middlemen, high post-harvest decay, and complete lack of direct market access have kept rural farming communities economically marginalized. Quinn Daisies fundamentally transforms this dynamic by integrating communities directly into the formal export pipeline.
               </p>
               <p className="ServicesInformationBottomText reveal__right">
-                With active ground operations in Nigeria and commercial coordination in the United States, we bridge the gap between commercial intent and physical execution. From containerized agricultural exports transiting through Baltimore, Houston, Savannah, and Newark to inbound industrial freight and localized market distribution, Quinn Daisies gives expanding enterprises the reliability, compliance certainty, and transparency needed to scale cross-border commerce.
+                Through our Community Trade Alliance, we provide local farming cooperatives with physical collection centers, calibrated moisture meters, digital accounting tools, and guaranteed purchase contracts at transparent, market-linked rates. By connecting rural producers directly with international food manufacturers and commodities buyers in the United States and Europe, Quinn Daisies proves that global logistics can be a powerful engine for durable social transformation.
               </p>
             </section>
 
@@ -590,12 +557,12 @@ export default function Home() {
               <div className="ApplicationCarouselRefurblished">
                 <div className="ApplicationCarouselRefurblishedFlex ApplicationCarouselFlex">
                   <h2 className="reveal__left">
-                    Navigating the Physical Complexity of Cross-Border Trade
+                    Community Empowerment & Inclusive Trade Infrastructure
                   </h2>
 
                   <div className="ApplicationCarouselContainer reveal__right">
                     <p className="ApplicationCarouselContainerText">
-                      International trade requires more than moving goods—it demands coordinated sourcing, logistics, documentation, compliance, and destination execution. Quinn Daisies integrates these functions into one accountable operating framework, providing greater control and visibility from origin to final delivery.
+                      Our community initiatives invest in the human foundation of international commerce, equipping smallholders, female aggregators, and youth with tools for sustainable prosperity.
                     </p>
                   </div>
                 </div>
@@ -607,39 +574,26 @@ export default function Home() {
                   >
                     <div className="AdvanceDesignStructureSlideBox">
                       <img
-                        src="https://res.cloudinary.com/renaissance-images/image/upload/v1778362102/QuinnDaisies/2152021825_y3d8sd.jpg"
-                        alt="Quinn Daisies Ocean Freight"
+                        src="https://res.cloudinary.com/renaissance-images/image/upload/v1778448423/2152005465_splnhk.jpg"
+                        alt="Quinn Daisies Cooperative Off-Take Contracts"
                       />
                       <div className="AdvanceDesignStructureSlideBoxContent">
-                        <h2>Ocean Freight (FCL/LCL)</h2>
+                        <h2>Direct Cooperative Off-Take Contracts</h2>
                         <p>
-                          Direct containerized export routes connecting Lagos Port Complex (Apapa/Tin Can Island) to major U.S. and transatlantic ports of entry, including Baltimore, Newark, Houston, and Savannah.
+                          Providing verified agricultural cooperatives with binding, fair-value pre-harvest purchase agreements that bypass exploitative local middlemen.
                         </p>
                       </div>
                     </div>
 
                     <div className="AdvanceDesignStructureSlideBox">
                       <img
-                        src="https://res.cloudinary.com/renaissance-images/image/upload/v1789248900/QuinnDaisies/2151541891_o5wyhf.jpg"
-                        alt="Quinn Daisies Air Cargo"
+                        src="https://res.cloudinary.com/renaissance-images/image/upload/v1778448422/2152005451_ijeqyj.jpg"
+                        alt="Quinn Daisies Modern Agronomy Training"
                       />
                       <div className="AdvanceDesignStructureSlideBoxContent">
-                        <h2>Air Cargo Consolidation</h2>
+                        <h2>Modern Agronomy & Post-Harvest Training</h2>
                         <p>
-                          Rapid, high-security clearance and express handling operated out of our physical base at NACHO, MMIA in Lagos, synchronized with major international cargo airlines and express carriers.
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="AdvanceDesignStructureSlideBox">
-                      <img
-                        src="https://res.cloudinary.com/renaissance-images/image/upload/v1778362096/QuinnDaisies/2152005492_t9qg4y.jpg"
-                        alt="Quinn Daisies Inland Haulage"
-                      />
-                      <div className="AdvanceDesignStructureSlideBoxContent">
-                        <h2>Inland Haulage & Drayage</h2>
-                        <p>
-                          Managed road-transit pipelines moving containerized cargo between remote agricultural collection zones, industrial manufacturing hubs, and maritime container terminals.
+                          Educating farmers on proper harvesting techniques, natural solar drying, and aflatoxin prevention to maximize marketable yields.
                         </p>
                       </div>
                     </div>
@@ -647,12 +601,12 @@ export default function Home() {
                     <div className="AdvanceDesignStructureSlideBox">
                       <img
                         src="https://res.cloudinary.com/renaissance-images/image/upload/v1789237513/QuinnDaisies/2151468920_pinckg.jpg"
-                        alt="Quinn Daisies Warehousing"
+                        alt="Quinn Daisies Rural Collection Depots"
                       />
                       <div className="AdvanceDesignStructureSlideBoxContent">
-                        <h2>Bonded Warehousing & Inventory Staging</h2>
+                        <h2>Rural Collection & Storage Infrastructure</h2>
                         <p>
-                          Secure intermediate staging facilities providing climate-controlled buffering, inventory consolidation, palletizing, and pre-export container preparation.
+                          Constructing secure, ventilated community consolidation depots that protect harvested crops from pest infestation and spoilage.
                         </p>
                       </div>
                     </div>
@@ -660,12 +614,12 @@ export default function Home() {
                     <div className="AdvanceDesignStructureSlideBox">
                       <img
                         src="https://res.cloudinary.com/renaissance-images/image/upload/v1789249438/QuinnDaisies/36467_ncwdts.jpg"
-                        alt="Quinn Daisies Sourcing Network"
+                        alt="Quinn Daisies Women & Youth Enterprise"
                       />
                       <div className="AdvanceDesignStructureSlideBoxContent">
-                        <h2>200+ Vetted Origin Sourcing Network</h2>
+                        <h2>Women & Youth Enterprise Inclusions</h2>
                         <p>
-                          Direct logistics connectivity to an audited network of over 200 qualified Nigerian agricultural cooperatives, commodity aggregators, and commercial processors.
+                          Targeted financing and technical support for women-led processing collectives and youth logistics entrepreneurs across agricultural clusters.
                         </p>
                       </div>
                     </div>
@@ -673,25 +627,25 @@ export default function Home() {
                     <div className="AdvanceDesignStructureSlideBox">
                       <img
                         src="https://res.cloudinary.com/renaissance-images/image/upload/v1789237502/QuinnDaisies/2151589636_v3h3yj.jpg"
-                        alt="Quinn Daisies Quality Inspection"
+                        alt="Quinn Daisies Quality Testing Micro-Grants"
                       />
                       <div className="AdvanceDesignStructureSlideBoxContent">
-                        <h2>Pre-Shipment Inspection (PSI) Enforced</h2>
+                        <h2>Quality Testing & Equipment Micro-Grants</h2>
                         <p>
-                          Mandatory on-site sampling and chemical analysis through accredited third-party inspection agencies (SGS, Bureau Veritas, Cotecna) before cargo is sealed, verifying purity and phytosanitary metrics.
+                          Equipping rural aggregation stations with digital moisture meters, optical sorters, and certified weighing scales to ensure fair transaction metrics.
                         </p>
                       </div>
                     </div>
 
                     <div className="AdvanceDesignStructureSlideBox">
                       <img
-                        src="https://res.cloudinary.com/renaissance-images/image/upload/v1761872178/QuinnDaisies/51152_qph8bp.jpg"
-                        alt="Quinn Daisies Trade Risk Hedging"
+                        src="https://res.cloudinary.com/renaissance-images/image/upload/v1787010416/QuinnDaisies/2151910935_fzm8q0.jpg"
+                        alt="Quinn Daisies Transparent Digital Settlements"
                       />
                       <div className="AdvanceDesignStructureSlideBoxContent">
-                        <h2>Trade Risk Hedging & Governance</h2>
+                        <h2>Transparent Digital Payment Settlements</h2>
                         <p>
-                          Mitigating transatlantic commercial risks—cargo adulteration, demurrage spirals, exchange-rate slippage, and contract default—through structured U.S. jurisdictional agreements.
+                          Instant, auditable digital payments delivered directly to cooperative bank accounts upon physical grain delivery, ensuring rapid capital liquidity.
                         </p>
                       </div>
                     </div>
@@ -703,52 +657,46 @@ export default function Home() {
             <section className="SectionContainer">
               <div className="SectionColorHeader">
                 <span className="reveal__top">
-                  We help businesses navigate cross-border expansion
+                  Grassroots Impact | Cooperative Prosperity
                 </span>
                 <h2 className="reveal__bottom">
-                  Expanding beyond your current market or Planning your next stage of growth?
+                  Connecting Over 150 Regional Agricultural Cooperatives
                 </h2>
               </div>
 
               <div className="SectionFlex">
                 <div className="SectionBoxSmall reveal__left">
                   <h2>
-                    100% <span>Logistics Coordination</span>
+                    150+ <span>Partner Cooperatives</span>
                   </h2>
                   <p>
-                    Operating directly across the United States and Nigeria,
-                    We connects American commercial demand with
-                    verified Nigerian supply chains, backed by dual-market logistics
-                    coordination and domestic legal accountability.
+                    Spanning sesame, cashew, ginger, cocoa, and soybean producing belts across Nigeria and West Africa, delivering sustainable livelihoods through ethical trade.
                   </p>
 
                   <img
-                    src="https://res.cloudinary.com/renaissance-images/image/upload/v1789466467/QuinnDaisies/2151599738_wgtskd.jpg"
-                    alt="Quinn Daisies Images"
+                    src="https://res.cloudinary.com/renaissance-images/image/upload/v1778448423/2152005465_splnhk.jpg"
+                    alt="Quinn Daisies Agricultural Cooperative"
                   />
                 </div>
 
                 <div className="SectionBoxLarge reveal__bottom">
                   <img
                     src="https://res.cloudinary.com/renaissance-images/image/upload/v1789466479/QuinnDaisies/2151763093_uclmdh.jpg"
-                    alt="Quinn Daisies Image"
+                    alt="Quinn Daisies Community Farmers"
                   />
 
                   <img
                     src="https://res.cloudinary.com/renaissance-images/image/upload/v1789465954/QuinnDaisies/2151493235_if2axi.jpg"
-                    alt="Quinn Daisies Image"
+                    alt="Quinn Daisies Cooperative Training"
                   />
                 </div>
 
                 <div className="SectionBoxSmall reveal__top">
                   <p>
-                    From Nigerian agricultural commodities to U.S. industrial and commercial
-                    goods, we coordinate sourcing, origin handling, transatlantic freight,
-                    customs clearance, and inland distribution across North America,
-                    West Africa, and global markets.
+                    When global buyers procure through Quinn Daisies, they receive laboratory-verified commodities while directly empowering the farming communities at the roots of global supply.
                   </p>
-                  <Link className="ApplicationButton" to="/direct-sales">
-                    Direct Sales
+                  <Link className="ApplicationButton" to="/contact-us">
+                    Support Community Sourcing
                     <span className="material-symbols-outlined">
                       globe_location_pin
                     </span>
@@ -761,18 +709,17 @@ export default function Home() {
               <div className="ApplicationBanner">
                 <img
                   src="https://res.cloudinary.com/renaissance-images/image/upload/v1775604123/QuinnDaisies/future-visions-business-technology-concept_ehpo8p.jpg"
-                  alt="Quinn Daisies"
+                  alt="Quinn Daisies Community CTA"
                 />
                 <div className="ApplicationBannerOverlay">
                   <h2>
-                    Move Your Business Across Borders
+                    Partner with an Impact-Driven Global Trade Leader
                   </h2>
                   <p className="ApplicationText">
-                    Tell us what you need to source, move, import, export, distribute, or establish,
-                    and our team will determine the appropriate operational pathway.
+                    Whether seeking ethically sourced origin commodities, establishing direct cooperative supply lines, or participating in our trade capacity-building programs, connect with our community team.
                   </p>
                   <Link className="ApplicationButton" to="/contact-us">
-                    Trade Consultation
+                    Community Partnership
                     <span className="material-symbols-outlined">
                       globe_location_pin
                     </span>

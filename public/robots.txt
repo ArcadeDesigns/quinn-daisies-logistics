@@ -1,8 +1,15 @@
+# Robots.txt for Quinn Daisies Logistics
+# Domain: https://www.logistics.quinndaisies.com
+
 User-agent: *
 Allow: /
-
-# Disallow internal authenticated setup routes
+Disallow: /login
+Disallow: /signup
 Disallow: /setup
+Disallow: /404
+
+# Host
+Host: https://www.logistics.quinndaisies.com
 
 # Sitemaps
 Sitemap: https://www.logistics.quinndaisies.com/sitemap.xml

@@ -393,10 +393,11 @@ export default function Services() {
 
   return (
     <>
-      <SEO 
-        title="Quinn Daisies Logistics | Services" 
-        description="Comprehensive range of professional services designed to help organizations solve complex logistics challenges and achieve sustainable success." 
-        url="https://www.logistics.quinndaisies.com/quinn-daisies/services" 
+      <SEO
+        title="Global Freight Forwarding & Logistics Services | Quinn Daisies Logistics"
+        description="Comprehensive international freight services: scheduled air cargo, full container ocean freight, customs brokerage, cold-chain transport, and multi-modal distribution."
+        keywords="freight forwarding services, air cargo shipping, ocean freight LCL FCL, customs clearance service, cold chain logistics, international warehousing, supply chain solutions, freight quotes"
+        url="https://www.logistics.quinndaisies.com/services"
       />
 
       <div ref={pageRef}>
@@ -406,7 +407,7 @@ export default function Services() {
             <section className="HeroContainer">
               {heroSlides.map((slide, i) => (
                 <img
-                className="HeroImageSlides"
+                  className="HeroImageSlides"
                   key={i}
                   ref={(el) => (heroImagesRef.current[i] = el)}
                   src={slide.image}
@@ -574,7 +575,7 @@ export default function Services() {
                     ))}
                   </div>
 
-                  <Link className="ApplicationButton reveal__bottom" to="/quinn-daisies/resources">
+                  <Link className="ApplicationButton reveal__bottom" to="resources">
                     Learn More Here
                     <span className="material-symbols-outlined">
                       globe_location_pin

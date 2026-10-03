@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600 !important;
   font-optical-sizing: auto;
   margin: 0;
   padding: 0;
@@ -17,7 +17,6 @@
   -webkit-box-sizing: border-box;
 }
 
-/*variables*/
 :root {
   --gutter: 2rem;
   --primary-color: #ffffff;
@@ -29,18 +28,16 @@
   --text-color: #1e1e1e;
   --text-on-color: #3b3b3b;
 
-  /*variables Text*/
   --mega-header: 5em;
   --mini-header: 4em;
   --header: 3em;
   --mega-text: 2em;
   --mini-text: 1.4em;
   --medium-text: 1.2em;
-  --text: 0.9em;
-  --span-text: 0.8em;
+  --text: 1em;
+  --span-text: 0.9em;
   --link-span-text: 0.6em;
 
-  /*Status Color*/
   --green-status-color: #008000;
   --yellow-status-color: #ffff00;
   --red-status-color: #ff0000;
@@ -51,10 +48,11 @@
 
 body,
 html {
-  overflow-x: hidden;
   display: block;
+  cursor: pointer;
+  overflow-x: hidden;
   place-items: revert;
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
 }
 
 .hr {
@@ -82,23 +80,26 @@ h2 {
 }
 
 h3 {
+  line-height: 1.6em;
   font-size: var(--mini-text);
   text-transform: uppercase;
 }
 
 h4 {
+  line-height: 1.6em;
   font-size: var(--medium-text);
   text-transform: uppercase;
 }
 
 h6 {
+  line-height: 1.6em;
   font-size: var(--text);
   text-transform: uppercase;
 }
 
 p {
   font-size: var(--text);
-  line-height: 30px;
+  line-height: 35px !important;
 }
 
 .ApplicationCtn {
@@ -132,7 +133,7 @@ nav {
   align-items: center;
   margin: auto;
   padding: 20px 10%;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 2000 !important;
@@ -156,11 +157,11 @@ nav .Navlink-Left {
 }
 
 nav .Navlink-Left .NavlinkItem.active {
-  background-color: var(--primary-color);
+  background-color: var(--tertiary-on-color);
   width: max-content;
   height: auto;
   border-radius: 50px;
-  color: var(--secondary-color);
+  color: var(--tertiary-color);
   font-weight: 500;
 }
 
@@ -175,7 +176,7 @@ nav .Navlink-Left:hover .NavlinkItem:hover {
 }
 
 nav .Navlink-Left:hover .NavlinkItem:hover {
-  color: var(--primary-color);
+  color: var(--tertiary-color);
 }
 
 nav .Navlink-Right {
@@ -196,8 +197,8 @@ nav .Navlink-Right {
 }
 
 nav .Navlink-Right .NavlinkItem.active {
-  background-color: var(--tertiary-color);
-  color: var(--primary-color);
+  background-color: var(--tertiary-on-color);
+  color: var(--tertiary-color);
   width: max-content;
   height: auto;
   border-radius: 50px;
@@ -207,7 +208,8 @@ nav .Navlink-Right .NavlinkItem.active {
 nav .Navlink-Right:hover .NavlinkItem:hover {
   width: max-content;
   height: auto;
-  background: rgba(255, 255, 255, 0.19);
+  color: var(--tertiary-on-color);
+  background: var(--tertiary-color);
   border-radius: 50px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(3.8px);
@@ -215,7 +217,7 @@ nav .Navlink-Right:hover .NavlinkItem:hover {
 }
 
 nav .Navlink-Right:hover .NavlinkItem:hover a {
-  color: var(--primary-color);
+  color: var(--tertiary-on-color);
 }
 
 .Navbar-Logo {
@@ -233,13 +235,13 @@ nav .Navlink-Right:hover .NavlinkItem:hover a {
 
 nav .NavlinkItem {
   list-style: none;
-  padding: 15px 25px;
+  padding: 20px 25px;
 }
 
 nav .NavlinkItem {
-  color: var(--primary-color);
-  font-size: var(--text);
-  font-weight: 400;
+  color: var(--tertiary-on-color);
+  font-size: var(--span-text);
+  font-weight: 500;
   text-transform: uppercase;
 }
 
@@ -263,7 +265,7 @@ nav .NavlinkItem {
   align-items: flex-start;
   margin: auto;
   display: flex;
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
   overflow: hidden;
 }
 
@@ -297,7 +299,7 @@ nav .NavlinkItem {
   margin: auto;
   display: flex;
   flex-direction: column;
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
 }
 
 .ContentCtn-Center {
@@ -316,7 +318,7 @@ nav .NavlinkItem {
 }
 
 .ContentCtn-Center-Span {
-  background: rgba(255, 255, 255, 0.19);
+  background: var(--tertiary-on-color);
   border-radius: 50px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(3.8px);
@@ -326,25 +328,25 @@ nav .NavlinkItem {
   font-weight: 400;
   padding: 5px 20px;
   color: var(--tertiary-color);
-  margin-bottom: 4%;
+  margin-bottom: 2%;
   text-transform: uppercase;
 }
 
 .ContentCtn-Center h1 {
-  color: var(--primary-color);
-  font-size: var(--header);
+  color: var(--tertiary-color);
+  font-size: var(--mega-text);
   width: 100%;
   max-width: 50%;
   text-transform: uppercase;
 }
 
 .ContentCtn-Center p {
-  color: var(--primary-color);
-  font-size: var(--text);
+  color: var(--secondary-color);
+  font-size: var(--span-text);
   font-weight: 400;
   width: 100%;
-  max-width: 50%;
-  line-height: 25px;
+  max-width: 60%;
+  line-height: 35px;
 }
 
 .DuoBtnCtn-Center {
@@ -429,7 +431,7 @@ nav .NavlinkItem {
   padding-top: 2px;
   padding-bottom: 2px;
   color: var(--primary-color);
-  font-size: var(--text);
+  font-size: var(--span-text);
   font-weight: 500;
   text-transform: uppercase;
   border: 1px solid var(--tertiary-color);
@@ -1280,7 +1282,7 @@ hr {
 .AdvanceFlexCtnBoxCtnRowContent {
   width: 100%;
   height: 100%;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: flex-start;
   display: flex;
   flex-direction: column;
@@ -1288,12 +1290,12 @@ hr {
 
 .AdvanceFlexCtnBoxCtnRowContent h2 {
   color: var(--tertiary-color);
-  margin-top: 15px;
-  margin-bottom: 25px;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .AdvanceFlexCtnBoxCtnRowContent p {
-  color: var(--primary-color);
+  color: var(--secondary-color);
 }
 
 .AdvanceFlexCtnBoxCtnRowContent span {
@@ -1444,7 +1446,7 @@ hr {
 }
 
 /* Layers using subgrid */
-.grid > .layer {
+.grid>.layer {
   display: grid;
   grid-column: 1 / -1;
   grid-row: 1 / -1;
@@ -1453,30 +1455,30 @@ hr {
 }
 
 /* Layer 1: Outer edges - odd on left column, even on right column */
-.grid > .layer:nth-of-type(1) div:nth-of-type(odd) {
+.grid>.layer:nth-of-type(1) div:nth-of-type(odd) {
   grid-column: 1;
 }
 
-.grid > .layer:nth-of-type(1) div:nth-of-type(even) {
+.grid>.layer:nth-of-type(1) div:nth-of-type(even) {
   grid-column: -2;
 }
 
 /* Layer 2: Inner columns */
-.grid > .layer:nth-of-type(2) div:nth-of-type(odd) {
+.grid>.layer:nth-of-type(2) div:nth-of-type(odd) {
   grid-column: calc(2 + var(--offset));
 }
 
-.grid > .layer:nth-of-type(2) div:nth-of-type(even) {
+.grid>.layer:nth-of-type(2) div:nth-of-type(even) {
   grid-column: calc(-3 - var(--offset));
 }
 
 /* Layer 3: Center column top and bottom */
-.grid > .layer:nth-of-type(3) div:first-of-type {
+.grid>.layer:nth-of-type(3) div:first-of-type {
   grid-column: calc(3 + var(--offset));
   grid-row: 1;
 }
 
-.grid > .layer:nth-of-type(3) div:last-of-type {
+.grid>.layer:nth-of-type(3) div:last-of-type {
   grid-column: calc(3 + var(--offset));
   grid-row: -1;
 }
@@ -1597,7 +1599,7 @@ hr {
 
 .SectionHeader h2 {
   width: 25%;
-  color: var(--primary-color);
+  color: var(--tertiary-color);
   align-items: center;
   text-align: center;
 }
@@ -1641,14 +1643,16 @@ hr {
 }
 
 .ApplicationBox h3 {
-  color: var(--primary-color);
+  color: var(--tertiary-color);
   text-transform: uppercase;
   text-align: center;
+  font-size: var(--text);
 }
 
 .ApplicationBox p {
   color: var(--primary-color);
   text-align: center;
+  font-size: var(--span-text);
 }
 
 .ApplicationBox:nth-child(1) {
@@ -2157,7 +2161,7 @@ hr {
   translate: -50% -50%;
 }
 
-.AdvanceSectionContainerGrid > .AdvanceSectionContainerLayer {
+.AdvanceSectionContainerGrid>.AdvanceSectionContainerLayer {
   display: grid;
   grid-column: 1 / -1;
   grid-row: 1 / -1;
@@ -2165,40 +2169,28 @@ hr {
   grid-template-rows: subgrid;
 }
 
-.AdvanceSectionContainerGrid
-  > .AdvanceSectionContainerLayer:nth-of-type(1)
-  div:nth-of-type(odd) {
+.AdvanceSectionContainerGrid>.AdvanceSectionContainerLayer:nth-of-type(1) div:nth-of-type(odd) {
   grid-column: 1;
 }
 
-.AdvanceSectionContainerGrid
-  > .AdvanceSectionContainerLayer:nth-of-type(1)
-  div:nth-of-type(even) {
+.AdvanceSectionContainerGrid>.AdvanceSectionContainerLayer:nth-of-type(1) div:nth-of-type(even) {
   grid-column: -2;
 }
 
-.AdvanceSectionContainerGrid
-  > .AdvanceSectionContainerLayer:nth-of-type(2)
-  div:nth-of-type(odd) {
+.AdvanceSectionContainerGrid>.AdvanceSectionContainerLayer:nth-of-type(2) div:nth-of-type(odd) {
   grid-column: calc(2 + var(--offset));
 }
 
-.AdvanceSectionContainerGrid
-  > .AdvanceSectionContainerLayer:nth-of-type(2)
-  div:nth-of-type(even) {
+.AdvanceSectionContainerGrid>.AdvanceSectionContainerLayer:nth-of-type(2) div:nth-of-type(even) {
   grid-column: calc(-3 - var(--offset));
 }
 
-.AdvanceSectionContainerGrid
-  > .AdvanceSectionContainerLayer:nth-of-type(3)
-  div:first-of-type {
+.AdvanceSectionContainerGrid>.AdvanceSectionContainerLayer:nth-of-type(3) div:first-of-type {
   grid-column: calc(3 + var(--offset));
   grid-row: 1;
 }
 
-.AdvanceSectionContainerGrid
-  > .AdvanceSectionContainerLayer:nth-of-type(3)
-  div:last-of-type {
+.AdvanceSectionContainerGrid>.AdvanceSectionContainerLayer:nth-of-type(3) div:last-of-type {
   grid-column: calc(3 + var(--offset));
   grid-row: -1;
 }
@@ -2321,7 +2313,8 @@ main section:last-of-type {
 .ApplicationImageDesignHeader {
   width: 60%;
   padding-bottom: 25%;
-  color: var(--primary-color);
+  font-size: var(--mega-text);
+  color: var(--tertiary-color);
 }
 
 .ApplicationImageDesign {
@@ -2373,14 +2366,16 @@ main section:last-of-type {
 }
 
 .ApplicationChartDesignItem h4 {
-  color: var(--primary-color);
+  color: var(--tertiary-on-color);
   transition: color 0.25s ease;
+  font-size: var(--text);
 }
 
 .ApplicationChartDesignItem p {
   color: rgba(255, 255, 255, 0.7);
   margin-top: 0.35rem;
   max-width: 32ch;
+  font-size: var(--span-text);
 }
 
 .ApplicationChartDesignItem.is-active {
@@ -2440,13 +2435,13 @@ main section:last-of-type {
   flex-direction: column;
   margin: auto;
   background-color: rgba(0, 0, 0, 0.8);
-  padding: 25px 10px;
+  padding: 25px;
 }
 
-.ApplicationChartContentContainerContent
-  .ApplicationChartContentContainerContentText {
+.ApplicationChartContentContainerContent .ApplicationChartContentContainerContentText {
   color: var(--tertiary-color);
   text-align: center;
+  font-size: var(--span-text);
 }
 
 #CarouselAnimation {
@@ -2466,6 +2461,25 @@ main section:last-of-type {
   padding: 5% 10%;
 }
 
+.ApplicationCarouselRefurblished {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  padding: 5% 0;
+}
+
+.ApplicationCarouselRefurblishedFlex {
+  padding: 0% 10%;
+}
+
+.ApplicationCarouselViewportSpacing {
+  padding-left: 10%;
+}
+
 .ApplicationCarouselFlex {
   width: 100%;
   height: auto;
@@ -2476,8 +2490,10 @@ main section:last-of-type {
 }
 
 .ApplicationCarouselFlex h2 {
-  width: 40%;
-  color: var(--primary-color);
+  color: var(--tertiary-color);
+  font-size: var(--mega-text);
+  width: 30%;
+  padding-top: 0px;
 }
 
 .ApplicationCarouselContainer {
@@ -2490,9 +2506,19 @@ main section:last-of-type {
   justify-content: flex-end;
 }
 
+.ApplicationCarouselContainerExtra {
+  width: 40%;
+}
+
+.ApplicationSetupDetails {
+  width: 100%;
+}
+
 .ApplicationCarouselContainer .ApplicationCarouselContainerText {
   text-align: right;
-  color: var(--primary-color);
+  line-height: 35px;
+  font-size: var(--span-text);
+  color: var(--tertiary-on-color);
 }
 
 #CarouselAnimation {
@@ -2575,10 +2601,12 @@ main section:last-of-type {
     stroke-dashoffset: 4500;
     fill-opacity: 0;
   }
+
   80% {
     stroke-dashoffset: 2250;
     fill-opacity: 0;
   }
+
   100% {
     stroke-dashoffset: 0;
     fill-opacity: 1;
@@ -2604,13 +2632,16 @@ main section:last-of-type {
 }
 
 .ApplicationCarouselSlideBox h4 {
-  color: var(--primary-color);
-  margin-bottom: 10%;
+  color: var(--tertiary-color);
+  margin-bottom: 2%;
+  font-size: var(--medium-text);
+  line-height: 35px;
 }
 
 .ApplicationCarouselSlideBox p {
   color: var(--primary-color);
   text-align: left;
+  font-size: var(--span-text);
 }
 
 .Footer {
@@ -2631,6 +2662,14 @@ main section:last-of-type {
 
 .ApplicationFooterBox {
   width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.ApplicationFooterBoxContainer {
+  width: 50%;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -2662,7 +2701,6 @@ main section:last-of-type {
 
 .ApplicationFooterBox:nth-child(1) {
   width: 100%;
-  min-width: 500px;
 }
 
 .ApplicationFooterBoxSocial {
@@ -2793,7 +2831,8 @@ main section:last-of-type {
 
 .SectionBoxSmall {
   gap: 1em;
-  width: 500px;
+  width: 100%;
+  max-width: 450px;
   height: 100%;
   padding: 25px;
   display: flex;
@@ -2820,15 +2859,22 @@ main section:last-of-type {
 
 .SectionBoxSmall p {
   color: var(--primary-color);
+  font-size: var(--span-text);
 }
 
 .SectionBoxSmall img {
   width: 100%;
   height: auto;
+  border-radius: 25px;
   object-fit: scale-down;
 }
 
 .SectionBoxLarge {
+  display: flex;
+  gap: 1em;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -2965,6 +3011,7 @@ main section:last-of-type {
   color: var(--primary-color);
   max-width: 40%;
   text-align: center;
+  font-size: var(--span-text);
 }
 
 .Logo {
@@ -3222,8 +3269,12 @@ main section:last-of-type {
 
 .ServiceContainer {
   width: 100%;
-  height: 60vh;
+  min-height: 60vh;
+  height: auto;
+  padding: 4% 10%;
+  box-sizing: border-box;
   margin: auto;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -3234,7 +3285,7 @@ main section:last-of-type {
   color: rgb(14, 16, 15);
   font-size: 2rem;
   will-change: transform;
-  color: var(--primary-color);
+  color: var(--secondary-color);
   line-height: 70px;
 }
 
@@ -3261,7 +3312,7 @@ main section:last-of-type {
 }
 
 .ServiceList .ServiceListText {
-  color: var(--primary-color);
+  color: var(--secondary-color);
   text-align: right;
   width: 45%;
 }
@@ -3325,8 +3376,8 @@ main section:last-of-type {
   padding: 5px 10px;
   border-radius: 25px;
   font-size: var(--link-span-text);
-  color: var(--yellow-status-color);
-  background-color: var(--yellow-status-on-color);
+  color: var(--tertiary-on-color);
+  background-color: var(--tertiary-color);
 }
 
 .serviceSection {
@@ -3376,7 +3427,7 @@ main section:last-of-type {
 }
 
 .ServicesInformation .ServicesInformationBottomText {
-  color: var(--primary-color);
+  color: var(--secondary-color);
 }
 
 .ServicesInformationBoxContainer {
@@ -3398,7 +3449,7 @@ main section:last-of-type {
   height: 100%;
   padding: 25px;
   border-radius: 25px;
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
 }
 
 .ServicesInformationBoxHeader {
@@ -3411,24 +3462,26 @@ main section:last-of-type {
 
 .ServicesInformationBoxHeader h6 {
   color: var(--tertiary-color);
-  line-height: 25px;
+  line-height: 30px;
   width: 100%;
   max-width: 25%;
+  font-size: var(--mini-text);
 }
 
 .ServicesInformationBoxHeader p {
-  color: var(--secondary-color);
+  color: var(--primary-color);
   line-height: 25px;
   width: 100%;
   max-width: 60%;
 }
 
 .ServicesInformationBox h3 {
-  font-size: var(--header);
+  font-size: var(--text);
   color: var(--tertiary-color);
 }
 
-.ServicesInformationBox text {
+.ServicesInformationBox text,
+.ServicesInformationBox span {
   font-size: var(--span-text);
   font-weight: 500;
 }
@@ -3456,9 +3509,10 @@ main section:last-of-type {
 
 .ServicesInformationBox:first-child .ServicesInformationBoxHeader h6 {
   color: var(--tertiary-color);
-  line-height: 25px;
+  line-height: 30px;
   width: 100%;
   max-width: 25%;
+  font-size: var(--mini-text);
 }
 
 .ServicesInformationBox:first-child .ServicesInformationBoxHeader p {
@@ -3688,7 +3742,7 @@ main section:last-of-type {
 }
 
 .serviceBannerSection .paragraphText {
-  color: var(--primary-color);
+  color: var(--secondary-color);
 }
 
 .serviceBannerSection .linkText {
@@ -3860,8 +3914,8 @@ main section:last-of-type {
   padding: 5px 10px;
   border-radius: 25px;
   font-size: var(--link-span-text);
-  color: var(--yellow-status-color);
-  background-color: var(--yellow-status-on-color);
+  color: var(--tertiary-color);
+  background-color: var(--tertiary-on-color);
 }
 
 .ResourcesBannerContentFlex h2 {
@@ -3870,7 +3924,7 @@ main section:last-of-type {
 }
 
 .ResourcesBannerContentFlex p {
-  color: var(--primary-color);
+  color: var(--secondary-color);
 }
 
 .ResourcesBannerContentBox {
@@ -3939,7 +3993,7 @@ main section:last-of-type {
 }
 
 .ResourcesImageSection p {
-  color: var(--primary-color);
+  color: var(--secondary-color);
 }
 
 .ResourcesSectionHeader {
@@ -3967,9 +4021,10 @@ main section:last-of-type {
 }
 
 .ResourcesSectionHeader P {
-  color: var(--primary-color);
+  color: var(--secondary-color);
   width: 50%;
 }
+
 .ResourcesSectionHeaderExtra {
   width: 100%;
   height: auto;
@@ -3981,14 +4036,14 @@ main section:last-of-type {
 }
 
 .ResourcesSectionHeaderExtra p {
-  color: var(--primary-color);
+  color: var(--secondary-color);
 }
 
 .ResourcesSectionAccordions {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 20vh;
+  padding-bottom: 40px;
   padding-top: 5%;
   padding-left: 10%;
   padding-right: 10%;
@@ -4083,7 +4138,8 @@ main section:last-of-type {
 }
 
 .ResourcesSectionSpacerBottom {
-  height: 120vh;
+  display: none;
+  height: 0;
 }
 
 .ResourcesFAQSection {
@@ -4135,7 +4191,7 @@ main section:last-of-type {
 }
 
 .ResourcesFAQLeft p {
-  color: var(--primary-color);
+  color: var(--secondary-color);
 }
 
 .ResourcesFAQContainer {
@@ -4667,15 +4723,15 @@ main section:last-of-type {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
+  margin-top: 0%;
+  margin-bottom: 2%;
 }
 
 .HeroSlideIndicatorDot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.6);
+  border: 2px solid rgba(0, 0, 0, 0.6);
   background: transparent;
   cursor: pointer;
   padding: 0;
@@ -4689,11 +4745,13 @@ main section:last-of-type {
   background: var(--tertiary-on-color);
   border-color: var(--tertiary-color);
   transform: scale(1.3);
+  width: 20px;
+  border-radius: 20px;
 }
 
 .HeroSlideIndicatorDot:hover:not(.is-active) {
   background: var(--primary-color);
-  border-color: var(--primary-color);
+  border-color: var(--teriary-color);
 }
 
 .HeroSliderDots {
@@ -4942,6 +5000,14 @@ main section:last-of-type {
 
   .ApplicationCarousel {
     padding: 5%;
+  }
+
+  .ApplicationCarouselViewportSpacing {
+    padding-left: 5%;
+  }
+
+  .ApplicationCarouselRefurblishedFlex {
+    padding: 0% 5%;
   }
 
   .ApplicationCarouselFlex {
@@ -5229,6 +5295,10 @@ main section:last-of-type {
     padding: 0% 5%;
   }
 
+  .ApplicationCarouselRefurblished {
+    padding: 0%;
+  }
+
   .ApplicationCarouselSlideBox {
     width: auto;
     min-width: auto;
@@ -5317,7 +5387,7 @@ main section:last-of-type {
     left: 0;
     width: 100%;
     height: auto;
-    z-index: 999;
+    z-index: 99999;
     padding: 10px 5%;
   }
 
@@ -5367,21 +5437,24 @@ main section:last-of-type {
   }
 
   .responsiveMenuList.active {
-    padding: 25px;
-    position: fixed;
-    z-index: 999;
     top: 0;
     left: 0%;
+    gap: 1.4em;
     width: 100%;
     height: 100%;
+    z-index: 999;
     display: flex;
-    max-width: 60%;
+    padding: 20px;
+    max-width: 70%;
+    position: fixed;
+    overflow-y: auto;
+    max-height: 100vh;
+    flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    flex-direction: column;
+    overscroll-behavior: contain;
     background-color: var(--tertiary-on-color);
-    gap: 1em;
-    transition: all 0.9s ease;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .responsiveMenuList {
@@ -5402,8 +5475,8 @@ main section:last-of-type {
   }
 
   .responsiveMenuList li {
-    width: 100%;
     list-style: none;
+    width: 100%;
   }
 
   .responsiveMenuList li.active {
@@ -5418,18 +5491,18 @@ main section:last-of-type {
   }
 
   .responsiveMenuList li a {
-    width: 100% !important;
     display: flex;
     text-decoration: none;
-    font-size: var(--text);
+    font-size: var(--span-text);
     color: var(--tertiary-color);
+    width: max-content !important;
   }
 
   .MenuHeader {
     font-size: var(--small-text);
     color: var(--tertiary-color);
     letter-spacing: 10px;
-    margin-bottom: 25%;
+    margin-bottom: 15%;
   }
 
   .FlexCtnBoxCtn {
@@ -5943,7 +6016,7 @@ main section:last-of-type {
     --offset: -1;
   }
 
-  .AdvanceSectionContainerGrid > .AdvanceSectionContainerLayer:nth-of-type(1) {
+  .AdvanceSectionContainerGrid>.AdvanceSectionContainerLayer:nth-of-type(1) {
     display: none;
   }
 
@@ -6053,7 +6126,8 @@ main section:last-of-type {
 
   .responsiveMenuList.active {
     width: 100%;
-    max-width: 70%;
+    z-index: 1100;
+    max-width: 100%;
   }
 
   .ApplicationBanner {
@@ -6191,6 +6265,10 @@ main section:last-of-type {
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: 480px) {
+  .serviceBannerSectionImagesBox:last-child {
+    width: 100% !important;
+  }
+
   .ResponsiveMenuBottom {
     justify-content: flex-end;
     flex-direction: column;
@@ -6304,6 +6382,10 @@ main section:last-of-type {
   .AboutHeaderCtn {
     height: 200vh;
   }
+
+  .HeroSlideIndicators {
+    margin-bottom: 5%;
+  }
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: 390px) {
@@ -6336,4 +6418,1186 @@ main section:last-of-type {
   .AboutHeaderCtn {
     height: 250vh;
   }
+}
+
+.GlobalAboutStatsSection {
+  width: 100%;
+  padding: 5% 10%;
+  background-color: var(--primary-color);
+  box-sizing: border-box;
+}
+
+.GlobalAboutStatsContainer {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  gap: 5em;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.GlobalAboutContent {
+  gap: 1em;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.GlobalAboutTitle {
+  font-size: var(--mega-text);
+  font-weight: 500;
+  color: var(--tertiary-color);
+  margin: 0;
+}
+
+.GlobalAboutText {
+  font-size: var(--span-text);
+  color: var(--secondary-color);
+  margin-bottom: 0;
+}
+
+.GlobalAboutLogos {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.GlobalLogoItem {
+  display: flex;
+  align-items: center;
+  opacity: 0.7;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.GlobalLogoItem:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.GlobalLogoText {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #222222;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.GlobalLogoText.CNBC {
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.GlobalLogoText.OfficeRnd {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.GlobalLogoSquare {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: var(--tertiary-color);
+  border-radius: 2px;
+}
+
+.GlobalLogoSvg {
+  width: 22px;
+  height: 22px;
+  stroke: #222222;
+}
+
+.GlobalStatsGrid {
+  gap: 2em;
+  width: 100%;
+  height: auto;
+  display: grid;
+  align-items: flex-end;
+  justify-content: flex-end;
+  grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+}
+
+.GlobalStatBox {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+  position: relative;
+}
+
+.GlobalStatNumber {
+  font-size: var(--mega-text);
+  font-weight: 700;
+  color: var(--tertiary-color);
+  min-height: 1.2em;
+  will-change: transform, opacity;
+}
+
+.GlobalStatLabel {
+  font-size: var(--span-text);
+  color: var(--secondary-color);
+  border-bottom: none;
+  margin: 0;
+  padding-bottom: 0.6em;
+}
+
+.GlobalStatUnderlineTrack {
+  width: 100%;
+  height: 2px;
+  background-color: rgba(249, 161, 68, 0.15);
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.GlobalStatUnderline {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #ff8709 0%, #f9a144 100%);
+  box-shadow: 0 0 6px rgba(249, 161, 68, 0.45);
+  transform-origin: right center;
+  transform: scaleX(0);
+  will-change: transform, opacity;
+}
+
+.GlobalServicesCarouselSection {
+  width: 100%;
+  padding: 5% 10%;
+  box-sizing: border-box;
+}
+
+.GlobalServicesContainer {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.GlobalServicesHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.GlobalServicesTitle {
+  font-size: var(--mega-text);
+  font-weight: 700;
+  color: var(--tertiary-color);
+}
+
+.GlobalServicesNav {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.GlobalNavArrow {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+}
+
+.GlobalNavArrowPrev {
+  background-color: transparent;
+  border: 1px solid #d4d4d4;
+  color: #222222;
+}
+
+.GlobalNavArrowPrev:hover {
+  border-color: #111111;
+  background-color: #f7f7f7;
+}
+
+.GlobalNavArrowActive,
+.GlobalNavArrowNext {
+  background-color: #111111;
+  border: 1px solid #111111;
+  color: #ffffff;
+}
+
+.GlobalNavArrowActive:hover,
+.GlobalNavArrowNext:hover {
+  background-color: var(--tertiary-color);
+  border-color: var(--tertiary-color);
+  color: var(--primary-color);
+}
+
+.GlobalNavArrow .material-symbols-outlined {
+  font-size: 20px;
+}
+
+.GlobalServicesTrackWrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.GlobalServicesTrack {
+  display: flex;
+  width: 100%;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.GlobalServicesPage {
+  min-width: 100%;
+  width: 100%;
+  flex: 0 0 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  box-sizing: border-box;
+  padding-bottom: 10px;
+}
+
+.GlobalServiceCard {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: transform 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.GlobalServiceCard:hover {
+  transform: translateY(-4px);
+}
+
+.GlobalServiceCardImageWrap {
+  width: 100%;
+  height: 280px;
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  background-color: #ebebeb;
+}
+
+.GlobalServiceCardImageWrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.GlobalServiceCard:hover .GlobalServiceCardImageWrap img {
+  transform: scale(1.06);
+}
+
+.GlobalServiceCardBadge {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  color: #ffffff;
+  font-size: 1.15rem;
+  font-weight: 700;
+  z-index: 2;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  letter-spacing: 0.04em;
+}
+
+.GlobalServiceCardContent h3 {
+  font-size: var(--text);
+  font-weight: 700;
+  color: var(--tertiary-color);
+  margin: 0 0 6px 0;
+  letter-spacing: -0.01em;
+}
+
+.GlobalServiceCardContent p {
+  font-size: var(--span-text);
+  color: var(--secondary-color);
+}
+
+/* Section 3: Portfolio Bento Grid (Ref: Image 3) */
+.GlobalPortfolioBentoSection {
+  width: 100%;
+  padding: 5% 10% 80px;
+  box-sizing: border-box;
+}
+
+.GlobalPortfolioContainer {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.GlobalPortfolioGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr 1fr;
+  gap: 24px;
+  height: 580px;
+  box-sizing: border-box;
+}
+
+.GlobalPortfolioCol {
+  display: flex;
+  flex-direction: column;
+  height: 580px;
+  box-sizing: border-box;
+}
+
+/* Column 1: Header (280px) + CardBottom (280px) + Gap (20px) = 580px */
+.GlobalPortfolioColLeft {
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.GlobalPortfolioHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 280px;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+
+.GlobalPortfolioTitle {
+  font-size: var(--mega-text);
+  color: var(--tertiary-color);
+  margin: 0;
+}
+
+.GlobalPortfolioSubtitle {
+  font-size: var(--span-text);
+  color: var(--tertiary-on-color);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.GlobalPortfolioCard {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  background-color: #ebebeb;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.GlobalPortfolioCard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.GlobalPortfolioCard:hover img {
+  transform: scale(1.05);
+}
+
+.GlobalPortfolioCardTag {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: var(--tertiary-on-color);
+  font-size: var(--link-span-text);
+  background: var(--tertiary-color);
+  padding: 5px 10px;
+  border-radius: 50px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.GlobalPortfolioCardBottom {
+  height: 280px;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.GlobalPortfolioColCenter {
+  gap: 20px;
+}
+
+.GlobalPortfolioCardStacked {
+  height: 280px;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.GlobalPortfolioColRight {
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.GlobalPortfolioCardTall {
+  height: 510px;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.GlobalPortfolioAction {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 50px;
+  flex-shrink: 0;
+}
+
+.GlobalPortfolioSeeMore {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 6px 6px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  background-color: transparent;
+  border: 1px solid var(--tertiary-on-color);
+  color: var(--tertiary-on-color);
+  font-size: var(--span-text);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+}
+
+.GlobalPortfolioSeeMore p {
+  margin: 0;
+  color: #111111;
+  text-transform: none;
+  font-weight: 600;
+}
+
+.GlobalPortfolioSeeMore .material-symbols-outlined {
+  background-color: #111111;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 18px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.GlobalPortfolioSeeMore:hover {
+  background-color: #111111;
+  border-color: #111111;
+}
+
+.GlobalPortfolioSeeMore:hover p {
+  color: #ffffff;
+}
+
+.GlobalPortfolioSeeMore:hover .material-symbols-outlined {
+  background-color: var(--tertiary-color);
+  color: var(--secondary-color);
+}
+
+
+@media screen and (max-width: 1032px) {
+  .ApplicationFooterBoxContainer {
+    width: 100%;
+  }
+
+  .ApplicationFooterBoxLink p {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .GlobalAboutStatsContainer {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .GlobalAboutContent {
+    max-width: 100%;
+  }
+
+  .GlobalServicesTrack {
+    gap: 16px;
+  }
+
+  .GlobalServiceCard {
+    flex: 0 0 calc((100% - 16px) / 2);
+    min-width: calc((100% - 16px) / 2);
+    max-width: calc((100% - 16px) / 2);
+  }
+
+  .GlobalPortfolioGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    height: auto;
+  }
+
+  .GlobalPortfolioColLeft {
+    height: 520px;
+  }
+
+  .GlobalPortfolioColCenter {
+    height: 520px;
+  }
+
+  .GlobalPortfolioColRight {
+    grid-column: span 2;
+    height: 420px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .GlobalAboutStatsSection {
+    padding: 60px 5% 50px;
+  }
+
+  .GlobalAboutTitle {
+    font-size: 2.2rem;
+  }
+
+  .GlobalStatsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 20px;
+  }
+
+  .GlobalStatNumber {
+    font-size: 2.8rem;
+  }
+
+  .GlobalServicesCarouselSection {
+    padding: 50px 5% 60px;
+  }
+
+  .GlobalServicesTitle {
+    font-size: 2rem;
+  }
+
+  .GlobalServiceCard {
+    flex: 0 0 85%;
+    min-width: 85%;
+    max-width: 85%;
+  }
+
+  .GlobalPortfolioBentoSection {
+    padding: 50px 5% 80px;
+  }
+
+  .GlobalPortfolioGrid {
+    grid-template-columns: 1fr;
+    height: auto;
+    gap: 24px;
+  }
+
+  .GlobalPortfolioColLeft {
+    height: auto;
+    gap: 20px;
+  }
+
+  .GlobalPortfolioCardBottom {
+    height: 250px;
+    flex: none;
+  }
+
+  .GlobalPortfolioColCenter {
+    height: auto;
+    gap: 20px;
+  }
+
+  .GlobalPortfolioCardStacked {
+    height: 240px;
+    flex: none;
+  }
+
+  .GlobalPortfolioColRight {
+    grid-column: span 1;
+    height: auto;
+    gap: 20px;
+  }
+
+  .GlobalPortfolioCardTall {
+    height: 280px;
+    flex: none;
+  }
+}
+
+.GlobalStrategistSection {
+  padding: 5% 10%;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.GlobalStrategistContainer {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.GlobalStrategistGrid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 32px;
+  align-items: stretch;
+}
+
+.GlobalStrategistCardLeft {
+  background: var(--tertiary-on-color);
+  border-radius: 32px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.StrategistEyebrow {
+  gap: 1em;
+  display: flex;
+  margin: auto 0;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+
+.StrategistEyebrow span {
+  margin-bottom: 0px;
+  color: var(--primary-color);
+  font-size: var(--link-span-text);
+}
+
+
+.StrategistSparkleIcon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.StrategistHeading {
+  font-size: var(--mega-text);
+  color: var(--tertiary-color);
+}
+
+.StrategistBody {
+  font-size: var(--span-text);
+  color: var(--primary-color);
+}
+
+.StrategistButtonGroup {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+
+.StrategistBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  cursor: pointer;
+}
+
+.StrategistBtn .material-symbols-outlined {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.StrategistBtn--primary {
+  background: var(--tertiary-color, #f9a144);
+  color: #111111;
+  box-shadow: 0 6px 20px rgba(249, 161, 68, 0.28);
+}
+
+.StrategistBtn--primary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+  box-shadow: 0 10px 25px rgba(249, 161, 68, 0.4);
+}
+
+.StrategistBtn--secondary {
+  background: #ffffff;
+  color: #111111;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+.StrategistBtn--secondary:hover {
+  transform: translateY(-2px);
+  background: #f2f2f2;
+}
+
+/* Feature highlight container at bottom of left card */
+.StrategistFeatureCard {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 16px;
+  backdrop-filter: blur(8px);
+}
+
+.StrategistFeatureThumb {
+  width: 72px;
+  height: 72px;
+  border-radius: 14px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #252525;
+}
+
+.StrategistFeatureThumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.StrategistFeatureInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.StrategistFeatureInfo h4 {
+  font-size: var(--span-text);
+  color: var(--primary-color);
+}
+
+.StrategistFeatureLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--tertiary-color, #f9a144);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: gap 0.25s ease;
+}
+
+.StrategistFeatureLink:hover {
+  gap: 10px;
+}
+
+.StrategistFeatureLink .material-symbols-outlined {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* Right Bento Card: Portrait with Floating Stats */
+.GlobalStrategistCardRight {
+  border-radius: 32px;
+  overflow: hidden;
+  position: relative;
+  min-height: 580px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.1);
+  display: flex;
+}
+
+.StrategistPortraitWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 580px;
+}
+
+.StrategistPortraitImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.StrategistPortraitOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.45) 100%);
+  pointer-events: none;
+}
+
+/* Floating overlay stat cards */
+.StrategistStatsOverlay {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  z-index: 3;
+}
+
+.StrategistStatBadge {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 20px 22px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.StrategistStatHeader {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  margin-bottom: 6px;
+}
+
+.StrategistStatNum {
+  font-size: var(--mega-text);
+  color: var(--tertiary-on-color);
+}
+
+.StrategistStatUnit {
+  font-size: var(--mega-text);
+  color: var(--tertiary-color);
+}
+
+.StrategistStatLabel {
+  font-size: var(--span-text);
+  color: var(--tertiary-on-color);
+  margin: 0 0 14px 0;
+}
+
+.StrategistStatTrend {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #f3f3f3;
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #222222;
+  width: fit-content;
+}
+
+.StrategistStatTrend .material-symbols-outlined {
+  font-size: 13px;
+  font-weight: 800;
+  color: #222222;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .GlobalStrategistGrid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .GlobalStrategistCardRight,
+  .StrategistPortraitWrapper {
+    min-height: 480px;
+  }
+}
+
+@media (max-width: 600px) {
+  .ApplicationCarouselFlex {
+    padding: 5%;
+  }
+
+  .ApplicationButton {
+    padding: 8px;
+  }
+
+  .ApplicationCarouselFlex h2 {
+    padding-top: 5%;
+  }
+
+  .FeatureCardsGrid {
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .OverviewTrioGrid {
+    padding: 0 5%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .GlobalStrategistSection {
+    padding: 40px 5% 60px;
+  }
+
+  .GlobalStrategistCardLeft {
+    padding: 32px 22px;
+    min-height: auto;
+    border-radius: 24px;
+  }
+
+  .GlobalStrategistCardRight {
+    border-radius: 24px;
+    min-height: 440px;
+  }
+
+  .StrategistPortraitWrapper {
+    min-height: 440px;
+  }
+
+  .StrategistStatsOverlay {
+    grid-template-columns: 1fr;
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    gap: 12px;
+  }
+
+  .StrategistHeading {
+    font-size: 2.2rem;
+  }
+
+  .StrategistButtonGroup {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .StrategistBtn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .StrategistFeatureCard {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.DirectSalesPlatformCardsList {
+  padding: 30px 10% 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25em;
+  width: 100%;
+  max-width: 100% !important;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: auto !important;
+}
+
+.DirectSalesPlatformCard {
+  background: var(--tertiary-on-color);
+  border-radius: 25px;
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5em;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(249, 161, 68, 0.12);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.DirectSalesPlatformCard:hover {
+  box-shadow: 0 20px 38px -10px rgba(0, 0, 0, 0.4), 0 0 16px rgba(249, 161, 68, 0.12);
+  border-color: rgba(249, 161, 68, 0.3);
+}
+
+.DirectSalesPlatformCardMedia {
+  width: 260px;
+  height: 175px;
+  flex: 0 0 260px;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: #1a1a1a;
+  min-width: 0;
+  min-height: 0;
+}
+
+.DirectSalesPlatformCardMedia img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.DirectSalesPlatformCard:hover .DirectSalesPlatformCardMedia img {
+  transform: scale(1.04);
+}
+
+.DirectSalesPlatformCardBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.DirectSalesPlatformCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.DirectSalesPlatformCardHeader h3 {
+  margin-bottom: 0px;
+  font-size: var(--text);
+  color: var(--tertiary-color);
+}
+
+.DirectSalesPlatformCardMeta {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  color: var(--tertiary-color);
+  font-size: var(--span-text);
+}
+
+.DirectSalesPlatformCardBody p {
+  font-size: var(--span-text);
+  color: var(--primary-color);
+}
+
+.DirectSalesCardHighlights {
+  display: flex;
+  align-items: center;
+  gap: 1.25em;
+  flex-wrap: wrap;
+  padding: 4px 0 6px;
+  overflow: hidden;
+}
+
+.DirectSalesCardHighlightItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--link-span-text);
+  color: var(--tertiary-color);
+  font-weight: 500;
+}
+
+.DirectSalesCardHighlightItem .material-symbols-outlined {
+  font-size: 15px;
+  color: var(--tertiary-color);
+}
+
+.DirectSalesCardHighlightItem span:last-child {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.DirectSalesPlatformCardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  flex-wrap: wrap;
+  padding-top: 6px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.DirectSalesPlatformCardTags {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  flex-wrap: wrap;
+}
+
+.DirectSalesCardIconCircle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(249, 161, 68, 0.15);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--tertiary-color);
+  border: 1px solid rgba(249, 161, 68, 0.25);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.DirectSalesCardIconCircle .material-symbols-outlined {
+  font-size: 16px;
+  color: inherit;
+}
+
+.DirectSalesCardIconCircle:hover {
+  background: rgba(249, 161, 68, 0.3);
+  color: var(--primary-color);
+}
+
+.DirectSalesCardTagPill {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--primary-color);
+  font-size: var(--link-span-text);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  letter-spacing: 0.02em;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.DirectSalesCardTagPill:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(249, 161, 68, 0.3);
+}
+
+.DirectSalesCardActionBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 20px;
+  border-radius: 25px;
+  background: var(--tertiary-color);
+  color: var(--secondary-color) !important;
+  font-size: var(--link-span-text);
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.DirectSalesCardActionBtn:hover {
+  background: #ffb766;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(249, 161, 68, 0.35);
+  color: var(--secondary-color) !important;
+}
+
+@media (max-width: 900px) {
+  .DirectSalesPlatformCardsList {
+    padding: 5% 5% 8%;
+  }
+
+  .DirectSalesPlatformCard {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+    padding: 20px;
+  }
+
+  .DirectSalesPlatformCardMedia {
+    width: 100%;
+    height: 200px;
+  }
+
+  .DirectSalesPlatformCardFooter {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .DirectSalesCardActionBtn {
+    width: 100%;
+  }
+}
+
+.DirectSalesBannerSection {
+  padding-top: 25px !important;
+}
+
+#ResourcesSectionWrapper .pin-spacer {
+  height: auto !important;
+  min-height: 730px;
 }

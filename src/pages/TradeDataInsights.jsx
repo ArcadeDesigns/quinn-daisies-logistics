@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import SEO from "../components/SEO";
 import { useGSAP } from "@gsap/react";
@@ -6,27 +6,25 @@ import { Link } from "react-router-dom";
 import ScrollReveal from "scrollreveal";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { useRef, useEffect, useState } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ScrollSmoother } from "gsap/ScrollSmoother";
 import useSmoothScroll from "../hooks/useSmoothScroll";
 import usePinnedSlides from "../hooks/usePinnedSlides";
 
 const heroSlides = [
   {
-    span: "Trade Execution | Supply Chain Management",
-    h1: "Making International Trade Executable.",
-    p: "We manage logistics, sourcing, compliance, and in-market execution to facilitate the reliable movement of goods across borders, with a primary operating focus on the United States–Nigeria trade corridor.",
+    span: "Predictive Intelligence | Trade Lane Telemetry",
+    h1: "Empowering Cross-Border Trade with Real-Time Data & Actionable Intelligence.",
+    p: "Quinn Daisies equips global traders, institutional buyers, and corporate supply chain directors with live freight indices, customs tariff intelligence, predictive route analytics, and origin commodity price transparency.",
     images: [
-      "https://res.cloudinary.com/renaissance-images/image/upload/v1789465949/QuinnDaisies/2151541965_cfe0hz.jpg",
+      "https://res.cloudinary.com/renaissance-images/image/upload/v1787010387/QuinnDaisies/124625_jouegu.jpg",
       "https://res.cloudinary.com/renaissance-images/image/upload/v1789466486/QuinnDaisies/2151794095_nivnlp.jpg",
       "https://res.cloudinary.com/renaissance-images/image/upload/v1789466490/QuinnDaisies/2151976954_xlv0a5.jpg",
     ],
   },
   {
-    span: "Logistics Infrastructure | Multimodal Freight",
-    h1: "Moving Cargo with Precision.",
-    p: "We provide coordinated logistics across ocean and air freight, inland transportation, cargo consolidation, warehousing, and customs clearance, delivering greater control and visibility across complex international supply chains.",
+    span: "Freight Benchmarking | Route Cost Optimization",
+    h1: "Dynamic Spot & Contract Freight Rate Optimization.",
+    p: "Analyze historical and forward-looking freight indices across key ocean corridors, bunker fuel adjustments, port congestion wait times, and demurrage risks to secure maximum margin on every shipment.",
     images: [
       "https://res.cloudinary.com/renaissance-images/image/upload/v1789466467/QuinnDaisies/2151599738_wgtskd.jpg",
       "https://res.cloudinary.com/renaissance-images/image/upload/v1789466483/QuinnDaisies/2151976946_nomiyd.jpg",
@@ -34,9 +32,9 @@ const heroSlides = [
     ],
   },
   {
-    span: "Origin Sourcing | Quality Assurance",
-    h1: "Connecting Demand with Verified Supply.",
-    p: "We connect international buyers with qualified origin suppliers and commodities through supplier verification, quality inspection, trade documentation, and coordinated execution across both sides of the market.",
+    span: "Commodity Market Telemetry | Origin Pricing Analytics",
+    h1: "Transparent Farmgate-to-Port Commodity Price Discovery.",
+    p: "Gain verified transparency into origin pricing, currency volatility hedge metrics, seasonal harvest yields, and export parity prices for key agricultural commodities moving between Africa, the Americas, and Europe.",
     images: [
       "https://res.cloudinary.com/renaissance-images/image/upload/v1789465954/QuinnDaisies/2151493235_if2axi.jpg",
       "https://res.cloudinary.com/renaissance-images/image/upload/v1789248900/QuinnDaisies/2151541891_o5wyhf.jpg",
@@ -49,7 +47,7 @@ const SLIDE_INTERVAL = 10000;
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Home() {
+export default function TradeDataInsights() {
   useSmoothScroll();
 
   const [activeSlide, setActiveSlide] = useState(0);
@@ -124,35 +122,6 @@ export default function Home() {
 
   usePinnedSlides(imagePinRef);
 
-  useGSAP(
-    () => {
-      if (!smoothWrapperRef.current || !smoothContentRef.current)
-        return undefined;
-
-      ScrollTrigger.config({ ignoreMobileResize: true });
-
-      const existingSmoother = ScrollSmoother.get();
-      if (existingSmoother) existingSmoother.kill();
-
-      const smoother = ScrollSmoother.create({
-        wrapper: smoothWrapperRef.current,
-        content: smoothContentRef.current,
-        smooth: 1.2,
-        smoothTouch: 0.1,
-        effects: true,
-        normalizeScroll: true,
-      });
-
-      ScrollTrigger.refresh();
-
-      return () => {
-        smoother.kill();
-        ScrollTrigger.clearScrollMemory();
-      };
-    },
-    { scope: pageRef },
-  );
-
   useEffect(() => {
     ScrollReveal().reveal(".reveal__bottom", {
       origin: "bottom",
@@ -225,70 +194,67 @@ export default function Home() {
 
   const solutions = [
     {
-      icon: "local_shipping",
-      title: "Physical Execution",
-      text: "We manage the physical movement of goods from origin to destination, coordinating collection, handling, freight, and delivery across international supply chains.",
+      icon: "query_stats",
+      title: "Predictive Rate Modeling",
+      text: "Machine-learning assisted freight rate forecasting that helps shippers lock in long-term ocean and air bookings ahead of seasonal rate inflation.",
     },
-
     {
-      icon: "verified",
-      title: "Verified Supply",
-      text: "We identify qualified suppliers, validate origin, verify specifications, and coordinate pre-shipment quality checks before commercial commitments are made.",
+      icon: "monitoring",
+      title: "Real-Time Cargo Telemetry",
+      text: "Continuous tracking of vessel coordinates, container temperatures, moisture levels, and port dwell milestones with automated alerts.",
     },
-
     {
-      icon: "sync_alt",
-      title: "Cross-Border Accountability",
-      text: "Our coordinated operating structure provides accountability across both sides of the trade corridor, connecting origin operations with destination markets.",
+      icon: "calculate",
+      title: "Customs Tariff & Duty Analytics",
+      text: "Precise Harmonized System (HS) code classification and real-time duty modeling, maximizing AfCFTA and AGOA preferential tariff eligibility.",
     },
-
     {
-      icon: "hub",
-      title: "Integrated Logistics",
-      text: "We coordinate sourcing, freight, documentation, customs clearance, and final delivery as one integrated process for greater control and visibility.",
+      icon: "psychology",
+      title: "Supply Chain Risk Forecasting",
+      text: "Origin weather modeling, agricultural yield estimates, port strike alerts, and geopolitical risk indicators that protect business continuity.",
     },
   ];
 
   const executionStages = [
     {
-      title: "Origin Supply & Procurement",
+      title: "Multi-Source Data Ingestion & Harmonization",
       description:
-        "We align buyer requirements with qualified origin suppliers, aggregators, cooperatives, and producers to establish reliable supply at the point of origin.",
+        "Aggregating live telemetry from shipping line manifests, port terminal management systems, customs broker declarations, and satellite vessel AIS networks.",
       image:
         "https://res.cloudinary.com/renaissance-images/image/upload/v1789237502/QuinnDaisies/2151589636_v3h3yj.jpg",
     },
     {
-      title: "Supplier & Cargo Assurance",
+      title: "Tariff Classification & Regulatory Modeling",
       description:
-        "We validate counterparties, specifications, quality, and cargo readiness through supplier due diligence, origin verification, inspections, and applicable testing before shipment.",
+        "Validating product HS codes against national tariff schedules, determining exact duties, anti-dumping levies, and preferential treaty exemptions.",
       image:
         "https://res.cloudinary.com/renaissance-images/image/upload/v1789465950/QuinnDaisies/2151663021_qg5kyt.jpg",
     },
     {
-      title: "Export Readiness & Consolidation",
+      title: "Freight Benchmark & Index Analysis",
       description:
-        "We coordinate consolidation, packaging, labelling, documentation, and export preparation to align cargo with applicable origin and destination requirements.",
+        "Comparing contracted carrier rates against spot market indices and fuel surcharges, identifying margin recovery opportunities across all active lanes.",
       image:
         "https://res.cloudinary.com/renaissance-images/image/upload/v1789248900/QuinnDaisies/2151541891_o5wyhf.jpg",
     },
     {
-      title: "Multimodal Freight Execution",
+      title: "Real-Time IoT & Environmental Sensor Tracking",
       description:
-        "We coordinate ocean, air, inland transportation, and port logistics to move cargo efficiently between origin and destination while maintaining shipment visibility.",
+        "Monitoring high-value and perishable cargo in transit, measuring temperature, humidity, shock, and geofence breaches to maintain chain of custody.",
       image:
         "https://res.cloudinary.com/renaissance-images/image/upload/v1778362093/QuinnDaisies/2151468868_ispgpz.jpg",
     },
     {
-      title: "Trade Documentation & Clearance",
+      title: "Predictive Port Dwell & Congestion Alerting",
       description:
-        "We coordinate trade documentation, tariff classification, export requirements, and customs processes with the relevant parties to support compliant cargo release.",
+        "Forecasting vessel queue times and terminal gate bottlenecks to reschedule inland drayage pickups before free time expires and demurrage accumulates.",
       image:
         "https://res.cloudinary.com/renaissance-images/image/upload/v1776766956/QuinnDaisies/2151964096_liogs7.jpg",
     },
     {
-      title: "Inland Distribution & Handover",
+      title: "Executive Analytics & Strategic Reporting",
       description:
-        "We coordinate destination transport from ports and entry points to warehouses, processing facilities, distribution centers, and buyer locations for controlled final delivery.",
+        "Customized commercial BI dashboards, quarterly lane performance reviews, and origin price discovery reports delivered directly to executive leadership.",
       image:
         "https://res.cloudinary.com/renaissance-images/image/upload/v1778289411/QuinnDaisies/2151998728_ha2wny.jpg",
     },
@@ -345,10 +311,10 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Quinn Daisies Logistics | Global Freight Forwarding, Cold Chain & Supply Chain Systems"
-        description="Quinn Daisies Logistics delivers premier air cargo, ocean freight, customs clearance, cold-chain solutions, and supply chain technology connecting North America, West Africa, and global trade hubs."
-        keywords="Quinn Daisies Logistics, global logistics, international shipping, air freight, ocean freight, customs clearance, cold chain logistics, US Nigeria shipping, freight forwarder Maryland, cargo Lagos Nigeria, MMIA Ikeja freight forwarder"
-        url="https://www.logistics.quinndaisies.com/"
+        title="Trade Data & Insights | Quinn Daisies Logistics"
+        description="Predictive trade analytics, real-time freight rate benchmarking, customs tariff intelligence, and IoT cargo telemetry for global enterprises."
+        keywords="trade data insights, freight rate benchmarking, customs tariff intelligence, supply chain analytics, predictive trade analytics, cargo telemetry, trade corridors data"
+        url="https://www.logistics.quinndaisies.com/trade-data-and-insights"
       />
 
       <div ref={pageRef}>
@@ -359,7 +325,6 @@ export default function Home() {
             <section className="OpportunityAppCtn">
               <div className="OpportunityAppHeader">
                 <div className="ContentCtn-Center" ref={heroContentRef}>
-
                   <span className="ContentCtn-Center-Span">
                     {currentSlide.span}
                   </span>
@@ -431,8 +396,8 @@ export default function Home() {
                 </div>
 
                 <div className="SingleBtnCtn-Center reveal__bottom">
-                  <Link className="ApplicationButton" to="/services">
-                    Our Services
+                  <Link className="ApplicationButton" to="/contact-us">
+                    Request Intelligence Consultation
                     <span className="material-symbols-outlined">
                       globe_location_pin
                     </span>
@@ -445,7 +410,7 @@ export default function Home() {
                   <img
                     key={`${activeSlide}-${index}`}
                     src={img}
-                    alt={`Quinn Daisies Logistics — slide ${activeSlide + 1}, image ${index + 1}`}
+                    alt={`Quinn Daisies Trade Data — slide ${activeSlide + 1}, image ${index + 1}`}
                   />
                 ))}
               </div>
@@ -454,7 +419,7 @@ export default function Home() {
             <section className="sectionBox" ref={containerRef}>
               <div className="SectionHeader">
                 <h2 className="reveal__top">
-                  Why businesses choose Quinn Daisies
+                  Cross-Border Data Into Commercial Advantage
                 </h2>
               </div>
 
@@ -476,7 +441,7 @@ export default function Home() {
                 <div className="fill"></div>
                 <div className="ApplicationChartContentList">
                   <h2 className="ApplicationImageDesignHeader reveal__bottom__interval_slide">
-                    From Origin to Destination, One Operational Framework
+                    Actionable Data Pipeline Connecting Sourcing to Destination Release
                   </h2>
                   {executionStages.map((item, index) => (
                     <div
@@ -518,67 +483,67 @@ export default function Home() {
 
             <section className="SectionContainer ServicesInformation">
               <span className="reveal__left">
-                Trade Execution & Logistics Architecture
+                Operational Intelligence & Telematics
               </span>
               <h4 className="reveal__right">
-                Connecting origin sourcing, accredited verification, multimodal freight, and in-market execution across core transatlantic trade corridors.
+                Transforming complex freight signals and trade lane data into actionable commercial advantage.
               </h4>
 
               <div className="ServicesInformationBoxContainer">
                 <div className="ServicesInformationBox reveal__bottom__interval">
                   <div className="ServicesInformationBoxHeader">
-                    <h6>On-Time Last-Mile Dispatch</h6>
+                    <h6>Telemetry Milestone Accuracy</h6>
                     <p>
-                      Dedicated transport routing and scheduled container allocations ensuring high reliability from origin ports to inland destination doors.
+                      Continuous sensor feeds and automated electronic milestones capturing exact cargo status across maritime, air, and inland transit.
                     </p>
                   </div>
                   <h3>
-                    99.4<span>%</span>
+                    99.8<text>%</text>
                   </h3>
                 </div>
 
                 <div className="ServicesInformationBox reveal__bottom__interval">
                   <div className="ServicesInformationBoxHeader">
-                    <h6>Verified Origin Supply Network</h6>
+                    <h6>Monitored Global Trade Lanes</h6>
                     <p>
-                      Direct commercial access to audited agricultural cooperatives, registered processors, and commercial aggregators across Nigeria.
+                      Active tracking of container dwell times, carrier reliability indexes, and spot-versus-contract rate spreads across core corridors.
                     </p>
                   </div>
                   <h3>
-                    200<span>+</span>
+                    45<text>+</text>
                   </h3>
                 </div>
 
                 <div className="ServicesInformationBox reveal__bottom__interval">
                   <div className="ServicesInformationBoxHeader">
-                    <h6>Port-to-Warehouse Velocity</h6>
+                    <h6>Tariff Optimization & Duty Savings</h6>
                     <p>
-                      Expedited customs pre-clearance filings and dedicated terminal drayage power units minimizing detention and demurrage liabilities.
+                      Precise HS code classification, trade agreement utilization, and duty drawback auditing lowering total landed shipment costs.
                     </p>
                   </div>
                   <h3>
-                    24–48<span>hrs</span>
+                    12–18<text>%</text>
                   </h3>
                 </div>
 
                 <div className="ServicesInformationBox reveal__bottom__interval">
                   <div className="ServicesInformationBoxHeader">
-                    <h6>Cross-Border Accountability</h6>
+                    <h6>Predictive ETA Variance Window</h6>
                     <p>
-                      Unbroken chain-of-custody logging and commercial agreements executed under dual-entity U.S. and Nigerian corporate governance.
+                      Machine-assisted transit forecasting accounting for seasonal port congestion, customs inspection delays, and weather disruptions.
                     </p>
                   </div>
                   <h3>
-                    100<span>%</span>
+                    &lt;12<text>hrs</text>
                   </h3>
                 </div>
               </div>
 
               <p className="ServicesInformationBottomText reveal__left">
-                International commerce depends on far more than finding a buyer or introducing a supplier. Goods must be sourced, laboratory-verified, packaged, documented, transported, customs-cleared, and physically delivered to inland facility doors. Fragmented vendor relationships frequently lead to demurrage spirals, delayed release, and contract friction. Quinn Daisies solves this by providing the end-to-end operational infrastructure that connects every stage of the trade flow under one accountable operating framework.
+                In volatile global supply chains, lack of visibility is the primary driver of cost overruns and stockouts. Commercial shippers are frequently blind to container hold-ups until penalty surcharges have already accrued. Quinn Daisies bridges this intelligence gap by equipping our physical operations with robust digital tracking and analytical telemetry. We do not sell detached software; we provide enterprise customers with direct, real-time insight into the physical reality of their freight.
               </p>
               <p className="ServicesInformationBottomText reveal__right">
-                With active ground operations in Nigeria and commercial coordination in the United States, we bridge the gap between commercial intent and physical execution. From containerized agricultural exports transiting through Baltimore, Houston, Savannah, and Newark to inbound industrial freight and localized market distribution, Quinn Daisies gives expanding enterprises the reliability, compliance certainty, and transparency needed to scale cross-border commerce.
+                Our trade intelligence systems integrate live carrier manifests, port gateway telemetry, customs pre-filing databases, and regional commodity pricing indices. By synthesizing these operational feeds, Quinn Daisies enables procurement managers and freight directors to anticipate terminal delays, optimize container loading schedules, and make data-backed freight allocation decisions with total precision.
               </p>
             </section>
 
@@ -590,12 +555,12 @@ export default function Home() {
               <div className="ApplicationCarouselRefurblished">
                 <div className="ApplicationCarouselRefurblishedFlex ApplicationCarouselFlex">
                   <h2 className="reveal__left">
-                    Navigating the Physical Complexity of Cross-Border Trade
+                    Advanced Trade Analytics & Cargo Visibility Architecture
                   </h2>
 
                   <div className="ApplicationCarouselContainer reveal__right">
                     <p className="ApplicationCarouselContainerText">
-                      International trade requires more than moving goods—it demands coordinated sourcing, logistics, documentation, compliance, and destination execution. Quinn Daisies integrates these functions into one accountable operating framework, providing greater control and visibility from origin to final delivery.
+                      Our digital intelligence layer provides real-time transparency across international trade corridors, turning raw shipment telemetry into decisive operational control.
                     </p>
                   </div>
                 </div>
@@ -607,52 +572,65 @@ export default function Home() {
                   >
                     <div className="AdvanceDesignStructureSlideBox">
                       <img
+                        src="https://res.cloudinary.com/renaissance-images/image/upload/v1787010387/QuinnDaisies/124625_jouegu.jpg"
+                        alt="Quinn Daisies Real-Time Cargo Telematics"
+                      />
+                      <div className="AdvanceDesignStructureSlideBoxContent">
+                        <h2>Real-Time Cargo Telematics & Milestone Tracking</h2>
+                        <p>
+                          Continuous GPS, container temperature, and door-seal telemetry streamed directly to client dashboards from origin pickup to destination delivery.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="AdvanceDesignStructureSlideBox">
+                      <img
+                        src="https://res.cloudinary.com/renaissance-images/image/upload/v1789466486/QuinnDaisies/2151794095_nivnlp.jpg"
+                        alt="Quinn Daisies Freight Rate Indexing"
+                      />
+                      <div className="AdvanceDesignStructureSlideBoxContent">
+                        <h2>Freight Rate Indexing & Spot-Spread Benchmarking</h2>
+                        <p>
+                          Historical and predictive rate analytics benchmarking ocean FCL/LCL and air cargo contracts against global market trends to ensure optimal freight spend.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="AdvanceDesignStructureSlideBox">
+                      <img
+                        src="https://res.cloudinary.com/renaissance-images/image/upload/v1787010416/QuinnDaisies/2151910935_fzm8q0.jpg"
+                        alt="Quinn Daisies HS Code Tariff Optimization"
+                      />
+                      <div className="AdvanceDesignStructureSlideBoxContent">
+                        <h2>HS Code Tariff Optimization & Duty Advisory</h2>
+                        <p>
+                          Algorithmic customs tariff classification identifying preferential bilateral duty treatments, AGOA qualifications, and statutory duty reductions.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="AdvanceDesignStructureSlideBox">
+                      <img
                         src="https://res.cloudinary.com/renaissance-images/image/upload/v1778362102/QuinnDaisies/2152021825_y3d8sd.jpg"
-                        alt="Quinn Daisies Ocean Freight"
+                        alt="Quinn Daisies Port Congestion Modeling"
                       />
                       <div className="AdvanceDesignStructureSlideBoxContent">
-                        <h2>Ocean Freight (FCL/LCL)</h2>
+                        <h2>Port Congestion & Dwell-Time Predictive Modeling</h2>
                         <p>
-                          Direct containerized export routes connecting Lagos Port Complex (Apapa/Tin Can Island) to major U.S. and transatlantic ports of entry, including Baltimore, Newark, Houston, and Savannah.
+                          Predictive transit analytics forecasting terminal gate bottlenecks and vessel berthing windows across major West African and U.S. deepwater ports.
                         </p>
                       </div>
                     </div>
 
                     <div className="AdvanceDesignStructureSlideBox">
                       <img
-                        src="https://res.cloudinary.com/renaissance-images/image/upload/v1789248900/QuinnDaisies/2151541891_o5wyhf.jpg"
-                        alt="Quinn Daisies Air Cargo"
+                        src="https://res.cloudinary.com/renaissance-images/image/upload/v1789466490/QuinnDaisies/2151976954_xlv0a5.jpg"
+                        alt="Quinn Daisies Digital Trade Documentation Vault"
                       />
                       <div className="AdvanceDesignStructureSlideBoxContent">
-                        <h2>Air Cargo Consolidation</h2>
+                        <h2>Digital Trade Documentation Vault</h2>
                         <p>
-                          Rapid, high-security clearance and express handling operated out of our physical base at NACHO, MMIA in Lagos, synchronized with major international cargo airlines and express carriers.
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="AdvanceDesignStructureSlideBox">
-                      <img
-                        src="https://res.cloudinary.com/renaissance-images/image/upload/v1778362096/QuinnDaisies/2152005492_t9qg4y.jpg"
-                        alt="Quinn Daisies Inland Haulage"
-                      />
-                      <div className="AdvanceDesignStructureSlideBoxContent">
-                        <h2>Inland Haulage & Drayage</h2>
-                        <p>
-                          Managed road-transit pipelines moving containerized cargo between remote agricultural collection zones, industrial manufacturing hubs, and maritime container terminals.
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="AdvanceDesignStructureSlideBox">
-                      <img
-                        src="https://res.cloudinary.com/renaissance-images/image/upload/v1789237513/QuinnDaisies/2151468920_pinckg.jpg"
-                        alt="Quinn Daisies Warehousing"
-                      />
-                      <div className="AdvanceDesignStructureSlideBoxContent">
-                        <h2>Bonded Warehousing & Inventory Staging</h2>
-                        <p>
-                          Secure intermediate staging facilities providing climate-controlled buffering, inventory consolidation, palletizing, and pre-export container preparation.
+                          Secure, tamper-evident digital repository consolidating bills of lading, phytosanitary certificates, PSI reports, and customs releases into a single audit trail.
                         </p>
                       </div>
                     </div>
@@ -660,38 +638,12 @@ export default function Home() {
                     <div className="AdvanceDesignStructureSlideBox">
                       <img
                         src="https://res.cloudinary.com/renaissance-images/image/upload/v1789249438/QuinnDaisies/36467_ncwdts.jpg"
-                        alt="Quinn Daisies Sourcing Network"
+                        alt="Quinn Daisies Seasonal Commodity Sourcing Analytics"
                       />
                       <div className="AdvanceDesignStructureSlideBoxContent">
-                        <h2>200+ Vetted Origin Sourcing Network</h2>
+                        <h2>Seasonal Commodity Sourcing & Harvest Analytics</h2>
                         <p>
-                          Direct logistics connectivity to an audited network of over 200 qualified Nigerian agricultural cooperatives, commodity aggregators, and commercial processors.
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="AdvanceDesignStructureSlideBox">
-                      <img
-                        src="https://res.cloudinary.com/renaissance-images/image/upload/v1789237502/QuinnDaisies/2151589636_v3h3yj.jpg"
-                        alt="Quinn Daisies Quality Inspection"
-                      />
-                      <div className="AdvanceDesignStructureSlideBoxContent">
-                        <h2>Pre-Shipment Inspection (PSI) Enforced</h2>
-                        <p>
-                          Mandatory on-site sampling and chemical analysis through accredited third-party inspection agencies (SGS, Bureau Veritas, Cotecna) before cargo is sealed, verifying purity and phytosanitary metrics.
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="AdvanceDesignStructureSlideBox">
-                      <img
-                        src="https://res.cloudinary.com/renaissance-images/image/upload/v1761872178/QuinnDaisies/51152_qph8bp.jpg"
-                        alt="Quinn Daisies Trade Risk Hedging"
-                      />
-                      <div className="AdvanceDesignStructureSlideBoxContent">
-                        <h2>Trade Risk Hedging & Governance</h2>
-                        <p>
-                          Mitigating transatlantic commercial risks—cargo adulteration, demurrage spirals, exchange-rate slippage, and contract default—through structured U.S. jurisdictional agreements.
+                          Yield projections, regional farm-gate price tracking, and quality grade trends across key Nigerian export commodities including sesame, ginger, and soy.
                         </p>
                       </div>
                     </div>
@@ -703,52 +655,46 @@ export default function Home() {
             <section className="SectionContainer">
               <div className="SectionColorHeader">
                 <span className="reveal__top">
-                  We help businesses navigate cross-border expansion
+                  Live Telemetry | Actionable Intelligence
                 </span>
                 <h2 className="reveal__bottom">
-                  Expanding beyond your current market or Planning your next stage of growth?
+                  Replacing Intuition with Verified Trade Data
                 </h2>
               </div>
 
               <div className="SectionFlex">
                 <div className="SectionBoxSmall reveal__left">
                   <h2>
-                    100% <span>Logistics Coordination</span>
+                    99.8% <span>Telemetry Accuracy</span>
                   </h2>
                   <p>
-                    Operating directly across the United States and Nigeria,
-                    We connects American commercial demand with
-                    verified Nigerian supply chains, backed by dual-market logistics
-                    coordination and domestic legal accountability.
+                    Combining satellite AIS vessel positioning, port API integrations, digital bill of lading feeds, and IoT sensors into one crystal-clear operational view.
                   </p>
 
                   <img
-                    src="https://res.cloudinary.com/renaissance-images/image/upload/v1789466467/QuinnDaisies/2151599738_wgtskd.jpg"
-                    alt="Quinn Daisies Images"
+                    src="https://res.cloudinary.com/renaissance-images/image/upload/v1787010387/QuinnDaisies/124625_jouegu.jpg"
+                    alt="Quinn Daisies Data Analytics"
                   />
                 </div>
 
                 <div className="SectionBoxLarge reveal__bottom">
                   <img
                     src="https://res.cloudinary.com/renaissance-images/image/upload/v1789466479/QuinnDaisies/2151763093_uclmdh.jpg"
-                    alt="Quinn Daisies Image"
+                    alt="Quinn Daisies Freight Analytics"
                   />
 
                   <img
                     src="https://res.cloudinary.com/renaissance-images/image/upload/v1789465954/QuinnDaisies/2151493235_if2axi.jpg"
-                    alt="Quinn Daisies Image"
+                    alt="Quinn Daisies Cargo Telemetry"
                   />
                 </div>
 
                 <div className="SectionBoxSmall reveal__top">
                   <p>
-                    From Nigerian agricultural commodities to U.S. industrial and commercial
-                    goods, we coordinate sourcing, origin handling, transatlantic freight,
-                    customs clearance, and inland distribution across North America,
-                    West Africa, and global markets.
+                    Our data platform eliminates blind spots across origin procurement, ocean voyages, customs release, and destination distribution, giving commercial leadership full control.
                   </p>
-                  <Link className="ApplicationButton" to="/direct-sales">
-                    Direct Sales
+                  <Link className="ApplicationButton" to="/contact-us">
+                    Request Intelligence Demo
                     <span className="material-symbols-outlined">
                       globe_location_pin
                     </span>
@@ -761,15 +707,14 @@ export default function Home() {
               <div className="ApplicationBanner">
                 <img
                   src="https://res.cloudinary.com/renaissance-images/image/upload/v1775604123/QuinnDaisies/future-visions-business-technology-concept_ehpo8p.jpg"
-                  alt="Quinn Daisies"
+                  alt="Quinn Daisies Trade Data CTA"
                 />
                 <div className="ApplicationBannerOverlay">
                   <h2>
-                    Move Your Business Across Borders
+                    Gain the Data Advantage in Cross-Border Trade
                   </h2>
                   <p className="ApplicationText">
-                    Tell us what you need to source, move, import, export, distribute, or establish,
-                    and our team will determine the appropriate operational pathway.
+                    Request customized trade lane analytics, customs duty benchmark reports, or live IoT supply chain monitoring tailored to your specific commercial corridors.
                   </p>
                   <Link className="ApplicationButton" to="/contact-us">
                     Trade Consultation
