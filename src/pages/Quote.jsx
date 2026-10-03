@@ -751,7 +751,7 @@ export default function Quote() {
                     </p>
                   </div>
                   <h3>
-                    &lt; 4<text> Hours</text>
+                    &lt; 4<span> Hours</span>
                   </h3>
                 </div>
 
@@ -764,7 +764,7 @@ export default function Quote() {
                     </p>
                   </div>
                   <h3>
-                    100<text>%</text>
+                    100<span>%</span>
                   </h3>
                 </div>
 
@@ -777,7 +777,7 @@ export default function Quote() {
                     </p>
                   </div>
                   <h3>
-                    2<text> Continents</text>
+                    2<span> Continents</span>
                   </h3>
                 </div>
 
@@ -790,7 +790,7 @@ export default function Quote() {
                     </p>
                   </div>
                   <h3>
-                    99.9<text>%</text>
+                    99.9<span>%</span>
                   </h3>
                 </div>
               </div>

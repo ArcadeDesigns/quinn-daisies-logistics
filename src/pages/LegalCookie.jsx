@@ -31,8 +31,10 @@ export default function CookiePolicy() {
       <div ref={pageRef}>
         <Navbar />
 
-        {/* HERO SECTION */}
-        <section className="LegalPageHero">
+        <div id="smooth-wrapper">
+          <div id="smooth-content">
+            {/* HERO SECTION */}
+            <section className="LegalPageHero">
           <div className="LegalBadge">
             <span className="material-symbols-outlined" style={{ fontSize: "16px" }}>
               cookie
@@ -295,7 +297,9 @@ export default function CookiePolicy() {
           </div>
         </div>
 
-        <Footer />
+            <Footer />
+          </div>
+        </div>
       </div>
     </>
   );

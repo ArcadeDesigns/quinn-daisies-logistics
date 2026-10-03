@@ -185,25 +185,16 @@ export default function Footer() {
             <div className="ApplicationFooterBox">
               <h4>News & Press</h4>
               <div className="ApplicationFooterBoxLink">
-                <Link
-                  className="Cta"
-                >
+                <Link to="/insights" className="Cta">
                   Press Releases
                 </Link>
-                <Link
-                  className="Cta"
-                >
+                <Link to="/resources" className="Cta">
                   Media Kit & Assets
                 </Link>
-                <Link
-                  to="/insights"
-                  className="Cta"
-                >
+                <Link to="/insights" className="Cta">
                   Industry Reports & Insights
                 </Link>
-                <Link
-                  className="Cta"
-                >
+                <Link to="/event-and-expo-participation" className="Cta">
                   Events & Media Coverage
                 </Link>
               </div>
@@ -232,9 +223,9 @@ export default function Footer() {
             <div className="ApplicationFooterBox">
               <h4>Reach Out</h4>
               <div className="ApplicationFooterBoxLink">
-                <Link to="/home" className="Cta">
-                  contact.us@quinndaisies.com
-                </Link>
+                <a href="mailto:info@quinndaisies.com" className="Cta">
+                  info@quinndaisies.com
+                </a>
                 <Link
                   to="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3838.2748649816094!2d-77.42511932349208!3d39.463778613086454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c9c52a5e57af13%3A0x210d900d99a68089!2s1915%20Wetterhorn%20Ct%2C%20Frederick%2C%20MD%2021702%2C%20USA!5e1!3m2!1sen!2sng!4v1778445237880!5m2!1sen!2sng"
                   className="Cta"

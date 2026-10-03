@@ -47,8 +47,8 @@ export default function Form() {
 
           {/* --- SERVICE TYPE DROPDOWN --- */}
           <div className="FormSelection">
-            <select required>
-              <option value="" disabled selected>
+            <select required defaultValue="">
+              <option value="" disabled>
                 Service Type *
               </option>
               <option value="freight">Freight</option>

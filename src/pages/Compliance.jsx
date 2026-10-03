@@ -531,11 +531,11 @@ export default function ComplianceSafety() {
                                     Cross-border trade between developed economies and emerging African markets collapses when quality assays fail or regulatory filings stall. We de-risk every transaction by embedding destination-market standards directly into origin aggregation—enforcing 100% pre-clearance compliance across USDA, FDA, NAFDAC, and NEPC protocols.
                                 </p>
                                 <div className="AdvanceUpdateImagesItem">
-                                    <img src="https://res.cloudinary.com/renaissance-images/image/upload/v1789241208/QuinnDaisies/2151582422_fh3r2u.jpg" alt="Quinn Daisies Images" />
-                                    <img src="https://res.cloudinary.com/renaissance-images/image/upload/v1789241211/QuinnDaisies/2151696365_x4qg4l.jpg" alt="Quinn Daisies Images" />
-                                    <img src="https://res.cloudinary.com/renaissance-images/image/upload/v1789241211/QuinnDaisies/2151201356_lhykbe.jpg" alt="Quinn Daisies Images" />
-                                    <img src="https://res.cloudinary.com/renaissance-images/image/upload/v1789241235/QuinnDaisies/2150917100_eoytea.jpg" alt="Quinn Daisies Images" />
-                                    <img src="https://res.cloudinary.com/renaissance-images/image/upload/v1789241235/QuinnDaisies/2151831190_waonhm.jpg" alt="Quinn Daisies Images" />
+                                    <img src="https://res.cloudinary.com/renaissance-images/image/upload/v1778289413/QuinnDaisies/2151468863_pksww9.jpg" alt="Quinn Daisies Client" />
+                                    <img src="https://res.cloudinary.com/renaissance-images/image/upload/v1778289413/QuinnDaisies/2151468842_qcq2hy.jpg" alt="Quinn Daisies Client" />
+                                    <img src="https://res.cloudinary.com/renaissance-images/image/upload/v1778289413/QuinnDaisies/2151468884_hipy7q.jpg" alt="Quinn Daisies Client" />
+                                    <img src="https://res.cloudinary.com/renaissance-images/image/upload/v1778289412/QuinnDaisies/2151541857_njan6w.jpg" alt="Quinn Daisies Client" />
+                                    <img src="https://res.cloudinary.com/renaissance-images/image/upload/v1778289412/QuinnDaisies/2151998717_pmxeig.jpg" alt="Quinn Daisies Client" />
                                     <div className="AdvanceUpdateImagesContent">
                                         <span className="material-symbols-outlined">verified</span>
                                         <p>100% Pre-Clearance</p>

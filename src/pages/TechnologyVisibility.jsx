@@ -1090,7 +1090,7 @@ export default function TechnologyVisibility() {
                     </p>
                   </div>
                   <h3>
-                    150<text>+</text>
+                    150<span>+</span>
                   </h3>
                 </div>
 
@@ -1103,7 +1103,7 @@ export default function TechnologyVisibility() {
                     </p>
                   </div>
                   <h3>
-                    99.99<text>%</text>
+                    99.99<span>%</span>
                   </h3>
                 </div>
 
@@ -1116,7 +1116,7 @@ export default function TechnologyVisibility() {
                     </p>
                   </div>
                   <h3>
-                    1,200<text>+</text>
+                    1,200<span>+</span>
                   </h3>
                 </div>
 
@@ -1129,7 +1129,7 @@ export default function TechnologyVisibility() {
                     </p>
                   </div>
                   <h3>
-                    10M<text>+</text>
+                    10M<span>+</span>
                   </h3>
                 </div>
               </div>

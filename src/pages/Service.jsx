@@ -635,7 +635,7 @@ export default function Services() {
                     </p>
                   </div>
                   <h3>
-                    99<text>%</text>
+                    99<span>%</span>
                   </h3>
                 </div>
 
@@ -650,7 +650,7 @@ export default function Services() {
                     </p>
                   </div>
                   <h3>
-                    100<text>%</text>
+                    100<span>%</span>
                   </h3>
                 </div>
 
@@ -665,7 +665,7 @@ export default function Services() {
                     </p>
                   </div>
                   <h3>
-                    24/<text>7</text>
+                    24/<span>7</span>
                   </h3>
                 </div>
 
@@ -680,7 +680,7 @@ export default function Services() {
                     </p>
                   </div>
                   <h3>
-                    50<text>X</text>
+                    50<span>X</span>
                   </h3>
                 </div>
               </div>
@@ -893,7 +893,7 @@ export default function Services() {
                       looking to scale operations efficiently.
                     </p>
                   </div>
-                  <span class="material-symbols-outlined">graph_6</span>
+                  <span className="material-symbols-outlined">graph_6</span>
                 </div>
 
                 <img
@@ -903,7 +903,7 @@ export default function Services() {
 
                 <div className="serviceBannerSectionImagesBox">
                   <div className="serviceBannerSectionImagesBoxContentRight">
-                    <span class="material-symbols-outlined">bar_chart</span>
+                    <span className="material-symbols-outlined">bar_chart</span>
                     <h5>
                       International trade brings opportunity — and complexity.
                     </h5>

@@ -10,15 +10,27 @@ export default function useSmoothScroll() {
     const existing = ScrollSmoother.get();
     if (existing) existing.kill();
 
+    const wrapper = document.querySelector("#smooth-wrapper");
+    const content = document.querySelector("#smooth-content");
+    if (!wrapper || !content) {
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
+      return;
+    }
+
     const smoother = ScrollSmoother.create({
       wrapper: "#smooth-wrapper",
       content: "#smooth-content",
       smooth: 1.2,
       smoothTouch: 0.1,
       effects: true,
-      normalizeScroll: true,
+      normalizeScroll: false,
     });
 
-    return () => smoother.kill();
+    return () => {
+      if (smoother) smoother.kill();
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
+    };
   }, []);
 }

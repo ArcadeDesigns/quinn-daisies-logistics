@@ -35,8 +35,10 @@ export default function PrivacyPolicy() {
       <div ref={pageRef}>
         <Navbar />
 
-        {/* HERO SECTION */}
-        <section className="LegalPageHero">
+        <div id="smooth-wrapper">
+          <div id="smooth-content">
+            {/* HERO SECTION */}
+            <section className="LegalPageHero">
           <div className="LegalBadge">
             <span className="material-symbols-outlined" style={{ fontSize: "16px" }}>
               verified_user
@@ -441,7 +443,9 @@ export default function PrivacyPolicy() {
           </div>
         </div>
 
-        <Footer />
+            <Footer />
+          </div>
+        </div>
       </div>
     </>
   );

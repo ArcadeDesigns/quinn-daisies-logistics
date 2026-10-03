@@ -842,7 +842,7 @@ export default function Contact() {
                     </p>
                   </div>
                   <h3>
-                    &lt; 1<text> Hour</text>
+                    &lt; 1<span> Hour</span>
                   </h3>
                 </div>
 
@@ -855,7 +855,7 @@ export default function Contact() {
                     </p>
                   </div>
                   <h3>
-                    100<text>%</text>
+                    100<span>%</span>
                   </h3>
                 </div>
 
@@ -868,7 +868,7 @@ export default function Contact() {
                     </p>
                   </div>
                   <h3>
-                    2<text> Continents</text>
+                    2<span> Continents</span>
                   </h3>
                 </div>
 
@@ -881,7 +881,7 @@ export default function Contact() {
                     </p>
                   </div>
                   <h3>
-                    24/<text>7</text>
+                    24/<span>7</span>
                   </h3>
                 </div>
               </div>
