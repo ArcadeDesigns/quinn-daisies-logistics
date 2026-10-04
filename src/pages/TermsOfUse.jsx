@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import useSmoothScroll from "../hooks/useSmoothScroll";
 import { Link } from "react-router-dom";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
 
 export default function TermsOfUse() {
   useSmoothScroll();
@@ -23,6 +24,19 @@ export default function TermsOfUse() {
     { id: "notices", title: "11. Corporate Legal Notices" },
   ];
 
+  const handleScrollTo = (e, id) => {
+    e.preventDefault();
+    const smoother = ScrollSmoother.get();
+    if (smoother) {
+      smoother.scrollTo(`#${id}`, true, "top 120px");
+    } else {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
   return (
     <>
       <SEO
@@ -39,50 +53,67 @@ export default function TermsOfUse() {
           <div id="smooth-content">
             {/* HERO SECTION */}
             <section className="LegalPageHero">
-          <div className="LegalBadge">
-            <span className="material-symbols-outlined" style={{ fontSize: "16px" }}>
-              gavel
-            </span>
-            <span>Master Commercial Terms</span>
-          </div>
-          <h1>Terms of Use & Master Agreement</h1>
-          <p className="LegalPageHeroSubtitle">
-            Governing the commercial relationship, freight forwarding liabilities, intellectual
-            property ownership, and legal obligations between Quinn Daisies Logistics LLC and its clients.
-          </p>
-          <div className="LegalMetaRow">
-            <div className="LegalMetaItem">
-              <span className="material-symbols-outlined">calendar_today</span>
-              <span>Effective: January 1, 2026</span>
-            </div>
-            <div className="LegalMetaItem">
-              <span className="material-symbols-outlined">update</span>
-              <span>Last Revised: October 3, 2026</span>
-            </div>
-            <div className="LegalMetaItem">
-              <span className="material-symbols-outlined">account_balance</span>
-              <span>Exclusive Jurisdiction: State of Maryland, USA</span>
-            </div>
-          </div>
-        </section>
-
-        {/* MAIN BODY WITH STICKY TOC */}
-        <div className="LegalPageWrapper">
-          <div className="LegalPageContainer">
-            {/* Table of Contents */}
-            <aside className="LegalTocSidebar">
-              <div className="LegalTocHeader">
-                <span className="material-symbols-outlined">format_list_bulleted</span>
-                <span>Document Contents</span>
+              <img
+                className="LegalHeroBg"
+                src="https://res.cloudinary.com/renaissance-images/image/upload/v1776766956/QuinnDaisies/2151964096_liogs7.jpg"
+                alt="Quinn Daisies Legal & Compliance"
+              />
+              <div className="LegalHeroOverlay">
+                <div className="LegalBadge">
+                  <span className="material-symbols-outlined">gavel</span>
+                  <span>Master Commercial Terms</span>
+                </div>
+                <h1>Terms of Use & Master Agreement</h1>
+                <p className="LegalPageHeroSubtitle">
+                  Governing commercial freight execution, bill of lading custody, intellectual
+                  property ownership, and legal obligations between Quinn Daisies Logistics LLC and enterprise partners.
+                </p>
+                <div className="LegalMetaRow">
+                  <div className="LegalMetaItem">
+                    <span className="material-symbols-outlined">calendar_today</span>
+                    <span>Effective: January 1, 2026</span>
+                  </div>
+                  <div className="LegalMetaItem">
+                    <span className="material-symbols-outlined">update</span>
+                    <span>Last Revised: October 4, 2026</span>
+                  </div>
+                  <div className="LegalMetaItem">
+                    <span className="material-symbols-outlined">account_balance</span>
+                    <span>Exclusive Jurisdiction: State of Maryland, USA</span>
+                  </div>
+                </div>
               </div>
-              <ul className="LegalTocList">
-                {sections.map((sec) => (
-                  <li key={sec.id} className="LegalTocItem">
-                    <a href={`#${sec.id}`}>{sec.title}</a>
-                  </li>
-                ))}
-              </ul>
-            </aside>
+            </section>
+
+            {/* EXECUTIVE SUMMARY BANNER */}
+            <section className="SectionContainer ServiceContainer">
+              <h2 className="ServiceText">
+                All freight forwarding operations, physical commodity off-take contracts, software development deliverables, and bilateral trade facilitations executed by Quinn Daisies Logistics LLC are governed by these Master Commercial Terms.
+              </h2>
+            </section>
+
+            {/* MAIN BODY WITH STICKY TOC */}
+            <div className="LegalPageWrapper">
+              <div className="LegalPageContainer">
+                {/* Table of Contents */}
+                <aside className="LegalTocSidebar">
+                  <div className="LegalTocHeader">
+                    <span className="material-symbols-outlined">format_list_bulleted</span>
+                    <span>Document Contents</span>
+                  </div>
+                  <ul className="LegalTocList">
+                    {sections.map((sec) => (
+                      <li key={sec.id} className="LegalTocItem">
+                        <a
+                          href={`#${sec.id}`}
+                          onClick={(e) => handleScrollTo(e, sec.id)}
+                        >
+                          {sec.title}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </aside>
 
             {/* Legal Content Stream */}
             <main className="LegalMainContent">
@@ -365,16 +396,18 @@ export default function TermsOfUse() {
                   Official legal notices, formal summons, or contractual correspondence must be delivered
                   by registered mail or confirmed electronic transmission to:
                 </p>
-                <div style={{ background: "#faf9f6", padding: "24px", borderRadius: "16px", border: "1px solid #e5e0d8" }}>
-                  <p style={{ margin: "0 0 6px 0", fontWeight: 800, color: "#111613" }}>
+                <div className="LegalContactBox">
+                  <h4 className="LegalContactBoxTitle">
                     Quinn Daisies Logistics LLC — Legal & Governance Directorate
+                  </h4>
+                  <p className="LegalContactBoxText">
+                    1915 Wetterhorn Ct, Frederick County, Maryland 21702, United States
                   </p>
-                  <p style={{ margin: "0 0 4px 0" }}>1915 Wetterhorn Ct, Frederick County, Maryland 21702, United States</p>
-                  <p style={{ margin: "0 0 4px 0" }}>
-                    Legal Counsel: <a href="mailto:legal@quinndaisies.com" style={{ color: "#e28a34", fontWeight: 600 }}>legal@quinndaisies.com</a>
+                  <p className="LegalContactBoxText">
+                    Corporate Counsel: <a href="mailto:legal@quinndaisies.com">legal@quinndaisies.com</a>
                   </p>
-                  <p style={{ margin: "0" }}>
-                    Executive Operations Desk: <a href="tel:+12404055942" style={{ color: "#e28a34", fontWeight: 600 }}>+1 (240) 405-5942</a>
+                  <p className="LegalContactBoxText">
+                    Executive Operations Desk: <a href="tel:+12404055942">+1 (240) 405-5942</a>
                   </p>
                 </div>
               </section>

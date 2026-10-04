@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import useSmoothScroll from "../hooks/useSmoothScroll";
 import { Link } from "react-router-dom";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
 
 export default function CookiePolicy() {
   useSmoothScroll();
@@ -18,6 +19,19 @@ export default function CookiePolicy() {
     { id: "updates", title: "6. Policy Updates & Modifications" },
     { id: "contact", title: "7. Contact Our Privacy Team" },
   ];
+
+  const handleScrollTo = (e, id) => {
+    e.preventDefault();
+    const smoother = ScrollSmoother.get();
+    if (smoother) {
+      smoother.scrollTo(`#${id}`, true, "top 120px");
+    } else {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
 
   return (
     <>
@@ -35,50 +49,67 @@ export default function CookiePolicy() {
           <div id="smooth-content">
             {/* HERO SECTION */}
             <section className="LegalPageHero">
-          <div className="LegalBadge">
-            <span className="material-symbols-outlined" style={{ fontSize: "16px" }}>
-              cookie
-            </span>
-            <span>Transparent Web Telemetry</span>
-          </div>
-          <h1>Cookie Policy & Tracking Technologies</h1>
-          <p className="LegalPageHeroSubtitle">
-            Transparency regarding how Quinn Daisies Logistics LLC deploys cookies,
-            local storage tokens, and web beacons across our commercial portals.
-          </p>
-          <div className="LegalMetaRow">
-            <div className="LegalMetaItem">
-              <span className="material-symbols-outlined">calendar_today</span>
-              <span>Effective: January 1, 2026</span>
-            </div>
-            <div className="LegalMetaItem">
-              <span className="material-symbols-outlined">update</span>
-              <span>Last Revised: October 3, 2026</span>
-            </div>
-            <div className="LegalMetaItem">
-              <span className="material-symbols-outlined">security</span>
-              <span>GDPR (ePrivacy) & CCPA Compliant</span>
-            </div>
-          </div>
-        </section>
-
-        {/* MAIN BODY WITH STICKY TOC */}
-        <div className="LegalPageWrapper">
-          <div className="LegalPageContainer">
-            {/* Table of Contents */}
-            <aside className="LegalTocSidebar">
-              <div className="LegalTocHeader">
-                <span className="material-symbols-outlined">format_list_bulleted</span>
-                <span>Document Contents</span>
+              <img
+                className="LegalHeroBg"
+                src="https://res.cloudinary.com/renaissance-images/image/upload/v1789465947/QuinnDaisies/2151003712_gbfv0i.jpg"
+                alt="Quinn Daisies Web Telemetry & Cookies"
+              />
+              <div className="LegalHeroOverlay">
+                <div className="LegalBadge">
+                  <span className="material-symbols-outlined">cookie</span>
+                  <span>Transparent Web Telemetry</span>
+                </div>
+                <h1>Cookie Policy & Tracking Technologies</h1>
+                <p className="LegalPageHeroSubtitle">
+                  Transparency regarding how Quinn Daisies Logistics LLC deploys cookies,
+                  local storage tokens, and web beacons across our commercial portals.
+                </p>
+                <div className="LegalMetaRow">
+                  <div className="LegalMetaItem">
+                    <span className="material-symbols-outlined">calendar_today</span>
+                    <span>Effective: January 1, 2026</span>
+                  </div>
+                  <div className="LegalMetaItem">
+                    <span className="material-symbols-outlined">update</span>
+                    <span>Last Revised: October 4, 2026</span>
+                  </div>
+                  <div className="LegalMetaItem">
+                    <span className="material-symbols-outlined">security</span>
+                    <span>GDPR (ePrivacy) & CCPA Compliant</span>
+                  </div>
+                </div>
               </div>
-              <ul className="LegalTocList">
-                {sections.map((sec) => (
-                  <li key={sec.id} className="LegalTocItem">
-                    <a href={`#${sec.id}`}>{sec.title}</a>
-                  </li>
-                ))}
-              </ul>
-            </aside>
+            </section>
+
+            {/* EXECUTIVE SUMMARY BANNER */}
+            <section className="SectionContainer ServiceContainer">
+              <h2 className="ServiceText">
+                Our digital infrastructure utilizes essential authentication session cookies and privacy-respecting telemetry strictly to guarantee freight tracking uptime, cybersecurity defense, and seamless cross-border portal performance.
+              </h2>
+            </section>
+
+            {/* MAIN BODY WITH STICKY TOC */}
+            <div className="LegalPageWrapper">
+              <div className="LegalPageContainer">
+                {/* Table of Contents */}
+                <aside className="LegalTocSidebar">
+                  <div className="LegalTocHeader">
+                    <span className="material-symbols-outlined">format_list_bulleted</span>
+                    <span>Document Contents</span>
+                  </div>
+                  <ul className="LegalTocList">
+                    {sections.map((sec) => (
+                      <li key={sec.id} className="LegalTocItem">
+                        <a
+                          href={`#${sec.id}`}
+                          onClick={(e) => handleScrollTo(e, sec.id)}
+                        >
+                          {sec.title}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </aside>
 
             {/* Legal Content Stream */}
             <main className="LegalMainContent">
@@ -233,11 +264,9 @@ export default function CookiePolicy() {
                 <p>
                   You have full autonomy to control and manage how cookies are deployed on your browser:
                 </p>
-                <div className="LegalCallout gold">
+                <div className="LegalCallout">
                   <div className="LegalCalloutTitle">
-                    <span className="material-symbols-outlined" style={{ color: "#e28a34" }}>
-                      settings
-                    </span>
+                    <span className="material-symbols-outlined">settings</span>
                     <span>Browser Level Configuration</span>
                   </div>
                   <p>
@@ -280,16 +309,18 @@ export default function CookiePolicy() {
                   If you have questions regarding our deployment of cookies or web telemetry, please
                   contact our compliance desk:
                 </p>
-                <div style={{ background: "#faf9f6", padding: "24px", borderRadius: "16px", border: "1px solid #e5e0d8" }}>
-                  <p style={{ margin: "0 0 6px 0", fontWeight: 800, color: "#111613" }}>
+                <div className="LegalContactBox">
+                  <h4 className="LegalContactBoxTitle">
                     Quinn Daisies Logistics LLC — Privacy & Digital Compliance
+                  </h4>
+                  <p className="LegalContactBoxText">
+                    1915 Wetterhorn Ct, Frederick County, Maryland 21702, United States
                   </p>
-                  <p style={{ margin: "0 0 4px 0" }}>1915 Wetterhorn Ct, Frederick County, Maryland 21702, United States</p>
-                  <p style={{ margin: "0 0 4px 0" }}>
-                    Inquiries Email: <a href="mailto:privacy@quinndaisies.com" style={{ color: "#e28a34", fontWeight: 600 }}>privacy@quinndaisies.com</a>
+                  <p className="LegalContactBoxText">
+                    Inquiries Email: <a href="mailto:privacy@quinndaisies.com">privacy@quinndaisies.com</a>
                   </p>
-                  <p style={{ margin: "0" }}>
-                    Executive Operations Desk: <a href="tel:+12404055942" style={{ color: "#e28a34", fontWeight: 600 }}>+1 (240) 405-5942</a>
+                  <p className="LegalContactBoxText">
+                    Executive Operations Desk: <a href="tel:+12404055942">+1 (240) 405-5942</a>
                   </p>
                 </div>
               </section>

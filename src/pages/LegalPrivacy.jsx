@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import useSmoothScroll from "../hooks/useSmoothScroll";
 import { Link } from "react-router-dom";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
 
 export default function PrivacyPolicy() {
   useSmoothScroll();
@@ -23,6 +24,19 @@ export default function PrivacyPolicy() {
     { id: "contact", title: "11. Data Protection Officer" },
   ];
 
+  const handleScrollTo = (e, id) => {
+    e.preventDefault();
+    const smoother = ScrollSmoother.get();
+    if (smoother) {
+      smoother.scrollTo(`#${id}`, true, "top 120px");
+    } else {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
   return (
     <>
       <SEO
@@ -39,50 +53,67 @@ export default function PrivacyPolicy() {
           <div id="smooth-content">
             {/* HERO SECTION */}
             <section className="LegalPageHero">
-          <div className="LegalBadge">
-            <span className="material-symbols-outlined" style={{ fontSize: "16px" }}>
-              verified_user
-            </span>
-            <span>Enterprise Data Governance</span>
-          </div>
-          <h1>Privacy Policy & Data Protection</h1>
-          <p className="LegalPageHeroSubtitle">
-            How Quinn Daisies Logistics LLC collects, protects, processes, and respects
-            commercial, institutional, and personal data across transatlantic trade corridors.
-          </p>
-          <div className="LegalMetaRow">
-            <div className="LegalMetaItem">
-              <span className="material-symbols-outlined">calendar_today</span>
-              <span>Effective: January 1, 2026</span>
-            </div>
-            <div className="LegalMetaItem">
-              <span className="material-symbols-outlined">update</span>
-              <span>Last Revised: October 3, 2026</span>
-            </div>
-            <div className="LegalMetaItem">
-              <span className="material-symbols-outlined">gavel</span>
-              <span>Governing Law: State of Maryland, USA</span>
-            </div>
-          </div>
-        </section>
-
-        {/* MAIN BODY WITH STICKY TOC */}
-        <div className="LegalPageWrapper">
-          <div className="LegalPageContainer">
-            {/* Table of Contents */}
-            <aside className="LegalTocSidebar">
-              <div className="LegalTocHeader">
-                <span className="material-symbols-outlined">format_list_bulleted</span>
-                <span>Document Contents</span>
+              <img
+                className="LegalHeroBg"
+                src="https://res.cloudinary.com/renaissance-images/image/upload/v1789466419/QuinnDaisies/2151794080_qmduaj.jpg"
+                alt="Quinn Daisies Data Governance"
+              />
+              <div className="LegalHeroOverlay">
+                <div className="LegalBadge">
+                  <span className="material-symbols-outlined">verified_user</span>
+                  <span>Enterprise Data Governance</span>
+                </div>
+                <h1>Privacy Policy & Data Protection</h1>
+                <p className="LegalPageHeroSubtitle">
+                  How Quinn Daisies Logistics LLC collects, protects, processes, and respects
+                  commercial, institutional, and personal data across transatlantic trade corridors.
+                </p>
+                <div className="LegalMetaRow">
+                  <div className="LegalMetaItem">
+                    <span className="material-symbols-outlined">calendar_today</span>
+                    <span>Effective: January 1, 2026</span>
+                  </div>
+                  <div className="LegalMetaItem">
+                    <span className="material-symbols-outlined">update</span>
+                    <span>Last Revised: October 4, 2026</span>
+                  </div>
+                  <div className="LegalMetaItem">
+                    <span className="material-symbols-outlined">gavel</span>
+                    <span>Governing Law: State of Maryland, USA</span>
+                  </div>
+                </div>
               </div>
-              <ul className="LegalTocList">
-                {sections.map((sec) => (
-                  <li key={sec.id} className="LegalTocItem">
-                    <a href={`#${sec.id}`}>{sec.title}</a>
-                  </li>
-                ))}
-              </ul>
-            </aside>
+            </section>
+
+            {/* EXECUTIVE SUMMARY BANNER */}
+            <section className="SectionContainer ServiceContainer">
+              <h2 className="ServiceText">
+                Quinn Daisies Logistics LLC upholds rigorous data protection standards across our digital trade portals, cross-border telemetry systems, and enterprise client records in full compliance with GDPR, CCPA/CPRA, and NDPR directives.
+              </h2>
+            </section>
+
+            {/* MAIN BODY WITH STICKY TOC */}
+            <div className="LegalPageWrapper">
+              <div className="LegalPageContainer">
+                {/* Table of Contents */}
+                <aside className="LegalTocSidebar">
+                  <div className="LegalTocHeader">
+                    <span className="material-symbols-outlined">format_list_bulleted</span>
+                    <span>Document Contents</span>
+                  </div>
+                  <ul className="LegalTocList">
+                    {sections.map((sec) => (
+                      <li key={sec.id} className="LegalTocItem">
+                        <a
+                          href={`#${sec.id}`}
+                          onClick={(e) => handleScrollTo(e, sec.id)}
+                        >
+                          {sec.title}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </aside>
 
             {/* Legal Content Stream */}
             <main className="LegalMainContent">
@@ -425,17 +456,18 @@ export default function PrivacyPolicy() {
                   For inquiries, statutory rights requests, or concerns regarding our privacy and data
                   protection governance, please contact our designated Data Protection Officer:
                 </p>
-                <div style={{ background: "#faf9f6", padding: "24px", borderRadius: "16px", border: "1px solid #e5e0d8" }}>
-                  <p style={{ margin: "0 0 6px 0", fontWeight: 800, color: "#111613" }}>
+                <div className="LegalContactBox">
+                  <h4 className="LegalContactBoxTitle">
                     Office of the Data Protection Officer (DPO)
+                  </h4>
+                  <p className="LegalContactBoxText">
+                    Quinn Daisies Logistics LLC — 1915 Wetterhorn Ct, Frederick County, Maryland 21702, United States
                   </p>
-                  <p style={{ margin: "0 0 4px 0" }}>Quinn Daisies Logistics LLC</p>
-                  <p style={{ margin: "0 0 4px 0" }}>1915 Wetterhorn Ct, Frederick County, Maryland 21702, United States</p>
-                  <p style={{ margin: "0 0 4px 0" }}>
-                    Official Email: <a href="mailto:dpo@quinndaisies.com" style={{ color: "#e28a34", fontWeight: 600 }}>dpo@quinndaisies.com</a>
+                  <p className="LegalContactBoxText">
+                    Official Privacy Email: <a href="mailto:dpo@quinndaisies.com">dpo@quinndaisies.com</a>
                   </p>
-                  <p style={{ margin: "0" }}>
-                    Executive Operations Desk: <a href="tel:+12404055942" style={{ color: "#e28a34", fontWeight: 600 }}>+1 (240) 405-5942</a>
+                  <p className="LegalContactBoxText">
+                    Executive Operations Desk: <a href="tel:+12404055942">+1 (240) 405-5942</a>
                   </p>
                 </div>
               </section>
