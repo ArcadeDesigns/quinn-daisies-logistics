@@ -6437,113 +6437,97 @@
    ENTERPRISE LEGAL PAGES (Privacy Policy, Terms of Use, Cookie Policy)
    ========================================================================== */
 
-.LegalPageHero {
-  position: relative;
-  min-height: 480px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
+/* ==========================================================================
+   LEGAL PAGE HEADER (ADVANCE UPDATE DESIGN SYSTEM ALIGNED)
+   ========================================================================== */
+
+.AdvanceUpdateDesign.LegalAdvanceHeader {
+  height: 85vh;
+  min-height: 600px;
+  max-height: 840px;
+  background-color: #ffffff;
+}
+
+.LegalAdvanceHeader .AdvanceUpdateDesignOverlay {
+  padding: 100px 10% 40px 10%;
   justify-content: center;
-  background-color: var(--tertiary-on-color);
-}
-
-.LegalHeroBg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-  filter: brightness(0.7) contrast(1.1);
-  transform: scale(1.02);
-  transition: transform 0.6s ease;
-}
-
-.LegalHeroOverlay {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  padding: 130px 8% 80px 8%;
-  text-align: center;
   background: linear-gradient(
-    180deg,
-    rgba(17, 22, 19, 0.78) 0%,
-    rgba(13, 18, 15, 0.94) 100%
+    90deg,
+    rgba(255, 255, 255, 0.96) 0%,
+    rgba(255, 255, 255, 0.88) 42%,
+    rgba(255, 255, 255, 0) 72%
   );
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
-.LegalBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--tertiary-on-color);
+.LegalAdvanceHeader .AdvanceUpdateDesignOverlay h2 {
+  font-size: var(--mega-text);
   color: var(--tertiary-color);
-  border: 1px solid rgba(249, 161, 68, 0.45);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  padding: 8px 24px;
-  border-radius: 50px;
-  font-size: var(--link-span-text);
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 22px;
-}
-
-.LegalBadge span.material-symbols-outlined {
-  font-size: 18px;
-  color: var(--tertiary-color);
-}
-
-.LegalPageHero h1 {
-  font-size: clamp(2.4rem, 4.8vw, 3.8rem);
   font-weight: 800;
-  color: var(--primary-color);
-  max-width: 980px;
-  margin: 0 auto 20px auto;
-  line-height: 1.18;
-  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  width: 58%;
+  margin: 16px 0 12px 0;
 }
 
-.LegalPageHeroSubtitle {
+.LegalAdvanceHeader .AdvanceUpdateDesignOverlay .AdvanceUpdateText {
   font-size: var(--span-text);
-  color: rgba(255, 255, 255, 0.88);
-  max-width: 780px;
-  margin: 0 auto 34px auto;
+  color: var(--secondary-on-color);
   line-height: 1.7;
+  width: 52%;
+  margin: 0 0 20px 0;
 }
 
-.LegalMetaRow {
+.LegalAdvanceHeader .LegalMetaRow {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 16px;
+  justify-content: flex-start;
+  gap: 12px;
   flex-wrap: wrap;
+  margin-bottom: 24px;
 }
 
-.LegalMetaItem {
+.LegalAdvanceHeader .LegalMetaItem {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  background: rgba(0, 0, 0, 0.45);
+  gap: 7px;
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(249, 161, 68, 0.25);
-  padding: 8px 20px;
+  border: 1px solid rgba(249, 161, 68, 0.45);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  padding: 6px 16px;
   border-radius: 50px;
   font-size: var(--span-text);
-  color: var(--primary-color);
+  font-weight: 600;
+  color: var(--secondary-on-color);
 }
 
-.LegalMetaItem span.material-symbols-outlined {
+.LegalAdvanceHeader .LegalMetaItem span.material-symbols-outlined {
   color: var(--tertiary-color);
-  font-size: 18px;
+  font-size: 17px;
+}
+
+.LegalAdvanceHeader .AdvanceUpdateButtonContainer {
+  margin-top: 0;
+}
+
+.LegalAdvanceHeader .ApplicationButton {
+  background-color: var(--tertiary-color);
+  color: var(--primary-color);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding-left: 24px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.LegalAdvanceHeader .ApplicationButton:hover {
+  background-color: var(--tertiary-on-color);
+  color: var(--tertiary-color);
 }
 
 /* ==========================================================================
@@ -6552,27 +6536,27 @@
 
 .LegalPageWrapper {
   background: #faf9f6;
-  padding: 80px 8% 130px 8%;
+  padding: 40px 10% 80px 10%;
 }
 
 .LegalPageContainer {
-  max-width: 1360px;
+  max-width: 1440px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 320px 1fr;
-  gap: 48px;
+  gap: 36px;
   align-items: start;
 }
 
 /* Sticky Table of Contents */
 .LegalTocSidebar {
   position: sticky;
-  top: 110px;
+  top: 90px;
   background: var(--primary-color);
   border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 24px;
-  padding: 32px 24px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  border-radius: 20px;
+  padding: 24px 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
 }
 
 .LegalTocHeader {
@@ -6581,23 +6565,23 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--tertiary-color);
-  margin-bottom: 18px;
+  margin-bottom: 14px;
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding-bottom: 14px;
+  gap: 8px;
+  padding-bottom: 12px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .LegalTocHeader span.material-symbols-outlined {
-  font-size: 20px;
+  font-size: 18px;
   color: var(--tertiary-color);
 }
 
 .LegalTocList {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -6609,32 +6593,32 @@
   font-weight: 600;
   color: var(--secondary-on-color);
   text-decoration: none;
-  padding: 8px 14px;
-  border-radius: 12px;
+  padding: 7px 12px;
+  border-radius: 10px;
   border-left: 3px solid transparent;
-  transition: all 0.25s ease;
-  line-height: 1.45;
+  transition: all 0.2s ease;
+  line-height: 1.4;
 }
 
 .LegalTocItem a:hover {
   background: rgba(249, 161, 68, 0.1);
   color: var(--tertiary-on-color);
   border-left-color: var(--tertiary-color);
-  transform: translateX(4px);
+  transform: translateX(3px);
 }
 
 /* Main Legal Content */
 .LegalMainContent {
   background: var(--primary-color);
   border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 28px;
-  padding: 60px 8%;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.03);
+  border-radius: 24px;
+  padding: 44px 44px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.03);
 }
 
 .LegalSection {
-  margin-bottom: 54px;
-  scroll-margin-top: 130px;
+  margin-bottom: 38px;
+  scroll-margin-top: 100px;
 }
 
 .LegalSection:last-child {
@@ -6642,53 +6626,54 @@
 }
 
 .LegalSection h2 {
-  font-size: var(--mega-text);
+  font-size: var(--mini-text);
   font-weight: 800;
   color: var(--tertiary-on-color);
-  margin: 0 0 18px 0;
+  margin: 0 0 16px 0;
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding-bottom: 16px;
-  border-bottom: 2px solid rgba(249, 161, 68, 0.2);
-  letter-spacing: -0.02em;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid rgba(249, 161, 68, 0.25);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
 }
 
 .LegalSectionNumber {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-weight: 800;
   color: var(--primary-color);
   background: var(--tertiary-color);
-  padding: 4px 12px;
-  border-radius: 8px;
+  padding: 3px 10px;
+  border-radius: 6px;
   line-height: 1.3;
 }
 
 .LegalSection h3 {
-  font-size: var(--mini-text);
+  font-size: var(--span-text);
   font-weight: 700;
   color: var(--tertiary-on-color);
-  margin: 28px 0 12px 0;
+  margin: 22px 0 10px 0;
 }
 
 .LegalSection p {
   font-size: var(--text);
-  line-height: 1.8;
+  line-height: 1.75;
   color: var(--secondary-on-color);
-  margin: 0 0 18px 0;
+  margin: 0 0 16px 0;
 }
 
 .LegalSection ul,
 .LegalSection ol {
-  padding-left: 28px;
-  margin: 0 0 22px 0;
+  padding-left: 24px;
+  margin: 0 0 18px 0;
   color: var(--secondary-on-color);
   font-size: var(--text);
-  line-height: 1.8;
+  line-height: 1.75;
 }
 
 .LegalSection li {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .LegalSection strong {
@@ -6816,9 +6801,34 @@
 }
 
 @media (max-width: 1024px) {
+  .AdvanceUpdateDesign.LegalAdvanceHeader {
+    height: auto;
+    min-height: auto;
+  }
+
+  .LegalAdvanceHeader .AdvanceUpdateDesignOverlay {
+    padding: 120px 6% 40px;
+    height: auto;
+    min-height: auto;
+  }
+
+  .LegalAdvanceHeader .AdvanceUpdateDesignOverlay h2 {
+    width: 100%;
+    font-size: 1.8rem;
+  }
+
+  .LegalAdvanceHeader .AdvanceUpdateDesignOverlay .AdvanceUpdateText {
+    width: 100%;
+    font-size: 0.95rem;
+  }
+
+  .LegalPageWrapper {
+    padding: 30px 5% 60px 5%;
+  }
+
   .LegalPageContainer {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 30px;
   }
 
   .LegalTocSidebar {
@@ -6826,10 +6836,6 @@
   }
 
   .LegalMainContent {
-    padding: 40px 6%;
-  }
-
-  .LegalPageHero h1 {
-    font-size: 2.2rem;
+    padding: 32px 24px;
   }
 }

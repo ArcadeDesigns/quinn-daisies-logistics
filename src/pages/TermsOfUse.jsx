@@ -51,45 +51,49 @@ export default function TermsOfUse() {
 
         <div id="smooth-wrapper">
           <div id="smooth-content">
-            {/* HERO SECTION */}
-            <section className="LegalPageHero">
+            {/* HERO SECTION - ADVANCE UPDATE DESIGN */}
+            <section className="AdvanceUpdateDesign LegalAdvanceHeader">
               <img
-                className="LegalHeroBg"
-                src="https://res.cloudinary.com/renaissance-images/image/upload/v1776766956/QuinnDaisies/2151964096_liogs7.jpg"
-                alt="Quinn Daisies Legal & Compliance"
+                className="AdvanceUpdateDesignImage"
+                src="https://res.cloudinary.com/renaissance-images/image/upload/v1789240372/QuinnDaisies/639176_xzxyky.jpg"
+                alt="Quinn Daisies Master Commercial Agreement"
               />
-              <div className="LegalHeroOverlay">
-                <div className="LegalBadge">
-                  <span className="material-symbols-outlined">gavel</span>
-                  <span>Master Commercial Terms</span>
-                </div>
-                <h1>Terms of Use & Master Agreement</h1>
-                <p className="LegalPageHeroSubtitle">
+              <div className="AdvanceUpdateDesignOverlay">
+                <span className="AdvanceUpdateSpan">
+                  Master Commercial Terms
+                </span>
+                <h2>Terms of Use & Master Agreement</h2>
+                <p className="AdvanceUpdateText">
                   Governing commercial freight execution, bill of lading custody, intellectual
                   property ownership, and legal obligations between Quinn Daisies Logistics LLC and enterprise partners.
                 </p>
                 <div className="LegalMetaRow">
                   <div className="LegalMetaItem">
                     <span className="material-symbols-outlined">calendar_today</span>
-                    <span>Effective: January 1, 2026</span>
+                    <span>Effective: Jan 1, 2026</span>
                   </div>
                   <div className="LegalMetaItem">
                     <span className="material-symbols-outlined">update</span>
-                    <span>Last Revised: October 4, 2026</span>
+                    <span>Last Revised: Oct 4, 2026</span>
                   </div>
                   <div className="LegalMetaItem">
                     <span className="material-symbols-outlined">account_balance</span>
-                    <span>Exclusive Jurisdiction: State of Maryland, USA</span>
+                    <span>State of Maryland, USA</span>
                   </div>
                 </div>
+                <div className="AdvanceUpdateButtonContainer">
+                  <a
+                    className="ApplicationButton"
+                    href="#acceptance"
+                    onClick={(e) => handleScrollTo(e, "acceptance")}
+                  >
+                    Read Document
+                    <span className="material-symbols-outlined">
+                      arrow_downward
+                    </span>
+                  </a>
+                </div>
               </div>
-            </section>
-
-            {/* EXECUTIVE SUMMARY BANNER */}
-            <section className="SectionContainer ServiceContainer">
-              <h2 className="ServiceText">
-                All freight forwarding operations, physical commodity off-take contracts, software development deliverables, and bilateral trade facilitations executed by Quinn Daisies Logistics LLC are governed by these Master Commercial Terms.
-              </h2>
             </section>
 
             {/* MAIN BODY WITH STICKY TOC */}

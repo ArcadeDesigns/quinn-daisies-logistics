@@ -51,45 +51,49 @@ export default function PrivacyPolicy() {
 
         <div id="smooth-wrapper">
           <div id="smooth-content">
-            {/* HERO SECTION */}
-            <section className="LegalPageHero">
+            {/* HERO SECTION - ADVANCE UPDATE DESIGN */}
+            <section className="AdvanceUpdateDesign LegalAdvanceHeader">
               <img
-                className="LegalHeroBg"
-                src="https://res.cloudinary.com/renaissance-images/image/upload/v1789466419/QuinnDaisies/2151794080_qmduaj.jpg"
-                alt="Quinn Daisies Data Governance"
+                className="AdvanceUpdateDesignImage"
+                src="https://res.cloudinary.com/renaissance-images/image/upload/v1789482759/QuinnDaisies/637883_siqlmk.jpg"
+                alt="Quinn Daisies Enterprise Data Governance"
               />
-              <div className="LegalHeroOverlay">
-                <div className="LegalBadge">
-                  <span className="material-symbols-outlined">verified_user</span>
-                  <span>Enterprise Data Governance</span>
-                </div>
-                <h1>Privacy Policy & Data Protection</h1>
-                <p className="LegalPageHeroSubtitle">
+              <div className="AdvanceUpdateDesignOverlay">
+                <span className="AdvanceUpdateSpan">
+                  Enterprise Data Governance
+                </span>
+                <h2>Privacy Policy & Data Protection</h2>
+                <p className="AdvanceUpdateText">
                   How Quinn Daisies Logistics LLC collects, protects, processes, and respects
                   commercial, institutional, and personal data across transatlantic trade corridors.
                 </p>
                 <div className="LegalMetaRow">
                   <div className="LegalMetaItem">
                     <span className="material-symbols-outlined">calendar_today</span>
-                    <span>Effective: January 1, 2026</span>
+                    <span>Effective: Jan 1, 2026</span>
                   </div>
                   <div className="LegalMetaItem">
                     <span className="material-symbols-outlined">update</span>
-                    <span>Last Revised: October 4, 2026</span>
+                    <span>Last Revised: Oct 4, 2026</span>
                   </div>
                   <div className="LegalMetaItem">
                     <span className="material-symbols-outlined">gavel</span>
-                    <span>Governing Law: State of Maryland, USA</span>
+                    <span>GDPR, CCPA & NDPR Compliant</span>
                   </div>
                 </div>
+                <div className="AdvanceUpdateButtonContainer">
+                  <a
+                    className="ApplicationButton"
+                    href="#scope"
+                    onClick={(e) => handleScrollTo(e, "scope")}
+                  >
+                    Read Document
+                    <span className="material-symbols-outlined">
+                      arrow_downward
+                    </span>
+                  </a>
+                </div>
               </div>
-            </section>
-
-            {/* EXECUTIVE SUMMARY BANNER */}
-            <section className="SectionContainer ServiceContainer">
-              <h2 className="ServiceText">
-                Quinn Daisies Logistics LLC upholds rigorous data protection standards across our digital trade portals, cross-border telemetry systems, and enterprise client records in full compliance with GDPR, CCPA/CPRA, and NDPR directives.
-              </h2>
             </section>
 
             {/* MAIN BODY WITH STICKY TOC */}

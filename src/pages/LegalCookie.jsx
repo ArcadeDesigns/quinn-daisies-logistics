@@ -47,45 +47,49 @@ export default function CookiePolicy() {
 
         <div id="smooth-wrapper">
           <div id="smooth-content">
-            {/* HERO SECTION */}
-            <section className="LegalPageHero">
+            {/* HERO SECTION - ADVANCE UPDATE DESIGN */}
+            <section className="AdvanceUpdateDesign LegalAdvanceHeader">
               <img
-                className="LegalHeroBg"
-                src="https://res.cloudinary.com/renaissance-images/image/upload/v1789465947/QuinnDaisies/2151003712_gbfv0i.jpg"
+                className="AdvanceUpdateDesignImage"
+                src="https://res.cloudinary.com/renaissance-images/image/upload/v1789482758/QuinnDaisies/639892_bqd1oj.jpg"
                 alt="Quinn Daisies Web Telemetry & Cookies"
               />
-              <div className="LegalHeroOverlay">
-                <div className="LegalBadge">
-                  <span className="material-symbols-outlined">cookie</span>
-                  <span>Transparent Web Telemetry</span>
-                </div>
-                <h1>Cookie Policy & Tracking Technologies</h1>
-                <p className="LegalPageHeroSubtitle">
+              <div className="AdvanceUpdateDesignOverlay">
+                <span className="AdvanceUpdateSpan">
+                  Transparent Web Telemetry
+                </span>
+                <h2>Cookie Policy & Tracking Technologies</h2>
+                <p className="AdvanceUpdateText">
                   Transparency regarding how Quinn Daisies Logistics LLC deploys cookies,
                   local storage tokens, and web beacons across our commercial portals.
                 </p>
                 <div className="LegalMetaRow">
                   <div className="LegalMetaItem">
                     <span className="material-symbols-outlined">calendar_today</span>
-                    <span>Effective: January 1, 2026</span>
+                    <span>Effective: Jan 1, 2026</span>
                   </div>
                   <div className="LegalMetaItem">
                     <span className="material-symbols-outlined">update</span>
-                    <span>Last Revised: October 4, 2026</span>
+                    <span>Last Revised: Oct 4, 2026</span>
                   </div>
                   <div className="LegalMetaItem">
                     <span className="material-symbols-outlined">security</span>
-                    <span>GDPR (ePrivacy) & CCPA Compliant</span>
+                    <span>ePrivacy Directive Compliant</span>
                   </div>
                 </div>
+                <div className="AdvanceUpdateButtonContainer">
+                  <a
+                    className="ApplicationButton"
+                    href="#what-are-cookies"
+                    onClick={(e) => handleScrollTo(e, "what-are-cookies")}
+                  >
+                    Read Document
+                    <span className="material-symbols-outlined">
+                      arrow_downward
+                    </span>
+                  </a>
+                </div>
               </div>
-            </section>
-
-            {/* EXECUTIVE SUMMARY BANNER */}
-            <section className="SectionContainer ServiceContainer">
-              <h2 className="ServiceText">
-                Our digital infrastructure utilizes essential authentication session cookies and privacy-respecting telemetry strictly to guarantee freight tracking uptime, cybersecurity defense, and seamless cross-border portal performance.
-              </h2>
             </section>
 
             {/* MAIN BODY WITH STICKY TOC */}
