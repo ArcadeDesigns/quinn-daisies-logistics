@@ -5531,13 +5531,13 @@ main section:last-of-type {
   }
 
   .ContentCtn-Center h1 {
-    color: var(--primary-color);
+    color: var(--tertiary-color);
     font-size: var(--medium-text);
     max-width: 100%;
   }
 
   .ContentCtn-Center p {
-    color: var(--primary-color);
+    color: var(--secondary-color);
     font-size: var(--text);
     font-weight: 400;
     max-width: 100%;
