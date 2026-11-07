@@ -78,7 +78,7 @@ jobs:
           echo "$CHANGED_FILES"
 
           # If shared Firebase/workflow config changed or diff is empty, deploy both sites
-          if [ -z "$CHANGED_FILES" ] || echo "$CHANGED_FILES" | grep -Eq '^(firebase\.json|\.firebaserc|\.github/workflows/)'; then
+          if [ -z "$CHANGED_FILES" ] || echo "$CHANGED_FILES" | grep -Eq '^(firebase\.json|\.firebaserc|package(-lock)?\.json|\.github/workflows/)'; then
             echo "logistics=true" >> "$GITHUB_OUTPUT"
             echo "technology=true" >> "$GITHUB_OUTPUT"
             exit 0
@@ -114,14 +114,23 @@ jobs:
 
       - name: Install Logistics Dependencies
         working-directory: Logistics
-        run: npm ci || npm install --no-audit --no-fund
+        run: |
+          npm ci --include=dev --no-audit --no-fund || npm install --include=dev --no-audit --no-fund
+          if [ ! -x ./node_modules/.bin/vite ]; then
+            echo "Vite binary missing after npm ci; running full npm install..."
+            rm -rf node_modules
+            npm install --include=dev --no-audit --no-fund
+          fi
+          ./node_modules/.bin/vite --version
 
       - name: Build Logistics Production Bundle
         working-directory: Logistics
         env:
           VITE_LOGISTICS_SITE_URL: https://quinndaisies.com
           VITE_TECH_PORTAL_URL: https://quinndaisies.org
-        run: npm run build
+        run: |
+          ./node_modules/.bin/vite build
+          test -f dist/index.html
 
       - name: Check Firebase Service Account Secret
         id: secret-check
@@ -175,14 +184,23 @@ jobs:
 
       - name: Install Technology Dependencies
         working-directory: Technology
-        run: npm ci || npm install --no-audit --no-fund
+        run: |
+          npm ci --include=dev --no-audit --no-fund || npm install --include=dev --no-audit --no-fund
+          if [ ! -x ./node_modules/.bin/vite ]; then
+            echo "Vite binary missing after npm ci; running full npm install..."
+            rm -rf node_modules
+            npm install --include=dev --no-audit --no-fund
+          fi
+          ./node_modules/.bin/vite --version
 
       - name: Build Technology Production Bundle
         working-directory: Technology
         env:
           VITE_TECH_SITE_URL: https://quinndaisies.org
           VITE_LOGISTICS_PORTAL_URL: https://quinndaisies.com
-        run: npm run build
+        run: |
+          ./node_modules/.bin/vite build
+          test -f dist/index.html
 
       - name: Check Firebase Service Account Secret
         id: secret-check
