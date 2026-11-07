@@ -29,13 +29,14 @@ try {
 
   if ($Site -eq "logistics") {
     Write-Host "Deploying Logistics to https://quinn-daisies-logistics.web.app..." -ForegroundColor Green
-    npx firebase-tools deploy --only hosting:logistics --project quinn-daisies-group
+    node scripts/deploy-hosting.mjs logistics live
   } elseif ($Site -eq "technology") {
     Write-Host "Deploying Technology to https://quinn-daisies-group.web.app..." -ForegroundColor Green
-    npx firebase-tools deploy --only hosting:technology --project quinn-daisies-group
+    node scripts/deploy-hosting.mjs technology live
   } else {
     Write-Host "Deploying BOTH Logistics & Technology to Firebase Hosting (quinn-daisies-group)..." -ForegroundColor Green
-    npx firebase-tools deploy --only hosting --project quinn-daisies-group
+    node scripts/deploy-hosting.mjs logistics live
+    node scripts/deploy-hosting.mjs technology live
   }
 } finally {
   Pop-Location

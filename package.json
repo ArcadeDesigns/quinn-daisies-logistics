@@ -11,9 +11,9 @@
     "build:logistics": "npm --prefix Logistics run build",
     "build:technology": "npm --prefix Technology run build",
     "lint": "npm --prefix Logistics run lint && npm --prefix Technology run lint",
-    "deploy:logistics": "npm run build:logistics && npx firebase-tools deploy --only hosting:logistics --project quinn-daisies-group",
-    "deploy:technology": "npm run build:technology && npx firebase-tools deploy --only hosting:technology --project quinn-daisies-group",
-    "deploy:all": "npm run build && npx firebase-tools deploy --only hosting --project quinn-daisies-group"
+    "deploy:logistics": "npm run build:logistics && node scripts/deploy-hosting.mjs logistics live",
+    "deploy:technology": "npm run build:technology && node scripts/deploy-hosting.mjs technology live",
+    "deploy:all": "npm run build && node scripts/deploy-hosting.mjs logistics live && node scripts/deploy-hosting.mjs technology live"
   },
   "engines": {
     "node": ">=20.0.0"

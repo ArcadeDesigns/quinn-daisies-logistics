@@ -78,7 +78,7 @@ jobs:
           echo "$CHANGED_FILES"
 
           # If shared Firebase/workflow config changed or diff is empty, deploy both sites
-          if [ -z "$CHANGED_FILES" ] || echo "$CHANGED_FILES" | grep -Eq '^(firebase\.json|\.firebaserc|package(-lock)?\.json|\.github/workflows/)'; then
+          if [ -z "$CHANGED_FILES" ] || echo "$CHANGED_FILES" | grep -Eq '^(firebase\.json|\.firebaserc|package(-lock)?\.json|scripts/|\.github/workflows/)'; then
             echo "logistics=true" >> "$GITHUB_OUTPUT"
             echo "technology=true" >> "$GITHUB_OUTPUT"
             exit 0
@@ -135,36 +135,40 @@ jobs:
       - name: Check Firebase Service Account Secret
         id: secret-check
         env:
-          SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_QUINN_DAISIES_GROUP }}
+          SA_KEY_PRIMARY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_QUINN_DAISIES_GROUP }}
+          SA_KEY_FALLBACK: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
         run: |
-          if [ -n "$SA_KEY" ]; then
+          RESOLVED_KEY="${SA_KEY_PRIMARY:-$SA_KEY_FALLBACK}"
+          if [ -n "$RESOLVED_KEY" ]; then
             echo "available=true" >> "$GITHUB_OUTPUT"
           else
             echo "available=false" >> "$GITHUB_OUTPUT"
             if [ "${{ github.event_name }}" != "pull_request" ]; then
-              echo "::error::Missing GitHub Secret FIREBASE_SERVICE_ACCOUNT_QUINN_DAISIES_GROUP. Add your Firebase Service Account JSON in Repository Settings -> Secrets and variables -> Actions."
+              echo "::error::Missing GitHub Repository Secret 'FIREBASE_SERVICE_ACCOUNT_QUINN_DAISIES_GROUP'. Go to https://github.com/${{ github.repository }}/settings/secrets/actions/new and paste the contents of quinn-daisies-group-firebase-adminsdk-fbsvc-a1d9ec23e0.json."
               exit 1
             fi
           fi
 
       - name: Deploy Logistics Live to Firebase Hosting
-        if: github.event_name != 'pull_request'
-        uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_QUINN_DAISIES_GROUP }}
-          projectId: quinn-daisies-group
-          target: logistics
-          channelId: live
+        if: github.event_name != 'pull_request' && steps.secret-check.outputs.available == 'true'
+        env:
+          SA_KEY_PRIMARY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_QUINN_DAISIES_GROUP }}
+          SA_KEY_FALLBACK: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: |
+          node scripts/deploy-hosting.mjs logistics live
+          {
+            echo "### Quinn Daisies Logistics Deployed"
+            echo "- **Firebase Site**: https://quinn-daisies-logistics.web.app"
+            echo "- **Production Domain**: https://quinndaisies.com"
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Deploy Logistics PR Preview Channel
         if: github.event_name == 'pull_request' && steps.secret-check.outputs.available == 'true'
-        uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_QUINN_DAISIES_GROUP }}
-          projectId: quinn-daisies-group
-          target: logistics
+        env:
+          SA_KEY_PRIMARY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_QUINN_DAISIES_GROUP }}
+          SA_KEY_FALLBACK: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: |
+          node scripts/deploy-hosting.mjs logistics "pr-${{ github.event.number }}"
 
   deploy-technology:
     name: Build & Deploy Technology (quinn-daisies-group)
@@ -205,33 +209,37 @@ jobs:
       - name: Check Firebase Service Account Secret
         id: secret-check
         env:
-          SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_QUINN_DAISIES_GROUP }}
+          SA_KEY_PRIMARY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_QUINN_DAISIES_GROUP }}
+          SA_KEY_FALLBACK: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
         run: |
-          if [ -n "$SA_KEY" ]; then
+          RESOLVED_KEY="${SA_KEY_PRIMARY:-$SA_KEY_FALLBACK}"
+          if [ -n "$RESOLVED_KEY" ]; then
             echo "available=true" >> "$GITHUB_OUTPUT"
           else
             echo "available=false" >> "$GITHUB_OUTPUT"
             if [ "${{ github.event_name }}" != "pull_request" ]; then
-              echo "::error::Missing GitHub Secret FIREBASE_SERVICE_ACCOUNT_QUINN_DAISIES_GROUP. Add your Firebase Service Account JSON in Repository Settings -> Secrets and variables -> Actions."
+              echo "::error::Missing GitHub Repository Secret 'FIREBASE_SERVICE_ACCOUNT_QUINN_DAISIES_GROUP'. Go to https://github.com/${{ github.repository }}/settings/secrets/actions/new and paste the contents of quinn-daisies-group-firebase-adminsdk-fbsvc-a1d9ec23e0.json."
               exit 1
             fi
           fi
 
       - name: Deploy Technology Live to Firebase Hosting
-        if: github.event_name != 'pull_request'
-        uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_QUINN_DAISIES_GROUP }}
-          projectId: quinn-daisies-group
-          target: technology
-          channelId: live
+        if: github.event_name != 'pull_request' && steps.secret-check.outputs.available == 'true'
+        env:
+          SA_KEY_PRIMARY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_QUINN_DAISIES_GROUP }}
+          SA_KEY_FALLBACK: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: |
+          node scripts/deploy-hosting.mjs technology live
+          {
+            echo "### Quinn Daisies Technology Deployed"
+            echo "- **Firebase Site**: https://quinn-daisies-group.web.app"
+            echo "- **Production Domain**: https://quinndaisies.org"
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Deploy Technology PR Preview Channel
         if: github.event_name == 'pull_request' && steps.secret-check.outputs.available == 'true'
-        uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_QUINN_DAISIES_GROUP }}
-          projectId: quinn-daisies-group
-          target: technology
+        env:
+          SA_KEY_PRIMARY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_QUINN_DAISIES_GROUP }}
+          SA_KEY_FALLBACK: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: |
+          node scripts/deploy-hosting.mjs technology "pr-${{ github.event.number }}"
