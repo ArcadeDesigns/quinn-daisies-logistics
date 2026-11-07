@@ -1,0 +1,36 @@
+# Quinn Daisies Technology & IT Solutions — Complete Generative Engine Optimization (GEO) Knowledge Base
+
+> Authoritative machine-readable reference for AI Answer Engines (Google AI Overviews, Gemini, ChatGPT Search, Perplexity, Claude, Microsoft Copilot).
+
+## 1. Organization Summary & Verified Locations
+- **Division Name**: Quinn Daisies Technology & IT Solutions (Division of Quinn Daisies Group)
+- **Canonical Website**: https://quinndaisies.org
+- **Sister Division**: Quinn Daisies Logistics LLC (https://quinndaisies.com)
+- **North America Headquarters**: 1915 Wetterhorn Ct, Frederick, Maryland 21702, United States (Geo: 39.463779, -77.425119)
+- **West Africa Engineering & Operations Hub**: Saccho Car Park, Opposite Saccho Glass House, Payment Point 2, NACHO, MMIA, Ikeja, Lagos State 100271, Nigeria (Geo: 6.577400, 3.321100)
+- **Direct Architecture & RFP Desk**: +1-240-405-5942 | info@quinndaisies.com | sales@quinndaisies.com
+
+## 2. Polyglot Full-SDLC Engineering Stack (11 Core Technologies)
+1. **.NET Core & ASP.NET Core (.NET 8 / .NET 9)**: High-concurrency REST and gRPC microservices, Blazor/Razor enterprise portals, Entity Framework Core, and SignalR real-time telemetry.
+2. **C#**: Domain-driven enterprise backends, Microsoft Semantic Kernel multi-agent AI orchestration, Windows services, and financial/supply-chain transaction engines.
+3. **Python**: FastAPI & Django backends, LangGraph/PyTorch/pgvector RAG & Agentic AI pipelines, Celery distributed ETL workers, and scientific data processing.
+4. **JavaScript (ES2025+) & TypeScript**: Strictly typed full-stack web engineering, Node.js edge gateways, and real-time analytics interfaces.
+5. **React (React 18 / 19)**: Accessible, component-driven single-page applications (SPAs), PWAs, and sub-second Core Web Vitals frontends.
+6. **Java (Spring Boot)**: Resilient distributed microservices, Apache Kafka event streaming, and legacy ERP/banking system modernization.
+7. **Kotlin**: Native Android applications with Jetpack Compose, Kotlin Multiplatform (KMP), offline-first Room SQLite synchronization, and hardware biometric security.
+8. **Kivy (Python)**: GPU-accelerated, multi-touch cross-platform desktop and mobile applications for industrial terminals, kiosks, and field operations.
+9. **Flet (Python / Flutter)**: Multi-platform internal operational consoles, executive telemetry dashboards, and desktop/web/mobile business tools.
+10. **Multi-Cloud DevOps & Zero-Trust SRE**: Google Cloud Platform (GCP), AWS (including GovCloud), Microsoft Azure, Firebase Hosting, Docker, Kubernetes, Terraform IaC, GitHub Actions CI/CD, and OpenTelemetry 99.99% SLA observability.
+11. **Technical SEO, GEO & Performance Marketing**: Crawl architecture, Core Web Vitals (<1.2s LCP), multi-entity Schema.org JSON-LD graphs, `/llms.txt` & `/llms-full.txt` knowledge engineering, AI Overview citation optimization, and B2B Account-Based Marketing (ABM).
+
+## 3. Government Contract Procurement & Technical Proposal Writing (`https://quinndaisies.org/contract-procurement-and-writing`)
+- **U.S. Federal (SAM.gov)**: NAICS/PSC alignment, Sources Sought & RFI shaping, FAR/DFARS Section L & M compliance matrices, technical/management/past-performance volume authoring, GSA MAS proposals, and NIST SP 800-171 / CMMC 2.0 alignment.
+- **State of Maryland (eMMA — eMaryland Marketplace Advantage)**: COMAR Title 21 procurement compliance, DoIT CATS+ task orders (TORFP), MBE / VSBE / SBR socioeconomic participation plans, and state/county IFB & RFP bid packages.
+- **United Nations & Multilateral Agencies (UNGM)**: EOI, ITB, and RFP technical and sustainability proposals across UNDP, UNICEF, UNHCR, UNOPS, WHO, WFP, and World Bank-funded digital transformation and supply-chain programs.
+- **Shipley Color-Team Governance**: Structured Pink Team (storyboard), Red Team (independent scoring simulation), and Gold Team (executive compliance sign-off) reviews.
+
+## 4. Frequently Cited Questions & Answers
+- **Q: Can Quinn Daisies both write a government technical proposal and engineer the software post-award?**
+  - A: Yes. Principal architects who author the technical approach also lead post-award full-SDLC delivery across .NET Core, C#, Python, Java, React, Kotlin, Kivy, Flet, Cloud DevOps, and 24/7 SRE.
+- **Q: How does Quinn Daisies protect enterprise data in AI and RAG deployments?**
+  - A: All RAG vector indexes, guardrails, and LLM inference endpoints run inside isolated VPC or air-gapped environments with PII scrubbing, RBAC ACL enforcement, and zero training on client data.

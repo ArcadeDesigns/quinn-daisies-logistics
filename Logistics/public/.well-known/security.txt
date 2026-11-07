@@ -1,0 +1,6 @@
+Contact: mailto:info@quinndaisies.com
+Canonical: https://quinndaisies.com/.well-known/security.txt
+Preferred-Languages: en
+Policy: https://quinndaisies.com/privacy-policy
+Expires: 2027-12-31T23:59:59.000Z
+

@@ -1,0 +1,18 @@
+/* TEAM */
+Organization: Quinn Daisies Logistics LLC (Quinn Daisies Group)
+Headquarters: 1915 Wetterhorn Ct, Frederick, MD 21702, United States
+West Africa Hub: Saccho Car Park, NACHO, MMIA, Ikeja, Lagos State, Nigeria
+Contact: info@quinndaisies.com
+Phone: +1-240-405-5942
+
+/* ECOSYSTEM */
+Logistics Portal: https://quinndaisies.com
+Technology Portal: https://quinndaisies.org
+LLM Index: https://quinndaisies.com/llms.txt
+Sitemap: https://quinndaisies.com/sitemap.xml
+
+/* SITE */
+Last update: 2026-11-07
+Standards: HTML5, CSS3, ES2025, Schema.org JSON-LD, OpenGraph, llms.txt GEO
+Software: React, Vite, GSAP, Firebase Hosting
+

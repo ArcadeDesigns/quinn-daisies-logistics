@@ -4,13 +4,19 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "dev": "npm --prefix Logistics run dev",
+    "dev:logistics": "npm --prefix Logistics run dev",
+    "dev:technology": "npm --prefix Technology run dev",
+    "build": "npm run build:logistics && npm run build:technology",
+    "build:logistics": "npm --prefix Logistics run build",
+    "build:technology": "npm --prefix Technology run build",
+    "lint": "npm --prefix Logistics run lint && npm --prefix Technology run lint",
+    "deploy:logistics": "npm run build:logistics && npx firebase-tools deploy --only hosting:logistics --project quinn-daisies-group",
+    "deploy:technology": "npm run build:technology && npx firebase-tools deploy --only hosting:technology --project quinn-daisies-group",
+    "deploy:all": "npm run build && npx firebase-tools deploy --only hosting --project quinn-daisies-group"
   },
   "engines": {
-    "node": "24.x"
+    "node": ">=20.0.0"
   },
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^41.4.2",

@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "quinn-daisies-group"
+  },
+  "targets": {
+    "quinn-daisies-group": {
+      "hosting": {
+        "technology": [
+          "quinn-daisies-group"
+        ],
+        "logistics": [
+          "quinn-daisies-logistics"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+# =============================================================================
+# Quinn Daisies Technology & IT Solutions — Enterprise SEO & GEO Crawl Policy
+# Canonical Domain: https://quinndaisies.org
+# Sister Global Logistics Portal: https://quinndaisies.com
+# =============================================================================
+
+User-agent: *
+Allow: /
+Disallow: /404
+
+# Traditional Search Engine Crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# Generative AI Answer Engine & Citation Crawlers (GEO Visibility)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+Sitemap: https://quinndaisies.org/sitemap.xml
+
+# LLM Knowledge Indexes (llmstxt.org GEO Standard):
+# https://quinndaisies.org/llms.txt
+# https://quinndaisies.org/llms-full.txt

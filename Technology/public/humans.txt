@@ -1,0 +1,18 @@
+/* TEAM */
+Organization: Quinn Daisies Technology & IT Solutions (Quinn Daisies Group)
+Headquarters: 1915 Wetterhorn Ct, Frederick, MD 21702, United States
+Engineering Hub: Saccho Car Park, NACHO, MMIA, Ikeja, Lagos State, Nigeria
+Contact: info@quinndaisies.com
+Phone: +1-240-405-5942
+
+/* ECOSYSTEM */
+Technology Portal: https://quinndaisies.org
+Logistics Portal: https://quinndaisies.com
+LLM Index: https://quinndaisies.org/llms.txt
+Sitemap: https://quinndaisies.org/sitemap.xml
+
+/* SITE */
+Last update: 2026-11-07
+Standards: HTML5, CSS3, ES2025, Schema.org JSON-LD, OpenGraph, llms.txt GEO
+Software: React, Vite, GSAP, Firebase Hosting
+

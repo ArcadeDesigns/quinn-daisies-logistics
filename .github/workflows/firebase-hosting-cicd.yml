@@ -1,0 +1,219 @@
+name: Firebase Hosting CI/CD (Logistics & Technology)
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      site:
+        description: "Select which website(s) to build and deploy"
+        required: true
+        default: "all"
+        type: choice
+        options:
+          - all
+          - logistics
+          - technology
+
+permissions:
+  contents: read
+  checks: write
+  pull-requests: write
+
+concurrency:
+  group: firebase-hosting-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  detect-changes:
+    name: Detect Website Changes
+    runs-on: ubuntu-latest
+    outputs:
+      logistics: ${{ steps.filter.outputs.logistics }}
+      technology: ${{ steps.filter.outputs.technology }}
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Determine Affected Targets
+        id: filter
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            SITE="${{ inputs.site }}"
+            if [ "$SITE" = "logistics" ]; then
+              echo "logistics=true" >> "$GITHUB_OUTPUT"
+              echo "technology=false" >> "$GITHUB_OUTPUT"
+            elif [ "$SITE" = "technology" ]; then
+              echo "logistics=false" >> "$GITHUB_OUTPUT"
+              echo "technology=true" >> "$GITHUB_OUTPUT"
+            else
+              echo "logistics=true" >> "$GITHUB_OUTPUT"
+              echo "technology=true" >> "$GITHUB_OUTPUT"
+            fi
+            exit 0
+          fi
+
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BASE_SHA="${{ github.event.pull_request.base.sha }}"
+          else
+            BASE_SHA="${{ github.event.before }}"
+          fi
+
+          if [ -n "$BASE_SHA" ] && [ "$BASE_SHA" != "0000000000000000000000000000000000000000" ] && git cat-file -e "${BASE_SHA}^{commit}" 2>/dev/null; then
+            CHANGED_FILES=$(git diff --name-only "$BASE_SHA" HEAD)
+          elif git rev-parse HEAD~1 >/dev/null 2>&1; then
+            CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD)
+          else
+            CHANGED_FILES=""
+          fi
+
+          echo "Changed files across push/PR:"
+          echo "$CHANGED_FILES"
+
+          # If shared Firebase/workflow config changed or diff is empty, deploy both sites
+          if [ -z "$CHANGED_FILES" ] || echo "$CHANGED_FILES" | grep -Eq '^(firebase\.json|\.firebaserc|\.github/workflows/)'; then
+            echo "logistics=true" >> "$GITHUB_OUTPUT"
+            echo "technology=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          if echo "$CHANGED_FILES" | grep -Eq '^Logistics/'; then
+            echo "logistics=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "logistics=false" >> "$GITHUB_OUTPUT"
+          fi
+
+          if echo "$CHANGED_FILES" | grep -Eq '^Technology/'; then
+            echo "technology=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "technology=false" >> "$GITHUB_OUTPUT"
+          fi
+
+  deploy-logistics:
+    name: Build & Deploy Logistics (quinn-daisies-logistics)
+    needs: detect-changes
+    if: needs.detect-changes.outputs.logistics == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+          cache-dependency-path: Logistics/package-lock.json
+
+      - name: Install Logistics Dependencies
+        working-directory: Logistics
+        run: npm ci || npm install --no-audit --no-fund
+
+      - name: Build Logistics Production Bundle
+        working-directory: Logistics
+        env:
+          VITE_LOGISTICS_SITE_URL: https://quinndaisies.com
+          VITE_TECH_PORTAL_URL: https://quinndaisies.org
+        run: npm run build
+
+      - name: Check Firebase Service Account Secret
+        id: secret-check
+        env:
+          SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_QUINN_DAISIES_GROUP }}
+        run: |
+          if [ -n "$SA_KEY" ]; then
+            echo "available=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "available=false" >> "$GITHUB_OUTPUT"
+            if [ "${{ github.event_name }}" != "pull_request" ]; then
+              echo "::error::Missing GitHub Secret FIREBASE_SERVICE_ACCOUNT_QUINN_DAISIES_GROUP. Add your Firebase Service Account JSON in Repository Settings -> Secrets and variables -> Actions."
+              exit 1
+            fi
+          fi
+
+      - name: Deploy Logistics Live to Firebase Hosting
+        if: github.event_name != 'pull_request'
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_QUINN_DAISIES_GROUP }}
+          projectId: quinn-daisies-group
+          target: logistics
+          channelId: live
+
+      - name: Deploy Logistics PR Preview Channel
+        if: github.event_name == 'pull_request' && steps.secret-check.outputs.available == 'true'
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_QUINN_DAISIES_GROUP }}
+          projectId: quinn-daisies-group
+          target: logistics
+
+  deploy-technology:
+    name: Build & Deploy Technology (quinn-daisies-group)
+    needs: detect-changes
+    if: needs.detect-changes.outputs.technology == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+          cache-dependency-path: Technology/package-lock.json
+
+      - name: Install Technology Dependencies
+        working-directory: Technology
+        run: npm ci || npm install --no-audit --no-fund
+
+      - name: Build Technology Production Bundle
+        working-directory: Technology
+        env:
+          VITE_TECH_SITE_URL: https://quinndaisies.org
+          VITE_LOGISTICS_PORTAL_URL: https://quinndaisies.com
+        run: npm run build
+
+      - name: Check Firebase Service Account Secret
+        id: secret-check
+        env:
+          SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_QUINN_DAISIES_GROUP }}
+        run: |
+          if [ -n "$SA_KEY" ]; then
+            echo "available=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "available=false" >> "$GITHUB_OUTPUT"
+            if [ "${{ github.event_name }}" != "pull_request" ]; then
+              echo "::error::Missing GitHub Secret FIREBASE_SERVICE_ACCOUNT_QUINN_DAISIES_GROUP. Add your Firebase Service Account JSON in Repository Settings -> Secrets and variables -> Actions."
+              exit 1
+            fi
+          fi
+
+      - name: Deploy Technology Live to Firebase Hosting
+        if: github.event_name != 'pull_request'
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_QUINN_DAISIES_GROUP }}
+          projectId: quinn-daisies-group
+          target: technology
+          channelId: live
+
+      - name: Deploy Technology PR Preview Channel
+        if: github.event_name == 'pull_request' && steps.secret-check.outputs.available == 'true'
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_QUINN_DAISIES_GROUP }}
+          projectId: quinn-daisies-group
+          target: technology

@@ -1,0 +1,33 @@
+# Quinn Daisies Technology & IT Solutions (Quinn Daisies Group)
+
+> Quinn Daisies Technology & IT Solutions is the enterprise full-SDLC software engineering, Agentic AI, Cloud DevOps, Government Contract Procurement (U.S. Federal SAM.gov, State of Maryland eMMA, United Nations UNGM), and Search/Generative Engine Optimization (SEO & GEO) division of Quinn Daisies Group, headquartered in Frederick, Maryland, USA, with engineering hubs in Lagos, Nigeria.
+
+## Official Properties
+- [Technology & Visibility Hub](https://quinndaisies.org/): Full-SDLC technology accelerator, multi-cloud DevOps, and enterprise digital visibility.
+- [Quinn Daisies Logistics Portal](https://quinndaisies.com/): Sister division operating global air/ocean freight forwarding, cold chain, and commodities trade.
+- [Full LLM Reference Index](https://quinndaisies.org/llms-full.txt): Complete technical architecture, GovCon, and capability specification for AI answer engines.
+- [XML Sitemap](https://quinndaisies.org/sitemap.xml): Canonical route index.
+
+## Core Engineering & AI Capabilities
+- [Software Development & Engineering](https://quinndaisies.org/software-development-and-engineering): Full-SDLC backend, web, mobile, and desktop engineering across .NET Core, ASP.NET Core, C#, Python, JavaScript, TypeScript, Java Spring Boot, React, Kotlin, Kivy, and Flet.
+- [Artificial Intelligence](https://quinndaisies.org/artificial-intelligence): Zero-hallucination Enterprise RAG, LangGraph & C# Semantic Kernel multi-agent swarms, computer vision, and air-gapped vLLM inference.
+- [AI & Application Development](https://quinndaisies.org/ai-and-application-development): End-to-end AI-native web, mobile, and desktop application delivery.
+- [Enterprise Application Development](https://quinndaisies.org/application-development): Multi-tenant SaaS platforms, distributed microservices, and high-concurrency API gateways.
+- [Mobile Application Development](https://quinndaisies.org/mobile-application-development): Native Android (Kotlin / Jetpack Compose), .NET MAUI, React Native, Python Flet, and Kivy mobile fleets with offline-first sync.
+- [Desktop Application Development](https://quinndaisies.org/desktop-application-development): High-performance Windows, macOS, and Linux desktop suites in C# WPF, WinUI 3, .NET MAUI, Python Kivy, Python Flet, and JavaFX.
+
+## Government Contracting, Visibility & Managed Infrastructure
+- [Contract Procurement & Proposal Writing](https://quinndaisies.org/contract-procurement-and-writing): End-to-end capture management, FAR/DFARS & COMAR compliance matrices, and Shipley Pink/Red/Gold Team technical proposal writing for U.S. Federal SAM.gov, State of Maryland eMMA (CATS+, MBE/VSBE/SBR), and UNGM tenders.
+- [SEO & GEO (Generative Engine Optimization)](https://quinndaisies.org/seo-and-geo): Technical SEO, sub-second Core Web Vitals, Schema.org JSON-LD entity graphs, `/llms.txt` architectures, and citation optimization for Google AI Overviews, Gemini, ChatGPT Search, Perplexity, and Claude.
+- [Digital Marketing](https://quinndaisies.org/digital-marketing): B2B Account-Based Marketing (ABM), Paid Search, server-side conversion APIs, and Conversion Rate Optimization (CRO).
+- [SEO & Digital Marketing Catalog](https://quinndaisies.org/seo-and-digital-marketing): Interactive enterprise visibility and growth engineering catalog.
+- [Enterprise IT Solutions](https://quinndaisies.org/it-solutions): Zero-Trust cybersecurity (NIST SP 800-171 / SOC 2), multi-cloud Kubernetes/Terraform DevOps, and ERP/EDI integration.
+- [Workforce Development & IT Support](https://quinndaisies.org/workforce-development-and-it-support): 24/7 L1–L3 managed IT helpdesk, NOC/SOC monitoring, and SRE SLAs.
+- [Workforce Development & Training](https://quinndaisies.org/workforce-development-and-training): Corporate engineering bootcamps and public-sector technical upskilling.
+
+## Programs, Products & Corporate Governance
+- [Technology Corporate Review](https://quinndaisies.org/technology-corporate-review): Architecture maturity audits, security posture, and portfolio delivery metrics.
+- [Technology Programs](https://quinndaisies.org/technology-programs): Co-engineering accelerators, GovCon capture tracks, and AI readiness cohorts.
+- [Technology Products](https://quinndaisies.org/technology-products): Modular enterprise AI, GovCon, DevOps, and cross-platform software suites.
+- [About Quinn Daisies Technology](https://quinndaisies.org/technology-about-us): Leadership, polyglot engineering culture, and global delivery centers.
+- [Contact & RFP Desk](https://quinndaisies.org/technology-contact-us): Schedule a Technical Discovery or RFP/RFQ briefing (+1-240-405-5942 | info@quinndaisies.com).
