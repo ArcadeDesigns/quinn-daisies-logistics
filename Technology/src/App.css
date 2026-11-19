@@ -4958,10 +4958,6 @@ nav.custom-jumplink-bar,
   flex-shrink: 0;
 }
 
-/* --------------------------------------------------------------------------
-   13. RESPONSIVE BREAKPOINTS (ALL SCREEN SIZES: 1280px -> 380px)
-   Concurrent 10% desktop L/R sizing & 5% mobile/tablet L/R sizing at <= 900px
-   -------------------------------------------------------------------------- */
 @media (max-width: 1280px) {
   .glue-grid {
     column-gap: 24px;
